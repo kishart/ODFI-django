@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+</head>
+<body>
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong>{{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button> 
+    </div>
+  {% endfor %}
+     
+        <h3>Welcome to ODFI</h3>
+
+  {% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}!</p>
+<h4>You have successfully signed in</h4>
+ <a href="/signout"><div class="button">Sign Out</div></a>
+
+  {% else %}
+    <a href="/signup"><div class="button">Sign Up</div></a>
+  <a href="/signin"><div class="button">Sign In</div></a>
+ 
+     {% endif %}
+</body>
+</html>
