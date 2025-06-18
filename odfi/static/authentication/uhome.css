@@ -86,9 +86,9 @@ body {
   padding-bottom: 180px;
 }
 .container1 {
-  background-image: url("main.jfif");
+  background-image: url("../media/images/main.jfif");
+  background-color: #dceeea; /* fallback color if image fails to load */
   position: relative;
-  /*background-color: #DCEEEC;   fallback color if image fails to load */
   box-shadow: 1px 10px 20px 0px #b1b1b1;
 }
 .container1::after {
