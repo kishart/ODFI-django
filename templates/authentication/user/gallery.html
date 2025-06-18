@@ -42,15 +42,30 @@
     
 
     <div class="gallery">
-      <div class="video-wrapper item video">
-        <a href="#vid1"><video src="vid1.mp4"  playsinline loop></video></a>
-      </div>
-      <div class="video-wrapper item video">
-        <a href="#vid2"><video src="vid2.mp4"  playsinline loop></video></a>
-      </div>
-      <div class="video-wrapper item video">
-        <a href="#vid3"><video src="vid3.mp4"  playsinline loop></video></a>
-      </div>
+<div class="video-wrapper item video">
+  <a href="#vid1">
+    <video controls playsinline loop>
+      <source src="{% static 'media/videos/vid1.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </a>
+</div>
+<div class="video-wrapper item video">
+  <a href="#vid2">
+    <video controls playsinline loop>
+      <source src="{% static 'media/videos/vid2.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </a>
+</div>
+<div class="video-wrapper item video">
+  <a href="#vid3">
+    <video controls playsinline loop>
+      <source src="{% static 'media/videos/vid3.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </a>
+</div>
    
 
   <!-- PHOTOS -->
@@ -62,17 +77,13 @@
   </div>
   <div class="video-wrapper item photo">
     <a href="#photo3"><img src="https://img.freepik.com/premium-vector/moon-star-doodle-islam-islamic-muslim-religion_409898-323.jpg" alt="Photo 3" style="width: 100%; height: 100%; object-fit: cover;" /></a>
-  </div>
-  
-</div>
- </div>
-  </div>
-
-  <!-- LIGHTBOXES -->
   <div class="lightbox" id="vid1">
     <a href="#" class="close-btn">&times;</a>
     <div class="lightbox-content">
-      <video src="vid1.mp4" controls autoplay></video>
+      <video controls autoplay>
+        <source src="{% static 'media/videos/vid1.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <div class="description">Video 1 description.</div>
     </div>
   </div>
@@ -80,11 +91,24 @@
   <div class="lightbox" id="vid2">
     <a href="#" class="close-btn">&times;</a>
     <div class="lightbox-content">
-      <video src="vid2.mp4" controls autoplay></video>
+      <video controls autoplay>
+        <source src="{% static 'media/videos/vid2.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <div class="description">Video 2 description.</div>
     </div>
   </div>
 
+  <div class="lightbox" id="vid3">
+    <a href="#" class="close-btn">&times;</a>
+    <div class="lightbox-content">
+      <video controls autoplay>
+        <source src="{% static 'media/videos/vid3.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="description">Video 3 description.</div>
+    </div>
+  </div>
   <div class="lightbox" id="vid3">
     <a href="#" class="close-btn">&times;</a>
     <div class="lightbox-content">
