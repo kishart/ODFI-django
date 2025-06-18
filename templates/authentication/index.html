@@ -1,31 +1,262 @@
+
+
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication</title>
-</head>
-<body>
-  {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-        <strong>Message: </strong>{{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button> 
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home Page</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=stat_minus_1" />
+    <link rel="stylesheet" href="{% static 'authentication/uhome.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+  <div class="nav">
+  <nav class="navbar">
+    <div class="left-side">
+      <div class="logo">ODFI</div>
+      <ul class="nav-links">
+        <li><a style="font-weight:bold; text-decoration:underline; color:#FFC107" href="home.html">Home</a></li>
+        <li class="dropdown">
+          <a href="{% url 'about' %}">About </a>
+
+        </li>
+         <li><a href="{% url 'gallery' %}">Gallery</a></li>
+           <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
     </div>
-  {% endfor %}
-     
-        <h3>Welcome to ODFI</h3>
+    <div class="internal">
+      <span class="material-symbols-outlined">account_circle</span>
+    </div>
+  </nav>
+</div>
 
-  {% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}!</p>
-<h4>You have successfully signed in</h4>
- <a href="/signout"><div class="button">Sign Out</div></a>
+ <div class="container1">
+  <section class="hero">
+    <div class="welcome-text">
+      <h2 style="font-size: 44px; ">Welcome to ODFI!</h2>
+      <p style="font-size: 18px;">Empowering Filipino communities through Islamic values, humanitarian aid, education, and outreach.</p>
+        
+    </div>
+  </section>
 
-  {% else %}
-    <a href="/signup"><div class="button">Sign Up</div></a>
-  <a href="/signin"><div class="button">Sign In</div></a>
+ </div>
+ <div class="highlights">
+  <!-- highlights -->
+<p style="font-size:35px;padding:30px 80px ;font-weight:bold;">Highlights</p>
+<section class="news-section">
+
+
+    <div class="news-card">
+    <div class="news-image">
+      <span class="badge news">NEWS</span>
+      <img src="https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?cs=srgb&dl=pexels-pixabay-259280.jpg&fm=jpg" alt="News Image">
+    </div>
+    <div class="news-content">
+      <h3>News/ Event Title</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae odio at magna bibendum rhoncus.</p>
+      <div class="news-date" style="color:#012F50;">
+        <span class="material-symbols-outlined" style="font-weight: bold;">event</span>
+        <span style="font-weight: bold;">June 6, 2025</span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Copy this card 3 more times and change badge text/image if needed -->
+   <div class="news-card">
+    <div class="news-image">
+      <span class="badge news">NEWS</span>
+      <img src="https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?cs=srgb&dl=pexels-pixabay-259280.jpg&fm=jpg" alt="News Image">
+    </div>
+    <div class="news-content">
+      <h3>News/ Event Title</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae odio at magna bibendum rhoncus.</p>
+     <div class="news-date" style="color:#012F50;">
+        <span class="material-symbols-outlined" style="font-weight: bold;">event</span>
+        <span style="font-weight: bold;">June 6, 2025</span>
+      </div>
+    </div>
+  </div>
+
  
-     {% endif %}
+
+  <div class="news-card">
+    <div class="news-image">
+      <span class="badge event">EVENT</span>
+      <img src="https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?cs=srgb&dl=pexels-pixabay-259280.jpg&fm=jpg" alt="Event Image">
+    </div>
+    <div class="news-content">
+      <h3>News/ Event Title</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae odio at magna bibendum rhoncus.</p>
+      <div class="news-date" style="color:#012F50;">
+        <span class="material-symbols-outlined" style="font-weight: bold;">event</span>
+        <span style="font-weight: bold;">June 6, 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="news-image">
+      <span class="badge event">EVENT</span>
+      <img src="https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?cs=srgb&dl=pexels-pixabay-259280.jpg&fm=jpg" alt="Event Image">
+    </div>
+    <div class="news-content">
+      <h3>News/ Event Title</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae odio at magna bibendum rhoncus.</p>
+      <div class="news-date" style="color:#012F50;">
+        <span class="material-symbols-outlined" style="font-weight: bold;">event</span>
+        <span style="font-weight: bold;">June 6, 2025</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+</div>
+
+
+ <section class="cta">
+
+ <div class="core">
+<section class="core-activities">
+  <h2 class="section-title">Core Activities</h2>
+</section>
+
+  <section class="program-cards">
+  <div class="program-card">
+    <h3>Daawah</h3>
+    <ul>
+      <li>New daawah</li>
+      <li>Follow-up daawah</li>
+      <li>Mass daawah</li>
+      <li>House-to-house daawah</li>
+    </ul>
+  </div>
+
+  <div class="program-card">
+    <h3>Education of Reverts</h3>
+    <ul>
+      <li>Seminar for new reverts</li>
+      <li>Fardu Ain classes during weekdays</li>
+      <li>Fardhu Ain classes for children and adults during weekends</li>
+      <li>Intensive courses (stay-in courses)</li>
+      <li>Training of imams and du’at</li>
+      <li>Training in livelihood and other pertinent activities for the community</li>
+    </ul>
+  </div>
+
+  <div class="program-card">
+    <h3>Jumaat Prayers</h3>
+  </div>
+
+  <div class="program-card">
+    <h3>Ihya Ramadan</h3>
+  </div>
+
+  <div class="program-card">
+    <h3>Qurban & Aqiqah</h3>
+  </div>
+</section>
+</div>  
+
+    <section class="testimonials">
+ <div class="testimonial-header">
+  <h2 style="  margin-left: 70px;">Testimonials</h2>
+  <p class="subheading">
+    Hear from the people who make our mission possible—our donors, volunteers, and benefactors. They share their heartfelt stories of why they chose to support and be part of our cause, reflecting the trust, impact, and sense of purpose that unites us. Be inspired by their journey and discover the difference one person can make.
+  </p>
+</div>
+
+  <div class="testimonial-grid">
+    <!-- Card 1 -->
+    <div class="testimonial-card">
+      <div class="quote-icon">&#10077;</div>
+      <p class="message">"I am thankful to the ODFI Foundation for helping me on achieving something I once dreamt about."</p>
+      <div class="name">Joe Alexus</div>
+      <div class="role">Benefactor</div>
+    </div>
+
+    <!-- Card 2 (Active) -->
+    <div class="testimonial-card active">
+      <div class="quote-icon large">&#10077;</div>
+      <p class="message">"To help others was always been something I want to accomplish. I felt happy to share things that can assist them."</p>
+      <div class="name">Jane Doe</div>
+      <div class="role">Volunteer</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="testimonial-card">
+      <div class="quote-icon">&#10077;</div>
+      <p class="message">"Supporting this foundation has been one of the most fulfilling decisions I’ve made—knowing my contributions are making a real difference in people’s lives."</p>
+      <div class="name">Lydia Artemis</div>
+      <div class="role">Donor</div>
+    </div>
+  </div>
+
+  <!-- Pagination Dots -->
+  <div class="pagination-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+<div class="donation-section">
+  <div class="donation-how">
+    <h2>How to Donate to ODFI</h2>
+    <div class="step">
+      <div class="step-number">①</div>
+      <div>
+        <h3>Choose a Method</h3>
+        <p>Bank transfer, GCash, or PayPal — pick what’s most convenient for you.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">②</div>
+      <div>
+        <h3>Fill Out the Donation Form</h3>
+        <p>Provide your name, amount, and contact details for your receipt.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">③</div>
+      <div>
+        <h3>Confirm Your Donation</h3>
+        <p>Upload proof of transaction or receive confirmation through email.</p>
+      </div>
+    </div>
+    <button class="donate-button">Donate Now</button>
+  </div>
+
+  <div class="donation-impact">
+    <h2>Where Your Donation Will Go?</h2>
+    <div class="impact-card">
+      <h3>Islamic Centers & Community Projects</h3>
+      <p>Building and maintaining mosques, BCCs, and MICs across communities.</p>
+    </div>
+    <div class="impact-card">
+      <h3>Humanitarian Aid & Relief</h3>
+      <p>Food packs, clothing, and shelter for families in need.</p>
+    </div>
+    <div class="impact-card">
+      <h3>Education & Da’wah Programs</h3>
+      <p>Supporting Islamic classes, reverts, and outreach missions.</p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+ © 2025 ODFI. All rights reserved.
+</footer>
+
+</section>
 </body>
 </html>

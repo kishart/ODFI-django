@@ -3,9 +3,11 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 # Create your views here.
-def home(request):
-      return render(request, "authentication/index.html")
 
 def signup(request):
     if request.method == "POST":
@@ -41,10 +43,27 @@ def signin(request):
             return render(request, "authentication/index.html", {'name':name})
         else:
             messages.error(request, "Bad Credentials!")
-            return redirect('home')
+            return redirect('uhome')
     return render(request, "authentication/signin.html")
 
 def signout(request):
     logout(request)
     messages.success(request, "Logged out successfully!")
     return redirect('home')
+
+
+def uhome(request):
+      return render(request, "authentication/user/uhome.html")
+
+
+def home(request):
+      return render(request, "authentication/index.html")
+
+def about(request):
+      return render(request, "authentication/user/about.html")
+
+def gallery(request):
+      return render(request, "authentication/user/gallery.html")
+
+def contact(request):
+      return render(request, "authentication/user/contact.html")

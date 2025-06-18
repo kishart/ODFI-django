@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'authentication/contact.css' %}">
+    <title>Contact</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+ 
+</head>
+<body>
+  {% include 'authentication/user/nav.html' %}
+    {% block content %}{% endblock content %}
+
+
+      <!-- NAVBAR -->
+  <!-- <nav class="navbar">
+    <div class="left-side">
+      <div class="logo">ODFI</div>
+      <ul class="nav-links">
+        <li><a href="home.html">Home </a></li>
+        <li class="dropdown">
+          <a href="about.html">About</a>
+         
+        </li>
+       <li><a href="gallery.html">Gallery</a></li>
+
+        <li><a href="contact.html" style="font-weight:bold; text-decoration:underline; color:#FFC107">Contact</a></li>
+      </ul>
+    </div>
+    <div class="internal">
+      <span class="material-symbols-outlined">account_circle</span>
+    </div>
+  </nav> -->
+
+
+   
+<!-- Contact Section -->
+ <section class="contact-section">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-cards">
+      <div class="card">
+        <div class="icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h3>Location</h3>
+        <p>123 ODFI Street,<br>Community City, 12345,<br>Philippines</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <h3>Number</h3>
+        <p>+63 912 345<br>6789</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3>Email</h3>
+        <p>contact@odfi.org.ph</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <h3>Frequently Asked Questions</h3>
+
+    <div class="faq-item">
+      <div class="faq-question">Lorem ipsum dolor sit amet, consecte tur adipiscing elit?</div>
+      <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae odio at magna bibendum rhoncus et at leo. Aenean faucibus scelerisque condimentum.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Lorem ipsum dolor sit amet, consecte tur adipiscing elit?</div>
+      <div class="faq-answer">Answer to this question goes here.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Lorem ipsum dolor sit amet, consecte tur adipiscing elit?</div>
+      <div class="faq-answer">Answer to this question goes here.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Lorem ipsum dolor sit amet, consecte tur adipiscing elit?</div>
+      <div class="faq-answer">Answer to this question goes here.</div>
+    </div>
+
+  </div>
+
+
+
+<footer class="footer">
+ © 2025 ODFI. All rights reserved.
+</footer>
+
+
+  <script>
+    const questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        q.classList.toggle('active');
+        const answer = q.nextElementSibling;
+        answer.classList.toggle('show');
+      });
+    });
+  </script>
+
+  </body>
+  </html>

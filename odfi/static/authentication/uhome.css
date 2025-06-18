@@ -1,0 +1,597 @@
+body {
+  margin: 0;
+  font-family: poppins, sans-serif;
+}
+.container2,
+.container3,
+.container4,
+.container5,
+.container6,
+.container7,
+.container8,
+.container10,
+.container11,
+.container12 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #0f172a; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #012f50;
+  padding: 25px 34px;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+}
+
+.nav-links a i {
+  font-size: 1rem;
+}
+
+.internal {
+  font-size: 1rem;
+  color: white;
+}
+.internal span {
+  font-size: 32px;
+}
+ .hero {
+  padding-bottom: 180px;
+}
+.container1 {
+  background-image: url("main.jfif");
+  position: relative;
+  /*background-color: #DCEEEC;   fallback color if image fails to load */
+  box-shadow: 1px 10px 20px 0px #b1b1b1;
+}
+.container1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #c4defd;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  padding: 20px;
+  padding-top: 280px;
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure the overlay is behind the welcome text */
+.container1 {
+  position: relative;
+  z-index: 0;
+}
+.container1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #c4defd;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+} /* Dropdown styles */
+.navbar .dropdown {
+  position: relative;
+}
+
+.navbar .dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  z-index: 100;
+}
+
+.navbar .dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar .dropdown-menu li a:hover {
+  background: #f0f0f0;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+
+.news-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 10px auto;
+  /* padding: 120px 20px; */
+}
+
+.news-card {
+  background-color: #f2f4f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.news-image {
+  position: relative;
+}
+
+.news-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px;
+  color: white;
+}
+
+.badge.news {
+  background-color: #1e90ff;
+}
+
+.badge.event {
+  background-color: #ff4d4d;
+}
+
+.news-content {
+  padding: 15px;
+}
+
+.news-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.news-content p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* .news-date {
+  display: flex;
+  align-items: start;
+  font-size: 14px;
+  color: #555;
+} */
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-size: 18px;
+  margin-right: 6px;
+}
+
+.testimonials {
+  padding: 35px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+
+  margin-top: 40px;
+  position: relative;
+  /* width: 100vw; */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: 49.5vw;
+  box-sizing: border-box;
+}
+
+.testimonials h2 {
+  font-size: 2.2rem;
+  margin-top: -40px;
+  text-align: left;
+}
+
+.subheading {
+  text-align: right;
+  font-size: 14px;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+  margin-right: 50px;
+}
+
+.testimonial-grid {
+  display: flex;
+  justify-content: space-around;
+  /* gap: 10px; */
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card.active {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.quote-icon {
+  font-size: 30px;
+  color: #3f3d56;
+  background: #ccc;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.testimonial-card.active .quote-icon {
+  background: #392b88;
+  color: white;
+  font-size: 35px;
+  width: 60px;
+  height: 60px;
+}
+
+.message {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.name {
+  font-weight: bold;
+  color: #1a237e;
+  margin-top: 15px;
+  text-align: end;
+}
+
+.role {
+  font-size: 12px;
+  color: #666;
+  text-align: end;
+}
+
+.pagination-dots {
+  margin-top: 40px;
+}
+
+.dot {
+  display: inline-block;
+  width: 30px;
+  height: 6px;
+  background: #ccc;
+  margin: 0 5px;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.dot.active {
+  background: #392b88;
+}
+
+.testimonial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* vertically center both items */
+  /* gap: 20px; */
+  flex-wrap: wrap; /* responsive for smaller screens */
+}
+
+.testimonial-header h2 {
+  flex: 1;
+  font-size: 2.2rem;
+  text-align: left;
+  min-width: 150px;
+}
+
+.testimonial-header .subheading {
+  flex: 3;
+  text-align: right;
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  min-width: 250px;
+  margin-right: 50px;
+}
+
+@media (max-width: 768px) {
+  .testimonial-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .testimonial-header h2,
+  .testimonial-header .subheading {
+    text-align: center;
+  }
+}
+
+.donation-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 80px 60px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.donation-how,
+.donation-impact {
+  flex: 1;
+}
+
+.donation-how {
+  border-right: 1px solid #ccc;
+  padding-right: 40px;
+}
+
+.donation-impact {
+  padding-left: 40px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.step-number {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+p {
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+}
+
+.donate-button {
+  background-color: #208796;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+  background-color: #0f8fcd;
+  font-weight: bold;
+}
+
+.impact-card {
+  background-color: #208796;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.impact-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.impact-card p {
+  font-size: 14px;
+  margin: 0;
+  color: white;
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+  font-size: 12px;
+}
+@media (max-width: 768px) {
+  .donation-section {
+    flex-direction: column;
+  }
+
+  .donation-how,
+  .donation-impact {
+    padding: 0;
+    border: none;
+  }
+
+  .donation-how {
+    margin-bottom: 30px;
+  }
+
+  .donate-button {
+    width: 100%;
+  }
+}
+
+.program-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.program-card {
+  background-color: #043873;
+  color: white;
+  width: 180px;
+  min-height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.program-card h3 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.program-card ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.program-card ul li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+/* Odd cards: 1st, 3rd, 5th, etc. */
+.program-card:nth-child(odd) {
+  height: 200px;
+}
+
+/* Even cards: 2nd, 4th, etc. */
+.program-card:nth-child(even) {
+  height: 330px;
+  margin-top: 80px;
+}
+
+.cta {
+  background-color: #f2f4f0;
+}
+.core-activities {
+  background-color: #f9f9f9; /* same light background as image */
+
+  text-align: center;
+}
+
+.section-title {
+  /* font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px; */
+
+  padding-top: 40px;
+  margin-top: 70px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  margin: 10px auto 0;
+  width: 1080px; /* wider underline */
+  height: 2px;
+  background-color: #003366; /* deep blue */
+}
