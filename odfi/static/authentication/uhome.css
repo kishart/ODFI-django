@@ -81,7 +81,9 @@ body {
 }
 .internal span {
   font-size: 32px;
+  
 }
+
  .hero {
   padding-bottom: 180px;
 }
@@ -90,6 +92,8 @@ body {
   background-color: #dceeea; /* fallback color if image fails to load */
   position: relative;
   box-shadow: 1px 10px 20px 0px #b1b1b1;
+    position: relative;
+  z-index: 0;
 }
 .container1::after {
   content: "";
@@ -99,8 +103,11 @@ body {
   right: 0;
   bottom: 0;
   background: #c4defd;
-  opacity: 0.1;
+  /* opacity: 0.1; */
   pointer-events: none;
+   opacity: 0.9;
+  /* pointer-events: none; */
+  z-index: 0;
 }
 .welcome-text {
   display: flex;
@@ -116,12 +123,7 @@ body {
   z-index: 1;
 }
 
-/* Ensure the overlay is behind the welcome text */
-.container1 {
-  position: relative;
-  z-index: 0;
-}
-.container1::after {
+/* .container1::after {
   content: "";
   position: absolute;
   top: 0;
@@ -132,7 +134,7 @@ body {
   opacity: 0.9;
   pointer-events: none;
   z-index: 0;
-} /* Dropdown styles */
+} Dropdown styles */
 .navbar .dropdown {
   position: relative;
 }

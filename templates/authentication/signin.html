@@ -1,24 +1,64 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+    <link rel="stylesheet" href="{% static 'authentication/signin.css' %}">
 </head>
 <body>
-    <h3>Sign In</h3>
+    {% include 'authentication/user/nav.html' %}
+    {% block content %}{% endblock content %}
+   <div class="signin">
+  <p class="sign">ODFI INTERNAL WORKFORCE</p>
 
-    <form action="/signin" method="post">
-    {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your Username" required>
-<br>
-      
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+  <div class="form">
+    <p style="text-align: center; color:white; font-size:30px;margin-top:-20px; margin-left:40px; font-weight: bold;">Welcome!</p>
+    <form class="login-form" action="/signin" method="post">
+      {% csrf_token %}
 
-<br>
-        <button type="submit">Sign In</button>
+
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" placeholder="example@mail.com" required>
+
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" name="password" id="password" placeholder="Password" required>
+       <span class="material-symbols-outlined" id="togglePassword"
+        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+    visibility
+  </span>
+      </div>
+
+      <small class="requirement-text">
+        Use at least 8 characters with 1 number, and one special character.
+      </small>
+
+      <button type="submit" class="login-btn">Sign In</button>
+
+
     </form>
+  </div>
+</div>
+
+<footer class="footer">
+ © 2025 ODFI. All rights reserved.
+</footer>
+
+<script>
+  const toggle = document.getElementById('togglePassword');
+  const password = document.getElementById('password');
+
+  toggle.addEventListener('click', function () {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.textContent = type === 'password' ? 'visibility' : 'visibility_off';
+  });
+</script>
+
 </body>
 </html>

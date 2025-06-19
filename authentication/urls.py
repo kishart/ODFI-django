@@ -4,6 +4,7 @@ from .import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
    path('', views.home, name="home"),
    path('signup', views.signup, name="signup"),
@@ -15,7 +16,7 @@ urlpatterns = [
    path('contact/', views.contact, name="contact"),
    path('ahighlights/', views.ahighlights, name="ahighlights"),
   
-   path('gal/', views.gal, name="gal"),
+   path('uhighlights/', views.uhighlights, name="uhighlights"),
    path('edit/<int:photo_id>/', views.edit_photo, name='edit_photo'),
 path('delete/<int:photo_id>/', views.delete_photo, name='delete_photo'),
 

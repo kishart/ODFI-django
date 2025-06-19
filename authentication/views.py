@@ -48,13 +48,13 @@ def ahighlights(request):
 
 
 
-def gal(request):
+def uhighlights(request):
     highlights = Photo.objects.all()
-    return render(request, 'authentication/user/gal.html', {'highlights': highlights})
+    return render(request, 'authentication/user/uhighlights.html', {'highlights': highlights})
 
 def view_photos(request):
     photos = Photo.objects.all()
-    return render(request, 'authentication/user/gal.html', {'photos': photos})
+    return render(request, 'authentication/user/uhighlights.html', {'photos': photos})
 
 def signup(request):
     if request.method == "POST":
@@ -102,6 +102,9 @@ def signout(request):
 def uhome(request):
       return render(request, "authentication/user/uhome.html")
 
+def gallery(request):
+      return render(request, "authentication/user/gallery.html")
+
 
 def home(request):
       return render(request, "authentication/index.html")
@@ -109,8 +112,8 @@ def home(request):
 def about(request):
       return render(request, "authentication/user/about.html")
 
-def gallery(request):
-      return render(request, "authentication/user/gallery.html")
+def uhighlightslery(request):
+      return render(request, "authentication/user/uhighlightslery.html")
 
 def contact(request):
       return render(request, "authentication/user/contact.html")
