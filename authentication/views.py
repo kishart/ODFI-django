@@ -28,22 +28,29 @@ def edit_photo(request, photo_id):
 def ahighlights(request):
     if request.method == 'POST':
         form = PhotoForm(request.POST, request.FILES)
-        files = request.FILES.getlist('photos')
         if form.is_valid():
-            for file in files:
-                Photo.objects.create(image=file)
+            form.save()
             return redirect('ahighlights')
+        else:
+            photos = Photo.objects.all()
+            return render(request, 'authentication/admin/ahighlights.html', {
+                'form': form,
+                'highlights': photos
+            })
     else:
         form = PhotoForm()
 
     photos = Photo.objects.all()
-    return render(request, 'authentication/admin/ahighlights.html', {'form': form, 'photos': photos})
+    return render(request, 'authentication/admin/ahighlights.html', {
+        'form': form,
+        'highlights': photos
+    })
 
 
 
 def gal(request):
-    photos = Photo.objects.all()
-    return render(request, 'authentication/user/gal.html', {'photos': photos})
+    highlights = Photo.objects.all()
+    return render(request, 'authentication/user/gal.html', {'highlights': highlights})
 
 def view_photos(request):
     photos = Photo.objects.all()

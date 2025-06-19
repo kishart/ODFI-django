@@ -1,9 +1,13 @@
 from django import forms
+from .models import Photo
 
-class PhotoForm(forms.Form):
-    photos = forms.FileField(
-        widget=forms.ClearableFileInput(),  # No `multiple=True` here
-        required=True
-    )
+
 
     
+class PhotoForm(forms.ModelForm):
+    class Meta:
+        model = Photo
+        fields = ['type', 'title', 'description', 'date', 'image']
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date'}),
+        }
