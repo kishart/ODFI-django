@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from django.conf.urls import include
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('authentication/', include('authentication.urls')),
+    # path('upload/', views.upload_photo, name='upload_photo'),
+    path('gallery/', views.view_photos, name='gallery'),
+    path('gal/', views.gal, name='gal'),
+    path('ahighlights/', views.upload_photos, name='ahighlights')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
