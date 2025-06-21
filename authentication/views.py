@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import PhotoForm
 from .models import Photo
+from .forms import MediaForm
+from .models import Media
 from django.shortcuts import get_object_or_404
 
 def delete_photo(request, photo_id):
@@ -117,3 +119,22 @@ def uhighlightslery(request):
 
 def contact(request):
       return render(request, "authentication/user/contact.html")
+
+
+def ugallery(request):
+      return render(request, "authentication/user/ugallery.html")
+
+def agallery(request):
+    if request.method == 'POST':
+        form = MediaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('agallery')  # Replace with your actual URL name
+    else:
+        form = MediaForm()
+
+    media_list = Media.objects.all().order_by('-uploaded_at')
+    return render(request, 'authentication/admin/agallery.html', {
+        'form': form,
+        'media_list': media_list,
+    })

@@ -19,6 +19,8 @@ urlpatterns = [
    path('uhighlights/', views.uhighlights, name="uhighlights"),
    path('edit/<int:photo_id>/', views.edit_photo, name='edit_photo'),
 path('delete/<int:photo_id>/', views.delete_photo, name='delete_photo'),
+path('ugallery/', views.ugallery, name="ugallery"),   
+path('agallery/', views.agallery, name="agallery"),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
