@@ -7,6 +7,7 @@ from .forms import PhotoForm
 from .models import Photo
 from .forms import MediaForm
 from .models import Media
+from .models import Files
 from django.shortcuts import get_object_or_404
 
 def delete_photo(request, photo_id):
@@ -126,15 +127,15 @@ def ugallery(request):
 
 def agallery(request):
     if request.method == 'POST':
-        form = MediaForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('agallery')  # Replace with your actual URL name
-    else:
-        form = MediaForm()
+        files = request.FILES.getlist('files')
+        file_list = []
 
-    media_list = Media.objects.all().order_by('-uploaded_at')
-    return render(request, 'authentication/admin/agallery.html', {
-        'form': form,
-        'media_list': media_list,
-    })
+        for file in files:
+            new_file = Files(file=file)
+            new_file.save()
+            file_list.append(new_file.file.url)
+
+        # ✅ Return after the loop
+        return render(request, "authentication/admin/agallery.html", {'new_urls': file_list})
+    else:
+        return render(request, "authentication/admin/agallery.html")

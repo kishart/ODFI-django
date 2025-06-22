@@ -18,3 +18,4 @@ class PhotoForm(forms.ModelForm):
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
         }
+
