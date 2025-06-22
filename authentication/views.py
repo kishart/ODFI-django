@@ -125,17 +125,29 @@ def contact(request):
 def ugallery(request):
       return render(request, "authentication/user/ugallery.html")
 
+
+
 def agallery(request):
     if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
         files = request.FILES.getlist('files')
         file_list = []
 
         for file in files:
-            new_file = Files(file=file)
+            new_file = Files(file=file, title=title, description=description)
             new_file.save()
             file_list.append(new_file.file.url)
 
-        # ✅ Return after the loop
-        return render(request, "authentication/admin/agallery.html", {'new_urls': file_list})
-    else:
-        return render(request, "authentication/admin/agallery.html")
+        # Fetch all files to show in the table
+        all_files = Files.objects.all().order_by('-id')
+        return render(request, "authentication/admin/agallery.html", {
+            'new_urls': file_list,
+            'files': all_files
+        })
+
+    # GET request — just show all files
+    all_files = Files.objects.all().order_by('-id')
+    return render(request, "authentication/admin/agallery.html", {
+        'files': all_files
+    })

@@ -3,6 +3,14 @@ from .models import Photo
 from .models import Media  # Assuming you want to use the Media model as well
 
 
+# class FilesForm(forms.ModelForm):
+#     class Meta:
+#         model = Files
+#         fields = ['file', 'title', 'description']
+#         widgets = {
+#             'description': forms.Textarea(attrs={'rows': 3}),
+#         }
+
 class MediaForm(forms.ModelForm):
     class Meta:
         model = Media

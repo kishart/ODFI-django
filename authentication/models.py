@@ -12,9 +12,15 @@ from django.conf.urls.static import static
 #     def __str__(self):
 #         return f"Photo {self.id} uploaded at {self.uploaded_at}"
     
-class Files(models.Model):
-    file = models.FileField(upload_to='files/')  # Accepts both image and video files
 
+
+class Files(models.Model):
+    file = models.FileField(upload_to='files/')
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+
+
+    
 class Media(models.Model):
     CATEGORY_CHOICES = [
         ('Images', 'Images'),
