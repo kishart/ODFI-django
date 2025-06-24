@@ -85,16 +85,17 @@ def signin(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        user = authenticate(username=username, password=password)
+        user = authenticate(request, username=username, password=password)
 
         if user is not None:
             login(request, user)
-            name = user.first_name
-            return render(request, "authentication/index.html", {'name':name})
+            return redirect('/dashboard')  # or use 'return render(...)'
         else:
-            messages.error(request, "Bad Credentials!")
-            return redirect('uhome')
+            messages.error(request, "Incorrect username or password. Please try again.")
+            return render(request, "authentication/signin.html", {'username': username})
     return render(request, "authentication/signin.html")
+
+
 
 def signout(request):
     logout(request)
@@ -125,7 +126,8 @@ def contact(request):
 def ugallery(request):
       return render(request, "authentication/user/ugallery.html")
 
-
+def dashboard(request):
+    return render(request, "authentication/admin/dashboard.html")
 
 def agallery(request):
     if request.method == 'POST':

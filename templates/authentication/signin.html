@@ -9,39 +9,68 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   
     <link rel="stylesheet" href="{% static 'authentication/signin.css' %}">
+    <style>
+      .alert {
+    color: white;
+    background-color: #e74c3c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+    </style>
 </head>
 <body>
     {% include 'authentication/user/nav.html' %}
     {% block content %}{% endblock content %}
+
+
+  
    <div class="signin">
+    <div class="alerto">
+
+      {% if messages %}
+        <ul class="messages"></ul>
+          {% for message in messages %}
+            <li class="alert">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% elif form.errors %}
+        <div class="alert">
+          Invalid username or password.
+        </div>
+      {% endif %}
+    </div>
+
   <p class="sign">ODFI INTERNAL WORKFORCE</p>
 
   <div class="form">
     <p style="text-align: center; color:white; font-size:30px;margin-top:-20px; margin-left:40px; font-weight: bold;">Welcome!</p>
-    <form class="login-form" action="/signin" method="post">
-      {% csrf_token %}
+   
+   
+   
+  <form class="login-form" action="/signin" method="post">
+  {% csrf_token %}
+  <label for="username">Username</label>
+  <input type="text" name="username" id="username" placeholder="example@mail.com" required value="{{ username|default:'' }}">
 
+  <label for="password">Password</label>
+  <div class="password-wrapper">
+    <input type="password" name="password" id="password" placeholder="Password" required>
+    <span class="material-symbols-outlined" id="togglePassword"
+      style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+      visibility
+    </span>
+  </div>
 
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" placeholder="example@mail.com" required>
+  <small class="requirement-text">
+    Use at least 8 characters with 1 number, and one special character.
+  </small>
 
-      <label for="password">Password</label>
-      <div class="password-wrapper">
-        <input type="password" name="password" id="password" placeholder="Password" required>
-       <span class="material-symbols-outlined" id="togglePassword"
-        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
-    visibility
-  </span>
-      </div>
+  <button type="submit" class="login-btn">Sign In</button>
+</form>
 
-      <small class="requirement-text">
-        Use at least 8 characters with 1 number, and one special character.
-      </small>
-
-      <button type="submit" class="login-btn">Sign In</button>
-
-
-    </form>
   </div>
 </div>
 

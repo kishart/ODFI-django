@@ -134,6 +134,10 @@ p.sign{
   
 }
 
+.alerto{
+  display:block
+  position:relative;
+}
 .login-form label {
   display: block;
   margin: 1rem 0 0.3rem;

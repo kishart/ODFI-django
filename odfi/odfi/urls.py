@@ -27,5 +27,6 @@ urlpatterns = [
     # path('upload/', views.upload_photo, name='upload_photo'),
     path('gallery/', views.view_photos, name='gallery'),
     path('uhighlights/', views.uhighlights, name='uhighlights'),
-    path('ahighlights/', views.upload_photos, name='ahighlights')
+    path('ahighlights/', views.upload_photos, name='ahighlights'),
+   
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

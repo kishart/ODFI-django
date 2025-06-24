@@ -22,5 +22,7 @@ path('delete/<int:photo_id>/', views.delete_photo, name='delete_photo'),
 path('ugallery/', views.ugallery, name="ugallery"),   
 path('agallery/', views.agallery, name="agallery"),
 
+
+ path('dashboard', views.dashboard, name="dashboard"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
