@@ -26,28 +26,20 @@
     {% block content %}{% endblock content %}
 
 
-  
-   <div class="signin">
-    <div class="alerto">
 
-      {% if messages %}
-        <ul class="messages"></ul>
-          {% for message in messages %}
-            <li class="alert">{{ message }}</li>
-          {% endfor %}
-        </ul>
-      {% elif form.errors %}
-        <div class="alert">
-          Invalid username or password.
-        </div>
-      {% endif %}
-    </div>
+   <div class="signin">
+
 
   <p class="sign">ODFI INTERNAL WORKFORCE</p>
 
   <div class="form">
     <p style="text-align: center; color:white; font-size:30px;margin-top:-20px; margin-left:40px; font-weight: bold;">Welcome!</p>
    
+     {% if login_failed %}
+<script>
+  alert("Incorrect username or password. Please try again.");
+</script>
+{% endif %}
    
    
   <form class="login-form" action="/signin" method="post">

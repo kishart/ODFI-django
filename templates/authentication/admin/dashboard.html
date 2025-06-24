@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,16 +21,21 @@
     <a href="/signin"><div class="button">Back to Sign In</div></a>
      {% endif %}
 </body>
-</html>
+</html> -->
 
-
-<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>ODFI Internal Portal</title>
   <link rel="stylesheet" href="styles.css">
+  
+    <link     rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=stat_minus_1" />
+  
+    
   <style>
     * {
   margin: 0;
@@ -48,7 +53,7 @@ body {
   color: white;
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 25px;
   align-items: center;
 }
 
@@ -63,7 +68,7 @@ body {
 }
 
 .sidebar {
-  width: 250px;
+  width: 400px;
   background-color: #fff;
   border-right: 1px solid #ddd;
   height: calc(100vh - 90px);
@@ -127,7 +132,14 @@ body {
 </head>
 <body>
   <header class="navbar">
-    <div class="user-info">👤 Heart Blanco</div>
+   
+
+<div class="internal" style="display: flex; align-items: center; gap: 5px; font-size:18px;">
+  <span class="material-symbols-outlined" style="color: white; font-size:28px;">account_circle</span>
+  <p style="margin: 0; color: white;">{{ user.username }}!</p>
+</div>
+
+    
     <div class="search-bar">
       <input type="text" placeholder="Quick search" />
       🔍
@@ -160,6 +172,7 @@ body {
     <p>Welcome, {{ user.username }}!</p>
 <h4>You have successfully signed in</h4>
  <a href="/signout"><div class="button">Sign Out</div></a>
+ 
 
   {% else %}
     <a href="/signup"><div class="button">Sign Up</div></a>
@@ -180,4 +193,4 @@ body {
     Copyright 2021. | Rights Reserved
   </footer>
 </body>
-</html> -->
+</html> 

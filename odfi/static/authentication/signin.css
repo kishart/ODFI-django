@@ -135,7 +135,7 @@ p.sign{
 }
 
 .alerto{
-  display:block
+  display:block;
   position:relative;
 }
 .login-form label {

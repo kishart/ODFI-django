@@ -89,11 +89,15 @@ def signin(request):
 
         if user is not None:
             login(request, user)
-            return redirect('/dashboard')  # or use 'return render(...)'
+            return redirect('/dashboard')
         else:
-            messages.error(request, "Incorrect username or password. Please try again.")
-            return render(request, "authentication/signin.html", {'username': username})
+            # Trigger JS alert on failure
+            return render(request, "authentication/signin.html", {
+                'username': username,
+                'login_failed': True
+            })
     return render(request, "authentication/signin.html")
+
 
 
 
