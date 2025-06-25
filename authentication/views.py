@@ -131,7 +131,8 @@ def ugallery(request):
       return render(request, "authentication/user/ugallery.html")
 
 def dashboard(request):
-    return render(request, "authentication/admin/dashboard.html")
+    return render(request, 'authentication/admin/dashboard.html')
+
 
 def agallery(request):
     if request.method == 'POST':
@@ -157,3 +158,17 @@ def agallery(request):
     return render(request, "authentication/admin/agallery.html", {
         'files': all_files
     })
+
+
+
+def dashboard(request):
+    return render(request, "authentication/admin/dashboard.html")
+
+def education(request):
+    return render(request, "authentication/user/education.html")
+
+def adminis(request):
+    return render(request, "authentication/admin/adminis.html")
+
+def jumuat(request):
+    return render(request, "authentication/admin/jumuat.html")

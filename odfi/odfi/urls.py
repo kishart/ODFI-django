@@ -28,5 +28,10 @@ urlpatterns = [
     path('gallery/', views.view_photos, name='gallery'),
     path('uhighlights/', views.uhighlights, name='uhighlights'),
     path('ahighlights/', views.upload_photos, name='ahighlights'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('adminis/', views.adminis, name='adminis'),
+    path('education/', views.education, name='education'),
+
+    path('dawah/', views.dawah, name="dawah"),
    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

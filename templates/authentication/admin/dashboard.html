@@ -1,196 +1,108 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication</title >
-</head>
-<body>
-
-        <h3>Welcome to ODFI</h3>
-
-  {% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}!</p>
-<h4>You have successfully signed in</h4>
- <a href="/signout"><div class="button">Sign Out</div></a>
-
-  {% else %}
-    <div class="alert" style="color: red; margin-bottom: 1em;"></div>
-      Wrong username or password. Please try again.
-    </div>
-    <a href="/signin"><div class="button">Back to Sign In</div></a>
-     {% endif %}
-</body>
-</html> -->
-
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <title>ODFI Internal Portal</title>
-  <link rel="stylesheet" href="styles.css">
-  
-    <link     rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=stat_minus_1" />
-  
-    
-  <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fb;
-}
+  <!-- Google Material Symbols (Only one needed) -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
-.navbar {
-  background-color: #022a4a;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 25px;
-  align-items: center;
-}
-
-.navbar .search-bar input {
-  padding: 5px;
-  border-radius: 5px;
-  border: none;
-}
-
-.container {
-  display: flex;
-}
-
-.sidebar {
-  width: 400px;
-  background-color: #fff;
-  border-right: 1px solid #ddd;
-  height: calc(100vh - 90px);
-  padding-top: 1rem;
-}
-
-.sidebar ul {
-  list-style: none;
-}
-
-.sidebar li {
-  padding: 10px 20px;
-  border-left: 4px solid transparent;
-  cursor: pointer;
-}
-
-.sidebar li.active {
-  background-color: #e0f0ff;
-  border-left: 4px solid #005ea2;
-  font-weight: bold;
-}
-
-.sidebar li.logout {
-  color: red;
-  margin-top: 2rem;
-}
-
-.content {
-  flex-grow: 1;
-  padding: 2rem;
-}
-
-.alert {
-  background-color: #f5f5f5;
-  border-left: 5px solid red;
-  padding: 1rem;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.card {
-  background: white;
-  padding: 2rem;
-  border-left: 5px solid #005ea2;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.card h2 {
-  margin-bottom: 1rem;
-  color: #002b5c;
-}
-
-.footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #f5f5f5;
-  color: #555;
-}
-
-  </style>
+  <!-- CSS File (Make sure STATIC is loaded in Django) -->
+  <link rel="stylesheet" href="{% static 'authentication/dashboard.css' %}">
 </head>
 <body>
+
+  <!-- Navbar -->
   <header class="navbar">
-   
+    <div class="internal" style="display: flex; align-items: center; gap: 5px; font-size:18px;">
+      <span class="material-symbols-outlined" style="color: white; font-size:28px;">account_circle</span>
+      <p style="margin: 0; color: white;">{{  user.first_name }}</p>
+    </div>
 
-<div class="internal" style="display: flex; align-items: center; gap: 5px; font-size:18px;">
-  <span class="material-symbols-outlined" style="color: white; font-size:28px;">account_circle</span>
-  <p style="margin: 0; color: white;">{{ user.username }}!</p>
-</div>
-
-    
-    <div class="search-bar">
+    <div class="search-bar" style="display: flex; align-items: center; gap: 8px;">
       <input type="text" placeholder="Quick search" />
-      🔍
+      <span class="material-symbols-outlined" style="font-size: 35px;">
+search
+</span>
     </div>
   </header>
 
-  <div class="container">
+  <!-- Main Layout -->
+  <div class="container" style="background-color: #D0E3F8;" >
+    <!-- Sidebar -->
     <aside class="sidebar">
-      <ul>
-        <li class="active">SOP Overview</li>
-        <li>Administration and Operations</li>
-        <li>Education of Reverts</li>
-        <li>Jumuat Prayers</li>
-        <li>Dawah</li>
-        <li>Qurban</li>
-        <li>Ihya Ramadan</li>
-        <li>Food Preparation & Management</li>
-        <li>Other Services</li>
-        <li>Public View</li>
-        <li class="logout">Logout</li>
+      <ul style="list-style: none; padding: 0; margin: 0;"></ul>
+        <li class="active" style="display: flex; align-items: center; gap: 8px; background-color: #012F50; color:#F2E23B; margin:10px; border-radius: 10px; padding: 10px;">
+          <span class="material-symbols-outlined">
+        article
+          </span>
+         <a href="{% url 'dashboard' %}" style="color:#F2E23B; font-weight: bold;
+  text-decoration: none;">SOP Overview</a>
+          </li> 
+        <li style="display: flex; align-items: center; gap: 8px; list-style: none;">
+          <span class="material-symbols-outlined">
+            domain
+          </span>
+          Administration and Operations
+        </li>
+        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
+book_2
+</span>Education of Reverts
+</li>
+<li style="display: flex; align-items: center; gap: 8px; list-style: none;">
+<span class="material-symbols-outlined">
+folded_hands
+</span>Jumuat Prayers</li>
+        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
+communication
+</span>Dawah</li>
+        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
+massage
+</span>Qurban</li>
+        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
+prayer_times
+</span>Ihya Ramadan</li>
+        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
+cooking
+</span>Food Preparation & Management</li>
+        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
+build
+</span>Other Services</li>
+        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
+public
+</span>Public View</li>
+        <li style="display: flex; align-items: center; gap: 8px; list-style: none;" class="logout"><span style="font-weight: bold;" class="material-symbols-outlined">
+chip_extraction
+</span> <a href="{% url 'signout' %}" style="color:red; text-decoration: none; font-weight: bold; ">Logout</a></li>
       </ul>
     </aside>
 
-    <main class="content">
+    <!-- Content Area -->
+    <main class="content" style="background-color: #FFFFFF; margin:10px; border-radius: 10px;
+">
+      .
       <div class="alert">⚠️ As some of the procedures are still under discussion, this section will be updated from time to time.</div>
 
       <div class="card">
-        <h2>Welcome to ODFI Internal Portal</h2>
-         {% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}!</p>
-<h4>You have successfully signed in</h4>
- <a href="/signout"><div class="button">Sign Out</div></a>
- 
+        <p class="wel">Welcome to ODFI Internal Portal</p>
+<div class="paragraph">
+        
 
-  {% else %}
-    <a href="/signup"><div class="button">Sign Up</div></a>
-  <a href="/signin"><div class="button">Sign In</div></a>
- 
-     {% endif %}
         <p>
           This portal contains the standard operating procedures (SOP) used in Municipality Islamic Centers (MICs) and Barangay Community Centers (BCCs) that operate under the ODFI umbrella. All members of the ODFI workforce are expected to comply with all the procedures stated here.
         </p>
         <p>
           Sections (1) and (2) in the ODFI SOP comprises (1) ODFI Background Information, and (2) ODFI Vision, Mission, Objectives & General Principles. In order to be consistent with the SOP, the sections below start with Section 3, followed by Section 4, and so on.
         </p>
+        </div>
       </div>
     </main>
   </div>
 
+  <!-- Footer -->
   <footer class="footer">
     Copyright 2021. | Rights Reserved
   </footer>
 </body>
-</html> 
+</html>
