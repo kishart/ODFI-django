@@ -165,10 +165,28 @@ def dashboard(request):
     return render(request, "authentication/admin/dashboard.html")
 
 def education(request):
-    return render(request, "authentication/user/education.html")
+    return render(request, "authentication/admin/education.html")
 
 def adminis(request):
     return render(request, "authentication/admin/adminis.html")
 
 def jumuat(request):
     return render(request, "authentication/admin/jumuat.html")
+
+def food(request):
+    return render(request, "authentication/admin/food.html")
+
+def ihya(request):
+    return render(request, "authentication/admin/ihya.html")
+
+def public(request):
+    return render(request, "authentication/admin/public.html")  
+
+def qurban(request):
+    return render(request, "authentication/admin/qurban.html")
+
+def services(request):
+    return render(request, "authentication/admin/services.html")
+
+def dawah(request):
+    return render(request, "authentication/admin/dawah.html")

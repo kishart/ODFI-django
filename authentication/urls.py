@@ -25,8 +25,14 @@ path('agallery/', views.agallery, name="agallery"),
     path('education/', views.education, name='education'),
 
 
-
+path('adminis/', views.adminis, name='adminis'),
 
  path('dashboard', views.dashboard, name="dashboard"),
+ path('food/', views.food, name="food"),
+ path('dawah/', views.dawah, name="dawah"),
+ path('ihya/', views.ihya, name="ihya"),
+ path('public/', views.public, name="public"),
+ path('qurban/', views.qurban, name="qurban"),
+ path('services/', views.services, name="services"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

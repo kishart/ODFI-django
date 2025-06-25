@@ -64,6 +64,12 @@ body {
   color: red;
 }
 
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
 /* Content */
 .content {
   flex-grow: 1;
