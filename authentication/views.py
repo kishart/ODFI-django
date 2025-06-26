@@ -131,8 +131,9 @@ def ugallery(request):
       return render(request, "authentication/user/ugallery.html")
 
 def dashboard(request):
-    return render(request, 'authentication/admin/dashboard.html')
-
+    return render(request, 'authentication/dashboard.html', {
+        'active_page': 'dashboard'
+    })
 
 def agallery(request):
     if request.method == 'POST':
@@ -167,8 +168,11 @@ def dashboard(request):
 def education(request):
     return render(request, "authentication/admin/education.html")
 
+
 def adminis(request):
-    return render(request, "authentication/admin/adminis.html")
+    return render(request, 'authentication/admin/adminis.html', {
+        'active_page': 'adminis'
+    })
 
 def jumuat(request):
     return render(request, "authentication/admin/jumuat.html")
@@ -190,3 +194,6 @@ def services(request):
 
 def dawah(request):
     return render(request, "authentication/admin/dawah.html")
+
+
+

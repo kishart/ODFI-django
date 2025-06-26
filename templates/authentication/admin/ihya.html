@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="{% static 'authentication/adminis.css' %}">
+    
+</head>
+<body>
+    {% include 'authentication/admin/anav.html' %}
+    {% block content %}{% endblock content %}
+
+    <main class="content" style="background-color: #FFFFFF; margin:10px; border-radius: 10px;
+">
+
+<p class="wel">ihya</p>
+
+</main>
+</body>
+</html>
