@@ -7,7 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
      <link rel="stylesheet" href="{% static 'authentication/adminis.css' %}">
-    
+    <style>
+         .highlight-box {
+        background-color: #FAFAE9;
+        padding: 35px 20px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #333;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        line-height: 100px;
+        color: black;
+      }
+       .grid-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 960px;
+      justify-items: center;
+    }
+
+    .grid-wrapper .grid-item {
+      width: 300px;
+    }
+
+    .role-title {
+      color: black;
+      margin-bottom: 0.5rem;
+      border-left: 15px solid #012f50;
+      background-color: #e1effe;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .highlight-box p {
+      color: grey;
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* Make bottom row only 2 columns */
+    .grid-wrapper > .grid-item:nth-child(5),
+    .grid-wrapper > .grid-item:nth-child(6) {
+      grid-column: span 1;
+    }
+
+    @media (max-width: 768px) {
+      .grid-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-content: center;
+      }
+    }
+    </style>
 </head>
 <body>
     {% include 'authentication/admin/anav.html' %}
@@ -16,8 +67,47 @@
     <main class="content" style="background-color: #FFFFFF; margin:10px; border-radius: 10px;
 ">
 
-<p class="wel">services</p>
+  <div class="grid-wrapper">
+    <!-- Item 1 -->
+    <div class="grid-item">
+      <p class="role-title">Economic Empowerment</p>
+      <div class="highlight-box">
+        <p>Content to be followed</p>
+      </div>
+    </div>
 
+    <!-- Item 2 -->
+    <div class="grid-item">
+      <p class="role-title">Humanitarian Aid</p>
+      <div class="highlight-box">
+        <p>Content to be followed</p>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="grid-item">
+      <p class="role-title">Marriage & Divorce</p>
+      <div class="highlight-box">
+        <p>Content to be followed</p>
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="grid-item">
+      <p class="role-title">Death & Burial</p>
+      <div class="highlight-box">
+        <p>Content to be followed</p>
+      </div>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="grid-item">
+      <p class="role-title">Family Counseling</p>
+      <div class="highlight-box">
+        <p>Content to be followed</p>
+      </div>
+    </div>
+  </div>
 </main>
 </body>
 </html>
