@@ -734,6 +734,7 @@ p {
     width: 50px;
     height: 50px;
   }
+  
 
   .pagination-dots {
     margin-top: 20px;
@@ -752,6 +753,52 @@ p {
 
 /* Tablet */
 @media (max-width: 768px) {
+    .container1 {
+    width: 1500px;
+  }
+  .highlights {
+    padding: 80px 90px;
+  }
+  .news-card {
+    width: 500px;
+  }
+  p.highlights-title {
+    margin-left: -80px;
+  }
+  .highlights {
+    padding: 80px 180px;
+  }
+  .news-card {
+    width: 550px;
+  }
+  .news-section{
+        gap: 80px;
+  }
+ .core,
+  .cta {
+    width: 1500px;
+  }
+  .testimonials{
+    left: 25%;
+  }
+  .donation-how {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.donate-button {
+    width: 30%;
+}
+.impact-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 }
 
 @media (max-width: 810px) {
