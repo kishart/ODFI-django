@@ -670,13 +670,13 @@ p {
 @media (max-width: 390px) {
 
     .container1 {
-    width: 1079px;
+    width: 1200px;
   }
   .highlights {
-    padding: 80px;
+    padding: 80px 90px;
   }
   .news-card {
-    width: 450px;
+    width: 500px;
   }
   p.highlights-title {
     margin-left: -80px;
@@ -684,15 +684,23 @@ p {
 
   .core,
   .cta {
-    width: 1100px;
+    width: 1200px;
   }
+
+.program-cards{
+    padding:40px;
+
+}
 .testimonials {
  padding: 20px 10px;
  margin-top: 20px;
-         max-width: 1100px;
-        margin-left: -550px;
+   max-width: 1300px;
+        margin-left: -700px;
   }
 
+    .testimonial-grid {
+        margin-left: 100px;
+    }
   .testimonials h2 {
     font-size: 1.5rem;
     margin-left: 10px;
@@ -735,6 +743,9 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.donate-button {
+    width: 30%;
 }
 
 }
