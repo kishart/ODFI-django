@@ -14,7 +14,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=stat_minus_1"
     />
-    <link rel="stylesheet" href="{% static 'authentication/uhome.css' %}" />
+    <link rel="stylesheet" href="{% static 'authentication/index.css' %}" />
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
@@ -184,61 +184,78 @@
         </section>
       </div>
 
-      <section class="testimonials">
-        <div class="testimonial-header">
-          <h2 style="margin-left: 70px">Testimonials</h2>
-          <p class="subheading">
-            Hear from the people who make our mission possible—our donors,
-            volunteers, and benefactors. They share their heartfelt stories of
-            why they chose to support and be part of our cause, reflecting the
-            trust, impact, and sense of purpose that unites us. Be inspired by
-            their journey and discover the difference one person can make.
+     <section class="testimonials py-5 bg-white">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="row align-items-center testimonial-header mb-5">
+      <div class="col-md-4">
+        <h2 class="fw-bold">Testimonials</h2>
+      </div>
+      <div class="col-md-8">
+        <p class="subheading text-justify">
+          Hear from the people who make our mission possible—our donors,
+          volunteers, and benefactors. They share their heartfelt stories of
+          why they chose to support and be part of our cause, reflecting the
+          trust, impact, and sense of purpose that unites us. Be inspired by
+          their journey and discover the difference one person can make.
+        </p>
+      </div>
+    </div>
+
+    <!-- Testimonial Cards -->
+    <div class="row justify-content-center g-4 testimonial-grid">
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="testimonial-card p-4">
+          <div class="quote-icon mx-auto">&#10077;</div>
+          <p class="message mt-3">
+            "I am thankful to the ODFI Foundation for helping me on achieving
+            something I once dreamt about."
           </p>
+          <div class="name">Joe Alexus</div>
+          <div class="role">Benefactor</div>
         </div>
+      </div>
 
-        <div class="testimonial-grid">
-          <!-- Card 1 -->
-          <div class="testimonial-card">
-            <div class="quote-icon">&#10077;</div>
-            <p class="message">
-              "I am thankful to the ODFI Foundation for helping me on achieving
-              something I once dreamt about."
-            </p>
-            <div class="name">Joe Alexus</div>
-            <div class="role">Benefactor</div>
-          </div>
-
-          <!-- Card 2 (Active) -->
-          <div class="testimonial-card active">
-            <div class="quote-icon large">&#10077;</div>
-            <p class="message">
-              "To help others was always been something I want to accomplish. I
-              felt happy to share things that can assist them."
-            </p>
-            <div class="name">Jane Doe</div>
-            <div class="role">Volunteer</div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="testimonial-card">
-            <div class="quote-icon">&#10077;</div>
-            <p class="message">
-              "Supporting this foundation has been one of the most fulfilling
-              decisions I’ve made—knowing my contributions are making a real
-              difference in people’s lives."
-            </p>
-            <div class="name">Lydia Artemis</div>
-            <div class="role">Donor</div>
-          </div>
+      <!-- Card 2 (Active) -->
+      <div class="col-md-4">
+        <div class="testimonial-card active p-4">
+          <div class="quote-icon large mx-auto">&#10077;</div>
+          <p class="message mt-3">
+            "To help others was always been something I want to accomplish. I
+            felt happy to share things that can assist them."
+          </p>
+          <div class="name">Jane Doe</div>
+          <div class="role">Volunteer</div>
         </div>
+      </div>
 
-        <!-- Pagination Dots -->
-        <div class="pagination-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="testimonial-card p-4">
+          <div class="quote-icon mx-auto">&#10077;</div>
+          <p class="message mt-3">
+            "Supporting this foundation has been one of the most fulfilling
+            decisions I’ve made—knowing my contributions are making a real
+            difference in people’s lives."
+          </p>
+          <div class="name">Lydia Artemis</div>
+          <div class="role">Donor</div>
         </div>
-      </section>
+      </div>
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="text-center pagination-dots mt-4">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+  </div>
+</section>
+
 
       <div class="donation-section">
         <div class="donation-how">

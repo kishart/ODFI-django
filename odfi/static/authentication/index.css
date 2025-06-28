@@ -245,55 +245,25 @@ body {
   font-size: 18px;
   margin-right: 6px;
 }
-
 .testimonials {
-  padding: 35px 20px;
   text-align: center;
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-
-  margin-top: 40px;
-  position: relative;
-  /* width: 100vw; */
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: 49.5vw;
-  box-sizing: border-box;
 }
 
-.testimonials h2 {
+.testimonial-header h2 {
   font-size: 2.2rem;
-  margin-top: -40px;
-  text-align: left;
 }
 
 .subheading {
-  text-align: right;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
-  max-width: 800px;
-  margin: 0 auto 50px;
   line-height: 1.6;
-  margin-right: 50px;
-}
-
-.testimonial-grid {
-  display: flex;
-  justify-content: space-around;
-  /* gap: 10px; */
-  flex-wrap: wrap;
+  text-align: justify;
 }
 
 .testimonial-card {
   background: #fff;
-  padding: 30px 20px;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  min-width: 250px;
-  max-width: 300px;
-  position: relative;
   transition: transform 0.3s ease;
 }
 
@@ -311,8 +281,6 @@ body {
   height: 50px;
   display: grid;
   place-items: center;
-  margin: auto;
-  margin-bottom: 20px;
 }
 
 .testimonial-card.active .quote-icon {
@@ -326,7 +294,6 @@ body {
 .message {
   font-style: italic;
   font-size: 14px;
-  line-height: 1.6;
   color: #333;
 }
 
@@ -343,11 +310,7 @@ body {
   text-align: end;
 }
 
-.pagination-dots {
-  margin-top: 40px;
-}
-
-.dot {
+.pagination-dots .dot {
   display: inline-block;
   width: 30px;
   height: 6px;
@@ -357,34 +320,8 @@ body {
   transition: background 0.3s ease;
 }
 
-.dot.active {
+.pagination-dots .dot.active {
   background: #392b88;
-}
-
-.testimonial-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* vertically center both items */
-  /* gap: 20px; */
-  flex-wrap: wrap; /* responsive for smaller screens */
-}
-
-.testimonial-header h2 {
-  flex: 1;
-  font-size: 2.2rem;
-  text-align: left;
-  min-width: 150px;
-}
-
-.testimonial-header .subheading {
-  flex: 3;
-  text-align: right;
-  text-align: justify;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333;
-  min-width: 250px;
-  margin-right: 50px;
 }
 
 .donation-section {
@@ -510,7 +447,7 @@ p {
 .program-card {
   background-color: #043873;
   color: white;
-  width: 180px;
+  width: 300px;
   min-height: 200px;
   padding: 20px;
   border-radius: 10px;
@@ -615,10 +552,7 @@ p {
     width: 1100px;
   }
   .testimonials {
-    padding: 20px 10px;
-    margin-top: 20px;
-    max-width: 1100px;
-    margin-left: -550px;
+    left: 55px;
   }
 
   .testimonials h2 {
@@ -663,6 +597,17 @@ p {
     align-items: center;
     justify-content: center;
   }
+  section.program-cards {
+    margin-right: 50px;
+  }
+  .donation-impact {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 390px) {
@@ -688,10 +633,9 @@ p {
     padding: 40px;
   }
   .testimonials {
-    padding: 20px 10px;
     margin-top: 20px;
-    max-width: 1300px;
-    margin-left: -700px;
+    max-width: 400vw;
+    padding: 30px 50px;
   }
 
   .testimonial-grid {
@@ -749,9 +693,9 @@ p {
   .container1 {
     width: 1500px;
   }
-  .highlights {
-    padding: 80px 90px;
-  }
+    .highlights {
+        padding: 40px 140px;
+    }
   .news-card {
     width: 500px;
   }
@@ -794,46 +738,46 @@ p {
   }
 }
 
-@media (max-width: 810px) {
+@media (max-width: 1024px) {
   .container1 {
-    width: 1800px;
-  }
-  .highlights {
-    padding: 120px 90px;
-  }
-  .news-card {
-    width: 500px;
-  }
-  p.highlights-title {
-    margin-left: -80px;
-  }
-  .highlights {
-    padding: 80px 180px;
-  }
-  .news-card {
-    width: 550px;
-  }
-  .news-section {
-    gap: 80px;
-  }
-  .core,
-  .cta {
     width: 1500px;
   }
-  .testimonials {
-    left: 25%;
+    .highlights {
+      padding: 120px 90px;
+    }
+    .news-card {
+      width: 500px;
+    }
+    p.highlights-title {
+      margin-left: -80px;
+    }
+    .highlights {
+      padding: 80px 180px;
+    }
+    .news-card {
+      width: 550px;
+    }
+    .news-section {
+      gap: 80px;
+    }
+    .core,
+    .cta {
+      width: 1500px;
+    }
+    .testimonials {
+      left: 25%;
+    }
+    .donation-how {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
-  .donation-how {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+  /* desktop */
+  @media (max-width: 1440px) {
   }
-}
 
-/* desktop */
-@media (max-width: 1366px) {
-}
-
-@media (max-width: 1920px) {
-}
+  @media (max-width: 1920px) {
+  }
