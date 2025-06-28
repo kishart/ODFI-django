@@ -13,70 +13,12 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="internal" style="display: flex; align-items: center; gap: 5px; font-size:18px;">
-      <span class="material-symbols-outlined" style="color: white; font-size:28px;">account_circle</span>
-      <p style="margin: 0; color: white;">{{  user.first_name }}</p>
-    </div>
+   {% include 'authentication/admin/anav.html' %}
 
-    <div class="search-bar" style="display: flex; align-items: center; gap: 8px;">
-      <input type="text" placeholder="Quick search" />
-      <span class="material-symbols-outlined" style="font-size: 35px;">
-search
-</span>
-    </div>
-  </header>
 
   <!-- Main Layout -->
   <div class="container" style="background-color: #D0E3F8;" >
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <ul style="list-style: none; padding: 0; margin: 0;"></ul>
-        <li class="active" style="display: flex; align-items: center; gap: 8px; background-color: #012F50; color:#F2E23B; margin:10px; border-radius: 10px; padding: 10px;">
-          <span class="material-symbols-outlined">
-        article
-          </span>
-         <a href="{% url 'dashboard' %}" style="color:#F2E23B; font-weight: bold;
-  text-decoration: none;">SOP Overview</a>
-          </li> 
-        <li style="display: flex; align-items: center; gap: 8px; list-style: none;">
-          <span class="material-symbols-outlined">
-            domain
-          </span>
-          <a href="{% url 'adminis' %}" style="color:black; text-decoration: none;">Administration and Operations</a>
-        </li>
-        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
-book_2
-</span><a href="{% url 'education' %}" style="color:black; text-decoration: none;">Education of Reverts</a>
-</li>
-<li style="display: flex; align-items: center; gap: 8px; list-style: none;">
-<span class="material-symbols-outlined">
-folded_hands
-</span><a href="{% url 'jumuat' %}" style="color:black; text-decoration: none;">Jumuat Prayers</a></li>
-        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
-communication
-</span><a href="{% url 'dawah' %}" style="color:black; text-decoration: none;">Dawah</a></li>
-        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
-massage
-</span><a href="{% url 'qurban' %}" style="color:black; text-decoration: none;">Qurban</a></li>
-        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
-prayer_times
-</span><a href="{% url 'ihya' %}" style="color:black; text-decoration: none;">Ihya Ramadan</a></li>
-        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
-cooking
-</span><a href="{% url 'food' %}" style="color:black; text-decoration: none;">Food Preparation & Management</a></li>
-        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
-build
-</span><a href="{% url 'services' %}" style="color:black; text-decoration: none;">Other Services</a></li>
-        <li style="display: flex; align-items: center; gap: 8px; list-style: none;"><span class="material-symbols-outlined">
-public
-</span><a href="{% url 'public' %}" style="color:black; text-decoration: none;">Public View</a></li>
-        <li style="display: flex; align-items: center; gap: 8px; list-style: none;" class="logout"><span style="font-weight: bold;" class="material-symbols-outlined">
-chip_extraction
-</span> <a href="{% url 'signout' %}" style="color:red; text-decoration: none; font-weight: bold; ">Logout</a></li>
-      </ul>
-    </aside>
+   
 
     <!-- Content Area -->
     <main class="content" style="background-color: #FFFFFF; margin:10px; border-radius: 10px;
@@ -100,9 +42,6 @@ chip_extraction
     </main>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    Copyright 2021. | Rights Reserved
-  </footer>
+  
 </body>
 </html>
