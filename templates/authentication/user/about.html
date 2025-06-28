@@ -1,300 +1,173 @@
 <!DOCTYPE html>
-
-{% load static %}
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About ODFI</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="{% static 'authentication/about.css' %}" />
   <style>
-
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin-top: 90px;
+    }
+    .material-symbols-outlined {
+      font-size: 28px;
+    }
+    .icon-circle {
+      width: 90px;
+      height: 90px;
+      background-color: #2a3f9d;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      color: white;
+    }
+    .partner-box {
+      background-color: #208796;
+      color: white;
+      width: 150px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .principles-header {
+      font-weight: bold;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #012F50;
+      color: white;
+      padding: 20px;
+      width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+    }
+    .navbar {
+      background-color: #012f50 !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-nav .nav-link {
+      color: white !important;
+      margin-right: 15px;
+    }
+    .navbar-nav .nav-link.active {
+      color: yellow !important;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .container-fluid{
+      padding:0px 50px;
+    }
   </style>
 </head>
 <body>
-{% include 'authentication/user/nav.html' %}
+  
+   {% include 'authentication/user/nav.html' %}
     {% block content %}{% endblock content %}
-
-  <!-- visionmission -->
-   <div id="visionMission" class="vision-mission-container">
-    <div class="section">
-      <div class="icon-circle">
-        <span class="material-symbols-outlined" style="font-size: 68px; color: white;">visibility</span>
-    </div>
-      <div class="title">Our Vision</div>
-      <div class="content">
-       <p>A Nation of Ummatan Wasatan:</p>
-        <ul>
+  <div class="container my-5" id="visionMission">
+    <div class="row justify-content-center align-items-center text-center">
+      <div class="col-md-5">
+        <div class="icon-circle">
+          <span class="material-symbols-outlined">visibility</span>
+        </div>
+        <h4 class="fw-bold">Our Vision</h4>
+        <p>A Nation of Ummatan Wasatan:</p>
+        <ul class="list-unstyled">
           <li>The Best Ummah</li>
           <li>The Chosen</li>
           <li>Aadil</li>
           <li>Moderate</li>
         </ul>
       </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div style="margin-bottom:70px;" class="section">
-      <div class="icon-circle">
-        <span class="material-symbols-outlined" style="font-size: 68px; color:white;">rocket</span>
-   
+      <div class="col-md-1 d-none d-md-block">
+        <div style="width: 2px; height: 80%; background-color: #ccc; transform: rotate(15deg); margin: auto;"></div>
       </div>
-      <div  class="title">Our Mission</div>
-      <div style="padding-top:30px;" class="content">
-        Helping the poorest Filipino communities through humanitarian aid, outreach programs and halal-based economic ventures that benefit both Muslims and non-Muslims.
+      <div class="col-md-5">
+        <div class="icon-circle">
+          <span class="material-symbols-outlined">rocket</span>
+        </div>
+        <h4 class="fw-bold">Our Mission</h4>
+        <p style="padding-top:30px;">Helping the poorest Filipino communities through humanitarian aid, outreach programs and halal-based economic ventures that benefit both Muslims and non-Muslims.</p>
       </div>
     </div>
   </div>
 
-    <!-- leadership -->
-<section style="margin-top:80px;background-color: #DCEEEC;" class="leadership-section">
-  <div id="leadership"  class="container3">
-  <p style="font-size: 30px; font-weight:bold; color:black;">Leadership Team</p>
-    <p style="position:relative; top:-25px; font-size: 18px; margin-top:5px; color:black;">At the time of writing (May, 2025), the BOARD OF TRUSTEE of ODFI comprises:</p>
-   </div>
+  <section id="leadership" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="fw-bold">Leadership Team</h2>
+      <p class="text-muted">At the time of writing (May, 2025), the BOARD OF TRUSTEE of ODFI comprises:</p>
 
-   
-
-   <div class="leadership-container">
-  <div class="leadership">
-    <div class="leadership-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOReDg9rAXuEYWmDJDnHtB1Vv-XIFweJNjiQ&s" alt="Card 1">
-      <h3>Abdul Rahman Uy</h3>
-    </div>
-    <div class="leadership-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOReDg9rAXuEYWmDJDnHtB1Vv-XIFweJNjiQ&s" alt="Card 2">
-      <h3>Sofronia Ebale </h3>
-    </div>
-    <div class="leadership-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOReDg9rAXuEYWmDJDnHtB1Vv-XIFweJNjiQ&s" alt="Card 3">
-      <h3>Heidei Aplece</h3>
-    </div>
-  
-  
-  </div>
-   
-</div>
-
- <div class="leadership-container">
-  <div class="leadership">
-    <div class="leadership-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOReDg9rAXuEYWmDJDnHtB1Vv-XIFweJNjiQ&s" alt="Card 1">
-      <h3>Salim Danny Daham</h3>
-    </div>
-    <div class="leadership-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOReDg9rAXuEYWmDJDnHtB1Vv-XIFweJNjiQ&s" alt="Card 2">
-      <h3>Raian Estrera Tampus </h3>
-    </div>
-    <div class="leadership-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOReDg9rAXuEYWmDJDnHtB1Vv-XIFweJNjiQ&s" alt="Card 2">
-      <h3>John Daler Tejones Mancao </h3>
-    </div>
-  
-  
-  
-  </div>
-  
-   
-</div>
-<p class="leader-description">
-  The founding Board of Trustees (BOT) comprise 3 Filipinos and 2 Malaysians: Dato’ Abdul Razak Kechik, Rozita Mohd  Fajar Ali, Bonifacio Quino Uy Jr. (President), Heidie Lampera Aplece (Treasurer), and Sofronia Olila Ebale (Secretary).
-</p>
-
-    
-  
-  </div>
-</section>
-
-
-  <section class="cta">
-    <div class="container4">
-   <p style="font-size: 30px; font-weight:bold; color:black;">Partners and Affiliates </p>
-      <p style="font-size: 18px; margin-top:5px; color:black;">ODFI works in partnership with many government agencies and NGOs in Malaysia and the Philippines, especially:</p>
-      <div class="partners">
-        <div class="partner1" style="text-align: center;">Briged Bakti Malaysia (BBM)</div>
-        <div class="partner2" style="text-align: center;">NCMF</div>
-        <div class="partner3">Cebu Care</div>
-        <div class="partner4">Ummah Care</div>
-        <div class="partner5">MRA</div>
-        <div class="partner6">PDIS</div>
-      </div>
-     
-    </div>
-    </section>
-
-
-    <section class="cta">
-    <div class="container5">
-    <div class="info-box">
-  <div class="info-header">Background Information</div>
-  <div class="info-content">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere facilisis bibendum. 
-      Nam ut urna eu nulla ullamcorper rhoncus. Nullam cursus fringilla ornare. Sed ex eros, 
-      lobortis ut consequat quis, dapibus vitae lorem. Duis quis efficitur diam. Pellentesque id 
-      consectetur enim. Sed venenatis risus non felis suscipit condimentum. Quisque vel malesuada 
-      lectus. Phasellus faucibus dapibus tempor. Vestibulum in dui interdum, elementum erat a, 
-      rutrum nibh. Praesent velit odio, convallis sed leo id, aliquet blandit leo. Nullam vitae 
-      libero efficitur, pretium lacus at, ultric
-    </p>
-  </div>
-</div>
-
-      </div>
-      </section>
-
-
-
-      <div class="container6">
-    <div class="info-boxMunicipality">
-  <div class="info-headerMunicipality">Municipality Islamic Centers</div>
-  <div class="info-contentMunicipality">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere facilisis bibendum. 
-      Nam ut urna eu nulla ullamcorper rhoncus. Nullam cursus fringilla ornare. Sed ex eros, 
-      lobortis ut consequat quis, dapibus vitae lorem. Duis quis efficitur diam. Pellentesque id 
-      consectetur enim. Sed venenatis risus non felis suscipit condimentum. Quisque vel malesuada 
-      lectus. Phasellus faucibus dapibus tempor. Vestibulum in dui interdum, elementum erat a, 
-      rutrum nibh. Praesent velit odio, convallis sed leo id, aliquet blandit leo. Nullam vitae 
-      libero efficitur, pretium lacus at, ultric
-    </p>
-  </div>
-</div>
-
- <div class="info-boxMosques">
-  <div class="info-headerMosques">Mosques/ Musolla under ODFI</div>
-  <div class="info-contentMosques">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere facilisis bibendum. 
-      Nam ut urna eu nulla ullamcorper rhoncus. Nullam cursus fringilla ornare. Sed ex eros, 
-      lobortis ut consequat quis, dapibus vitae lorem. Duis quis efficitur diam. Pellentesque id 
-      consectetur enim. Sed venenatis risus non felis suscipit condimentum. Quisque vel malesuada 
-      lectus. Phasellus faucibus dapibus tempor. Vestibulum in dui interdum, elementum erat a, 
-      rutrum nibh. Praesent velit odio, convallis sed leo id, aliquet blandit leo. Nullam vitae 
-      libero efficitur, pretium lacus at, ultric
-    </p>
-  </div>
-</div>
-
- <div class="info-boxBarangay">
-  <div class="info-headerBarangay">Barangay Community Centers (BCC)</div>
-  <div class="info-contentBarangay">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere facilisis bibendum. 
-      Nam ut urna eu nulla ullamcorper rhoncus. Nullam cursus fringilla ornare. Sed ex eros, 
-      lobortis ut consequat quis, dapibus vitae lorem. Duis quis efficitur diam. Pellentesque id 
-      consectetur enim. Sed venenatis risus non felis suscipit condimentum. Quisque vel malesuada 
-      lectus. Phasellus faucibus dapibus tempor. Vestibulum in dui interdum, elementum erat a, 
-      rutrum nibh. Praesent velit odio, convallis sed leo id, aliquet blandit leo. Nullam vitae 
-      libero efficitur, pretium lacus at, ultric
-    </p>
-  </div>
-</div>
-
+      <div class="d-flex overflow-auto py-4">
+        <div class="d-flex gap-4">
+          <div class="card text-white bg-primary text-center" style="width: 200px;">
+            <img src="https://via.placeholder.com/200x180" class="card-img-top" alt="Leader">
+            <div class="card-body p-2">
+              <h6 class="card-title">Abdul Rahman Uy</h6>
+            </div>
+          </div>
+          <!-- More cards here -->
+        </div>
       </div>
 
+      <p class="mt-4 px-5">The founding Board of Trustees (BOT) comprise 3 Filipinos and 2 Malaysians: Dato’ Abdul Razak Kechik, Rozita Mohd Fajar Ali, Bonifacio Quino Uy Jr. (President), Heidie Lampera Aplece (Treasurer), and Sofronia Olila Ebale (Secretary).</p>
+    </div>
+  </section>
 
-        <section class="contain">
-    <div class="container7">
-  <div class="principles">ODFI Basic Principles</div>
-</div>
-
-      </section>
-<section class="principles-grid">
-  <div class="principle-card human ">
-    <h3>Basic Human Resource Principles</h3>
-      <ul>
-      <li>The underlying basis of our human resource (HR) processes are amanah, integrity, righteousness, effectiveness, and efficiency. All ODFI workforce are our brothers and sisters in Islam.
-</li>
-      <li>We aim to create a respectful, professional, and Islamic working environment for all members of the workforce. In addition, we welcome everyone who are honest, hardworking, and share our values.
-</li>
-      <li>Selection of our workforce is based on character (akhlaq), skills, competencies, and commitment to our mission and vision. No cronyism and nepotism are allowed. All selection of new recruits requires formal approval from BBM unless otherwise specified.
-</li>
-      <li>All members of the workforce must follow Islamic manners (adab) and rules (hukum), including honesty, respect, teamwork, and punctuality. No negativity or antisocial traits, which include but not limited to gossip, mal fide (bad intention), backbiting, discrimination, doing takfir, unfair/discriminatory treatment and favouring own but unqualified family members, are allowed.
-</li>
-<li>Problems between team members must be handled calmly, respectfully, and privately and in accordance to Islamic rulings and values. If needed, the issue can be brought to the leadership for guidance and resolution.</li>
-    </ul>
-  </div>
-
-  <div class="principle-card operational">
-    <h3>Basic Operational Principles</h3>
-    <ul>
-      <li>The underlying basis of our operational processes are amanah, righteousness, effectiveness, efficiency, frugality, and non-wastefulness.
-</li>
-      <li>Programs are planned based on the realistic needs of the community, and involve community members when and where possible.
-</li>
-      <li>We treat everyone with respect regardless of religion, tribe and/or background.
-</li>
-      <li>We expect every center to maintain safety, dignity, and hygiene/cleanliness (mutaharah) in all our activities.</li>  </ul>
-  </div>
-
-  <div class="principle-card workforce">
-    <h3>Basic Workforce Training & Development Principles</h3>
-    <ul>
-      <li>The underlying basis of our workforce training & development processes are amanah, righteousness, integrity, effectiveness, and efficiency.
-
-</li>
-      <li>We aim to build knowledge - especially Islamic knowledge, competencies, and skills among members of our workforce, volunteers, and the community.  
-</li>
-      <li>One of our core businesses is that of providing Islamic education to reverts. Therefore, all members of our workforce are required to master the topics given in APPENDIX 1
-</li>
-      <li>All members of the workforce are encouraged to continuously learn and apply what they learn in their daily lives.</li>
-    </ul>
-  </div>
-
-  <div class="principle-card financial">
-    <h3>Basic Financial Principles</h3>
-    <ul>
-      <li>The underlying basis of our financial processes are amanah, righteousness, effectiveness, efficiency, frugality, and non-wastefulness.</li>
-      <li>All monetary transactions must fulfill the Islamic obligation of being halal (permissible). We accept donations, grants, zakat, sadaqah, and halal business profits.</li>
-      <li>We keep clear and accurate records of all income and expenses, including receipts and invoices.</li>
-      <li>All spending must benefit the community and align with our mission.</li>
-      <li>All outside-of-OPEX spending must be approved by BBM (Dato’ Razak or his representative) for prior approval.</li>
-      <li>Monthly reports must be prepared by the Center Leader (PIC), reviewed by the Regional Director (RD) and submitted to BBM every month.</li>
-      <li>BBM reviews and audits all OPEX, CAPEX, and expenditures outside of OPEX at least once a year.</li>
-      <li>Any falsification of reporting, especially financial matters, is a violation and will lead to disciplinary action.</li>
-      <li>We expect honesty, integrity and transparency. No cronyism or nepotism allowed.</li>
-    </ul> 
-  </div>
-</section>
-
-
-
-<div class="container11">
-
-   <div class="desc">
-    <h2>Islam – What Every Revert and ODFI Member Should Know</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae odio at magna bibendum rhoncus et at leo. Aenean faucibus scelerisque condimentum. Nunc velit augue, pellentesque quis ligula in, condimentum vestibulum massa. Fusce aliquam condimentum posuere. Suspendisse maximus convallis nisi.</p>
-    <p>Donec nibh massa, malesuada tempor ex in, malesuada efficitur turpis. Duis aliquam varius tristique. Aenean dapibus eros quis ligula, et mattis semper erat interdum at. Vestibulum non justo. Praesent in ipsum ut augue.</p>
-  </div>
-
-  <!-- Section 2 -->
-  <div class="desc">
-    <h2>Personality – Dato Razak, Office Bearers of ODFI, Center Leaders</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae odio at magna bibendum rhoncus et at leo. Aenean faucibus scelerisque condimentum.</p>
-
-    <div class="profiles">
-      <div class="profile">
-        <div class="avatar"></div>
-        <p>Name</p>
-      </div>
-      <div class="profile">
-        <div class="avatar"></div>
-        <p>Name</p>
-      </div>
-      <div class="profile">
-        <div class="avatar"></div>
-        <p>Name</p>
+  <section id="partners" class="py-5">
+    <div class="container text-center">
+      <h3 class="fw-bold mb-3">Partners and Affiliates</h3>
+      <p>ODFI works in partnership with many government agencies and NGOs in Malaysia and the Philippines, especially:</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+        <div class="partner-box">Briged Bakti Malaysia (BBM)</div>
+        <div class="partner-box">NCMF</div>
+        <div class="partner-box">Cebu Care</div>
+        <div class="partner-box">Ummah Care</div>
+        <div class="partner-box">MRA</div>
+        <div class="partner-box">PDIS</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  </div>
-  
-<footer class="footer">
- © 2025 ODFI. All rights reserved.
-</footer>
+  <div class="principles-header">ODFI Basic Principles</div>
+
+  <section class="container py-5">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="bg-light p-4 shadow rounded">
+          <h5 class="fw-bold">Basic Human Resource Principles</h5>
+          <ul>
+            <li>Amanah, integrity, and professionalism in HR processes.</li>
+            <li>No cronyism or nepotism allowed.</li>
+            <li>Workforce must follow Islamic manners.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="bg-light p-4 shadow rounded">
+          <h5 class="fw-bold">Basic Operational Principles</h5>
+          <ul>
+            <li>Effective and community-centered programs.</li>
+            <li>Frugality and non-wastefulness.</li>
+            <li>Respect for all backgrounds.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    © 2025 ODFI. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -21,36 +21,8 @@
     ></script>
   </head>
   <body>
-    <div class="nav">
-      <nav class="navbar">
-        <div class="left-side">
-          <div class="logo">ODFI</div>
-          <ul class="nav-links">
-            <li>
-              <a
-                style="
-                  font-weight: bold;
-                  text-decoration: underline;
-                  color: #ffc107;
-                "
-                href="home.html"
-                >Home</a
-              >
-            </li>
-            <li class="dropdown">
-              <a href="{% url 'about' %}">About </a>
-            </li>
-            <li><a href="{% url 'gallery' %}">Gallery</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-          </ul>
-        </div>
-        <div class="internal">
-          <a href="{% url 'signin' %}">
-            <span class="material-symbols-outlined" style="color: white;" >account_circle</span>
-          </a>
-        </div>
-      </nav>
-    </div>
+      {% include 'authentication/user/nav.html' %}
+    {% block content %}{% endblock content %}
 
     <div class="container1">
       <section class="hero">
