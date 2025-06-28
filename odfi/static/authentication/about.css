@@ -544,3 +544,197 @@ body {
   color: white;
   font-size: 12px;
 }
+
+
+
+
+
+
+/* Mobile */
+@media (max-width: 360px) {
+ 
+
+section#leadership.leaders{
+  margin-top:900px;
+}
+
+}
+
+@media (max-width: 390px) {
+  .container1 {
+    width: 1200px;
+  }
+  .highlights {
+    padding: 80px 90px;
+  }
+  .news-card {
+    width: 500px;
+  }
+  p.highlights-title {
+    margin-left: -80px;
+  }
+
+  .core,
+  .cta {
+    width: 1200px;
+  }
+
+  .program-cards {
+    padding: 40px;
+  }
+  .testimonials {
+    margin-top: 20px;
+    max-width: 400vw;
+    padding: 30px 50px;
+  }
+
+  .testimonial-grid {
+    margin-left: 100px;
+  }
+  .testimonials h2 {
+    font-size: 1.5rem;
+    margin-left: 10px;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .subheading {
+    font-size: 12px;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto 30px;
+    margin-right: 0;
+    line-height: 1.4;
+  }
+
+  .testimonial-card {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .quote-icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .testimonial-card.active .quote-icon {
+    font-size: 28px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .pagination-dots {
+    margin-top: 20px;
+  }
+  .donation-how {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .donate-button {
+    width: 30%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .container1 {
+    width: 1500px;
+  }
+    .highlights {
+        padding: 40px 140px;
+    }
+  .news-card {
+    width: 500px;
+  }
+  p.highlights-title {
+    margin-left: -80px;
+  }
+  .highlights {
+    padding: 80px 180px;
+  }
+  .news-card {
+    width: 550px;
+  }
+  .news-section {
+    gap: 80px;
+  }
+  .core,
+  .cta {
+    width: 1500px;
+  }
+  .testimonials {
+    left: 25%;
+  }
+  .donation-how {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .donate-button {
+    width: 30%;
+  }
+  .impact-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+   .testimonial-header h2,
+  .testimonial-header {
+    text-align: center;
+  }
+  .donation-section {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container1 {
+    width: 1500px;
+  }
+    .highlights {
+      padding: 120px 90px;
+    }
+    .news-card {
+      width: 500px;
+    }
+    p.highlights-title {
+      margin-left: -80px;
+    }
+    .highlights {
+      padding: 80px 180px;
+    }
+    .news-card {
+      width: 550px;
+    }
+    .news-section {
+      gap: 80px;
+    }
+    .core,
+    .cta {
+      width: 1500px;
+    }
+    .testimonials {
+      left: 25%;
+    }
+    .donation-how {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  /* desktop */
+  @media (max-width: 1440px) {
+  }
+
+  @media (max-width: 1920px) {
+  }

@@ -517,20 +517,7 @@ p {
   background-color: #003366; /* deep blue */
 }
 
-@media (max-width: 768px) {
-  /* .testimonial-header {
-    flex-direction: column;
-    text-align: center;
-  } */
 
-  .testimonial-header h2,
-  .testimonial-header {
-    text-align: center;
-  }
-  .donation-section {
-    flex-direction: column;
-  }
-}
 
 /* Mobile */
 @media (max-width: 360px) {
@@ -689,6 +676,7 @@ p {
 }
 
 /* Tablet */
+/* Tablet */
 @media (max-width: 768px) {
   .container1 {
     width: 1500px;
@@ -736,7 +724,15 @@ p {
     margin-left: auto;
     margin-right: auto;
   }
+   .testimonial-header h2,
+  .testimonial-header {
+    text-align: center;
+  }
+  .donation-section {
+    flex-direction: column;
+  }
 }
+
 
 @media (max-width: 1024px) {
   .container1 {
