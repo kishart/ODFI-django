@@ -22,3 +22,4 @@ urlpatterns = [
     path('', include('authentication.urls')),
     
 ]
+handler404 = 'authentication.views.custom_404_view'

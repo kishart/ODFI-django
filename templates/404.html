@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>404 - Sign In Required</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fef6f6;
+      color: #990000;
+      text-align: center;
+      padding: 100px;
+    }
+    h1 {
+      font-size: 48px;
+    }
+    p {
+      font-size: 18px;
+    }
+    a {
+      color: #990000;
+    }
+  </style>
+</head>
+<body>
+  <h1>404 - Page Not Found</h1>
+  <p>You must be <a href="{% url 'signin' %}">signed in</a> to view this page.</p>
+  <p>Internal access only.</p>
+</body>
+</html>

@@ -8,6 +8,19 @@ from .models import Photo
 from .models import MediaGroup, MediaFile
 from .models import Files
 from django.shortcuts import get_object_or_404
+from functools import wraps
+from django.http import Http404
+
+def require_login_or_404(view_func):
+    @wraps(view_func)
+    def _wrapped_view(request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            raise Http404("You must be signed in.")
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
+
+
+
 
 def delete_photo(request, photo_id):
     photo = get_object_or_404(Photo, id=photo_id)
@@ -160,30 +173,35 @@ def agallery(request):
     })
 
 
-
+@require_login_or_404
 def dashboard(request):
     return render(request, "authentication/admin/dashboard.html")
 
+@require_login_or_404
 def education(request):
     return render(request, "authentication/admin/education.html")
 
-
+@require_login_or_404
 def adminis(request):
     return render(request, 'authentication/admin/adminis.html', {
         'active_page': 'adminis'
     })
 
+@require_login_or_404
 def jumuat(request):
     return render(request, "authentication/admin/jumuat.html")
 
+@require_login_or_404
 def food(request):
     return render(request, "authentication/admin/food.html")
 
+@require_login_or_404
 def ihya(request):
     return render(request, "authentication/admin/ihya.html")
 
 # views.py
 
+@require_login_or_404
 def public(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -200,14 +218,20 @@ def public(request):
     groups = MediaGroup.objects.prefetch_related('files').order_by('-uploaded_at')
     return render(request, 'authentication/admin/public.html', {'groups': groups})
 
+@require_login_or_404
 def qurban(request):
     return render(request, "authentication/admin/qurban.html")
 
+@require_login_or_404
 def services(request):
     return render(request, "authentication/admin/services.html")
 
+@require_login_or_404
 def dawah(request):
     return render(request, "authentication/admin/dawah.html")
 
 
+
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
 

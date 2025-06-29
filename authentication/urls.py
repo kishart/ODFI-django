@@ -36,3 +36,4 @@ path('adminis/', views.adminis, name='adminis'),
  path('services/', views.services, name="services"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+handler404 = 'authentication.views.custom_404_view'
