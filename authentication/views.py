@@ -184,8 +184,23 @@ def ihya(request):
     return render(request, "authentication/admin/ihya.html")
 
 def public(request):
-    return render(request, "authentication/admin/public.html")  
+    new_urls = []
+    
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        files = request.FILES.getlist('files')
+        
+        for file in files:
+            new_file = Files(file=file, title=title, description=description)
+            new_file.save()
+            new_urls.append(new_file.file.url)
 
+    all_files = Files.objects.all().order_by('-id')
+    return render(request, 'authentication/admin/public.html', {
+        'files': all_files,
+        'new_urls': new_urls
+    })
 def qurban(request):
     return render(request, "authentication/admin/qurban.html")
 

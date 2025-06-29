@@ -1,23 +1,259 @@
 <!DOCTYPE html>
-
 {% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link rel="stylesheet" href="{% static 'authentication/adminis.css' %}">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'authentication/adminis.css' %}">
+  <style>
+    .tab-container {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+      background-color: #d3e0ed;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 15px 0;
+      text-align: center;
+      cursor: pointer;
+      background-color: #d3e0ed;
+      font-weight: bold;
+      color: black;
+      border-right: 1px solid #aaa;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .tab:last-child {
+      border-right: none;
+    }
+
+    .tab.active {
+      background-color: #3c475f;
+      color: white;
+    }
+
+    .tab-content {
+      padding: 20px;
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    main.page-content {
+      background-color: #fff;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+
+    /* Form Styles */
+form {
+  margin-top: 20px;
+  background-color: #f5f7fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Button Styles */
+button[type="submit"] {
+  background-color: #3c475f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #2a3347;
+}
+
+/* Uploaded Files Section */
+.mt-5 {
+  margin-top: 40px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+a {
+  color: #3c475f;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+thead {
+  background-color: #3c475f;
+  color: white;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+  </style>
 </head>
 <body>
-    {% include 'authentication/admin/anav.html' %}
-    {% block content %}{% endblock content %}
 
+  {% include 'authentication/admin/anav.html' %}
+
+  {% block content %}
     <main class="content" style="background-color: #FFFFFF; margin:10px; border-radius: 10px;
 ">
 
-<p class="wel">public</p>
+    <div class="tab-container">
+      <div class="tab active" data-target="gallery">Gallery</div>
+      <div class="tab" data-target="highlights">Highlights</div>
+      <div class="tab" data-target="testimonials">Testimonials</div>
+    </div>
 
-</main>
+    <div id="gallery" class="tab-content active">
+      <h2>Gallery</h2>
+
+      <h3>Upload Media</h3>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" name="title" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea name="description" rows="3" class="form-control" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Select Files</label>
+          <input type="file" name="files" multiple accept="image/*,video/*,audio/*" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+      </form>
+
+      {% if new_urls %}
+      <div class="mt-5 text-center">
+        <h3 style="color:black;">Uploaded Files:</h3>
+        {% for url in new_urls %}
+        <div><a href="{{ url }}" target="_blank">{{ url }}</a></div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <hr class="my-5">
+
+      <h3>All Uploaded Media</h3>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>File</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Preview</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for file in files %}
+          <tr>
+            <td>{{ file.file.name|slice:"6:" }}</td>
+            <td>{{ file.title }}</td>
+            <td>{{ file.description }}</td>
+            <td><a href="{{ file.file.url }}" target="_blank">View</a></td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" class="text-center">No media uploaded yet.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div id="highlights" class="tab-content">
+      <h2>Highlights</h2>
+      <p>This is the Highlights section.</p>
+    </div>
+
+    <div id="testimonials" class="tab-content">
+      <h2>Testimonials</h2>
+      <p>This is the Testimonials section.</p>
+    </div>
+
+  </main>
+  {% endblock content %}
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        const target = document.getElementById(tab.getAttribute('data-target'));
+        if (target) {
+          target.classList.add('active');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
