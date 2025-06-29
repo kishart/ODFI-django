@@ -119,32 +119,84 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Table Styles */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 30px;
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
+ 
+  h3 {
+    color: #333;
+    margin-bottom: 20px;
+  }
 
-th,
-td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
+  .media-group {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
 
-thead {
-  background-color: #3c475f;
-  color: white;
-}
+  .media-header {
+    background: #007bff;
+    color: white;
+    padding: 16px 20px;
+  }
 
-tbody tr:hover {
-  background-color: #f1f1f1;
-}
+  .media-header h5 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+
+  .media-header small {
+    font-size: 0.9em;
+    display: block;
+    margin-top: 6px;
+    opacity: 0.9;
+  }
+
+  .media-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background: #fafafa;
+  }
+
+  .media-body > div {
+    max-width: 200px;
+    word-break: break-word;
+  }
+
+  .media-body img,
+  .media-body video {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .media-body audio {
+    width: 100%;
+  }
+
+  .media-body a {
+    display: inline-block;
+    margin-top: 5px;
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .media-body a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .media-body {
+      flex-direction: column;
+    }
+
+    .media-body > div {
+      width: 100%;
+    }
+  }
+
+
 
   </style>
 </head>
@@ -164,64 +216,68 @@ tbody tr:hover {
 
     <div id="gallery" class="tab-content active">
       <h2>Gallery</h2>
-
       <h3>Upload Media</h3>
-      <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group">
-          <label>Title</label>
-          <input type="text" name="title" class="form-control" required>
-        </div>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" name="title" class="form-control" required>
+  </div>
 
-        <div class="form-group">
-          <label>Description</label>
-          <textarea name="description" rows="3" class="form-control" required></textarea>
-        </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea name="description" rows="3" class="form-control" required></textarea>
+  </div>
 
-        <div class="form-group">
-          <label>Select Files</label>
-          <input type="file" name="files" multiple accept="image/*,video/*,audio/*" class="form-control" required>
-        </div>
+  <div class="form-group">
+    <label>Select Files (Images, Videos, or Audio)</label>
+    <input type="file" name="files" multiple accept="image/*,video/*,audio/*" class="form-control" required>
+  </div>
 
-        <button type="submit" class="btn btn-primary mt-2">Submit</button>
-      </form>
+  <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>
 
-      {% if new_urls %}
-      <div class="mt-5 text-center">
-        <h3 style="color:black;">Uploaded Files:</h3>
-        {% for url in new_urls %}
-        <div><a href="{{ url }}" target="_blank">{{ url }}</a></div>
-        {% endfor %}
-      </div>
-      {% endif %}
 
-      <hr class="my-5">
+   <h3>All Uploaded Media Groups</h3>
+<h3>All Uploaded Media Groups</h3>
+{% for group in groups %}
+  <div class="media-group">
+    <div class="media-header">
+      <h5>{{ group.title }}</h5>
+      <small>{{ group.description }}</small>
+    </div>
+    <div class="media-body">
+      {% for media in group.files.all %}
+        {% if ".jpg" in media.file.url|lower or ".png" in media.file.url|lower or ".jpeg" in media.file.url|lower %}
+          <div>
+            <img src="{{ media.file.url }}" alt="image">
+          </div>
+        {% elif ".mp4" in media.file.url|lower or ".mov" in media.file.url|lower %}
+          <div>
+            <video controls>
+              <source src="{{ media.file.url }}">
+            </video>
+          </div>
+        {% elif ".mp3" in media.file.url|lower %}
+          <div>
+            <audio controls>
+              <source src="{{ media.file.url }}">
+            </audio>
+          </div>
+        {% else %}
+          <div>
+            <a href="{{ media.file.url }}" target="_blank">Download file</a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% empty %}
+  <p>No media uploaded yet.</p>
+{% endfor %}
 
-      <h3>All Uploaded Media</h3>
-      <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th>File</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Preview</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for file in files %}
-          <tr>
-            <td>{{ file.file.name|slice:"6:" }}</td>
-            <td>{{ file.title }}</td>
-            <td>{{ file.description }}</td>
-            <td><a href="{{ file.file.url }}" target="_blank">View</a></td>
-          </tr>
-          {% empty %}
-          <tr>
-            <td colspan="4" class="text-center">No media uploaded yet.</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+
     </div>
 
     <div id="highlights" class="tab-content">

@@ -3,15 +3,15 @@ from django.db import models
 from django.conf import settings
 from django.conf.urls.static import static
 
-# Create your models here.
 
-# class Photo(models.Model):
-#     image = models.ImageField(upload_to='photos/')
-#     uploaded_at = models.DateTimeField(auto_now_add=True)
+class MediaGroup(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
-#     def __str__(self):
-#         return f"Photo {self.id} uploaded at {self.uploaded_at}"
-    
+class MediaFile(models.Model):
+    group = models.ForeignKey(MediaGroup, on_delete=models.CASCADE, related_name='files')
+    file = models.FileField(upload_to='uploads/')
 
 
 class Files(models.Model):

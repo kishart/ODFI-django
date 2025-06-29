@@ -5,8 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import PhotoForm
 from .models import Photo
-from .forms import MediaForm
-from .models import Media
+from .models import MediaGroup, MediaFile
 from .models import Files
 from django.shortcuts import get_object_or_404
 
@@ -183,24 +182,24 @@ def food(request):
 def ihya(request):
     return render(request, "authentication/admin/ihya.html")
 
+# views.py
+
 def public(request):
-    new_urls = []
-    
     if request.method == 'POST':
         title = request.POST.get('title')
         description = request.POST.get('description')
-        files = request.FILES.getlist('files')
-        
-        for file in files:
-            new_file = Files(file=file, title=title, description=description)
-            new_file.save()
-            new_urls.append(new_file.file.url)
+        uploaded_files = request.FILES.getlist('files')
 
-    all_files = Files.objects.all().order_by('-id')
-    return render(request, 'authentication/admin/public.html', {
-        'files': all_files,
-        'new_urls': new_urls
-    })
+        if title and description and uploaded_files:
+            group = MediaGroup.objects.create(title=title, description=description)
+            for f in uploaded_files:
+                MediaFile.objects.create(group=group, file=f)
+
+            return redirect('public')  # Replace with your actual view name
+
+    groups = MediaGroup.objects.prefetch_related('files').order_by('-uploaded_at')
+    return render(request, 'authentication/admin/public.html', {'groups': groups})
+
 def qurban(request):
     return render(request, "authentication/admin/qurban.html")
 
