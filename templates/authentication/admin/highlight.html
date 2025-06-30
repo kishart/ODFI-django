@@ -74,23 +74,34 @@
 <body>
     <h1>Highlights</h1>
     {% for item in highlights %}
-    <div class="highlight">
-        <div class="highlight-wrapper">
-            <img src="{{ item.image.url }}" alt="Highlight Image">
-            <span class="highlight-type 
-                {% if item.get_type_display|lower == 'news' %}highlight-type-news{% elif item.get_type_display|lower == 'event' %}highlight-type-event{% endif %}">
-                {{ item.get_type_display }}
-            </span>
-        </div>
-        <div class="highlight-content">
-            <h2 class="highlight-title">{{ item.title }}</h2>
-            <p class="highlight-description">{{ item.description }}</p>
-            <p class="highlight-date">
-                <span class="highlight-date-icon">📅</span> 
-                {{ item.date }}
-            </p>
+   <div class="highlight">
+    <div class="highlight-wrapper">
+        <img src="{{ item.image.url }}" alt="Highlight Image">
+        <span class="highlight-type 
+            {% if item.get_type_display|lower == 'news' %}highlight-type-news{% elif item.get_type_display|lower == 'event' %}highlight-type-event{% endif %}">
+            {{ item.get_type_display }}
+        </span>
+    </div>
+    <div class="highlight-content">
+        <h2 class="highlight-title">{{ item.title }}</h2>
+        <p class="highlight-description">{{ item.description }}</p>
+        <p class="highlight-date">
+            <span class="highlight-date-icon">📅</span> 
+            {{ item.date }}
+        </p>
+
+        <!-- ✅ Edit and Delete buttons -->
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+            <a href="{% url 'edit_highlight' item.id %}" style="color: #fff; background-color: #28a745; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 13px;">Edit</a>
+            
+            <form method="post" action="{% url 'delete_highlight' item.id %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this highlight?');" style="color: #fff; background-color: #dc3545; padding: 6px 12px; border: none; border-radius: 4px; font-size: 13px;">Delete</button>
+            </form>
         </div>
     </div>
+</div>
+
     {% endfor %}
 </body>
 </html>

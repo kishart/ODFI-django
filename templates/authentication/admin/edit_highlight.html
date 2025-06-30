@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Highlight</title>
+</head>
+<body>
+    <h1>Edit Highlight</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        <a href="{% url 'highlight_list' %}">Cancel</a>
+    </form>
+</body>
+</html>

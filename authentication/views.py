@@ -252,7 +252,23 @@ def dawah(request):
     return render(request, "authentication/admin/dawah.html")
 
 
+def edit_highlight(request, pk):
+    highlight = get_object_or_404(Highlight, pk=pk)
+    if request.method == 'POST':
+        form = HighlightForm(request.POST, request.FILES, instance=highlight)
+        if form.is_valid():
+            form.save()
+            return redirect('highlight_list')  # change to your highlight page name
+    else:
+        form = HighlightForm(instance=highlight)
+    return render(request, 'authentication/admin/edit_highlight.html', {'form': form})
 
+def delete_highlight(request, pk):
+    highlight = get_object_or_404(Highlight, pk=pk)
+    if request.method == 'POST':
+        highlight.delete()
+        return redirect('highlight_list')  # change to your highlight page name
+    
 def custom_404_view(request, exception):
     return render(request, '404.html', status=404)
 
