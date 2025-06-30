@@ -36,6 +36,7 @@ path('adminis/', views.adminis, name='adminis'),
  path('qurban/', views.qurban, name="qurban"),
  path('services/', views.services, name="services"),
      path('highlight/', highlight, name='highlight_list'),
+       
     path('addhighlight/', addhighlight, name='add_highlight'),
       path('highlights/edit/<int:pk>/', views.edit_highlight, name='edit_highlight'),
     path('highlights/delete/<int:pk>/', views.delete_highlight, name='delete_highlight'),

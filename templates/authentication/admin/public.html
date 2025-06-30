@@ -1,315 +1,93 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="{% static 'authentication/adminis.css' %}">
-  <style>
-    .tab-container {
-      display: flex;
-      border-bottom: 2px solid #ccc;
-      background-color: #d3e0ed;
-    }
-
-    .tab {
-      flex: 1;
-      padding: 15px 0;
-      text-align: center;
-      cursor: pointer;
-      background-color: #d3e0ed;
-      font-weight: bold;
-      color: black;
-      border-right: 1px solid #aaa;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .tab:last-child {
-      border-right: none;
-    }
-
-    .tab.active {
-      background-color: #3c475f;
-      color: white;
-    }
-
-    .tab-content {
-      padding: 20px;
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    main.page-content {
-      background-color: #fff;
-      margin: 10px;
-      border-radius: 10px;
-    }
-
-
-    /* Form Styles */
-form {
-  margin-top: 20px;
-  background-color: #f5f7fa;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'authentication/adminis.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=perm_media" />
+    <style>
+ .tab-container {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin: 40px auto;
+  flex-wrap: wrap;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-input[type="text"],
-textarea,
-input[type="file"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-textarea {
-  resize: vertical;
-}
-
-/* Button Styles */
-button[type="submit"] {
-  background-color: #3c475f;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
+.tab {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(145deg, #01375f, #011e35);
+  border-radius: 20px;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+  color: #f2e23b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  transition: all 0.3s ease;
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
+  margin-top:50px;
 }
 
-button[type="submit"]:hover {
-  background-color: #2a3347;
-}
-
-/* Uploaded Files Section */
-.mt-5 {
-  margin-top: 40px;
-}
-
-.text-center {
-  text-align: center;
-}
-
-a {
-  color: #3c475f;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
- 
-  h3 {
-    color: #333;
-    margin-bottom: 20px;
-  }
-
-  .media-group {
-    background: #fff;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-  }
-
-  .media-header {
-    background: #007bff;
-    color: white;
-    padding: 16px 20px;
-  }
-
-  .media-header h5 {
-    margin: 0;
-    font-size: 1.2em;
-  }
-
-  .media-header small {
-    font-size: 0.9em;
-    display: block;
-    margin-top: 6px;
-    opacity: 0.9;
-  }
-
-  .media-body {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 20px;
-    background: #fafafa;
-  }
-
-  .media-body > div {
-    max-width: 200px;
-    word-break: break-word;
-  }
-
-  .media-body img,
-  .media-body video {
-    width: 100%;
-    border-radius: 8px;
-    display: block;
-  }
-
-  .media-body audio {
-    width: 100%;
-  }
-
-  .media-body a {
-    display: inline-block;
-    margin-top: 5px;
-    color: #007bff;
-    text-decoration: none;
-  }
-
-  .media-body a:hover {
-    text-decoration: underline;
-  }
-
-  @media (max-width: 600px) {
-    .media-body {
-      flex-direction: column;
-    }
-
-    .media-body > div {
-      width: 100%;
-    }
-  }
-
-
-
-  </style>
-</head>
-<body>
-
-  {% include 'authentication/admin/anav.html' %}
-
-  {% block content %}
-    <main class="content" style="background-color: #FFFFFF; margin:10px; border-radius: 10px;
-">
-
-    <div class="tab-container">
-      <div class="tab active" data-target="gallery">Gallery</div>
-      <div class="tab" data-target="highlights">Highlights</div>
-      <div class="tab" data-target="testimonials">Testimonials</div>
-    </div>
-
-    <div id="gallery" class="tab-content active">
-      <h2>Gallery</h2>
-      <h3>Upload Media</h3>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
+.tab:hover {
+  transform: translateY(-5px) scale(1.15);
+  width: 150px;
+  height: 150px;
+  box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(145deg, #014d7d, #012f50);
   
-  <div class="form-group">
-    <label>Title</label>
-    <input type="text" name="title" class="form-control" required>
+  border: 3px solid #f2e23b;
+}
+
+.tab.active {
+  background-color: #014d7d;
+  transform: scale(1.05);
+}
+
+      
+    </style>
+  </head>
+  <body>
+    {% include 'authentication/admin/anav.html' %} {% block content %}
+    <main
+      class="content"
+      style="background-color: #ffffff; margin: 10px; border-radius: 10px">
+   
+      <h2 style=" margin-top:30px;text-align: center; font-size: 28px; margin-bottom: 10px; color: #012f50;">
+  Manage Public Content
+</h2>
+<p style="text-align: center; font-size: 16px; color: #555; margin-bottom: 40px;">
+  Select a section below to manage the highlights, testimonials, or gallery items for the Public View.
+</p>
+      <div class="tab-container">
+
+
+
+<div class="tab" data-target="highlights">
+ <a href="{% url 'highlight_list' %}" 
+   class="{% if request.resolver_match.url_name == 'highlight' %}active{% endif %}"
+   {% if request.resolver_match.url_name == 'highlight' %} {% endif %}>
+   <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">ink_highlighter_move</span>
+</a>
+
+</div>
+
+  <div class="tab" data-target="testimonials">
+    <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">3p</span>
   </div>
-
-  <div class="form-group">
-    <label>Description</label>
-    <textarea name="description" rows="3" class="form-control" required></textarea>
+  <div class="tab " data-target="gallery">
+   <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">perm_media</span>
   </div>
-
-  <div class="form-group">
-    <label>Select Files (Images, Videos, or Audio)</label>
-    <input type="file" name="files" multiple accept="image/*,video/*,audio/*" class="form-control" required>
-  </div>
-
-  <button type="submit" class="btn btn-primary mt-2">Submit</button>
-</form>
+</div>
 
 
-   <h3>All Uploaded Media Groups</h3>
-<h3>All Uploaded Media Groups</h3>
-{% for group in groups %}
-  <div class="media-group">
-    <div class="media-header">
-      <h5>{{ group.title }}</h5>
-      <small>{{ group.description }}</small>
-    </div>
-    <div class="media-body">
-      {% for media in group.files.all %}
-        {% if ".jpg" in media.file.url|lower or ".png" in media.file.url|lower or ".jpeg" in media.file.url|lower %}
-          <div>
-            <img src="{{ media.file.url }}" alt="image">
-          </div>
-        {% elif ".mp4" in media.file.url|lower or ".mov" in media.file.url|lower %}
-          <div>
-            <video controls>
-              <source src="{{ media.file.url }}">
-            </video>
-          </div>
-        {% elif ".mp3" in media.file.url|lower %}
-          <div>
-            <audio controls>
-              <source src="{{ media.file.url }}">
-            </audio>
-          </div>
-        {% else %}
-          <div>
-            <a href="{{ media.file.url }}" target="_blank">Download file</a>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-{% empty %}
-  <p>No media uploaded yet.</p>
-{% endfor %}
 
-
-    </div>
-
-    <div id="highlights" class="tab-content">
-      <h2>Highlights</h2>
-      <p>This is the Highlights section.</p>
-    </div>
-
-    <div id="testimonials" class="tab-content">
-      <h2>Testimonials</h2>
-      <p>This is the Testimonials section.</p>
-    </div>
-
-  </main>
-  {% endblock content %}
-
-  <script>
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.tab-content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-
-        tab.classList.add('active');
-        const target = document.getElementById(tab.getAttribute('data-target'));
-        if (target) {
-          target.classList.add('active');
-        }
-      });
-    });
-  </script>
-
-</body>
+    </main>
+    {% endblock content %}
+  </body>
 </html>
