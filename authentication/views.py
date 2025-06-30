@@ -10,6 +10,23 @@ from .models import Files
 from django.shortcuts import get_object_or_404
 from functools import wraps
 from django.http import Http404
+from .models import Highlight
+from .forms import HighlightForm
+
+def highlight(request):
+    highlights = Highlight.objects.all().order_by('-date')
+    return render(request, 'authentication/admin/highlight.html', {'highlights': highlights})
+
+def addhighlight(request):
+    if request.method == 'POST':
+        form = HighlightForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('highlight_list')  # Correct use of redirect
+    else:
+        form = HighlightForm()
+
+    return render(request, 'authentication/admin/addhighlight.html', {'form': form})
 
 def require_login_or_404(view_func):
     @wraps(view_func)

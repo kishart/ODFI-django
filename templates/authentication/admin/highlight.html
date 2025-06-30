@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Highlights</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f6f6;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 350px;
+            margin: 20px auto;
+        }
+        .highlight img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+        .highlight-content {
+            padding: 20px;
+        }
+        .highlight-type {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .highlight-type-news {
+            background-color: #007BFF; /* Blue for NEWS */
+        }
+        .highlight-type-event {
+            background-color: #FF4136; /* Red for EVENT */
+        }
+        .highlight-title {
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .highlight-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .highlight-date {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+        .highlight-date-icon {
+            margin-right: 8px;
+            display: inline-block;
+        }
+        .highlight-wrapper {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>Highlights</h1>
+    {% for item in highlights %}
+    <div class="highlight">
+        <div class="highlight-wrapper">
+            <img src="{{ item.image.url }}" alt="Highlight Image">
+            <span class="highlight-type 
+                {% if item.get_type_display|lower == 'news' %}highlight-type-news{% elif item.get_type_display|lower == 'event' %}highlight-type-event{% endif %}">
+                {{ item.get_type_display }}
+            </span>
+        </div>
+        <div class="highlight-content">
+            <h2 class="highlight-title">{{ item.title }}</h2>
+            <p class="highlight-description">{{ item.description }}</p>
+            <p class="highlight-date">
+                <span class="highlight-date-icon">📅</span> 
+                {{ item.date }}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

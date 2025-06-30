@@ -1,8 +1,17 @@
 from django import forms
 from .models import Photo
-from .models import Media  # Assuming you want to use the Media model as well
+from .models import Media 
+from .models import Highlight # Assuming you want to use the Media model as well
 
 
+
+class HighlightForm(forms.ModelForm):
+    class Meta:
+        model = Highlight
+        fields = ['title', 'description', 'type', 'image', 'date']
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date'}),
+        }
 # class FilesForm(forms.ModelForm):
 #     class Meta:
 #         model = Files

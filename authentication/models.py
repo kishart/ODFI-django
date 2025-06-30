@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+
 class MediaGroup(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -56,3 +57,17 @@ class Photo(models.Model):
     def __str__(self):
         return f"{self.type}: {self.title}"
 
+class Highlight(models.Model):
+    HIGHLIGHT_TYPES = [
+        ('news', 'News'),
+        ('event', 'Event'),
+    ]
+
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    type = models.CharField(max_length=10, choices=HIGHLIGHT_TYPES)
+    image = models.ImageField(upload_to='highlights/')
+    date = models.DateField()
+
+    def __str__(self):
+        return self.title

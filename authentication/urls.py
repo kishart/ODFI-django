@@ -3,6 +3,7 @@ from django.urls import path, include
 from .import views
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import highlight, addhighlight
 
 
 urlpatterns = [
@@ -34,6 +35,8 @@ path('adminis/', views.adminis, name='adminis'),
  path('public/', views.public, name="public"),
  path('qurban/', views.qurban, name="qurban"),
  path('services/', views.services, name="services"),
+     path('highlight/', highlight, name='highlight_list'),
+    path('addhighlight/', addhighlight, name='add_highlight'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = 'authentication.views.custom_404_view'
