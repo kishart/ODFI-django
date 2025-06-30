@@ -19,6 +19,27 @@
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      .core{
+           padding-bottom: 50px;
+      }
+      .badge.news {
+  background-color: #007BFF; /* Blue for NEWS */
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.badge.event {
+  background-color: #FF4136; /* Red for EVENT */
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+    </style>
   </head>
   <body>
       {% include 'authentication/user/nav.html' %}
@@ -35,106 +56,34 @@
         </div>
       </section>
     </div>
-    <div class="highlights">
-      <!-- highlights -->
-      <p class="highlights-title" style="font-size: 35px; padding: 30px 80px; font-weight: bold">
-        Highlights
-      </p>
-      <section class="news-section">
-        <div class="news-card">
-          <div class="news-image">
-            <span class="badge news">NEWS</span>
-            <img
-              src="https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?cs=srgb&dl=pexels-pixabay-259280.jpg&fm=jpg"
-              alt="News Image"
-            />
-          </div>
-          <div class="news-content">
-            <h3>News/ Event Title</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-              vitae odio at magna bibendum rhoncus.
-            </p>
-            <div class="news-date" style="color: #012f50">
-              <span class="material-symbols-outlined" style="font-weight: bold"
-                >event</span
-              >
-              <span style="font-weight: bold">June 6, 2025</span>
-            </div>
-          </div>
-        </div>
+ <div class="highlights">
+  <!-- highlights -->
+  <p class="highlights-title" style="font-size: 35px; padding: 30px 80px; font-weight: bold">
+    Highlights
+  </p>
 
-        <!-- Copy this card 3 more times and change badge text/image if needed -->
-        <div class="news-card">
-          <div class="news-image">
-            <span class="badge news">NEWS</span>
-            <img
-              src="https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?cs=srgb&dl=pexels-pixabay-259280.jpg&fm=jpg"
-              alt="News Image"
-            />
-          </div>
-          <div class="news-content">
-            <h3>News/ Event Title</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-              vitae odio at magna bibendum rhoncus.
-            </p>
-            <div class="news-date" style="color: #012f50">
-              <span class="material-symbols-outlined" style="font-weight: bold"
-                >event</span
-              >
-              <span style="font-weight: bold">June 6, 2025</span>
-            </div>
-          </div>
+  <section class="news-section">
+    {% for item in highlights %}
+    <div class="news-card">
+      <div class="news-image">
+        <span class="badge {% if item.get_type_display|lower == 'news' %}news{% elif item.get_type_display|lower == 'event' %}event{% endif %}">
+          {{ item.get_type_display|upper }}
+        </span>
+        <img src="{{ item.image.url }}" alt="{{ item.get_type_display }} Image" />
+      </div>
+      <div class="news-content">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+        <div class="news-date" style="color: #012f50; display: flex; align-items: center; gap: 6px;">
+          <span class="material-symbols-outlined" style="font-weight: bold">event</span>
+          <span style="font-weight: bold">{{ item.date }}</span>
         </div>
-
-        <div class="news-card">
-          <div class="news-image">
-            <span class="badge event">EVENT</span>
-            <img
-              src="https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?cs=srgb&dl=pexels-pixabay-259280.jpg&fm=jpg"
-              alt="Event Image"
-            />
-          </div>
-          <div class="news-content">
-            <h3>News/ Event Title</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-              vitae odio at magna bibendum rhoncus.
-            </p>
-            <div class="news-date" style="color: #012f50">
-              <span class="material-symbols-outlined" style="font-weight: bold"
-                >event</span
-              >
-              <span style="font-weight: bold">June 6, 2025</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-image">
-            <span class="badge event">EVENT</span>
-            <img
-              src="https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?cs=srgb&dl=pexels-pixabay-259280.jpg&fm=jpg"
-              alt="Event Image"
-            />
-          </div>
-          <div class="news-content">
-            <h3>News/ Event Title</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-              vitae odio at magna bibendum rhoncus.
-            </p>
-            <div class="news-date" style="color: #012f50">
-              <span class="material-symbols-outlined" style="font-weight: bold"
-                >event</span
-              >
-              <span style="font-weight: bold">June 6, 2025</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
+    {% endfor %}
+  </section>
+</div>
+
 
     <section class="cta">
       <div class="core">

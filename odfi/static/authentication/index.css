@@ -486,8 +486,14 @@ p {
 .cta {
   background-color: #f2f4f0;
 }
+.core{
+  
+  padding-bottom:50px;
+}
 .core-activities {
-  background-color: #f9f9f9; /* same light background as image */
+  background-color: #f9f9f9; 
+  
+
 
   text-align: center;
 }
@@ -759,6 +765,7 @@ p {
     .core,
     .cta {
       width: 1500px;
+   
     }
     .testimonials {
       left: 25%;

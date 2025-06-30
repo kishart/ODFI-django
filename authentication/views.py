@@ -143,8 +143,12 @@ def gallery(request):
       return render(request, "authentication/user/gallery.html")
 
 
+# def home(request):
+#       return render(request, "authentication/index.html")
+
 def home(request):
-      return render(request, "authentication/index.html")
+    highlights = Highlight.objects.all()
+    return render(request, "authentication/index.html", {'highlights': highlights})
 
 def about(request):
       return render(request, "authentication/user/about.html")
