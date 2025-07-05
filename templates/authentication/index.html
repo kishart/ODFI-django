@@ -63,7 +63,7 @@
   min-width: 300px;
   max-width: 300px;
   flex-shrink: 0;
-  background: #C9E0FA;
+  background: #D3ECCD;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   overflow: hidden;
@@ -72,30 +72,128 @@
 
 
 .news-content{
-    background-color: #C9E0FA;
+    background-color: #D3ECCD;
 }
 
+    .welcome-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      background-color: #fffef5;
+      border-radius: 15px;
+      padding:0px 70px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      max-width: 100%;
+      /* margin: 40px auto; */
+      padding:90px 40px; 
+      /* padding-bottom: 60px;*/
+     
+    }
 
-    </style>
-  </head>
-  <body style="background-color: #FAFAE9;">
-      {% include 'authentication/user/nav.html' %}
+  .welcome-text {
+  flex: 1 1 500px;
+  animation: fadeIn 1s ease-out;
+  text-align: left; /* Ensure text is aligned left */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  padding-top: 160px;
+}
+
+.welcome-title {
+  font-size: 44px;
+  margin-bottom: 20px;
+  color: #FCB31C ;
+  font-weight: bold;
+  text-align: left;
+}
+
+    .welcome-text h2 {
+      font-size: 44px;
+      margin-bottom: 20px;
+      color: #222;
+      text-align: start;
+    }
+
+    .welcome-text p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    .welcome-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #117733;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .welcome-btn:hover {
+      background-color: #0d5e2a;
+    }
+
+    .welcome-image {
+      flex: 1 1 500px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .welcome-image img {
+      width: 100%;
+      max-width: 800px;
+      margin-top:80px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .welcome-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .welcome-text h2 {
+        font-size: 36px;
+      }
+
+      .welcome-text p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+   {% include 'authentication/user/nav.html' %}
     {% block content %}{% endblock content %}
+  <div class="welcome-section">
+   <div class="welcome-text">
+  <h2 class="welcome-title">Welcome to ODFI!</h2>
+  <p>
+    Empowering Filipino communities through Islamic values, humanitarian
+    aid, education, and outreach.
+  </p>
+  <a href="#about" class="welcome-btn">Learn More</a>
+</div>
 
-    <div class="container1">
-      <section class="hero">
-        <div class="welcome-text">
-          <h2 style="font-size: 44px">Welcome to ODFI!</h2>
-          <p style="font-size: 18px">
-            Empowering Filipino communities through Islamic values, humanitarian
-            aid, education, and outreach.
-          </p>
-        </div>
-      </section>
+    <div class="welcome-image">
+      <img src="{% static 'media/images/main.jpg' %}" alt="ODFI Image" />
     </div>
-
+  </div>
+  </div>
   
-<div class="highlights">
+<div style=" background-color: #E7EFC7;" class="highlights">
   <p class="highlights-title" style="font-size: 35px; padding: 30px 80px; font-weight: bold">
     Highlights
   </p>
@@ -114,7 +212,7 @@
       <div class="news-content">
         <h3>{{ item.title }}</h3>
         <p>{{ item.description }}</p>
-        <div class="news-date" style="color: #012f50; display: flex; align-items: center; gap: 6px;">
+        <div class="news-date" style="color: #16610E; display: flex; align-items: center; gap: 6px;">
           <span class="material-symbols-outlined" style="font-weight: bold">event</span>
           <span style="font-weight: bold">{{ item.date }}</span>
         </div>
