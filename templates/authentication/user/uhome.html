@@ -28,6 +28,930 @@
         color: #fff;
       }
     </style> -->
+    <style>
+      .core{
+           padding-bottom: 50px;
+      }
+      .badge.news {
+  background-color: #007BFF; /* Blue for NEWS */
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.badge.event {
+  background-color: #FF4136; /* Red for EVENT */
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+
+
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 20px;
+  padding: 20px 80px;
+  scrollbar-width: none; /* Firefox */
+  
+  margin:0px 100px;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.news-card {
+  min-width: 300px;
+  max-width: 300px;
+  flex-shrink: 0;
+  background: #C9E0FA;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+
+.news-content{
+    background-color: #C9E0FA;
+}
+
+    .welcome-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      background-color: #fffef5;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      max-width: 100%;
+      margin: 40px auto;
+      padding-top:120px;
+    }
+
+  .welcome-text {
+  flex: 1 1 500px;
+  padding: 20px;
+  animation: fadeIn 1s ease-out;
+  text-align: left; /* Ensure text is aligned left */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align content items (e.g., button) to the left */
+}
+
+.welcome-title {
+  font-size: 44px;
+  margin-bottom: 20px;
+  color: #F97A00;
+  font-weight: bold;
+  text-align: left;
+}
+
+    .welcome-text h2 {
+      font-size: 44px;
+      margin-bottom: 20px;
+      color: #222;
+      text-align: start;
+    }
+
+    .welcome-text p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    .welcome-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #117733;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .welcome-btn:hover {
+      background-color: #0d5e2a;
+    }
+
+    .welcome-image {
+      flex: 1 1 500px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .welcome-image img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .welcome-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .welcome-text h2 {
+        font-size: 36px;
+      }
+
+      .welcome-text p {
+        font-size: 16px;
+      }
+    
+
+    }
+.img-box {
+  width: 100%;
+  gap:10px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 350px;
+}
+
+
+
+.news-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 10px auto;
+  /* padding: 120px 20px; */
+}
+
+.news-card {
+  background-color: #f2f4f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.news-image {
+  position: relative;
+}
+
+.news-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px;
+  color: white;
+}
+
+.badge.news {
+  background-color: #1e90ff;
+}
+
+.badge.event {
+  background-color: #ff4d4d;
+}
+
+.news-content {
+  padding: 15px;
+  background-color: #C9E0FA;
+}
+
+.news-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.news-content p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* .news-date {
+  display: flex;
+  align-items: start;
+  font-size: 14px;
+  color: #555;
+} */
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-size: 18px;
+  margin-right: 6px;
+}
+.testimonials {
+  text-align: center;
+}
+
+.testimonial-header h2 {
+  font-size: 2.2rem;
+}
+
+.subheading {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card.active {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.quote-icon {
+  font-size: 30px;
+  color: #3f3d56;
+  background: #ccc;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+}
+
+.testimonial-card.active .quote-icon {
+  background: #392b88;
+  color: white;
+  font-size: 35px;
+  width: 60px;
+  height: 60px;
+}
+
+.message {
+  font-style: italic;
+  font-size: 14px;
+  color: #333;
+}
+
+.name {
+  font-weight: bold;
+  color: #1a237e;
+  margin-top: 15px;
+  text-align: end;
+}
+
+.role {
+  font-size: 12px;
+  color: #666;
+  text-align: end;
+}
+
+.pagination-dots .dot {
+  display: inline-block;
+  width: 30px;
+  height: 6px;
+  background: #ccc;
+  margin: 0 5px;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.pagination-dots .dot.active {
+  background: #392b88;
+}
+
+.donation-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 80px 60px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.donation-how,
+.donation-impact {
+  flex: 1;
+}
+
+.donation-how {
+  border-right: 1px solid #ccc;
+  padding-right: 40px;
+}
+
+.donation-impact {
+  padding-left: 40px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.step-number {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+p {
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+}
+
+.donate-button {
+  background-color: #208796;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+  background-color: #0f8fcd;
+  font-weight: bold;
+}
+
+.impact-card {
+  background-color: #208796;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.impact-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.impact-card p {
+  font-size: 14px;
+  margin: 0;
+  color: white;
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+  font-size: 12px;
+}
+
+.donation-how,
+.donation-impact {
+  padding: 0;
+  border: none;
+}
+
+.donation-how {
+  margin-bottom: 30px;
+}
+
+.donate-button {
+  width: 100%;
+}
+
+.program-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.program-card {
+  background-color: #043873;
+  color: white;
+  width: 300px;
+  min-height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.program-card h3 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.program-card ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.program-card ul li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+/* Odd cards: 1st, 3rd, 5th, etc. */
+.program-card:nth-child(odd) {
+  height: 200px;
+}
+
+/* Even cards: 2nd, 4th, etc. */
+.program-card:nth-child(even) {
+  height: 330px;
+  margin-top: 80px;
+}
+
+.cta {
+  background-color: #f2f4f0;
+}
+.core{
+  
+  padding-bottom:50px;
+}
+.core-activities {
+  background-color: #F2F4F0; 
+  
+
+
+  text-align: center;
+}
+
+.section-title {
+  /* font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px; */
+
+  padding-top: 40px;
+  margin-top: 70px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  margin: 10px auto 0;
+  width: 1080px; /* wider underline */
+  height: 2px;
+  background-color: #003366; /* deep blue */
+}
+
+
+
+/* Mobile */
+@media (max-width: 360px) {
+  .container1 {
+    width: 1079px;
+  }
+  .highlights {
+    padding: 80px;
+  }
+  .news-card {
+    width: 450px;
+  }
+  p.highlights-title {
+    margin-left: -80px;
+  }
+
+  .core,
+  .cta {
+    width: 1100px;
+  }
+  .testimonials {
+    left: 55px;
+  }
+
+  .testimonials h2 {
+    font-size: 1.5rem;
+    margin-left: 10px;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .subheading {
+    font-size: 12px;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto 30px;
+    margin-right: 0;
+    line-height: 1.4;
+  }
+
+  .testimonial-card {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .quote-icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .testimonial-card.active .quote-icon {
+    font-size: 28px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .pagination-dots {
+    margin-top: 20px;
+  }
+  .donation-how {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  section.program-cards {
+    margin-right: 50px;
+  }
+  .donation-impact {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 390px) {
+  .container1 {
+    width: 1200px;
+  }
+  .highlights {
+    padding: 80px 90px;
+  }
+  .news-card {
+    width: 500px;
+  }
+  p.highlights-title {
+    margin-left: -80px;
+  }
+
+  .core,
+  .cta {
+    width: 1200px;
+  }
+
+  .program-cards {
+    padding: 40px;
+  }
+  .testimonials {
+    margin-top: 20px;
+    max-width: 400vw;
+    padding: 30px 50px;
+  }
+
+  .testimonial-grid {
+    margin-left: 100px;
+  }
+  .testimonials h2 {
+    font-size: 1.5rem;
+    margin-left: 10px;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .subheading {
+    font-size: 12px;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto 30px;
+    margin-right: 0;
+    line-height: 1.4;
+  }
+
+  .testimonial-card {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .quote-icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .testimonial-card.active .quote-icon {
+    font-size: 28px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .pagination-dots {
+    margin-top: 20px;
+  }
+  .donation-how {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .donate-button {
+    width: 30%;
+  }
+}
+
+/* Tablet */
+/* Tablet */
+@media (max-width: 768px) {
+  .container1 {
+    width: 1500px;
+  }
+    .highlights {
+        padding: 40px 140px;
+    }
+  .news-card {
+    width: 500px;
+  }
+  p.highlights-title {
+    margin-left: -80px;
+  }
+  .highlights {
+    padding: 80px 180px;
+  }
+  .news-card {
+    width: 550px;
+  }
+  .news-section {
+    gap: 80px;
+  }
+  .core,
+  .cta {
+    width: 1500px;
+  }
+  .testimonials {
+    left: 25%;
+  }
+  .donation-how {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .donate-button {
+    width: 30%;
+  }
+  .impact-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+   .testimonial-header h2,
+  .testimonial-header {
+    text-align: center;
+  }
+  .donation-section {
+    flex-direction: column;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .container1 {
+    width: 1500px;
+  }
+    .highlights {
+      padding: 120px 90px;
+    }
+    .news-card {
+      width: 500px;
+    }
+    p.highlights-title {
+      margin-left: -80px;
+    }
+    .highlights {
+      padding: 80px 180px;
+    }
+    .news-card {
+      width: 550px;
+    }
+    .news-section {
+      gap: 80px;
+    }
+    .core,
+    .cta {
+      width: 1500px;
+   
+    }
+    .testimonials {
+      left: 25%;
+    }
+    .donation-how {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  /* desktop */
+  @media (max-width: 1440px) {
+  }
+
+  @media (max-width: 1920px) {
+  }
+
+
+  /* history */
+  .timeline {
+  position: relative;
+  padding: 1.5rem 0;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: #dee2e6;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0.8rem 1rem;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-content {
+  background: #f9f9f9;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #007BFF;
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.timeline-content h5 {
+  font-size: 16px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #007BFF;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  width: 12px;
+  height: 12px;
+  background-color: #007BFF;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item.left::after {
+  right: -6px;
+}
+
+.timeline-item.right::after {
+  left: -6px;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .timeline-item.right,
+  .timeline-item.left {
+    left: 0;
+    text-align: left;
+  }
+
+  .timeline-content {
+    border-left: 3px solid #007BFF;
+  }
+
+  .timeline-item::after {
+    left: 0;
+    transform: translateX(-50%);
+  }
+}
+
+
+  .vision-mission-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      max-width: 1000px;
+      margin: auto;
+      background-color: white;
+      padding: 40px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top:170px;
+    }
+
+    .section {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .icon-circle {
+      width: 90px;
+      height: 90px;
+      background-color: #2a3f9d;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .icon-circle img {
+      width: 40px;
+      height: 40px;
+      filter: brightness(0) invert(1); /* Make white if it's black icon */
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+
+    </style>
 </head>
 <body>
   {% for message in messages %}
@@ -51,5 +975,78 @@
   <a href="/signin"><div class="button">Sign In</div></a>
  
      {% endif %}
+
+
+       <section class="testimonials py-5 bg-white">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="row align-items-center testimonial-header mb-5">
+      <div class="col-md-4">
+        <h2 class="fw-bold">Testimonials</h2>
+      </div>
+      <div class="col-md-8">
+        <p class="subheading text-justify">
+          Hear from the people who make our mission possible—our donors,
+          volunteers, and benefactors. They share their heartfelt stories of
+          why they chose to support and be part of our cause, reflecting the
+          trust, impact, and sense of purpose that unites us. Be inspired by
+          their journey and discover the difference one person can make.
+        </p>
+      </div>
+    </div>
+
+    <!-- Testimonial Cards -->
+    <div class="row justify-content-center g-4 testimonial-grid">
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="testimonial-card p-4">
+          <div class="quote-icon mx-auto">&#10077;</div>
+          <p class="message mt-3">
+            "I am thankful to the ODFI Foundation for helping me on achieving
+            something I once dreamt about."
+          </p>
+          <div class="name">Joe Alexus</div>
+          <div class="role">Benefactor</div>
+        </div>
+      </div>
+
+      <!-- Card 2 (Active) -->
+      <div class="col-md-4">
+        <div class="testimonial-card active p-4">
+          <div class="quote-icon large mx-auto">&#10077;</div>
+          <p class="message mt-3">
+            "To help others was always been something I want to accomplish. I
+            felt happy to share things that can assist them."
+          </p>
+          <div class="name">Jane Doe</div>
+          <div class="role">Volunteer</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="testimonial-card p-4">
+          <div class="quote-icon mx-auto">&#10077;</div>
+          <p class="message mt-3">
+            "Supporting this foundation has been one of the most fulfilling
+            decisions I’ve made—knowing my contributions are making a real
+            difference in people’s lives."
+          </p>
+          <div class="name">Lydia Artemis</div>
+          <div class="role">Donor</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="text-center pagination-dots mt-4">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+  </div>
+</section>
 </body>
 </html>
