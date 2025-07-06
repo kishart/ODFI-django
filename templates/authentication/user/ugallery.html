@@ -1,11 +1,357 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <title>Gallery Page</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'authentication/gallery.css' %}">
+
+  <style>
+     * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+   
+
+    .main-content {
+      display: flex;
+      flex: 1;
+      padding-top:80px;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #208796;
+      padding: 20px;
+      color: white;
+    }
+
+    .sidebar h2 {
+      font-size: 22px;
+    }
+
+    .sidebar button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #34495e;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .sidebar button:hover,
+    .sidebar button.active {
+      background-color: #1abc9c;
+    }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  flex: 1;
+}
+
+/* Wrapper for both videos and images */
+.video-wrapper {
+  aspect-ratio: 4 / 3;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.video-wrapper a {
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* Shared styling for video and photo thumbnails */
+.video-wrapper img,
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+  display: block;
+}
+
+.video-wrapper:hover img,
+.video-wrapper:hover video {
+  transform: scale(1.05);
+}
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 40px 20px;
+  margin-top:60px;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+/* Lightbox content box */
+.lightbox-content {
+  background: #fff;
+  padding: 20px;
+
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Lightbox video and image */
+.lightbox video,
+.lightbox img {
+  width: 100%;
+  max-height: 450px;
+  border-radius: 10px;
+  pointer-events: auto;
+  object-fit: contain;
+}
+
+/* Video/audio description */
+.description {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Close button in lightbox */
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Hide elements */
+.hide {
+  display: none !important;
+}
+
+/* Filtering transitions (optional) */
+.gallery .item {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+  font-size: 12px;
+}
+  </style>
 </head>
 <body>
-    <h1>ugallery</h1>
+  {% include 'authentication/user/nav.html' %}
+    {% block content %}{% endblock content %}
+    
+
+  <!-- MAIN -->
+  <div class="main-content">
+    <div class="sidebar">
+      <h2>Gallery</h2>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="photo">Photos</button>
+      <button class="filter-btn" data-filter="video">Videos</button>
+    </div>
+
+    
+
+    <div class="gallery">
+<div class="video-wrapper item video">
+  <a href="#vid1">
+    <video controls playsinline loop>
+      <source src="{% static 'media/videos/vid1.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </a>
+</div>
+<div class="video-wrapper item video">
+  <a href="#vid2">
+    <video controls playsinline loop>
+      <source src="{% static 'media/videos/vid2.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </a>
+</div>
+<div class="video-wrapper item video">
+  <a href="#vid3">
+    <video controls playsinline loop>
+      <source src="{% static 'media/videos/vid3.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </a>
+</div>
+   
+
+  <!-- PHOTOS -->
+  <div class="video-wrapper item photo">
+    <a href="#photo1"><img src="https://img.freepik.com/premium-vector/moon-star-doodle-islam-islamic-muslim-religion_409898-323.jpg" alt="Photo 1" style="width: 100%; height: 100%; object-fit: cover;" /></a>
+  </div>
+  <div class="video-wrapper item photo">
+    <a href="#photo2"><img src="https://img.freepik.com/premium-vector/moon-star-doodle-islam-islamic-muslim-religion_409898-323.jpg" alt="Photo 2" style="width: 100%; height: 100%; object-fit: cover;" /></a>
+  </div>
+  <div class="video-wrapper item photo">
+    <a href="#photo3"><img src="https://img.freepik.com/premium-vector/moon-star-doodle-islam-islamic-muslim-religion_409898-323.jpg" alt="Photo 3" style="width: 100%; height: 100%; object-fit: cover;" /></a>
+  <div class="lightbox" id="vid1">
+    <a href="#" class="close-btn">&times;</a>
+    <div class="lightbox-content">
+      <video controls autoplay>
+        <source src="{% static 'media/videos/vid1.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="description">Video 1 description.</div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="vid2">
+    <a href="#" class="close-btn">&times;</a>
+    <div class="lightbox-content">
+      <video controls autoplay>
+        <source src="{% static 'media/videos/vid2.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="description">Video 2 description.</div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="vid3">
+    <a href="#" class="close-btn">&times;</a>
+    <div class="lightbox-content">
+      <video controls autoplay>
+        <source src="{% static 'media/videos/vid3.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="description">Video 3 description.</div>
+    </div>
+  </div>
+  <div class="lightbox" id="vid3">
+    <a href="#" class="close-btn">&times;</a>
+    <div class="lightbox-content">
+      <video src="vid3.mp4" controls autoplay></video>
+      <div class="description">Video 3 description.</div>
+    </div>
+  </div>
+
+  
+<footer class="footer">
+ © 2025 ODFI. All rights reserved.
+</footer>
+
+
+
+<!-- PHOTO LIGHTBOXES -->
+<div class="lightbox" id="photo1">
+  <a href="#" class="close-btn">&times;</a>
+  <div class="lightbox-content">
+    <img src="https://img.freepik.com/premium-vector/moon-star-doodle-islam-islamic-muslim-religion_409898-323.jpg" alt="Photo 1" style="width: 100%; max-height: 450px; border-radius: 10px;" />
+    <div class="description">Photo 1 description.</div>
+  </div>
+</div>
+
+<div class="lightbox" id="photo2">
+  <a href="#" class="close-btn">&times;</a>
+  <div class="lightbox-content">
+    <img src="https://img.freepik.com/premium-vector/moon-star-doodle-islam-islamic-muslim-religion_409898-323.jpgg" alt="Photo 2" style="width: 100%; max-height: 450px; border-radius: 10px;" />
+    <div class="description">Photo 2 description.</div>
+  </div>
+</div>
+
+<div class="lightbox" id="photo3">
+  <a href="#" class="close-btn">&times;</a>
+  <div class="lightbox-content">
+    <img src="https://img.freepik.com/premium-vector/moon-star-doodle-islam-islamic-muslim-religion_409898-323.jpg" alt="Photo 3" style="width: 100%; max-height: 450px; border-radius: 10px;" />
+    <div class="description">Photo 3 description.</div>
+  </div>
+
+
+  <!-- SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const modals = document.querySelectorAll(".lightbox");
+      const modalVideos = document.querySelectorAll(".lightbox video");
+
+      // Pause all videos
+      function pauseAllVideos() {
+        modalVideos.forEach((vid) => {
+          vid.pause();
+          vid.currentTime = 0;
+        });
+      }
+
+      modals.forEach((modal) => {
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal || e.target.classList.contains("close-btn")) {
+            pauseAllVideos();
+            window.location.hash = "";
+          }
+        });
+      });
+
+      modalVideos.forEach((video) => {
+        video.addEventListener("play", () => {
+          modalVideos.forEach((v) => {
+            if (v !== video) {
+              v.pause();
+              v.currentTime = 0;
+            }
+          });
+          video.muted = false;
+          video.volume = 1;
+        });
+      });
+
+      // Filtering
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const items = document.querySelectorAll(".item");
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.getAttribute("data-filter");
+
+          items.forEach((item) => {
+            if (filter === "all" || item.classList.contains(filter)) {
+              item.classList.remove("hide");
+            } else {
+              item.classList.add("hide");
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
