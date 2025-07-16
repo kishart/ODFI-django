@@ -18,9 +18,11 @@ urlpatterns = [
    path('ahighlights/', views.ahighlights, name="ahighlights"),
   
    path('uhighlights/', views.uhighlights, name="uhighlights"),
-   path('edit/<int:photo_id>/', views.edit_photo, name='edit_photo'),
 path('ugallery/', views.ugallery, name="ugallery"),   
 path('agallery/', views.agallery, name="agallery"),
+
+       path('gallery/edit/<int:group_id>/', views.edit_photos, name='edit_photos'),
+    path('gallery/delete/<int:group_id>/', views.delete_group, name='delete_group'),
     path('jumuat/', views.jumuat, name='jumuat'),
     path('education/', views.education, name='education'),
 

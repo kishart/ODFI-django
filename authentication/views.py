@@ -278,9 +278,29 @@ def custom_404_view(request, exception):
 
 
 
-# def delete_uphoto(request, photo_id):
-#     files = get_object_or_404(Files, id=photo_id)
+
+
+
+def edit_photos(request, group_id):
+    group = get_object_or_404(MediaGroup, id=group_id)
+
     if request.method == 'POST':
-        files.delete()
+        group.title = request.POST.get('title')
+        group.description = request.POST.get('description')
+        group.save()
+
+        # Handle new files if uploaded
+        files = request.FILES.getlist('files')
+        for file in files:
+            MediaFile.objects.create(group=group, file=file)
+
         return redirect('agallery')
 
+    return render(request, 'authentication/admin/edit_photos.html', {'group': group})
+
+
+def delete_group(request, group_id):
+    group = get_object_or_404(MediaGroup, id=group_id)
+    if request.method == 'POST':
+        group.delete()
+        return redirect('agallery')

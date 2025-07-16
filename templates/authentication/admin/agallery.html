@@ -64,6 +64,13 @@
         </td>
         <td>{{ group.title }}</td>
         <td>{{ group.description }}</td>
+       <td>
+          <a href="{% url 'edit_photos' group.id %}" class="btn btn-sm btn-warning">Edit</a>
+          <form method="post" action="{% url 'delete_group' group.id %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+          </form>
+        </td>
       </tr>
     {% empty %}
       <tr><td colspan="3">No uploads yet.</td></tr>
