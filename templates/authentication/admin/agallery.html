@@ -45,30 +45,32 @@
 <hr class="my-5">
 
 <h3>All Uploaded Media</h3>
-<table class="table table-bordered table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th>File</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Preview</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for file in files %}
-        <tr>
-            <td>{{ file.file.name|slice:"6:" }}</td> <!-- Skip "files/" in path -->
-            <td>{{ file.title }}</td>
-            <td>{{ file.description }}</td>
-            <td><a href="{{ file.file.url }}" target="_blank">View</a></td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="4" class="text-center">No media uploaded yet.</td>
-        </tr>
-        {% endfor %}
-    </tbody>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Files</th>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for group in groups %}
+      <tr>
+        <td>
+          {% for file in group.files.all %}
+            <img src="{{ file.file.url }}" style="max-width:100px; margin:2px;">
+          {% endfor %}
+        </td>
+        <td>{{ group.title }}</td>
+        <td>{{ group.description }}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="3">No uploads yet.</td></tr>
+    {% endfor %}
+  </tbody>
 </table>
+
 
 </body>
 </html>

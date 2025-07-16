@@ -12,6 +12,9 @@ from functools import wraps
 from django.http import Http404
 from .models import Highlight
 from .forms import HighlightForm
+from django.shortcuts import get_object_or_404, redirect
+
+
 
 def highlight(request):
     highlights = Highlight.objects.all().order_by('-date')
@@ -168,29 +171,30 @@ def dashboard(request):
         'active_page': 'dashboard'
     })
 
+
 def agallery(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         description = request.POST.get('description')
         files = request.FILES.getlist('files')
-        file_list = []
 
+        # Create one group for this upload
+        group = MediaGroup.objects.create(title=title, description=description)
+
+        # Create one MediaFile per uploaded file
         for file in files:
-            new_file = Files(file=file, title=title, description=description)
-            new_file.save()
-            file_list.append(new_file.file.url)
+            MediaFile.objects.create(group=group, file=file)
 
-        # Fetch all files to show in the table
-        all_files = Files.objects.all().order_by('-id')
+        # Get all groups to show in table
+        all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
         return render(request, "authentication/admin/agallery.html", {
-            'new_urls': file_list,
-            'files': all_files
+            'groups': all_groups
         })
 
-    # GET request — just show all files
-    all_files = Files.objects.all().order_by('-id')
+    # GET request — just show all groups
+    all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
     return render(request, "authentication/admin/agallery.html", {
-        'files': all_files
+        'groups': all_groups
     })
 
 
@@ -271,4 +275,12 @@ def delete_highlight(request, pk):
     
 def custom_404_view(request, exception):
     return render(request, '404.html', status=404)
+
+
+
+# def delete_uphoto(request, photo_id):
+#     files = get_object_or_404(Files, id=photo_id)
+    if request.method == 'POST':
+        files.delete()
+        return redirect('agallery')
 
