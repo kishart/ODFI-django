@@ -3,7 +3,7 @@ from django.urls import path, include
 from .import views
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import highlight, addhighlight
+from .views import highlight, addhighlight, addgallery, addvideos
 
 
 urlpatterns = [
@@ -15,9 +15,7 @@ urlpatterns = [
    path('about/', views.about, name="about"),
    path('gallery/', views.gallery, name="gallery"),
    path('contact/', views.contact, name="contact"),
-   path('ahighlights/', views.ahighlights, name="ahighlights"),
   
-   path('uhighlights/', views.uhighlights, name="uhighlights"),
 path('ugallery/', views.ugallery, name="ugallery"),   
 path('agallery/', views.agallery, name="agallery"),
 
@@ -44,9 +42,11 @@ path('adminis/', views.adminis, name='adminis'),
  path('services/', views.services, name="services"),
      path('highlight/', highlight, name='highlight_list'),
        
-    path('addhighlight/', addhighlight, name='add_highlight'),
- 
-      
+    path('addhighlight/', addhighlight, name='addhighlight'),
+
+    path('addgallery/', addgallery, name='addgallery'),
+    path('addvideos/', addvideos, name='addvideos'),
+
 path('highlights/edit/<int:photo_id>/', views.edit_highlights, name='edit_highlights'),
 path('highlights/delete/<int:photo_id>/', views.delete_highlights, name='delete_highlights'),
 
