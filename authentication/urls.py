@@ -26,9 +26,9 @@ path('agallery/', views.agallery, name="agallery"),
 
 
     path('avideos/', views.avideos, name="avideos"),
+path('videos/edit/<int:group_id>/', views.edit_videos, name='edit_videos'),
+path('videos/delete/<int:group_id>/', views.delete_videos, name='delete_videos'),
 
-       path('gallery/edit/<int:group_id>/', views.edit_videos, name='edit_videos'),
-    path('gallery/delete/<int:group_id>/', views.delete_videos, name='delete_videos'),
     path('jumuat/', views.jumuat, name='jumuat'),
     path('education/', views.education, name='education'),
 
@@ -45,8 +45,11 @@ path('adminis/', views.adminis, name='adminis'),
      path('highlight/', highlight, name='highlight_list'),
        
     path('addhighlight/', addhighlight, name='add_highlight'),
-      path('highlights/edit/<int:pk>/', views.edit_highlight, name='edit_highlight'),
-    path('highlights/delete/<int:pk>/', views.delete_highlight, name='delete_highlight'),
+ 
+      
+path('highlights/edit/<int:photo_id>/', views.edit_highlights, name='edit_highlights'),
+path('highlights/delete/<int:photo_id>/', views.delete_highlights, name='delete_highlights'),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = 'authentication.views.custom_404_view'
