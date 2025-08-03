@@ -77,11 +77,24 @@
 
 </div>
 
-  <div class="tab" data-target="testimonials">
-    <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">3p</span>
-  </div>
+
   <div class="tab " data-target="gallery">
-   <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">perm_media</span>
+    <a href="{% url 'agallery' %}" 
+      class="{% if request.resolver_match.url_name == 'gallery' %}active{% endif %}"
+      {% if request.resolver_match.url_name == 'agallery' %} {% endif %}>
+      <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">perm_media</span>
+    </a>
+  </div>
+
+
+    <div class="tab" data-target="testimonials">
+     <a href="{% url 'avideos' %}" 
+      class="{% if request.resolver_match.url_name == 'videos' %}active{% endif %}"
+      {% if request.resolver_match.url_name == 'avideos' %} {% endif %}>
+    <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">
+animated_images
+</span>
+    </a>
   </div>
 </div>
 
