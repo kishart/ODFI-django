@@ -40,6 +40,8 @@ path('adminis/', views.adminis, name='adminis'),
  path('public/', views.public, name="public"),
  path('qurban/', views.qurban, name="qurban"),
  path('services/', views.services, name="services"),
+
+ path('appendices/', views.appendices, name="appendices"),
      path('highlight/', highlight, name='highlight_list'),
        
     path('addhighlight/', addhighlight, name='addhighlight'),
