@@ -172,31 +172,6 @@ def dashboard(request):
     })
 
 
-def agallery(request):
-    if request.method == 'POST':
-        title = request.POST.get('title')
-        description = request.POST.get('description')
-        files = request.FILES.getlist('files')
-
-        # Create one group for this upload
-        group = MediaGroup.objects.create(title=title, description=description)
-
-        # Create one MediaFile per uploaded file
-        for file in files:
-            MediaFile.objects.create(group=group, file=file)
-
-        # Get all groups to show in table
-        all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
-        return render(request, "authentication/admin/agallery.html", {
-            'groups': all_groups
-        })
-
-    # GET request — just show all groups
-    all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
-    return render(request, "authentication/admin/agallery.html", {
-        'groups': all_groups
-    })
-
 
 @require_login_or_404
 def dashboard(request):
@@ -278,6 +253,31 @@ def custom_404_view(request, exception):
 
 
 
+def agallery(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        files = request.FILES.getlist('files')
+
+        # Create one group for this upload
+        group = MediaGroup.objects.create(title=title, description=description)
+
+        # Create one MediaFile per uploaded file
+        for file in files:
+            MediaFile.objects.create(group=group, file=file)
+
+        # Get all groups to show in table
+        all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
+        return render(request, "authentication/admin/agallery.html", {
+            'groups': all_groups
+        })
+
+    # GET request — just show all groups
+    all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
+    return render(request, "authentication/admin/agallery.html", {
+        'groups': all_groups
+    })
+
 
 
 
@@ -304,3 +304,59 @@ def delete_group(request, group_id):
     if request.method == 'POST':
         group.delete()
         return redirect('agallery')
+
+
+
+
+
+def avideos(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        files = request.FILES.getlist('files')
+
+        # Create one group for this upload
+        group = MediaGroup.objects.create(title=title, description=description)
+
+        # Create one MediaFile per uploaded file
+        for file in files:
+            MediaFile.objects.create(group=group, file=file)
+
+        # Get all groups to show in table
+        all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
+        return render(request, "authentication/admin/avideos.html", {
+            'groups': all_groups
+        })
+
+    # GET request — just show all groups
+    all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
+    return render(request, "authentication/admin/avideos.html", {
+        'groups': all_groups
+    })
+
+
+
+
+def edit_videos(request, group_id):
+    group = get_object_or_404(MediaGroup, id=group_id)
+
+    if request.method == 'POST':
+        group.title = request.POST.get('title')
+        group.description = request.POST.get('description')
+        group.save()
+
+        # Handle new files if uploaded
+        files = request.FILES.getlist('files')
+        for file in files:
+            MediaFile.objects.create(group=group, file=file)
+
+        return redirect('avideos')
+
+    return render(request, 'authentication/admin/edit_videos.html', {'group': group})
+
+
+def delete_videos(request, group_id):
+    group = get_object_or_404(MediaGroup, id=group_id)
+    if request.method == 'POST':
+        group.delete()
+        return redirect('avideos')
