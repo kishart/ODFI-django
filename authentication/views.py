@@ -42,13 +42,12 @@ def require_login_or_404(view_func):
 
 
 
-def delete_photo(request, photo_id):
+def delete_highlights(request, photo_id):
     photo = get_object_or_404(Photo, id=photo_id)
-    if request.method == 'POST':
-        photo.delete()
-        return redirect('ahighlights')
+    photo.delete()
+    return redirect('ahighlights')
 
-def edit_photo(request, photo_id):
+def edit_highlights(request, photo_id):
     photo = get_object_or_404(Photo, id=photo_id)
     if request.method == 'POST':
         form = PhotoForm(request.POST, request.FILES, instance=photo)
@@ -57,7 +56,7 @@ def edit_photo(request, photo_id):
             return redirect('ahighlights')
     else:
         form = PhotoForm(instance=photo)
-    return render(request, 'authentication/admin/edithighlights.html', {'form': form})
+    return render(request, 'authentication/admin/edit_highlights.html', {'form': form})
 
 
 def ahighlights(request):
@@ -163,8 +162,33 @@ def contact(request):
       return render(request, "authentication/user/contact.html")
 
 
+
+
 def ugallery(request):
-      return render(request, "authentication/user/ugallery.html")
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        files = request.FILES.getlist('files')
+
+        # Create one group for this upload
+        group = MediaGroup.objects.create(title=title, description=description)
+
+        # Create one MediaFile per uploaded file
+        for file in files:
+            MediaFile.objects.create(group=group, file=file)
+
+        # Get all groups to show in table
+        all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
+        return render(request, "authentication/user/ugallery.html", {
+            'groups': all_groups
+        })
+
+    # GET request — just show all groups
+    all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
+    return render(request, "authentication/user/ugallery.html", {
+        'groups': all_groups
+    })
+
 
 def dashboard(request):
     return render(request, 'authentication/dashboard.html', {
@@ -237,7 +261,7 @@ def edit_highlight(request, pk):
         form = HighlightForm(request.POST, request.FILES, instance=highlight)
         if form.is_valid():
             form.save()
-            return redirect('highlight_list')  # change to your highlight page name
+            return redirect('ahighlights')  # change to your highlight page name
     else:
         form = HighlightForm(instance=highlight)
     return render(request, 'authentication/admin/edit_highlight.html', {'form': form})
@@ -246,8 +270,8 @@ def delete_highlight(request, pk):
     highlight = get_object_or_404(Highlight, pk=pk)
     if request.method == 'POST':
         highlight.delete()
-        return redirect('highlight_list')  # change to your highlight page name
-    
+        return redirect('ahighlights')  # change to your highlight page name
+
 def custom_404_view(request, exception):
     return render(request, '404.html', status=404)
 
