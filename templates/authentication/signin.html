@@ -2,84 +2,301 @@
 {% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  
-    <link rel="stylesheet" href="{% static 'authentication/signin.css' %}">
-    <style>
-      .alert {
-    color: white;
-    background-color: #e74c3c;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    text-align: center;
-}
 
-    </style>
+  <style>
+    body {
+      margin: 0;
+      font-family: Poppins, sans-serif;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: #0f172a;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #012f50;
+      padding: 25px 34px;
+      color: white;
+      position: sticky;
+      top: 0;
+    }
+
+    .left-side {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 18px;
+    }
+
+    .nav-links a i {
+      font-size: 1rem;
+    }
+
+    .internal {
+      font-size: 1rem;
+      color: white;
+    }
+
+    .internal span {
+      font-size: 32px;
+    }
+
+    p.sign {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 30px;
+      position: relative;
+      z-index: 1;
+      color: black;
+      font-weight: bold;
+      padding-top: 130px;
+      text-align: center;
+    }
+
+    .signin {
+      background-image: url("{% static 'media/images/main.jpg' %}");
+      background-size: cover;
+     background-color: #dceeea;
+      position: relative;
+      box-shadow: 1px 10px 20px 0px #b1b1b1;
+      z-index: 0;
+     height:100vh;
+    }
+
+    .signin::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    background: #dfe6dd;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .login-container {
+      background-color: transparent;
+      padding: 2rem;
+      width: 300px;
+      color: white;
+      text-align: center;
+    }
+
+    .welcome-text {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    form.login-form{
+        align-items: center;
+        padding-right:25px;
+    }
+
+    .login-form {
+      text-align: left;
+    }
+
+    .login-form label {
+      display: block;
+      margin: 1rem 0 0.3rem;
+      font-weight: bold;
+      margin-left: 10px;
+      padding-left: 10px;
+      color: white;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      padding-left: 10px;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .requirement-text {
+      font-size: 0.7rem;
+      color: white;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .login-btn {
+      width: 90%;
+      padding: 12px;
+      background-color: #b8ffa6;
+      color: black;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left: 20px;
+    }
+
+    .login-btn:hover {
+      background-color: #7cff8d;
+    }
+
+    .form-links {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .form-links a {
+      display: block;
+      color: #a6d6ff;
+      text-decoration: none;
+      margin: 0.3rem 0;
+    }
+
+    .form-links a:hover {
+      text-decoration: underline;
+    }
+
+    .form {
+      background-color: #16610E;
+      padding: 30px 20px;
+      border-radius: 10px;
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+      max-width: 400px;
+      margin-top:10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: white;
+      font-size: 12px;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 1001;
+      margin-top:40px;
+    }
+
+    .alert {
+      color: white;
+      background-color: #e74c3c;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    {% include 'authentication/user/nav.html' %}
-    {% block content %}{% endblock content %}
 
+  {% include 'authentication/user/nav.html' %}
 
+  <div class="signin">
+    <p class="sign">ODFI INTERNAL WORKFORCE</p>
 
-   <div class="signin">
+    <div class="form">
+  
+      {% if login_failed %}
+      <script>
+        alert("Incorrect username or password. Please try again.");
+      </script>
+      {% endif %}
 
+      <form class="login-form" action="/signin" method="post">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="example@mail.com" required value="{{ username|default:'' }}">
 
-  <p class="sign">ODFI INTERNAL WORKFORCE</p>
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" name="password" id="password" placeholder="Password" required>
+          <span class="material-symbols-outlined toggle-password" id="togglePassword">visibility</span>
+        </div>
 
-  <div class="form">
-    <p style="text-align: center; color:white; font-size:30px;margin-top:-20px; margin-left:40px; font-weight: bold;">Welcome!</p>
-   
-     {% if login_failed %}
-<script>
-  alert("Incorrect username or password. Please try again.");
-</script>
-{% endif %}
-   
-   
-  <form class="login-form" action="/signin" method="post">
-  {% csrf_token %}
-  <label for="username">Username</label>
-  <input type="text" name="username" id="username" placeholder="example@mail.com" required value="{{ username|default:'' }}">
+        <small class="requirement-text">
+          Use at least 8 characters with 1 number, and one special character.
+        </small>
 
-  <label for="password">Password</label>
-  <div class="password-wrapper">
-    <input type="password" name="password" id="password" placeholder="Password" required>
-    <span class="material-symbols-outlined" id="togglePassword"
-      style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
-      visibility
-    </span>
+        <button type="submit" class="login-btn">Sign In</button>
+      </form>
+    </div>
   </div>
 
-  <small class="requirement-text">
-    Use at least 8 characters with 1 number, and one special character.
-  </small>
+  <footer class="footer">
+    © 2025 ODFI. All rights reserved.
+  </footer>
 
-  <button type="submit" class="login-btn">Sign In</button>
-</form>
+  <script>
+    const toggle = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
 
-  </div>
-</div>
-
-<footer class="footer">
- © 2025 ODFI. All rights reserved.
-</footer>
-
-<script>
-  const toggle = document.getElementById('togglePassword');
-  const password = document.getElementById('password');
-
-  toggle.addEventListener('click', function () {
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    this.textContent = type === 'password' ? 'visibility' : 'visibility_off';
-  });
-</script>
+    toggle.addEventListener('click', function () {
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      this.textContent = type === 'password' ? 'visibility' : 'visibility_off';
+    });
+  </script>
 
 </body>
 </html>
