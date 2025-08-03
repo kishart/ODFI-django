@@ -11,9 +11,90 @@
     />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=stat_minus_1" />
   
-    
-    <link rel="stylesheet" href="{% static 'authentication/anav.css' %}">
-    
+<style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #16610E;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+.navbar .search-bar input {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Main layout */
+.container {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding-top: 1rem;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+/* Sidebar items */
+.sidebar li {
+  padding: 10px 12px;
+  border-left: 4px solid transparent;
+  cursor: pointer;
+  list-style: none;
+  font-size: 14px;
+}
+
+.sidebar li.logout {
+  color: red;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+.sidebar li:hover {
+  border-left: 4px solid #16610E;
+  background-color: #f0f0f0;
+}
+/* Content */
+.content {
+  flex-grow: 1;
+  padding: 1.5rem;
+  background-color: #fff;
+  overflow-y: auto;
+}
+</style>
     <title>Document</title>
 </head>
 <body>
@@ -31,7 +112,7 @@
   </header>
 
   <!-- Main Layout -->
-  <div class="container" style="background-color: #D0E3F8;" >
+  <div class="container" style="background-color: #E8FFD7;" >
     <!-- Sidebar -->
     <aside class="sidebar">
       <ul style="list-style: none; padding: 0; margin: 0;">
