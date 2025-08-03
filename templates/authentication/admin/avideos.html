@@ -116,50 +116,48 @@
         </div>
         {% endif %}
 
+         <div class="videos-container">
+      {% for group in groups %}
+        <div class="videos">
+          <div class="videos-wrapper">
 
-     <div class="videos-container">
-  {% for group in groups %}
-    <div class="videos">
-      <div class="videos-wrapper">
-
-     {% if group.video_files %}
-  <video width="100%" controls>
-    <source src="{{ group.video_files.0.file.url }}" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-{% else %}
-  <p>No video files in this group.</p>
-{% endif %}
-
+         {% if group.video_files %}
+      <video width="100%" height="220" style="max-height:220px;" controls>
+        <source src="{{ group.video_files.0.file.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    {% else %}
+      <p>No video files in this group.</p>
+    {% endif %}
 
         <!-- Edit/Delete buttons at top right -->
         <div style="position: absolute; top: 16px; right: 16px; display: flex; gap: 8px; z-index: 2;">
           <a href="{% url 'edit_videos' group.id %}" style="border-radius: 50%; background-color: #C3DEB7; padding: 6px 12px; text-decoration: none; font-size: 13px; display: flex; align-items: center;">
             <span class="material-symbols-outlined" style="color:#18438D;">
-      edit
-      </span>
+          edit
+          </span>
           </a>
-          <form method="post" action="{% url 'delete_videos' group.id %}" style="display: inline;">
+          <form method="post" action="{% url 'delete_videos' group.id %}" style="display: inline;"></form>
             {% csrf_token %}
             <button type="submit" onclick="return confirm('Are you sure you want to delete this group?');" style="border-radius: 50%; color: #fff; background-color: #C3DEB7; padding: 6px 12px; border: none; font-size: 13px; display: flex; align-items: center;">
               <span class="material-symbols-outlined" style="color:#A40000;">
-      delete
-      </span>
+          delete
+          </span>
             </button>
           </form>
         </div>
-      </div>
-      <div class="videos-content">
+          </div>
+          <div class="videos-content">
         <h2 class="videos-title">{{ group.title }}</h2>
         <p class="videos-description">{{ group.description }}</p>
 
-    
-      </div>
+        
+          </div>
+        </div>
+      {% empty %}
+        <p style="text-align: center;">No uploads yet.</p>
+      {% endfor %}
     </div>
-  {% empty %}
-    <p style="text-align: center;">No uploads yet.</p>
-  {% endfor %}
-</div>
 
     </main>
 </body>
