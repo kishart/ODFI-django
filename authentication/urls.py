@@ -23,6 +23,12 @@ path('agallery/', views.agallery, name="agallery"),
 
        path('gallery/edit/<int:group_id>/', views.edit_photos, name='edit_photos'),
     path('gallery/delete/<int:group_id>/', views.delete_group, name='delete_group'),
+
+
+    path('avideos/', views.avideos, name="avideos"),
+
+       path('gallery/edit/<int:group_id>/', views.edit_videos, name='edit_videos'),
+    path('gallery/delete/<int:group_id>/', views.delete_videos, name='delete_videos'),
     path('jumuat/', views.jumuat, name='jumuat'),
     path('education/', views.education, name='education'),
 
