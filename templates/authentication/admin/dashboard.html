@@ -1,47 +1,974 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <title>ODFI Internal Portal</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ODFI Internal Portal</title>
 
-  <!-- Google Material Symbols (Only one needed) -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <!-- Google Material Symbols (Only one needed) -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=circle" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- CSS File (Make sure STATIC is loaded in Django) -->
-  <link rel="stylesheet" href="{% static 'authentication/dashboard.css' %}">
-</head>
-<body>
+    html,
+    body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
 
-   {% include 'authentication/admin/anav.html' %}
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
 
 
-  <!-- Main Layout -->
-  <div class="container" style="background-color: #D0E3F8;" >
-   
+    /* Main layout */
+    .container {
+      display: flex;
+      flex-grow: 1;
+      overflow: hidden;
+    }
 
-    <!-- Content Area -->
-    <main class="content" style="background-color: #FFFFFF; margin:10px; border-radius: 10px;
-">
-      .
-      <div class="alert">⚠️ As some of the procedures are still under discussion, this section will be updated from time to time.</div>
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding-top: 1rem;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
 
-      <div class="card">
-        <p class="wel">Welcome to ODFI Internal Portal</p>
-<div class="paragraph">
-        
+    /* Sidebar items */
+    .sidebar li {
+      padding: 10px 12px;
+      border-left: 4px solid transparent;
+      cursor: pointer;
+      list-style: none;
+      font-size: 14px;
+    }
 
-        <p>
-          This portal contains the standard operating procedures (SOP) used in Municipality Islamic Centers (MICs) and Barangay Community Centers (BCCs) that operate under the ODFI umbrella. All members of the ODFI workforce are expected to comply with all the procedures stated here.
-        </p>
-        <p>
-          Sections (1) and (2) in the ODFI SOP comprises (1) ODFI Background Information, and (2) ODFI Vision, Mission, Objectives & General Principles. In order to be consistent with the SOP, the sections below start with Section 3, followed by Section 4, and so on.
-        </p>
+    .sidebar li.logout {
+      color: red;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+    }
+
+    /* Content */
+    .content {
+      flex-grow: 1;
+      padding: 1.5rem;
+      background-color: #fff;
+      overflow-y: auto;
+    }
+
+    /* Alert message */
+    .alert {
+      background-color: #f5f5f5;
+      border-left: 5px solid red;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    /* Card */
+    .card {
+      padding: 1.5rem;
+    }
+
+    .card p.wel {
+      margin-bottom: 1rem;
+      border-left: 15px solid #16610E;
+      background-color: #e1effe;
+      padding: 10px;
+      width: 300px;
+      font-weight: bold;
+    }
+
+    .paragraph {
+      margin-bottom: 1rem;
+      font-size: 15px;
+      color: #333;
+      padding: 20px 50px;
+      line-height: 25px;
+      text-align: justify;
+    }
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 0.8rem;
+      background-color: #000;
+      color: #fff;
+      flex-shrink: 0;
+      height: 50px;
+      font-size: 13px;
+    }
+
+    .sidebar li:hover {
+      border-left: 4px solid #005ea2;
+      background-color: #f0f0f0;
+    }
+    main {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+  <body>
+    {% include 'authentication/admin/anav.html' %}
+
+    <!-- Main Layout -->
+    <div class="container" style="background-color: #d0e3f8">
+      <!-- Content Area -->
+
+      <main
+        class="content"
+        style="background-color: #ffffff; margin: 10px; border-radius: 10px">
+        <div class="alert">
+          <p>
+            This Internal Use section is strictly for ODFI workforce only. It
+            contains the standard operating procedures (SOPs) that all ODFI
+            workforce must comply. This is so as to gain the confidence of our
+            donors to keep giving, and hence our mission will be achieved,
+            biiznillah.
+
+            <br />A copy of all the procedures presented here must be made
+            available in hardcopy in all Municipal Islamic Centers (MICs) as
+            well as at the ODFI Headquarters.
+
+            <br />All ODFI workforce must abide by the procedures given.
+            BBM/ODFI will perform regular audits on the execution of the
+            procedures given here from time to time. Results of the audits will
+            be presented to our donors on a regular basis.
+          </p>
         </div>
-      </div>
-    </main>
-  </div>
 
-  
-</body>
+        <div class="card">
+          <p class="wel">Welcome to ODFI Internal Portal</p>
+          <div class="paragraph">
+            <details open>
+              <summary style="color:red; font-weight: bold;">Section 3: Administration & Operations</summary>
+              <p>
+                The roles of the Municipality Islamic Center (MIC), Barangay
+                Community Center (BCC), Masjid, and Musolla, are given in
+               <b> APPENDIX 1A, </b> while the job specifications of the Regional
+                Director (RD), Person-In-Charge (PIC), Center Secretary (SMIC),
+                Center Treasurer (TMIC), Asatiz, Du’at, Vehicle Person-In-Charge
+                (VO), Du’at Supervisor (DS), Khutbah Writer (KW), etc, are given
+                in <b> APPENDIX 3. </b> <br /> 
+              <br> <b>3.1 General Roles of MICs and BCCs</b>  <br />
+                - Regional Directors (RD), Persons-In-Charge (PIC), or other individuals
+                appointed by BBM, are required to identify potential new centers
+                to be opened. Our aim is to have one Municipality Islamic Center
+                (MIC) in every municipality in Cebu, and one Barangay Community
+                Islamic Center (BCC) in every barangay in Cebu. Where there is a
+                Muslim community of at least 20 people, a BCC should be opened.
+                If there are 2 centers in one barangay, one of the centers is
+                called the Sitio Community Center (SCC). There are about 1,200
+                barangays in Cebu, which should make us very busy in the next
+                few years. <br /> <br> 
+                - Every MIC must aim to open no less than 2 BCCs
+                every year. Before any BCC is opened, permission must be
+                acquired from BBM. <br /> <br> 
+                - Once BBM has approved of the place, permits
+                and approvals from the authorities and regulatory bodies (SEC,
+                DSWD, barangay authority, etc.) must be acquired. Related
+                aspects such as to rent or buy, to renovate, or to build the
+                center will be duly discussed. The BCC can be a rented house of
+                not more than 5k pesos/month or it can be an ODFI-owned
+                building. <br /> <br> 
+                - Every MIC must have the following office bearers: <br />
+                o one MIC Person-In-Charge (PIC) <br />
+                o one MIC Secretary (SMIC) <br />
+                o one MIC Treasurer (TMIC). <br /> <br> 
+                - The 3 office bearers of the MIC (PIC,
+                SMIC, and TMIC) cannot be the same person or person(s) related
+                by blood to each other or is/are each other’s spouse. <br /> <br> 
+                - There should also be at least one qualified ustaz or ustazah, and at
+                least 1 da’ee, and a number of trainees. The work area of the
+                MIC is the whole municipality. <br /> <br> 
+                - Each RD and PIC must pay the
+                Barangay Captain and other members of the local authority a
+                visit on a regular basis in order to create networking
+                opportunities, and gain their support in our programs. <br /> <br> 
+                - Each MIC must have at least one Daawah Team (DT). Each DT comprises: <br />
+                ▪ One da’ee <br />
+                ▪ May or may not have ustaz/ustazah <br />
+                ▪ One or more trainee da’ee/ assistant/driver <br />
+                - The lesser the number of
+                members in the DT, the better it is in terms of cost and
+                operational effectiveness. <br /> <br> 
+                - Each DT must aim to revert at least
+                200 people per month <br /> <br> 
+                - If there are two da’ees in a center,
+                there must be two DTs going separately. The number of trainee
+                da’ees can be increased with BBM’s approval. <br /> <br> 
+                - Every MIC must
+                have at least one van/ jeepny/ multicab and 2 motorbikes for
+                transport. The driver of the vehicle must have valid driving
+                licence. To add, all members of the workforce are encouraged to
+                have valid driving license. <br /> <br> 
+                - The criteria for a new BCC are:<br /><br />
+                 the location must have a sizable community (at least 30
+                households within walking distance / a 0.5 km radius) 
+                <br> the cost
+                of rent is reasonable, 
+                <br> it is reasonably easily accessible by
+                road, 
+                <br> it is large enough to allow for prayers to be held for
+                at least 20 people, 
+                <br> basic facilities such as toilets and ample
+                living spaces are available and reasonably comfortable.
+                <br>  It is
+                at least 2km away from the nearest BCC. <br /><br />
+                - Every BCC must have at
+                least three imams who are local/ members of the community who
+                live in close proximity of the BCC premise. The imams must have
+                already undergone training by ODFI. One of the imam is the
+                caretaker of the BCC. An operation budget of not more than
+                10,000 peso/month will be granted to the BCC, but the money is
+                NOT to pay the imam. Rather, it is to be used for rental or to
+                buy refreshments whenever there are classes held there, or to
+                pay for utility bills, or other job-related expenses of the BCC.
+                The imams do not get any compensation as this is a voluntary
+                position that they do just to attain Allah’s pleasure. The imams
+                maintain their regular salaried job or whatever livelihood means
+                they already have, and does their imam duties outside of their
+                salaried/ current livelihood working hours. <br /><br />
+                - Every PIC should
+                identify at least 3 local people to become imam at every BCC,
+                and they should already have means of livelihood. All imams are
+                encouraged to upgrade their knowledge of Islam continuously, and
+                if they show potential, may be sent for more Islamic education
+                that may lead to them becoming asatiz. <br /><br />
+                - There should be at
+                least one motorbike stationed at every BCC. See <b>APPENDIX 1A</b> for
+                more details that must be adhered to by the MIC and BCC.<br /><br />
+              </p>
+            </details>
+
+            <details>
+              <summary style="color:red; font-weight:bold;">Section 4: Asset Management</summary>
+              <p> 
+                1. From time to time, new assets are acquired to aid in BBM/ODFI
+                operations. Some assets are purchased as part of the capital
+                expenditure (CAPEX) of opening a new center, or are purchased as
+                part of the operational expenditure (OPEX) of the MIC. 
+               <br /><br /> 2. <b>Assets</b>
+                (movable and non-movable) are not to confused with consumables.
+                Examples of consumables are paper, writing note books,
+                stationeries, printer ink, etc.
+                <br /><br /> 3. <b>Movable</b> are assets
+                that can be moved from one location to another, like vehicles
+                (cars, vans, jeepnys, trisikads, tuktuks, bicycles, motorcycles,
+                etc), furniture (tables, chairs, computers, refrigerators,
+                kitchen utensils, etc). <b>Non-movable</b> assets are lands and
+                buildings. 
+                <br /><br />4. Once approval to purchase an asset is given, it is
+                acquired, and details of it must be recorded in the <b>ASSET LEDGER
+                BOOK</b> (ALB; virtual copy AND physical copy), with details given
+                in <b>APPENDIX 2</b>. 
+                <br /><br />5. In order to optimize the use of the asset,
+                proper care and maintenance must be practised. The PIC or other
+                designated persons must ensure that maintenance is carried out
+                appropriately. Maintenance must be duly recorded in the ALB with
+                details given in <b>APPENDIX 2</b> 
+                <br /><br />6. All MICs must complete its ALB
+                every January and June for audit purposes. There should be both
+                physical and e-files containing all asset details (purchase,
+                maintenance, disposal). The physical file is placed in the MIC
+                office and should be made available to be audited by BBM/ODFI
+                anytime. 
+                <br /><br />7. For <b>vehicle acquisition and management</b>, there is a
+               <b>Vehicle Overseer</b> (VO) who is appointed by BBM and has duties
+                spelled out in <b>APPENDIX 3</b>. 
+                <br /><br />8. All regular and/or planned vehicle
+                maintenance requests must be submitted to the VO for his/her
+                oversight and approval first, with the exception for emergency
+                repairs. All repair receipts need to be endorsed by the VO. 
+                <br /><br />9.
+                All maintenance matters relating to the vehicle must be recorded
+                and filed in the <b>Center ALB</b>. 
+                <br /><br />10. Although the VO oversees
+                general vehicle issues, a vehicle is still an asset and is
+                therefore subjected to the same rigor in care and maintenance
+                that are subjected to other assets. As per normal, all records
+                and documents related to the vehicle must be filed accordingly.
+               <br /><br />11. Inventory audit, including on vehicles, is carried out <b>every
+                6 months</b>. BBM will announce the audit dates and appoint auditors
+                to accomplish the task from time to time.
+              </p><br /><br />
+            </details>
+
+            <details>
+              <summary style="color:red; font-weight:bold;">Section 5: Human Resource</summary>
+              <p>
+                Hiring of the PIC, asatiz, du’at, and other members of the team
+                are carried out by BBM or persons appointed by BBM. The job
+                scope/duties, expectations, and eligibility criteria for each
+                position are given in <b>APPENDIX 3</b> . 
+                <br><br>  The selection process of the
+                position of Asatiz and Du’at is as follows: 
+                  <br><br>  ➢ Two designated
+                members of the team (the Du’at Supervisor (DS) and the Asatiz
+                Supervisor (AS)) are appointed by BBM to carry out the
+                recruitment process. 
+                  <br><br>  ➢ All interested applicants must fill up
+                FORM C (APPENDIX 4) and submit all relevant certificates and
+                other related documents to the DS. All documents must be filed
+                by the DS and is made available upon request by BBM. 
+                  <br><br>  ➢ The DS
+                and the AS sieve through all application forms to shortlist
+                applicants who have the appropriate skills, competencies,
+                character (akhlaq), and commitment to serve BBM / ODF mission
+                and vision, and who are likely to be able to fulfil the job
+                specifications spelled out in APPENDIX 3. 
+                  <br><br>  ➢ Interview sessions
+                must be carried out on shortlisted applicants. Each interview
+                session must be attended by the TAULIAH COMMITTEE (TC)
+                comprising the DS, AS, RD and PIC (where the new recruit will be
+                placed), and at least one other member of the workforce (as
+                identified jointly by DS and RD). 
+                  <br><br>  ➢ Each member of the TAULIAH
+                COMMITTEE will assign marks (in the form of percentage) on each
+                candidate interviewed using FORM C1 (APPENDIX 5). For the most
+                part, the candidate with the highest average marks is selected.
+                  <br><br>  ➢ Once selection is agreed upon by the Tauliah Committee, the
+                name of the candidate/s is/are sent to BBM for approval. 
+                  <br><br>  ➢ Only
+                after approval is acquired from BBM can the candidate be
+                informed of his/ her appointment. 
+                  <br><br>  ➢ All related hardcopy records
+                (application forms, interview sheets (FORM C1), etc) must be
+                kept by the DS and a copy of the file must be given to the ODFI
+                Secretary. The ODFI Secretary must have a hardcopy of the
+                records, which should be made available upon request by BBM.
+                <br><br>  
+                Once the candidate is accepted as a member of team in 
+                ODFI
+                affiliated centers, he/she goes through an ORIENTATION PROGRAM.
+                The program shall be given by the RD, DS, and/or PIC and/or
+                other individuals appointed by BBM. The content of the
+                orientation program is given in <b>APPENDIX 6. </b>  <br><br>  
+                ODFI will issue a
+                <b>Letter of Amanah </b>using format given in <b>APPENDIX
+                 7.</b> A copy of the
+                letter must be kept in a physical file that is placed in the MIC
+                and must be available for audit at all times. A copy must also
+                be given to the ODFI Secretary. If a member of the team is not
+                present and/or not contactable during his/her regular work time
+                while the PIC or RD is not informed, he/she is considered to be
+               <b>absent.</b>  After 3 times of such occurance, disciplinary action
+                will be taken upon him/her.
+                <br>All members of the team must go
+                through all the teaching-learning materials outlined in <b>APPENDIX  1.</b> To add, they must go through all training & personal
+                development programs offered by BBM/ODFI from time to time.
+                <br><br>
+                Immediately after Orientation Program, and from time to time
+                thereafter, members of the team will be assessed in terms of
+                their knowledge, competency, skills, adherence to all ODFI/ BBM
+                policies presented in this SOP, and other instructions relayed
+                by BBM or by BBM’s appointed representative(s). <b>APPENDIX 9 </b> is a
+                sample of questions that may be asked by BBM/ODFI to all ODFI
+                workforce from time to time.
+                <br><br> If a member of the team is found
+                lacking in any of the aspects assessed, more training will be
+                given. If he/she has disciplinary issues, and has been found to
+                not improve him/herself after being warned, then, disciplinary
+                actions will be taken upon him/her appropriately.
+              </p>
+            </details>
+
+            <details>
+              <summary style="color:red; font-weight:bold;">Section 6: Finance</summary>
+              <p>
+                Before the 26th of every month, all PICs must prepare a <b>CENTER
+                MONTHLY BUDGET REQUEST.</b>  <b>APPENDIX 10</b> is an example of a Monthly
+                Budget Request.
+                <br><br> As stated elsewhere in this document, all MICs
+                are expected to perform NEW DAAWAH in <b>5</b> new communities, and
+                FOLLOW-UP DAAWAH in <b>15</b> new (within 2 months from the time new
+                daawah is given) reverts communities. An allocation of 1 sack of
+                rice per sitio may be requested. As such, the Monthly Budget
+                Request should not exceed this allocation as it will only delay
+                approval and fund remittance. 
+                <br><br>In the Center Monthly Budget
+                Request, please list 20 sitios (5 for new daawah and 15 for
+                follow-up daawah) that the MIC is planning to visit <b>(FORM E,
+                APPENDIX 10).</b>  If these data are not given, then BBM will assume
+                that the MIC does not visit the 5 new daawah sitios and 15
+                follow-up daawah sitios in the reverts communities. This will
+                affect the budget allocations for the following month.
+                <br><br> Normally,
+                new daawah on 5 sitios with approximately 125 attendees overall
+                will justify 5 sacks of rice, while for follow-up daawah, 15
+                sitios with overall 375 attendees will justify 15 sacks of rice.
+                Please aim to achieve these targets. 
+                <br><br>PICs may request for
+                stationeries expenses which are meant for the use of the MIC and
+                asatiz classes. 
+                <br><br>Do not include emergency funds in the Center
+                Monthly Budget Request. This will only cause unnecessary
+                prevention of automatic approval of overall budget. 
+                <br><br>The Monthly
+                Budget Request must be submitted to BBM every month before the
+                26th day of the month. 
+                <br><br>Every month, a <b>CENTER LIQUIDATION REPORT</b> 
+                of all the center’s expenses for the month must be prepared and
+                submitted to BBM. <b>APPENDIX 11 </b> is an example to be used by the
+                PIC as a reference to prepare the Center Liquidation Report.
+                <br><br>
+                Liquidation Reports must be submitted before the <b>5th day </b> of the
+                month. No monies will be disbursed until a proper Center
+                Liquidation Report and complete <b>CENTER ACTIVITY REPORT</b>  have been
+                submitted in softcopies (pdf or excel).
+                <br><br> All centers must submit
+                a <b>CENTER ACTIVITY REPORT </b>every month. <b>FORM G (APPENDIX 12) </b> is
+                the template to be used to prepare the Center Activity Report.
+                As with other administration reports, copies of the report must
+                be made available when they are requested by BBM. 
+                <br><br>Center
+                Activity reports must be submitted before the 5th day of the
+                next month. 
+                <br><br>Failure to submit the Center Monthly Budget Request,
+                Center Liquidation Report, and the Center Activity Report may
+                affect the disbursement of budget for the center in subsequent
+                months. <br><br>
+              </p>
+            </details>
+
+            <details>
+              <summary style="color:red; font-weight:bold;">Section 7: Procurement</summary>
+              <p>
+                Education of new Muslims is one of ODFI’s core functions. The
+                aim is to educate every revert who has taken the syahadah so
+                that they will become righteous Muslims until the day they die.
+               <br><br> There are two main types of education given, namely <b>Fardu Ain
+                Classes </b> (given at least once a week at the same locations) and
+              <b>Intensive Courses</b>   (given from time to time). In addition, there
+                are also seminars, dialogues, etc held from time to time. 
+             <br><br>  <b>A. Fardu Ain Classes </b> 
+                <br><br>- ODFI offers regular fardu ain classes to all
+                community members – adults and children - who have taken the
+                syahadah, especially through ODFI’s daawah initiatives.
+                <br><br> - The
+                classes are led by designated asatiz at designated locations on
+                designated days and time every week. 
+                <br><br>- Class schedules are to be
+                prepared by the PIC at the beginning of every month and must be
+                followed very closely by the asatiz. <b>FORM H (APPENDIX 13) </b> is a
+                template to be used to prepare monthly class schedules.
+                Frequency of the classes is subject to the number of asatiz
+                assigned to the area and the number of reverts in the community
+                under the center. FORM H must be included when you submit your
+                CENTER ACTIVITY REPORT. 
+                <br><br>- The curriculum of the classes is given
+                in <b>APPENDIX 1.</b>  The curriculum is subject to review by BBM from
+                time to time and must be strictly adhered to by the asatiz. 
+                <br><br>-Students must be assessed by the asatiz using <b>FORM J </b> given in
+               <b> APPENDIX 14.</b> All assessment forms must be kept by asatiz and be
+                made available upon request by BBM.
+                <br><br> If budget permits, light
+                refreshments should be served during classes. The execution of
+                fardu ain classes must be reported using <b>FORM K (APPENDIX 12,
+                SECTION B).</b>   FORM K is to be inserted into the CENTER ACTIVITY
+                REPORT every month.
+                <br> <br> <b>B. Intensive Courses & Seminars & Dialogs</b> 
+                -
+                From time to time, ODFI organises intensive courses, seminars
+                and dialogs, whereby participants stay in one specific location
+                for one day or a number of days.
+                <br><br> - To organize these programs, a
+                proposal must first be developed. <b> FORM M (APPENDIX 15)</b> is the
+                template to be used to develop a proposal. 
+                <br><br>- Approval must be
+                obtained from BBM before any intensive course can be carried
+                out. 
+                <br><br>- At the end of the course, feedback from participants must
+                be acquired so as to become input in the course’s post-mortem
+                exercise. FORM N (APPENDIX 16) is the template to be used for
+                gathering feedback from participants who attend intensive
+                courses. <br><br>
+              </p>
+            </details>
+
+            <details>
+              <summary style="color:red; font-weight:bold;">Section 8: IT Support</summary>
+              <p>
+                - Every Jumaat, Jumaat prayers are held at designated locations
+                that are identified by the DR and/or PIC. The <b>bilal</b> (muezzin),
+                <b>khatib</b> (who delivers the khutbah (sermon)), <b>imam</b>  for the Jumaat
+                prayer sessions, and the supervising <b>ustaz</b> are also identified
+                by the DR and/or PIC. 
+                <br><br>- Every <b>Wednesday or Thursday,</b>  content of
+                the week’s khutbah (in the form of notes or whole write-ups) is
+                conveyed by a BBM-appointed person – referred to as the <b>Khutbah
+                Writer (KW)</b>  - to all khatibs. 
+                <br><br>- Information on registering with
+                the NCMF must be incorporated in the khutbah at least once a
+                month as a reminder to the congregation. 
+                <br><br>- Jumaat prayer
+                sessions starts with zuhur azan performed by the <b>bilal</b>. After
+                azan, the khatib proceeds with khutbah (sermon). The khatib must
+                follow the notes or whole writeup that has been given by the KW.
+                <br><br>
+                - Jumaat prayer reporting must be done on the same day. Apart
+                from photographs that are sent via Whatsapp, the PIC must fill
+                up <b>FORM P (APPENDIX 17)</b> , which will become a part of the monthly
+                CENTER ACTIVITY REPORT of the center. <b>FORM P </b>contains the name
+                of the imam, the supervising ustaz, and the number of jema’ah.
+                This information is critical to justify budget for Jumaat food
+                allocation. 
+                <br><br>- There is no allocation for disbursement of rice to
+                attendees of Jumaat prayers. To encourage Jumaat attendance, we
+                suggest FOLLOW-UP DAAWAH to be done before or after the Jumaat
+                prayers. This is just an option. 
+                <br><br>- If there is sufficient
+                budget, food – comprising rice and light refreshments – are to
+                be served after prayers. Otherwise, just drinks are to be
+                served. <br><br>- As much as possible, food should be consumed within
+                the compounds of the venue to encourage social interaction
+                between the jema’ah.
+              </p>
+            </details>
+
+            <details>
+              <summary style="color:red; font-weight:bold;">Section 9: Safety & Security</summary>
+              <p>
+                - Daawah is ODFI’s core activity, alongside (Islamic) education
+                of reverts and a few others. Daawah comprises <b>NEW DAAWAH</b> 
+                (targeted to communities/locations that have not been given
+                daawah before this), <b>FOLLOW-UP DAAWAH </b> (targeted to communities /
+                locations that have been given NEW DAAWAH within <b>2 months</b> since
+                the time the new daawah is given), and <b>MASS DAAWAH </b>(daawah
+                carried out in certain locations where there are many
+                passers-by).
+                <br><br> - Daawah is NOT to be confused with Islamic
+                education (see <b>Section 4 </b>above). Likewise, mass daawah and new &
+                follow-up daawah are two different programs with different
+                sources of funds. They cannot be mixed. Report for mass daawah
+                cannot substitute reports for new and follow-up daawah 
+                <br><br>- New
+                daawah, follow-up daawah, and mass daawah are to be carried out
+                by the MIC’s <b>Daawah Team (DT).</b> Each DT should revert at least
+                200 people per month, biiznillah. 
+                <br><br>- At the end of every month,
+                the PIC is required to prepare a plan targeting locations for
+                new daawah, follow-up daawah, and mass daawah locations. <b>FORM E
+                (APPENDIX 10),</b> which forms a part of the <b>CENTER MONTHLY BUDGET
+                REQUEST,</b> is to be inserted into the <b>CENTER ACTIVITY REPORT.</b> 
+                - As
+                stated elsewhere in this SOP, all MICs must perform at least <b>5
+                new daawah</b> in 5 new communities and <b>15 follow-up daawah </b>every
+                month. A gift of 1-2 kg uncooked rice should be distributed to
+                adult attendees during new daawah and follow-up daawah. A brief
+                guide to performing daawah is given in <b>APPENDIX 19.</b>  
+                <br><br>- For every
+                new daawah, follow-up daawah and mass daawah session executed,
+                <b>FORM R (APPENDIX 20) </b>must be filled up. FORM R is to be inserted
+                into the CENTER ACTIVITY REPORT. At the same time, reporting of
+                the daawah sessions via Whatsapp must be carried out on the same
+                day.
+                <br><br> - New daawah means new revert communities are created. The
+                DT must set up the Setio Development Committee (SDC) within 6
+                months of revertion or where there are more than 20 Muslims in a
+                community/setio. The committee comprises a chairperson, a
+                secretary, a treasurer, an auditor and 5 members to head 5
+                bureaus, namely, the Education Bureau, Welfare Bureau, Economy
+                Bureau, Women Affairs Bureau, and Religion Bureau. Their names
+                must be recorded in <b>FORM S</b>, and submitted to ODFI. ODFI will
+                train them from time to time and empower them so that they can
+                look after the affairs of their community. ODFI will appoint
+                them officially and they can open their bank account to
+                facilitate any transfer of money for community projects in the
+                future. 
+                <br><br>- The MIC/DT (DT is short for Daawah Team) must
+                establish good relationship with local authorities particularly
+                the police, mayor, barangay captains and politicians and must
+                always work within the law of the country. The MIC/DT must
+                always uplift the good names of Islam, ODF and BBM. The MIC/DT
+                must ensure that every revert will get his/her conversion
+                certificate at the shortest period of time. There must be a
+                brief mention of registration process of new reverts with NCMF
+                during every new daawah session and every follow-up daawah
+                session, and during Jumaat khutbah sessions. 
+                <br><br>- In the event of a
+                lockdown or extreme weather, such that daawah, follow -up
+                daawah, and mass daawah cannot be done, the monies allocated for
+                this purpose must be rolled forward to next month, and cannot be
+                spent for other uses.
+              </p>
+            </details>
+
+            <details>
+              <summary style="color:red; font-weight:bold;">Section 10: Legal & Compliance</summary>
+              <p>
+               <br><br> - Approximately one month before the beginning of the month of
+                Zulhijjah, the PIC and his/her designated helpers must start to
+                seek cows and goats to be slaughtered as qurban on Eidul Adha
+                and the Tasyriq days (11th, 12th and 13th Zulhijjah). The cows
+                and goats are not to be bought yet, and no promises are to be
+                made to the owner. This exercise is merely to survey the
+                availability and prices of the cows and goats. This information
+                is then conveyed to BBM. 
+                <br><br>- BBM initiates qurban campaigns to
+                acquire as many qurban bookings as possible. PICs/ helpers will
+                then buy the appropriate number of cows and goats. 
+                <br><br>- BBM will
+                create a <b>pro tem temporary QURBANI Whatsapp group</b>  comprising all
+                RDs, PICs and/or treasurers/ selected asatiz and BBM
+                representatives to serve as a platform for all issues relating
+                to qurban, including but not limited to the following: 
+              </p>
+              <li>
+                <li>
+Centers’ demand forecast for qurban based on actual statistics of revert
+                communities. 
+              </li>
+              <li>Centers’ scheduling of the qurban.</li>
+               <li> Assigned
+                qualified qurbani slaughterers, locations and targeted reverts
+                during the first 4 days of Eid Adha. </li>
+                
+                <li> Assurance on the compliance
+                to Islamic jurisprudence (fiqh for qurban) for qurban rituals.</li>
+               <li> All asatiz, PIC, and RDs must be involved to ensure compliance.</li>
+               <li> Qurbani cow/goat tag details. </li>
+               <li>On-time reporting of the qurban
+                including before and after qurban pictures, approximate </li>
+                <li>weights
+                of the meat (if possible), and distribution statistics </li>
+
+                
+</li>
+            </ul>
+               
+                <p><br><br>- Qurbani
+                tag numbers must be assigned and they must correspond accurately
+                to participants’ names assigned to the MIC. This will be
+                finalized based on BBM’s updated Qurbani Inventory. 
+                <br><br>- BBM will
+                inform the name and contact information of the <b>Person in charge
+                of Overall Qurbani (POQ)</b> . All inquiries of the assigned cow/goat
+                tag number, together with participants’ name list and other
+                details should be directed to the POQ. 
+                <br> <br>- The RD and PIC are
+                responsible for making sure that the slaughtering venue is
+                suitable for slaughtering activity. There should be ample space
+                so that the animals do not have to witness the slaughtering of
+                other animals. <b>FORM S1 (APPENDIX 21)</b> gives a brief guideline of the Fiqh
+                of Qurban that ALL RDs, PICs and slaughterers must understand
+                and practise appropriately. FORM S1 (APPENDIX 21) is an example
+                that must be used, that displays the names of qurban
+                participants. 
+                <br><br>- After slaughtering, the animal is cleaned, cut,
+                packed, and distributed to members of the community. Some
+                portion of the animal is to be cooked at the slaughtering venue
+                and the food is consumed together on site. 
+                <br><br>- Every step of the
+                way, the RD, PIC and/or his/her designated helpers must take
+                photographs and videos that clearly show the animal tag number,
+                name of qurban participants as well as the state of the animal.
+                The photographs and videos must be relayed within 1 hour of the
+                event so that qurban participants can receive news of their
+                qurban animals as soon as possible. This is important so that
+                they (qurban participants) will be relieved from abstaining from
+                cutting their hair and/or nails, as soon as their qurban animals
+                are slaughtered, as per the Sunnah. 
+                <br><br>- Please limit number of
+                photos to ONE before, ONE after, and 3 for meat distribution for
+                each slaughtered animal so as not to jam our hand phones with
+                too many photos that do not carry different messages than the
+                ones already relayed. 
+                <br><br>- At the end of each day of qurban, the
+                list of completed qurbani based on the animal tag number must be
+                conveyed to the PQ.
+              </p><br><br>
+            </details>
+
+            <details>
+              <summary style="color:red; font-weight:bold;">Section 11: Communications</summary>
+              <p>
+                The observance of Ramadhan is an essential part of the Muslim
+                experience. BBM /ODFI encourages Muslims to observe Ramadhan and
+                participate in iftar (breaking of fast) and taraweeh (voluntary
+                prayers after performing the obligatory solatul isya’). Apart
+                from iftar meals, uncooked rice is given to participants to
+                encourage attendance. Every year, RM80,000 – RM100,000 is spent
+                for Ihya Ramadan. 
+                <br><br>
+               <b>  1. Iftar</b>
+                <br> All MICs must offer daily iftars
+                followed by taraweeh in the MIC itself and/or at satellite
+                locations (mosques, musolla, BCC) of the MIC. 
+                <br><br>One month before
+                Ramadan, all PICs must: 
+                <br><br>
+                • Identify the <b>locations</b>  for iftar to be
+                held throughout Ramadan. 
+                <br><br>
+                • Estimate the <b>number of jema’ah</b>  in
+                every location under his/her MIC. This number must be realistic
+                and reflects the actual number of attendees during Jumaat
+                prayer, Fardu Ain classes, and other ODFI gatherings held from
+                time to time. Use <b>FORM T1 (APPENDIX 22)</b> to record this
+                information. 
+                <br><br>• Send FORM T1 to BBM so that BBM can use it to
+                calculate the amount of money to be given to the center for
+                iftar. <br><br>After the PIC has received money from BBM for iftar,
+                he/she must call for a meeting to discuss the following: •
+                Identify the person (ustaz / da’ee/ volunteer) who will be in
+                charge of each location. 
+                <br><br>• Identify the imam who will lead the
+                taraweeh prayers and tazkirah sessions. 
+                <br><br>• Identify the person
+                who will lead in cooking food in each location. 
+                <br><br>• Number of days
+                iftar will be held in each location (this depends on the amount
+                of money received. Bigger places with more jema’ah should hold
+                more iftar sessions compared to smaller locations with less
+                number of jema’ah). 
+                <br><br>• Menu of the iftar (see FOOD PREPARATION
+                section below).
+                <br><br> • Location of eid prayers. 
+                <br><br>Before the
+                commencement of iftar, the imam is encouraged to give a 3-5
+                minute iman-booster <b>tazkirah</b>  to the attendees. A reflection of a
+                short hadis or an ayah of the Qur’an is encouraged. 
+                 <br><br>Persuade the
+                attendees to stay on for taraweeh after iftar (even though this
+                is not compulsory). It is better for the jema’ah to eat a small
+                amount of food for iftar and then proceed for solatul maghrib,
+                before continuing with consuming the rest of the food prepared.
+                <br><br> After iftar, 3-5 photographs should to be sent via Whatsapp to
+                BBM to be shared with donors of the iftar fund. 
+                 <br><br> <b>FORM T2
+                (APPENDIX 22) </b>
+                must be completed at the <b>end</b>  of Ramadan, to be
+                filed as part of the CENTER ACTIVITY FILE. 
+                <br><br>
+                <b>  2. Taraweeh / Qiyam</b>
+              <br><br>
+                Taraweeh is performed either for 8 raka’ah or 20 raka’ah. Given
+                that most are new Muslims, it is wise to have only 8 raka’ah of
+                prayers followed by 3 raka’ah of witir. 
+                <br><br>While reciting more ayah
+                is encouraged, the imam must gauge the state of the jema’ah
+                before deciding the number and length of ayah to recite. A new
+                Muslim may be weary of taraweeh is it takes a very long time to
+                complete the prayer. 
+                <br><br> <b>3. SOLATUL Eid (Eidul Fitr and Eidul Adha)</b>
+                
+                 <br><br> The PIC must remind all asatiz and da’ee of Eidul Fitr and Eidul
+                Adha a few days ahead of the eid days. Remind also the
+                obligation of paying zakat fitr to all jema’ah. 
+                 <br><br> Eid prayers must
+                be performed in the morning (between 7 am to 9 am) at masjids
+                identified by the PIC. Takbir recitation (Allahuakbar) must be
+                organised, to be carried out for at least 30 minutes in
+                identified masjids. 
+                 <br><br> If funds are available, food should be
+                served after prayers on eid days. 
+                 <br><br> Zakat Fitr is to be collected
+                by the PIC in the days leading to Eidul Fitr or on the day of
+                Eidul Fitr itself before the commencement of prayers. The money
+                is then and given the ODFI Secretary for safekeeping before it
+                is sent to the rightful recipients. The amount collected must be
+                recorded in the PIC’s files as well as files kept in ODFI
+                offices. <br><br> 
+              </p>
+            </details>
+
+            <details>
+             <summary style="color:red; font-weight:bold;">Section 12: Monitoring & Evaluation</summary>
+              <p>
+                 <br><br> 
+                Food, particularly rice, is an important aspect of BBM/ODFI
+                work. Its purchase and preparation take a huge portion of
+                BBM/ODFI’s operating budget, especially on the day of Jumaat
+                during Jumaat prayer sessions, during the month of Ramadan when
+                iftar gatherings are organised, during eid celebrations (subject
+                to availability of budget), and on special occasions (weddings,
+                funerals, etc).  <br><br> 
+                ODFI staff must look for good but inexpensive
+                rice to purchase. For example, in March 2025, Dato’ Razak
+                visited rice stalls in Toledo public market to look for good yet
+                inexpensive rice and found such rice at 35 pesos/kg (1730
+                peso/sack) rather than 50+ peso/sack that many believed the cost
+                to be. (He bought and cooked the rice and found it good). 
+                 <br><br> Our
+                principle is <b>'very cheap but very good'</b> meals. We must strive to
+                work around this principle.
+                 <br><br> Some suggested ‘very cheap but very
+                good’ Jumaat and/or iftar meal menus: 
+                <br><br> ✓ noodle cooked with
+                vegetables / malunggay and rice 
+                <br><br> ✓ monggo cooked with vegetables
+                / malunggay and rice 
+                <br><br> ✓ fish with malunggay / vegetable and rice
+                <br><br> ✓ egg with sauce or sardine with vegetable and rice 
+                <br><br> ✓ chicken
+                soup with vegetables / malunggay and rice 
+                <br><br> Drinks should comprise
+                of plain water or slightly flavored soft drink from concentrate.
+               <br><br>  Absolutely no bottled / gaseous drinks like Coca-Cola, Pepsi,
+                etc, are allowed, which are not only bad for health, but are
+                also costly. 
+                <br><br> If possible, serve some inexpensive local fruits
+                too. 
+                <br><br> The overall budget should cost approximately 30-35 pesos
+                per person per meal. 
+                <br><br> Do not cook too much. No lavish food should
+                be prepared unless the expenses are from your own money. BBM has
+                more than 80 centres. Hence, frugality is very much needed.
+               <br><br>  Always remember - wastage and overeating are forbidden in Islam
+                <br><br> During eid or other special occasions (wedding, seminars,
+                funerals), the food prepared is according to the budget
+                available. Food for eid and other special occasions are not
+                provided on a regular basis and is strictly based on the amount
+                (if any) given by donors.
+              </p>
+            </details>
+
+            <details>
+             <summary style="color:red; font-weight:bold;">Section 13: Other Services</summary>
+              <p>
+                MICs are the hub of Islamic activities in the community. Because
+                Islam is not just a religion, rather it is a WAY OF LIFE, all
+                matters related to life can be referred back to Islam, and hence
+                MICs have a role to play on each of the matters. This section
+                explains a few of the matters and how MICs can help in whatever
+                way possible to ensure that the communities under it are
+                somewhat taken care of, Islamically speaking. 
+                <br><br>  <b>1. Economic
+                Empowerment </b>
+                <br><br>  
+                Islam encourages trade and business as long as they
+                are executed within the confines of halal rulings. Halal-based
+                income generation – such as farming, livestock rearing, halal
+                markets, tourism (homestays, halal restaurants, etc) – is highly
+                encouraged.
+                <br><br>   From time to time, when there are donations to this
+                end, BBM/ODFI will extend to qualified reverts. But before that,
+                interested reverts must fill up an application that details out
+                the economic activity that they are interested to pursue, and
+                the budget needed. <b>FORM U (APPENDIX 23)</b>  must be filled out and
+                submitted to BBM. If the application is successful, the
+                applicant must fill up a pledge of clearance <b>(FORM V, APPENDIX
+                24) </b> and submit it to BBM/ODFI.
+                <br><br> The applicant (now recipient of
+                advance) is obliged to make clearances as per planned. 
+                <br><br>Failure
+                to do so will bring about negative consequences to the recipient
+                of advance, the community, as well as to BBM/ODFI in general. 
+                 <br><br> <b>2.
+                Humanitarian Aid </b>
+                 <br><br> 
+                 From time to time, community members, and even
+                ODFI workforce and volunteers, come into crisis that require
+                financial help. For example, there may be a fire, a typhoon, an
+                accident, a medical condition, among others.
+                 <br><br>  BBM does not have
+                funds allocated for this purpose. However, the PIC can fill up
+               <b>FORM W (APPENDIX 25) </b> to apply for advance or donation, and
+                submit it to BBM so that BBM can then seek for donors and/or
+                advancers. 
+                   <br><br> If money is acquired, BBM will send it to the PIC,
+                who will then disburse to the person/s in need. The PIC will
+                then fill up <b> FORM X (APPENDIX 26)</b> as a record of the
+                disbursement of the money. 
+                 <br><br>If advance is given rather than
+                donation, the recipient of the advance must fill up <b> FORM V
+                (APPENDIX 24</b> - Clearance Pledge) and make clearance
+                appropriately when the time comes. The PIC will then send the
+                money to the Secretary of ODFI for safekeeping, and inform BBM
+                appropriately. <b>FORM X1 (APPENDIX 26) </b> must be filled up by the
+                PIC and filed appropriately. 
+                <br><br>All monetary transactions of this
+                kind – be it advance or gift – must be recorded by the PIC in
+                <b>FORM X1 </b>and included into the CENTER ACTIVITY REPORT. 
+               <br><br> <b>3.
+                Marriage / Divorce </b> 
+                <br><br> 
+               - In Islam, getting married is a sacred act
+                of worship, and marriage is a sacred institution that Muslims
+                pursue to seek Allah’s pleasure. As such, the relevant RD and
+                PIC should be informed of (new) marriages that happen in the
+                Muslim sitio so that members of the community can rejoice in the
+                union that will hopefully enhance our strength and unity 
+                <br><br> - In
+                the event of an upcoming marriage, the PIC must identify one
+                wali (guardian of the bride – her father or the next closest
+                male relative), 2 male witnesses (saksi), and a kadi (the person
+                who will solemnise/officiate the marriage) for the marriage
+                ceremony. 
+                <b>- FORM Y (APPENDIX 27)</b> must be filled up by the PIC,
+                and filed accordingly.  <b>APPENDIX 28</b> gives a brief guide to
+                performing a marriage solemnization ceremony. 
+                <br><br> - If there is
+                sufficient budget, a simple meal should be served to 10-15
+                guests who attend the ceremony. 
+                <br><br> - In the event of an impending
+                divorce, the PIC should refer the couple to a counsellor (see
+                Section 13.5 above) 
+                <br><br>  <b>4. Death & Burial</b>
+                 <br><br>  Death is a part of life
+                that every Muslim must prepare for. When death happens, the PIC
+                must take the leadership to ensure that the death and burial
+                rites are carried out according to the way defined by Islam. (It
+                is hence very important that every revert should have a proper
+                document of his/her status as a Muslim, as indicated by the
+                NCMF).
+                <br><br>   The PIC informs the community members of the death and
+                consults with the family of the deceased regarding the following
+                tasks. The PIC must ensure that the tasks are carried out either
+                by family members or ODFI workforce / volunteers 
+                <br><br>  
+                - Police report <br>
+                - Doctor’s confirmation of death <br>
+                - Death certificate <br>
+                -Identification of persons to bathe and clothe the jenazah (body
+                of the deceased) <br>
+                 - Solatul jenazah (identify a qualified ustaz
+                to be the imam)  <br>
+                - Identification of burial site <br>
+                - Burial of the
+                jenazah (including transportation to get to the burial grounds) <br>
+                <br> <br>
+               <b> APPENDIX 29 </b>gives a brief guide to the Islamic way of dealing
+                with death and funeral rites. <b>APPENDIX 30 (FORM Z) </b>must be
+                filled up by the PIC or his/her representative, and filed
+                accordingly. 
+                <br><br> <b>5. Family Counselling </b>
+                 <br><br>
+                As is the norm, every family
+                faces challenges every now and again. There are some challenges
+                that may affect the family in a big way. If trust has been built
+                in a community, it is likely that the PIC or asatiz might be
+                consulted to help in the challenges that the family faces. As
+                such, all PIC and asatiz should equip themselves with some basic
+                counselling skills. <b>APPENDIX 31 </b> is a brief guide to doing
+                counselling. If there is abuse (physical, emotional, or verbal),
+                neglect, talk of divorce or separation, and mental illness or
+                addiction, refer them to an ustaz, imam, or counsellor who can
+                help better.
+              </p>
+            </details>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
