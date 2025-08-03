@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Media Upload</title>
-  </head>
-
+<head>
+  <title>Media Upload</title>
   <style>
     .gallery-container {
       display: flex;
@@ -21,39 +19,31 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: calc(33.33% - 32px); /* 3 cards per row with gap */
+      width: calc(33.33% - 32px);
       min-width: 280px;
       max-width: 350px;
     }
 
+    .gallery-wrapper {
+      position: relative;
+      width: 100%;
+      height: 220px; /* force same height like video cards */
+      background: #e0eedc;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .gallery img {
       width: 100%;
+      height: 100%;
+      object-fit: cover; /* ✅ this makes portrait images crop to fill like landscape */
       display: block;
-      height: auto;
     }
 
     .gallery-content {
       padding: 20px;
-    }
-
-    .gallery-type {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      color: #fff;
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-    }
-
-    .gallery-type-news {
-      background-color: #007bff;
-    }
-
-    .gallery-type-event {
-      background-color: #ff4136;
     }
 
     .gallery-title {
@@ -67,138 +57,63 @@
       color: #555;
       margin-bottom: 20px;
     }
-
-    .gallery-date {
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      color: #316128;
-      font-weight: bold;
-    }
-
-    .gallery-date-icon {
-      margin-right: 8px;
-      display: inline-block;
-    }
-
-    .gallery-wrapper {
-      position: relative;
-    }
   </style>
+</head>
+<body>
 
-  <body>
-    {% include 'authentication/admin/anav.html' %} {% block content %}
-    {% endblock content %}
+{% include 'authentication/admin/anav.html' %}
+{% block content %}{% endblock content %}
 
-    <main
-      class="content"
-      style="background-color: #ffffff; margin: 10px; border-radius: 10px">
-      <div
-        class="title"
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 10px;
-          margin-bottom: 20px;
-          color: #fcb31c;
-          background-color: #347433;
-          padding: 15px;
-          border-radius: 15px;
-        ">
-        <h1 style="margin: 0">Gallery</h1>
+<main class="content" style="background-color: #ffffff; margin: 10px; border-radius: 10px;">
+  <div class="title" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 20px; color: #fcb31c; background-color: #347433; padding: 15px; border-radius: 15px;">
+    <h1 style="margin: 0;">Gallery</h1>
+    <a style="color: #fcb31c; cursor: pointer" href="{% url 'addgallery' %}">
+      <span class="material-symbols-outlined" style="font-size: 32px">add_circle</span>
+    </a>
+  </div>
 
-        <!-- Add icon triggers modal -->
-        <a
-          style="color: #fcb31c; cursor: pointer"
-          href="{% url 'addgallery' %}">
-          <span class="material-symbols-outlined" style="font-size: 32px">
-            add_circle
-          </span>
-        </a>
-      </div>
+  {% if new_urls %}
+  <div class="mt-5 text-center">
+    <h3 style="color: black;">Uploaded Files:</h3>
+    {% for url in new_urls %}
+      <div><a href="{{ url }}" target="_blank">{{ url }}</a></div>
+    {% endfor %}
+  </div>
+  {% endif %}
 
-      <!-- ✅ Show uploaded links if needed -->
-      {% if new_urls %}
-      <div class="mt-5 text-center">
-        <h3 style="color: black">Uploaded Files:</h3>
-        {% for url in new_urls %}
-        <div><a href="{{ url }}" target="_blank">{{ url }}</a></div>
-        {% endfor %}
-      </div>
-      {% endif %}
+  <div class="gallery-container">
+    {% for group in groups %}
+    <div class="gallery">
+      <div class="gallery-wrapper">
+        {% if group.image_files %}
+          <img src="{{ group.image_files.0.file.url }}" alt="Gallery Image">
+        {% else %}
+          <p>No image files in this group.</p>
+        {% endif %}
 
-      <div class="gallery-container">
-        {% for group in groups %}
-        <div class="gallery">
-          <div class="gallery-wrapper">
-            {% if group.image_files %}
-            <img src="{{ group.image_files.0.file.url }}" alt="Gallery Image" />
-            {% else %}
-            <p>No image files in this group.</p>
-            {% endif %}
-
-            <!-- Edit/Delete buttons at top right -->
-            <div
-              style="
-                position: absolute;
-                top: 16px;
-                right: 16px;
-                display: flex;
-                gap: 8px;
-                z-index: 2;
-              ">
-              <a
-                href="{% url 'edit_photos' group.id %}"
-                style="
-                  border-radius: 50%;
-                  background-color: #c3deb7;
-                  padding: 6px 12px;
-                  text-decoration: none;
-                  font-size: 13px;
-                  display: flex;
-                  align-items: center;
-                ">
-                <span class="material-symbols-outlined" style="color: #18438d">
-                  edit
-                </span>
-              </a>
-              <form
-                method="post"
-                action="{% url 'delete_group' group.id %}"
-                style="display: inline">
-                {% csrf_token %}
-                <button
-                  type="submit"
-                  onclick="return confirm('Are you sure you want to delete this group?');"
-                  style="
-                    border-radius: 50%;
-                    color: #fff;
-                    background-color: #c3deb7;
-                    padding: 6px 12px;
-                    border: none;
-                    font-size: 13px;
-                    display: flex;
-                    align-items: center;
-                  ">
-                  <span
-                    class="material-symbols-outlined"
-                    style="color: #a40000">
-                    delete
-                  </span>
-                </button>
-              </form>
-            </div>
-          </div>
-          <div class="gallery-content">
-            <h2 class="gallery-title">{{ group.title }}</h2>
-            <p class="gallery-description">{{ group.description }}</p>
-          </div>
+        <!-- Edit/Delete buttons -->
+        <div style="position: absolute; top: 16px; right: 16px; display: flex; gap: 8px; z-index: 2;">
+          <a href="{% url 'edit_photos' group.id %}" style="border-radius: 50%; background-color: #c3deb7; padding: 6px 12px; text-decoration: none; font-size: 13px; display: flex; align-items: center;">
+            <span class="material-symbols-outlined" style="color: #18438d;">edit</span>
+          </a>
+          <form method="post" action="{% url 'delete_group' group.id %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" onclick="return confirm('Are you sure you want to delete this group?');" style="border-radius: 50%; background-color: #c3deb7; padding: 6px 12px; border: none; font-size: 13px; display: flex; align-items: center;">
+              <span class="material-symbols-outlined" style="color: #a40000;">delete</span>
+            </button>
+          </form>
         </div>
-        {% empty %}
-        <p style="text-align: center">No uploads yet.</p>
-        {% endfor %}
       </div>
-    </main>
-  </body>
+      <div class="gallery-content">
+        <h2 class="gallery-title">{{ group.title }}</h2>
+        <p class="gallery-description">{{ group.description }}</p>
+      </div>
+    </div>
+    {% empty %}
+    <p style="text-align: center;">No uploads yet.</p>
+    {% endfor %}
+  </div>
+</main>
+
+</body>
 </html>
