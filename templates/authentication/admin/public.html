@@ -21,7 +21,7 @@
 .tab {
   width: 150px;
   height: 150px;
-  background: linear-gradient(145deg, #01375f, #011e35);
+  background: linear-gradient(145deg, #015f40, #01351d);
   border-radius: 20px;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
   color: #f2e23b;
@@ -39,7 +39,7 @@
   width: 150px;
   height: 150px;
   box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.4);
-  background: linear-gradient(145deg, #014d7d, #012f50);
+  background: linear-gradient(145deg, #017d3f, #01500c);
   
   border: 3px solid #f2e23b;
 }
@@ -88,13 +88,9 @@
 
 
     <div class="tab" data-target="testimonials">
-     <a href="{% url 'avideos' %}" 
-      class="{% if request.resolver_match.url_name == 'videos' %}active{% endif %}"
-      {% if request.resolver_match.url_name == 'avideos' %} {% endif %}>
     <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">
 animated_images
 </span>
-    </a>
   </div>
 </div>
 
