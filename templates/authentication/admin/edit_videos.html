@@ -30,8 +30,8 @@
     </form>
 
     <h4 class="mt-4">Current Files:</h4>
-    {% for file in group.files.all %}
-      <img src="{{ file.file.url }}" style="max-width:100px; margin:2px;">
+    {% for video in group.files.all %}
+      <video src="{{ video.file.url }}" style="max-width:200px; margin:2px;" controls></video>
     {% endfor %}
 
 </body>
