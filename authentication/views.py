@@ -25,7 +25,7 @@ def addhighlight(request):
         form = HighlightForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('highlight_list')  # Correct use of redirect
+            return redirect('addhighlight')  # Correct use of redirect
     else:
         form = HighlightForm()
 
@@ -43,48 +43,25 @@ def require_login_or_404(view_func):
 
 
 def delete_highlights(request, photo_id):
-    photo = get_object_or_404(Photo, id=photo_id)
-    photo.delete()
-    return redirect('ahighlights')
+    highlight = get_object_or_404(Highlight, id=photo_id)
+    if request.method == 'POST':
+        # Delete the photo and all related data (title, description, date, label, image)
+        highlight.delete()
+        return redirect('highlights')
+    return render(request, 'authentication/admin/confirm_delete_highlights.html', {'highlight': highlight})
 
 def edit_highlights(request, photo_id):
-    photo = get_object_or_404(Photo, id=photo_id)
+    highlight = get_object_or_404(Highlight, id=photo_id)
     if request.method == 'POST':
-        form = PhotoForm(request.POST, request.FILES, instance=photo)
+        form = HighlightForm(request.POST, request.FILES, instance=highlight)
         if form.is_valid():
             form.save()
             return redirect('ahighlights')
     else:
-        form = PhotoForm(instance=photo)
+        form = HighlightForm(instance=highlight)
     return render(request, 'authentication/admin/edit_highlights.html', {'form': form})
 
 
-def ahighlights(request):
-    if request.method == 'POST':
-        form = PhotoForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('ahighlights')
-        else:
-            photos = Photo.objects.all()
-            return render(request, 'authentication/admin/ahighlights.html', {
-                'form': form,
-                'highlights': photos
-            })
-    else:
-        form = PhotoForm()
-
-    photos = Photo.objects.all()
-    return render(request, 'authentication/admin/ahighlights.html', {
-        'form': form,
-        'highlights': photos
-    })
-
-
-
-def uhighlights(request):
-    highlights = Photo.objects.all()
-    return render(request, 'authentication/user/uhighlights.html', {'highlights': highlights})
 
 def view_photos(request):
     photos = Photo.objects.all()
@@ -275,9 +252,7 @@ def delete_highlight(request, pk):
 def custom_404_view(request, exception):
     return render(request, '404.html', status=404)
 
-
-
-def agallery(request):
+def addgallery(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         description = request.POST.get('description')
@@ -286,22 +261,51 @@ def agallery(request):
         # Create one group for this upload
         group = MediaGroup.objects.create(title=title, description=description)
 
-        # Create one MediaFile per uploaded file
+        # Create MediaFile for each uploaded file
         for file in files:
             MediaFile.objects.create(group=group, file=file)
 
-        # Get all groups to show in table
-        all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
-        return render(request, "authentication/admin/agallery.html", {
-            'groups': all_groups
-        })
+        # ✅ After upload, go back to the gallery page
+        return redirect('agallery')
 
-    # GET request — just show all groups
+    return render(request, "authentication/admin/addgallery.html")
+
+
+def addvideos(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        files = request.FILES.getlist('files')
+
+        # Create one group for this upload
+        group = MediaGroup.objects.create(title=title, description=description)
+
+        # Create MediaFile for each uploaded file
+        for file in files:
+            MediaFile.objects.create(group=group, file=file)
+
+        # ✅ After upload, go back to the gallery page
+        return redirect('avideos')
+
+    return render(request, "authentication/admin/addvideos.html")
+
+
+def agallery(request):
+    # Get all groups
     all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
-    return render(request, "authentication/admin/agallery.html", {
-        'groups': all_groups
-    })
 
+    # Keep only groups that have at least one image file
+    image_groups = []
+    for group in all_groups:
+        image_files = [f for f in group.files.all() if f.is_image()]
+        if image_files:
+            # Attach filtered files back to group for easy template use
+            group.image_files = image_files
+            image_groups.append(group)
+
+    return render(request, "authentication/admin/agallery.html", {
+        'groups': image_groups
+    })
 
 
 
@@ -330,6 +334,12 @@ def delete_group(request, group_id):
         return redirect('agallery')
 
 
+def delete_videos(request, group_id):
+    group = get_object_or_404(MediaGroup, id=group_id)
+    if request.method == 'POST':
+        group.delete()
+        return redirect('avideos')
+
 
 
 
@@ -340,22 +350,36 @@ def avideos(request):
         files = request.FILES.getlist('files')
 
         # Create one group for this upload
-        group = MediaGroup.objects.create(title=title, description=description)
+        group = MediaGroup.objects.create(title=title, description=description, type='video')
 
         # Create one MediaFile per uploaded file
         for file in files:
             MediaFile.objects.create(group=group, file=file)
 
-        # Get all groups to show in table
+        # After upload, filter groups with video files only
         all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
+        video_groups = []
+        for g in all_groups:
+            video_files = [f for f in g.files.all() if f.is_video()]
+            if video_files:
+                g.video_files = video_files
+                video_groups.append(g)
+
         return render(request, "authentication/admin/avideos.html", {
-            'groups': all_groups
+            'groups': video_groups
         })
 
-    # GET request — just show all groups
+    # GET request — just show groups that have video files
     all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
+    video_groups = []
+    for g in all_groups:
+        video_files = [f for f in g.files.all() if f.is_video()]
+        if video_files:
+            g.video_files = video_files
+            video_groups.append(g)
+
     return render(request, "authentication/admin/avideos.html", {
-        'groups': all_groups
+        'groups': video_groups
     })
 
 
