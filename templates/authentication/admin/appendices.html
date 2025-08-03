@@ -1,0 +1,3419 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ODFI Internal Portal</title>
+
+    <!-- Google Material Symbols (Only one needed) -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=circle" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    td{
+      padding:10px;
+    }
+    html,
+    body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+
+    /* Main layout */
+    .container {
+      display: flex;
+      flex-grow: 1;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding-top: 1rem;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+
+    /* Sidebar items */
+    .sidebar li {
+      padding: 10px 12px;
+      border-left: 4px solid transparent;
+      cursor: pointer;
+      list-style: none;
+      font-size: 14px;
+    }
+
+    .sidebar li.logout {
+      color: red;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+    }
+
+    /* Content */
+    .content {
+      flex-grow: 1;
+      padding: 1.5rem;
+      background-color: #fff;
+      overflow-y: auto;
+    }
+
+    /* Alert message */
+    .alert {
+      background-color: #f5f5f5;
+      border-left: 5px solid red;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+      text-align: center;
+    }
+
+    /* Card */
+    .card {
+      padding: 1.5rem;
+    }
+
+    .card p.wel {
+      margin-bottom: 1rem;
+      border-left: 15px solid #16610E;
+      background-color: #e1fef0;
+      padding: 10px;
+      width: 300px;
+      font-weight: bold;
+    }
+
+    .paragraph {
+      margin-bottom: 1rem;
+      font-size: 15px;
+      color: #333;
+      padding: 20px 50px;
+      line-height: 25px;
+      text-align: justify;
+    }
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 0.8rem;
+      background-color: #000;
+      color: #fff;
+      flex-shrink: 0;
+      height: 50px;
+      font-size: 13px;
+    }
+
+    .sidebar li:hover {
+      border-left: 4px solid #005ea2;
+      background-color: #f0f0f0;
+    }
+    main {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+     .region {
+      margin-bottom: 30px;
+    }
+
+    .region h2 {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    ol.center-list {
+      padding-left: 25px;
+      margin-top: 10px;
+    }
+
+    ol.center-list li {
+      margin-bottom: 5px;
+      padding: 4px 0;
+    }
+
+    .notes {
+      background: #eaf2f8;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+      margin-top: 40px;
+    }
+
+    .notes strong {
+      display: block;
+      margin-top: 5px;
+    }
+    table, td, th {
+  border: 1px solid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+  </style>
+  <body>
+    {% include 'authentication/admin/anav.html' %}
+
+    <!-- Main Layout -->
+    <div class="container" style="background-color: #d0f8e1">
+      <!-- Content Area -->
+
+      <main
+        class="content"
+        style="background-color: #ffffff; margin: 10px; border-radius: 10px">
+        <div class="alert" >
+          <p>
+             This Internal Use section is strictly for ODFI workforce only. It contains the APPENDICES that accompany the standard operating procedures (SOPs) that all ODFI workforce must comply. This is so as to gain the confidence of our donors to keep giving, and hence our mission will be achieved, biiznillah.
+
+A copy of all the procedures presented here must be made available in hardcopy in all Municipal Islamic Centers (MICs) as well as at the ODFI Headquarters.
+
+All ODFI workforce must abide by the procedures given. BBM/ODFI will perform regular audits on the execution of the procedures given here from time to time. Results of the audits will be presented to our donors on a regular basis.
+
+The SOPs that accompany the appendices presented here are given separately in this website.
+
+          </p>
+        </div>
+
+        <div class="card">
+          <p class="wel">Appendices</p>
+          <div class="paragraph">
+            <details open>
+              <summary style="color:red; font-weight: bold;">APPENDIX 1 - SYLLABUS FOR NEW MUSLIMS</summary>
+              <p>
+                All new Muslims should master basic knowledge of Islam. All asatiz must make sure the reverts are educated in these topics appropriately. In addition, all ODFI members of workforce must master these basic topics too. We categorise basic Islam knowledge into 5 levels – Level 1, Level 2, Level 3, Level 4, and Level 5. Reverts should master Level 1 first, before going to Level 2, Level 3 and so on.
+              </p>
+<br>
+Level 1
+<br>
+<p>
+<b>Goal:</b> Start practicing immediately with minimal confusion.
+<br>
+<ul>
+    <li>Who is Allah? — Tawheed (Oneness of Allah), names and attributes (basic level).</li>
+    <li>Shahadah — Meaning and implications.</li>
+    <li>Introduction to Solat (Prayer) — Importance of 5 daily prayers, and when they are.</li>
+    <li>Wudu’ (Ablution) — Step-by-step with practice.</li>
+    <li>Cleanliness in Islam — Basic hygiene, ghusl (major purification), and istinja.</li>
+    <li>Short Surahs — Start memorizing al-Fatihah and Surah Ikhlas.</li>
+
+</ul>
+<br><br>
+Level 2: Strengthening Daily Practice
+<br>
+<b>Goal:</b> Establish regular worship and deepen faith.
+<br>
+<ul>
+    <li>Full Solat — Including physical positions and words (with meanings).</li>
+    <li>Aurat & Clothing — For both men and women.</li>
+    <li>Pillars of Islam — All five pillars in brief.</li>
+    <li>Pillars of Iman (Faith) — Basic belief in Allah, angels, prophets, books, Day of Judgment, Qadr.</li>
+    <li>Introduction to the Qur’an — What it is, its structure, and how to start reading.</li>
+    <li>Simple Du’as — Before sleep, eating, entering toilet, etc.</li>
+</ul>
+<br><br>
+Level 3: Building a Strong Foundation
+<br>
+<b>Goal:</b> Strengthen belief and deepen ritual understanding.
+<br>
+<ul>
+    <li>Tawheed in more detail — Uluhiyyah, Rububiyyah, Asma wa Sifat.</li>
+    <li>Understanding Shirk — What nullifies tawheed.</li>
+    <li>Introduction to Prophet Muhammad صلى الله عليه وسلم — His character and why he is the final prophet.</li>
+    <li>Importance of Sunnah — Hadith basics, why Sunnah is followed.</li>
+    <li>Fasting in Ramadan — Rules and purpose.</li>
+    <li>Zakat — Basic concept (not yet full fiqh).
+    <li>More Surahs — E.g., Surah Falaq, Nas, Kawthar.</li>
+</ul>
+<br><br>
+Level 4: Living Islam
+<br>
+<b>Goal:</b> Integrate Islam into daily life and begin grasping fiqh
+<ul>
+    <li>Fiqh of Worship — More detailed rulings on wudu, ghusl, tayammum, menstruation (for women).</li>
+    <li>Halal and Haram — In food, money, and daily dealings.</li>
+    <li>Friday Prayer and Jumu’ah Etiquette</li>
+    <li>Islamic Manners (Akhlaq) — With parents, neighbors, Muslims and non-Muslims.</li>
+    <li>Marriage in Islam — Roles, rights, and responsibilities.</li>
+    <li>Importance of Knowledge — Seeking ilm, reading Qur’an with tafsir.</li>
+    <li>Basic Seerah — Life story of Prophet Muhammad</li>
+</ul>
+
+<br><br>
+<p style="font-weight:bold;"> Level 5: Growth & Commitment</p>
+
+<b>Goal:</b> Deepen love for Allah, refine practice, and prepare to be self-guided.
+<ul>
+    <li>Intro to Fiqh Schools — Understanding differences respectfully.</li>
+    <li>The Role of the Ummah — Community service, dawah.</li>
+    <li>More Qur’an Memorization & Tafsir</li>
+    <li>Learning Arabic Language</li>
+    <li>Tazkiyah (Spiritual Development) — Purifying the soul, sincerity (ikhlas), gratitude.</li>
+    <li>Introduction to Islamic History</li>
+    <li>Dealing with doubts — Q&A on common misconceptions.
+</li>
+</ul>
+
+
+               </p>
+               <br><br>
+            </details>
+
+            <details>
+              <summary style="color:red; font-weight:bold;">APPENDIX 1A
+ROLES OF MIC, BCC, MASJID, MUSOLLA
+</summary>
+              <p> 
+           <b> MIC (Municipal Islamic Center)</b>
+           <ul>
+            <li>In general, the MIC is the ODFI administrative center for the whole municipality.
+</li>
+<li>The MIC serves as the Islamic hub of the community, where advice on the Islamic way of marriage, divorce, birth, death, humanitarian aid, education, etc, are referred to.
+</li>
+<li>Typically, there is/will be one MIC in every municipality.</li>
+<li>Every MIC has several BCCs that the MIC is in charge of.</li>
+<li>
+Every MIC must have 3 office bearers: one Person-In-Charge (PIC), one Secretary</li>
+<li>(SMIC), and one Treasurer (TMIC). The 3 office bearers of the MIC (PIC, SMIC, and
+</li>
+<li>TMIC) cannot be the same person (ie. the same person holding more than one </li>
+<li>
+The MIC is headed by a PIC, who reports to the Regional Director (RD).</li>
+<li>Every MIC should identify and train at least 3 local people, who already have means of livelihood, to become imams
+</li>
+<li>In Cebu island, we aim to have 3 RDs (RD of Northern Region, RD of Central Region, and RD of Southern Region)
+
+</li>
+<li>
+In Camotes (where there are 4 municipalities) there is 1 RD</li>
+<li>
+In Bantayan (where there are 3 municipalities) there is 1 RD</li>
+           </ul>
+<br><br>
+<b>
+BCC (Barangay Community Center)</b>
+<br><br>
+<li>
+The BCC is a satellite of the MIC.</li>
+<li>
+A BCC should be opened in a community having at least 20 Muslims.</li>
+<li>
+A BCC is housed in a building that is rented or bought.</li>
+<li>
+The following factors must be taken into account when choosing the BCC premise:</li>
+<li>
+accessibility, total floor area, total land area, possibility of complaints or disturbances from neighbours, (eg smell, noise, pigs, bad neighbour) cleanliness of surrounding, water and electrical supply, condition of the house and facilities available,</li>
+<li>The location of the BCC must be at least 2 km from the nearest MIC and that the journey to the MIC is difficult due to lack of public transport, poor road conditions, etc.</li>
+<li>The BCC premise is for religious and social activities only, and by right, not for accommodation.</li>
+<li>The BCC must have at least 3 local imams who are the caretaker of the BCC.</li>
+<li>The imams should already be living in the community not far from where the BCC is located.</li>
+<li>If a BCC premise cannot be secured, look into the possibility of using the imam’s house, where no rent is required.</li>
+<li>An operation budget of not more than 20,000 peso/month may be granted to the BCC.</li>
+<li>The operation budget is NOT for paying the imam. Rather, it is to be used for rental or to buy refreshments whenever there are classes held there, or to pay for utility bills, or other job-related expenses of the BCC.</li>
+<li>
+    The BCC imams do not get any salary as this is a voluntary position that they do just to attain Allah’s pleasure. The imams maintain their regular salaried job or whatever livelihood means they already have, and perform imam duties outside of their salaried/ current livelihood working hours.
+
+</li>
+<li>All BCC imams are encouraged to upgrade their knowledge of Islam continuously, and if they show potential, may be sent for more Islamic education that may lead to them becoming asatiz.
+</li>
+<li>
+    Wherever and whenever suitable the BCC should eventually be replaced by a masjid. The MIC must plan for this.
+
+</li>
+<li>If there are 2 BCCs in one barangay, one of the BCC will be called SCC (Sitio Community Center).
+</li>
+
+<b>MASJID</b>
+<br>
+Masjids (mosques) play a central and multifaceted role in the lives of Muslims and within the broader community.
+<ul>
+    <li>The primary function of the masjid is as a place for performing the 5 daily prayers, Jumaat prayers, and special prayers such as Taraweeh in Ramadan and Eid prayers.
+</li>
+<li>It is also the spiritual center of the community as it offers a quiet and sacred space for reflection, supplication (du‘a), recitation of the Qur’an, and remembrance of Allah.
+</li>
+<li>The masjid is also an education hub, where Islamic studies are carried out for children and adults. Scholars and teachers often give lectures, especially after prayers or during special events. There can also be workshops in marriage, parenting, funeral rites, etc
+</li>
+<li>The masjid is a platform where social activities that brings people together are carried out, promoting unity and brother/sisterhood. Community issues discussions, counseling, and conflict mediation are also carried in in masjids.
+</li>
+<li>
+Masjids collect and distribute charitable donations (zakat and sadaqa) to the poor and needy. It provides community support like food drives, aid for the sick or bereaved, and support for disaster-struck community members.
+</li>
+<li>Of course, the masjid is also a daawah center, where information about Islam for non-Muslims is available. It welcomes visitors regardless of tribe, race and religion.
+</li>
+<li>During the last 10 days of Ramadan, the masjid becomes a spiritual retreat, where Muslims may stay in for i‘tikaf (dedicated worship, reflection, and detachment from worldly affairs).
+</li>
+
+
+</ul>
+<p>In short, masjids are spiritual centers as well as the foundations of Islamic civilization—places of enlightenment, service, and communal strength.
+</p>
+<br>
+ <b>MUSOLLA</b>
+<br>
+The musolla plays the role of the masjid in places where the masjid is too far to reach. However, the scope is smaller as its resources are smaller than that of the masjid.
+
+<br /><br />
+            </details>
+
+            <details>
+              <summary style="color:red; font-weight:bold;">APPENDIX 1B - LIST OF ISLAMIC CENTERS AND MASJIDS IN THE VISAYAS</summary>
+              <p>
+             <div class="region">
+    <h2>LAPU-LAPU CITY</h2>
+    <ol class="center-list" start="1">
+      <li>Masjid Rahmaniyyah - Noel Dagang Lopez Abdurrahim</li>
+      <li>Deca 5 Community Center</li>
+      <li>Punta Engano Commuity Center</li>
+      <li>Tile Makers Community Center</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>OLANGO ISLAND</h2>
+    <ol class="center-list" start="5">
+      <li>Masjid Al-Hidayah</li>
+      <li>Pangan An Island Islamic Center</li>
+      <li>Cawhagan Island Community Center</li>
+      <li>Barangay Sabang Community Center</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>CARDOVA MUNICIPALITY</h2>
+    <ol class="center-list" start="9">
+      <li>Cardova Islamic Center</li>
+      <li>Rogelito Domicillo</li>
+      <li>Jerez Abdurrahman</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>CAMOTES ISLAND</h2>
+    <ol class="center-list" start="12">
+      <li>Masjid Sakinah</li>
+      <li>Sunog Masjid Raian Estrera Tampus</li>
+      <li>Mactang Poro Islamic Center Remon Aguztinez Rosal</li>
+      <li>Himensulan Islamic Center</li>
+      <li>Cabunga-An Islamic Center</li>
+      <li>Camungao Islamic Center</li>
+      <li>Tudela Islamic Center</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>BOGO CITY</h2>
+    <ol class="center-list" start="19">
+      <li>Anapog Islamic Center</li>
+      <li>Masjid Thoha</li>
+      <li>Nimtree Islamic Center</li>
+      <li>Tindok Islamic Center</li>
+      <li>Masjid Aliyah</li>
+      <li>Masjid Manio</li>
+      <li>Masjid Odlot</li>
+      <li>Masjid Aisyah-Malbago</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>BANTAYAN ISLAND</h2>
+    <ol class="center-list" start="27">
+      <li>Bantayan Islamic Center - Mohun Mequias Jr Siarez Epa</li>
+      <li>Kabac Islamic Center - Mequias Jr Siarez Epa</li>
+      <li>Madridejos Islamic Center - Roel Gregorio Rago (Musa)</li>
+      <li>Kapingganon Masjid</li>
+      <li>Masjid Rahmaniyyah, Santa Fe - Julrose Se’er Zainab</li>
+      <li>Pi’an Community Center</li>
+      <li>Masjid Jamiah, Hilantagaan - Julrose Se’er Zainab</li>
+      <li>Masjid Al-Hidayah, Hilantagaan</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>DAAN BANTAYAN MUNICIPALITY</h2>
+    <ol class="center-list" start="35">
+      <li>Masjid At-Takwa, Magsaubay, Tapilon - Brother Raheel</li>
+      <li>Masjid Al-Hudah-Camaras Bateria</li>
+      <li>Masjid Nur Hidayah, Lanao</li>
+      <li>Balidbid Community Center</li>
+      <li>Bitoon Community Center</li>
+      <li>Malapascua Island Community Center</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>BADIAN MUNICIPALITY</h2>
+    <ol class="center-list" start="41">
+      <li>Masjid Al-Ummah, Badian - Alimuden Salim Luganao</li>
+      <li>Masjid Kapatagan</li>
+      <li>Tubod Community Center - Enrique Jr Secuya Navaja Nasir</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>MOALBOAL MUNICIPALITY</h2>
+    <ol class="center-list" start="44">
+      <li>Masjid Mahmoodiah</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>TOLEDO MUNICIPALITY</h2>
+    <ol class="center-list" start="45">
+      <li>Masjid Ar-Raheem</li>
+      <li>Azizah Community Center</li>
+      <li>Masjid Tubod - Enrique Jr Secuya Navaja Nasir</li>
+      <li>Masjid Umm Bilal Casoy - Marilyn Tura Cano</li>
+      <li>Sangi Mosque</li>
+      <li>Daanlungsod Community Center</li>
+      <li>Muray Community Center</li>
+      <li>Abayan Islamic Center</li>
+      <li>Matab Ang Islamic Center</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>PINAMUNGAJAN MUNICIPALITY</h2>
+    <ol class="center-list" start="54">
+      <li>Masjid Pinamungajan - Neddy Tribonalo (Abdul Rasheed)</li>
+      <li>Pinamungahan Islamic Center - Neddy Tribonalo (Abdul Rasheed)</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>BALAMBAN MUNICIPALITY</h2>
+    <ol class="center-list" start="56">
+      <li>Balamban Islamic Center - Norel Abel Demuwa</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>TUBURAN MUNICIPALITY</h2>
+    <ol class="center-list" start="57">
+      <li>Tuburan Islamic Center - Maria Cleofe Rosales Suanga</li>
+      <li>For’nela Islamic Center</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>ASTURIAS MUNICIPALITY</h2>
+    <ol class="center-list" start="59">
+      <li>Asturias Islamic Center - John Leo Nalzaro</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>TALISAY MUNICIPALITY</h2>
+    <ol class="center-list" start="60">
+      <li>Talisay Islamic Center - Usyaz Mus’ab Reymark Bau’sta</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>TABUELAN MUNICIPALITY</h2>
+    <ol class="center-list" start="61">
+      <li>Tabuelan Islamic Center - John Daler T Mancao</li>
+      <li>Masjid Tabuelan</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>SAN REMIGIO MUNICIPALITY</h2>
+    <ol class="center-list" start="63">
+      <li>Masjid Cebu Madinah</li>
+      <li>Isa Ibni Maryam Masjid</li>
+      <li>Masjid Kawait</li>
+      <li>Masjid Habsah, Tacup</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>BORBON MUNICIPALITY</h2>
+    <ol class="center-list" start="67">
+      <li>Borbon Islamic Center - Jonathan Aranas</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>SAN FERNANDO MUNICIPALITY</h2>
+    <ol class="center-list" start="68">
+      <li>San Fernando Islamic Center - Robert B Generana Yusof</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>CARCA MUNICIPALITY</h2>
+    <ol class="center-list" start="69">
+      <li>Carca Islamic Center</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>TABOGON MUNICIPALITY</h2>
+    <ol class="center-list" start="70">
+      <li>Tabogon Islamic Center</li>
+      <li>San Jose Islamic Center</li>
+      <li>Labangon Islamic Center</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>REGION 6 (KEPULAUAN NEGROS)</h2>
+    <ol class="center-list" start="73">
+      <li>Masjid Ubudiyah Calatrava Islamic Center - Cupid Balentogo Bahan</li>
+      <li>Eli La Libertad Islamic Center</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>REGION 8 (LEYTE ISLAND)</h2>
+    <ol class="center-list" start="75">
+      <li>Masjid Mayorga</li>
+      <li>Masjid Javier</li>
+      <li>Mac Arthur Mussola</li>
+      <li>Surau Amanah, Carigara</li>
+      <li>Kawayan Biliran Islamic Center</li>
+      <li>Isabel Islamic Center</li>
+      <li>Cabucgayan Islamic Center</li>
+      <li>Bool Islamic Center</li>
+    </ol>
+  </div>
+
+  <div class="region">
+    <h2>NOTES</h2>
+    <div class="notes">
+      <strong>1. ODFI – One Dakwah Foundation Incorporation</strong>
+      <strong>2. CMCS – Cebu Madinah Community Society</strong>
+    </div>
+  </div>
+
+
+
+
+              </p>
+            </details>
+
+
+              <details>
+              <summary style="color:red; font-weight:bold;">APPENDIX 2
+ASSET LEDGER BOOKEEPING
+</summary>
+              <p>
+                Every MIC must have an ASSET LEDGER BOOK (ALB).<br>
+                Each ALB is divided into 2 parts:<br>
+                Part 1 – Compilation of all assets owned by MIC and some details of the asset<br>
+                Part 2 – More details of each asset (purchase records, maintenance records, disposal records)<br>
+                <br>
+              <b> Part 1 </b> – Compilation of all assets owned by MIC & Some Details<br>
+                <b> Part 2 </b> – Details of individual assets owned by MIC<br>
+                (Every asset must have their details recorded)<br>
+                <b> Part 2a </b> – Purchase records<br>
+                <b> Part 2b </b> – Maintenance records<br>
+                <b> Part 2c </b> – Disposal records<br>
+            <b> Part 2a </b> – Purchase records<br>
+                <br>
+               <b> Please insert the following in this file:</b> <br>
+                1) Receipt of purchase<br>
+                2) User manual (if applicable)<br>
+                3) Other pertinent documents related to the asset<br>
+                <br>
+                <b>
+                Part 2b – Maintenance records<br>
+                <br>
+                Name of asset:<br>
+                <br>
+                Part 2c – Disposal records<br>
+                <br>
+                Name of asset:<br>
+                Movable or non-movable?<br>
+                Model of asset:<br>
+                Purchase price:<br>
+                Date of Purchase:<br>
+                Purchased at:<br>
+                Other pertinent information:<br>
+                Signature of PIC:<br>
+                Name of PIC:<br>
+                Date:<br>
+                <br>
+                Date of maintenance:<br>
+                Description Costs involved Signature/s of person/s involved<br>
+                1<br>
+                2<br>
+                3<br>
+                Date of disposal:<br>
+                Description Costs involved (if any):<br>
+                Signature/s of person/s involved:<br>
+              </p>
+              </p>
+              </b>
+            </details>
+
+
+             <details>
+              <summary style="color:red; font-weight:bold;">APPENDIX 3
+ROLES, RESPONSIBILITIES AND ELIGIBILITY
+
+</summary>
+             <p>
+                ….. of Regional Director (RD), Person-in-Charge (PIC), Center Secretary (SMIC), Center Treasurer (TMIC), Asatiz, Du’at, Vehicle Overseer (VO), Du’at Supervisor (DS), Asatiz Supervisor (AS), Khutbah Writer (KW), Job Scope of Tauliah Committee
+               
+               <b>
+                Position: Regional Director (RD)<br>
+                Role Description:<br>
+                Expectations:<br>
+                Eligibility:<br>
+                <br>
+                  </b> 
+                  <b>
+                Position: MIC Person-In-Charge (PIC)<br>
+                Role Description<br>
+                Expectations:<br>
+                Eligibility:<br>
+                <br>
+                </b>
+                <b>
+                Position: MIC Center Secretary (SMIC)<br>
+                Role Description<br>
+                Expectations:<br>
+                Eligibility:<br>
+                <br>
+                Position: MIC Center Treasurer (TMIC)<br>
+                Role Description<br>
+                Expectations:<br>
+                Eligibility:<br>
+                <br>
+                </b>
+                <b>
+                Position: Du’at (Da’ee)<br>
+                Role Description<br>
+                Expectations:<br>
+                Eligibility:<br>
+                <br>
+                Position: Vehicle Overseer (VO)<br>
+                Role Description<br>
+                Expectations:<br>
+                Eligibility;<br>
+                <br>
+                Position: Du’at Supervisor (DS)<br>
+                Role Description<br>
+                Expectations:<br>
+                Eligibility<br>
+                <br>
+                </b>
+              
+                <b>TAULIAH COMMITTEE (TC) Role Description</b><br>
+                <br>
+                1) The Tauliah Committee (TC) is the committee responsible for the selection of asatiz and<br>
+                da’ee on behalf of ODFI.<br>
+                <br>
+                2) Selection is made after filtering through all applications by DS and AS to shortlist the most<br>
+                suitable candidates.<br>
+                <br>
+                3) Once suitable candidates are identified, interview sessions must be held either in person<br>
+                or via online. For an interview to take place, a Tauliah Committee (TC) is set up.<br>
+                <br>
+                4) The TC comprises:<br>
+                <br>
+                - DS (Du’at Supervisor)<br>
+                - AS (Asatiz Supervisor)<br>
+                - RD (Regional Director)<br>
+                - PIC of the center where the new recruit will be placed<br>
+                - At least one other member (this position changes from interview session to interview<br>
+                session)<br>
+                <br>
+                5) The TC fills up Form C1 (Appendix 5) during interview sessions<br>
+                <br>
+                <b>
+                Position: Asatiz Supervisor (SR)<br>
+                Role Description<br>
+                Expectations:<br>
+                Eligibility<br>
+                <br>
+                Position: Khutbah Writer (KW)<br>
+                Role Description<br>
+                Expectations:<br>
+                Eligibility<br>
+</b>
+             </p>
+              </b>
+            </details>
+
+
+               <details>
+              <summary style="color:red; font-weight:bold;">APPENDIX 4 - APPLICATION TO JOIN ODFI
+AFFILIATED CENTERS
+
+
+</summary>
+        
+<p>
+    To be filled up by the applicant and submitted to ODFI representative
+Please attach all relevant documents (your school certificates, etc)
+
+</p>
+<table>
+    <tr>
+        <th>Position applied:
+</th>
+<th>Name of applicant:
+
+
+</th>
+    </tr>
+    <tr>
+        <th>Age of applicant:
+</th>
+        <th>Phone number:
+
+</th>
+    </tr>
+    <tr>
+        <th>Date of birth:
+</th>
+        <th>Home address:
+
+</th>
+    </tr>
+    <tr>
+        <th>Formal qualification:
+</th>
+<th>Experience:</th>
+    </tr>
+    <tr>
+        <td>Your strengths:</td>
+        <td>Your weaknesses:</td>
+    </tr>
+    <tr>
+        <td>Your interests:</td>
+        <td>Your skills:</td>
+    </tr>
+    <tr>
+        <td>What do you do in your free time?</td>
+        <td>What can you do to help your community? </td>
+    </tr>
+    <tr>
+        <td>Signature:
+</td>
+<td>Date:</td>
+    </tr>
+</table>
+              </b>
+            </details>
+
+
+               <details>
+              <summary style="color:red; font-weight:bold;">APPENDIX 5 - INTERVIEW FORMS
+
+
+</summary>
+        
+<p>
+This form is to be used during interview sessions. All forms must be kept by the DS and should be made available upon request by BBM/ODFI.
+<br><br>
+Date of interview:
+Position/s:
+
+
+</p>
+<table>
+    <tr>
+        <th>Name of candidate
+
+
+</th>
+<th>Strength
+(please describe)
+
+
+
+</th>
+        <th>Weakness
+(please describe)
+
+</th>
+        <th>Other information
+
+</th>
+        <th>Marks given (in %)
+</th>
+        
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+     <tr>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    
+</table>
+    <br><br>       
+<p>The TC ranks the candidates in the following order: (in order of preference)
+<br>(1)
+(2)<br>
+(3)<br>
+(4)<br>
+(5)<br>
+(6)<br>
+Notes:
+</p>
+<br><br>
+<p>
+    Names & signatures of TC:<br>
+
+DS:<br>
+
+AS:<br>
+
+RD:<br>
+
+PIC:<br>
+
+Other member/s:
+
+
+
+</p>
+<br><br>
+            </details>
+           
+
+                <details>
+              <summary style="color:red; font-weight:bold;">APPENDIX 6 - ORIENTATION PROGRAM
+
+</summary>
+             <p>
+            All new recruits of ODFI affiliated Centers must go through an orientation program led by the
+Du’at Supervisor (DS), the PIC, and other members of the workforce appointed by BBM and/or ODFI.
+
+             
+             </p>
+             <br><br>
+             <p>Below are the points to be explained to and discussed with the new recruit/s. Most of the
+materials are contained in this SOP.
+</p>
+<br>
+<ol>
+    <li>Introduction to BBM & leadership of BBM (with regard to the Visayas)
+</li>
+<li> Some history of BBM in the Visayas, formation of ODFI & leadership of ODFI
+</li>
+<li>Friends of BBM in the Visayas (Cebu Care, Ummah Care, etc)</li>
+<li>Vision of ODFI</li>
+<li>Mission of ODFI</li>
+<li> Islamic Centers under ODFI in the Visayas
+</li>
+<li>ODFI Financial Principles</li>
+<li>ODFI Operational Principles</li>
+<li>ODFI Human Resource Principles</li>
+
+<li>ODFI Training & Development Principles
+</li>
+<li>Basic overview of this SOP and the requirement to comply to it
+</li>
+<li>The requirement of mastering basic Islamic knowledge</li>
+<li>Examination</li>
+<li>Pledge</li>
+</ol>
+  <br><br>
+<p><b>New Recruits PLEDGE</b> (to be read loudly by new recruits in front of the RD, DS, AS, PIC and at least one other member of the workforce requested by the RD or DS)
+</p>
+<br><br>
+<p>I pledge that when I prepare reports, to the best of my ability, the reports will be true and reflect the actual situation on the ground. To the best of my ability, all monthly OPEX budgets, daawah budgets and other budgets will be spent according to their intended purposes. I am aware that in order for my ibadah to be accepted and blessed by Allah
+SWT, integrity in planning, execution and accounting is critical. I know that all reports are forms of shahadah, which will be witnessed by Allah SWT- Al Bašir. The shahadah I mean here is not referring to the kalimat shahadah recited by reverts, but it is shahadah in the forms of reporting, and bearing witness in the presence of Allah that the reports are true, and the accounting is true.
+</p>
+<br>
+<p>
+    I am aware that the sources of the funds dispensed by BBM are
+predominantly zakat money given for the sake of Allah, with the intention
+that it will be used for fisabilillah, and that the zakat donors have entrusted BBM, ODFI and all MICs to faithfully honor this trust. Unless explicit prior permission has been given, the funds or the rice meant for daawah cannot be diverted for other use, including allocations which has never been budgeted for.
+I promise that any excess of funds or rice meant for daawah will be recorded and carried forward, and not spent or allocated for other uses. I understand that if I don’t do that, the money would not be halal. Any unauthorized allocation not done according to the intention of the original donors and their trustees would not be considered halal because it is a misuse of funds. 
+
+</p>
+<br>
+<p>
+    I understand that huge funds are collected for specific purposes and targets. If the targets, for whatever reasons cannot be met, then the unused or surplus funds or rice stock cannot be spent for other purposes. It must be accounted and the balance carried forward to the following month or next daawah event.
+
+</p>
+<br>
+<p>As such, I am fully aware that UNLESS money is spent for the purpose it
+was intended, and that the reports I write reflect actual situations on the
+ground, then there can be a risk of bearing false witness (false shahadat). I know that the ultimate accounting will be done by Allah SWT on the Day of Judgement, and I hope all my endeavors will be accepted and blessed by Him.
+</p>
+<br>
+<p>Ya Allah, please forgive me, accept my deeds, and give me strength to
+perform all the tasks expected of me to the best of my ability.
+
+</p>
+<br><br>
+
+            </details>
+
+            <details>
+                <summary style="color:red; font-weight: bold;">APPENDIX 7 - LETTER OF AMANAH
+</summary>
+                <p>
+                     <div style="margin-bottom: 20px;">
+    <p style="margin: 0; font-weight: bold;">One Daawah Foundation Incorporated (ODFI)</p>
+    <p style="margin: 5px 0;">[Address]</p>
+    <p style="margin: 5px 0;">[Phone Number]</p>
+    <p style="margin: 5px 0;">[Email Address]</p>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <p style="margin: 5px 0;"><strong>Date:</strong> ____________________</p>
+    <p style="margin: 5px 0;"><strong>To:</strong> ____________________</p>
+  </div>
+
+  <h3 style="margin-top: 0;">Letter of Amanah</h3>
+
+  <p>Dear ____________________,</p>
+  <p>Assalamualaikum.</p>
+
+  <p>
+    We are pleased to place upon you an <strong>amanah</strong> for carrying out the responsibility of 
+    <strong>[Role Title]</strong> at an ODFI affiliated Center, starting on <strong>[Start Date]</strong>.
+  </p>
+
+  <p>Below are the terms of the assignment:</p>
+  <ul style="padding-left: 20px; margin-top: 0;">
+    <li style="margin-bottom: 5px;"><strong>1)</strong> Direct supervisor: ____________________</li>
+    <li style="margin-bottom: 5px;"><strong>2)</strong> Honorarium/sadaqah: ____________________</li>
+  </ul>
+
+  <p>
+    By accepting this role, you are declaring your loyalty to Islam and BBM/ODFI. You must do your utmost
+    best to serve the mission and vision of ODFI. Your job scope and the expectations BBM and ODFI have on
+    you are attached with this letter. Please read them carefully. Then, please sign and return the
+    duplicate copy of this letter as a confirmation of your acceptance.
+  </p>
+
+  <p>
+    We look forward to welcoming you to our team and working together for our mutual success.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <p style="margin: 5px 0;">Sincerely,</p>
+    <p style="margin: 5px 0;">Du’at Supervisor ____________________</p>
+    <p style="margin: 5px 0;">Asatiz Supervisor ____________________</p>
+    <p style="margin: 5px 0;"><strong>Date:</strong> ____________________</p>
+  </div>
+
+  <div style="margin-top: 50px;">
+    <p style="margin: 5px 0;">MIC Person-In-Charge Regional Director </p>
+    <p style="margin: 5px 0;"><strong>Date:</strong> ____________________</p>
+  </div>
+                </p>
+            </details>
+
+            <details>
+                <summary style="color:red; font-weight: bold;">APPENDIX 9 - BASIC KNOWLEDGE
+ASSESSMENT
+</summary>
+<p>These are some of the questions that may be asked to all members of ODFI affiliated centers from time to time</p>
+<ol>
+    <li>Describe what you know about the history of Islam in the Philippines, including since Hurricane Hayyan
+</li>
+<li>What is the vision of ODFI?</li>
+<li>What is the mission of ODFI?</li>
+<li>What are your job scope and job expectations?</li>
+<li>Approximately how many MICs are there under ODFI in the Visayas? Name at least 5 MICs</li>
+<li>Describe what you remember about ODFI Financial Principles</li>
+<li>Describe what you remember about ODFI Operational Principles</li>
+<li>Describe what you remember about ODFI Human Resource Principles</li>
+<li>Describe what you remember about ODFI Training & Development Principles</li>
+<li>Have you read the ODFI SOP? If yes, describe what you remember of it.</li>
+<li>Do you think you can comply to the ODFI SOP? If no, which aspect can’t you comply, why, and what are you going to do about it?</li>
+<li>Are you aware of our requirement of mastering basic Islamic knowledge? Describe what you remember about the basic knowledge that you are required to master.</li>
+<li>Why did Allah create human beings?</li>
+<li>What are you doing on a daily basis to bring yourself closer to Allah?</li>
+<li>Do you have a personal mission and vision statement? If YES, state them. If NO, why not? Develop them now and write them down.</li>
+
+</ol>
+
+
+            </details>
+
+            <details>
+                <summary style="font-weight: bold; color:red;">APPENDIX 10 - CENTER MONTHLY BUDGET REQUEST</summary>
+                <p>(FORM E- to be submitted to BBM before the 26th of the month
+</p>
+<p>MIC: ______________________________ Requester: _____________________
+</p>
+<p style="font-weight: bold;">A) Rice</p>
+<p><b>Planned new daawah </b>locations to be visited in the month of _______________:</p>
+
+<table style="border-collapse: collapse; width: 600px; margin: 20px;">
+    <tr>
+      <td style="border: 1px solid black; vertical-align: top; padding: 10px; width: 50%; height: 70px;">
+        1.<br><br>Estimated no. of attendees expected:
+      </td>
+      <td style="border: 1px solid black; vertical-align: top; padding: 10px; width: 50%; height: 70px;">
+        4.<br><br>Estimated no. of attendees expected:
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; vertical-align: top; padding: 10px; height: 70px;">
+        2.<br><br>Estimated no. of attendees expected:
+      </td>
+      <td rowspan="2" style="border: 1px solid black; vertical-align: top; padding: 10px;">
+        5.<br><br>Estimated no. of attendees expected:
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; vertical-align: top; padding: 10px; height: 70px;">
+        3.<br><br>Estimated no. of attendees expected:
+      </td>
+    </tr>
+  </table>
+  <br>
+  <p><b>Planned follow-up daawah </b>locations to be visited in the month of _______________:</p>
+<br>
+ <table style="border-collapse: collapse; width: 100%; table-layout: fixed;">
+    <tr>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">1. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">5. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">9. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">13. Location;<br><br>Estimated no. of attendees expected:</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">2. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">6. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">10. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">14. Location;<br><br>Estimated no. of attendees expected:</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">3. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">7. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">11. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">15. Location;<br><br>Estimated no. of attendees expected:</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">4. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">8. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;">12. Location;<br><br>Estimated no. of attendees expected:</td>
+      <td style="border: 1px solid black; padding: 10px; vertical-align: top;"></td>
+    </tr>
+  </table>
+
+  <br><br>
+  <p>Planned mass daawah locations to be visited in the month of ________________:
+</p>
+<br>
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Item & description</th>
+    <th>Cost</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<br>
+<p>TOTAL REQUESTED for the month of _________ year ________ for MIC _____________ is _____________ peso</p>
+  <br>
+  <table>
+    <tr>
+      <td>Signature of requester
+<br>
+Date
+
+</td>
+<td>Response from BBM
+
+</td>
+<td>Signature of BBM Representative
+  <br>
+Date
+</td>
+    </tr>
+  </table>
+            </details>
+
+            <details>
+              <summary style="font-weight: bold; color:red;">APPENDIX 11 - CASH LIQUIDATION REPORT
+
+</summary>
+<p>APPENDIX 11 – FORM F – <b>Center Liquidation Report </b> – to be submitted before the 5th of the month
+
+</p>
+<p>
+  MIC: <br>
+Prepared by: <br>
+Date:
+
+</p>
+<img src="{% static 'media/images/report.PNG' %}" alt="">
+            </details>
+
+            <details>
+              <summary style="font-weight: bold; color:red;">APPENDIX 12 - MONTHLY ACTIVITY REPORT</summary>
+            <p>
+              FORM G Must be submitted on the 5th of the next month.
+
+            </p>
+            <p>A) <b>SECTION A </b> - ACTUAL DAAWAH (NEW and FOLLOW-UP) SESSIONS CARRIED OUT IN THE MONTH OF
+</p>
+<table style="width: 100%; border-collapse: collapse;" border="1">
+  <!-- Header Info Row -->
+  <tr>
+    <td style="padding: 8px;">Center:</td>
+    <td style="padding: 8px;">Date of report:</td>
+    <td style="padding: 8px;">PIC:</td>
+  </tr>
+
+  <!-- Gray Title Row -->
+  <tr style="background-color: #cccccc;">
+    <td colspan="3" style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+
+  <!-- Column Headers -->
+  <tr style="background-color: #e6e6e6;">
+    <th style="padding: 6px;">Activity</th>
+    <th style="padding: 6px;">Date of activity</th>
+    <th style="padding: 6px;">Location of activity</th>
+    <th style="padding: 6px;">Workforce on duty</th>
+  </tr>
+
+  <!-- Rows 1 to 10 -->
+  <tr>
+    <td style="padding: 6px;">1.</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">2.</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">3.</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">4.</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">5.</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">6.</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">7.</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">8.</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">9.</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">10.</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+</table>
+
+<p>(Additional sheets may be used to add more information / details).
+<br>Total number of ACTUAL <b>new daawah </b> locations visited:
+<br>Total number of ACTUAL <b>follow-up daawah </b>locations visited:</p>
+<br><br>
+<p><b>SECTION B (FORM K)</b> – ACTUAL FARDU AIN CLASSES CARRIED OUT IN THE MONTH OF: </p>
+<table style="width: 100%; border-collapse: collapse;" border="1">
+  <tr style="background-color: #f4d9c6;">
+    <th style="padding: 8px;">Location</th>
+    <th style="padding: 8px;">Name of asatiz on duty</th>
+    <th style="padding: 8px;">Date/s</th>
+    <th style="padding: 8px;">Approx no. of students</th>
+    <th style="padding: 8px;">Notes</th>
+  </tr>
+
+  <!-- Rows 1 to 10 -->
+  <!-- You can duplicate this block or use a loop in a dynamic setup -->
+  <tr>
+    <td style="padding: 6px; text-align: center;">1</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">2</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">3</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">4</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">5</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">6</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">7</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">8</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">9</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">10</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+</table>
+<p style="font-style: italic;">Use additional sheets if needed</p>
+
+
+<br>
+<p><b>
+SECTION C – other activities carried out by the center on the month of _________</b></p>
+<br><p>
+Please state and describe other activities carried out by the center:</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>Prepared by:</p>
+<p>Date:</p>
+
+            </details>
+
+            <details>
+              <summary style="font-weight: bold; color:red;">APPENDIX 12 CLASS SCHEDULE PLAN
+</summary>
+
+<p><b>FORM H </b> - Use one sheet for each ustaz / ustazah.</p>
+<p>(PIC - Please include this form when you submit your Center Actvity Report)</p>
+<br>
+<p>Name of Ustaz/Ustazah: ___________________________________________</p>
+<p>Center: ________________________________</p>
+<p>Please fill in the location of the classes you plan to give, and the expected date of the visit to the location:</p>
+<br>
+<br>
+<table>
+  <tr>
+   <td style="padding: 6px;">Location 1:
+      <br>
+Date/s:
+</td>
+ <td style="padding: 6px;">Location 2:
+      <br>
+Date/s:
+</td>
+ <td style="padding: 6px;">Location 3:
+      <br>
+Date/s:
+</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Location 4:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 5:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 6:<br>Date/s:</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Location 7:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 8:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 9:<br>Date/s:</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Location 10:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 11:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 12:<br>Date/s:</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Location 13:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 14:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 15:<br>Date/s:</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Location 16:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 17:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 18:<br>Date/s:</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Location 19:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 20:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 21:<br>Date/s:</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Location 22:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 23:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 24:<br>Date/s:</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Location 25:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 26:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 27:<br>Date/s:</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Location 28:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 29:<br>Date/s:</td>
+    <td style="padding: 6px;">Location 30:<br>Date/s:</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Location 31:<br>Date/s:</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+</table>
+<table style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td style="border: 1px solid #fff;">Signature of Planner:</td>
+    <td style="border: 1px solid #fff;">Signature of PIC:</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #fff;">Date:</td>
+    <td style="border: 1px solid #fff;">Date:</td>
+  </tr>
+</table>
+
+            </details>
+
+
+            <details>
+              <summary style="color:red; font-weight: bold;">APPENDIX 13 - STUDENT ASSESSMENT
+
+</summary>
+<p><b>FORM J – Student Assessment</b> <br>
+(Use one sheet per student. This assessment sheet is to be filled, used, and kept by the asatiz in charge)
+ <br>
+(Use one sheet per student. This assessment sheet is to be filled, used, and kept by the asatiz in charge)
+</p>
+<table style="width: 100%; border-collapse: collapse; font-weight: bold;" border="1">
+  <tr>
+    <td style="padding: 6px;">Name of student</td>
+    <td style="padding: 6px;">Age</td>
+    <td style="padding: 6px;">Phone no.</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;">Identification no.</td>
+    <td style="padding: 6px;">Gender</td>
+    <td style="padding: 6px;" rowspan="2">Address</td>
+  </tr>
+  <tr>
+    <td style="padding: 6px;" colspan="2">Date of reverting to Islam</td>
+  </tr>
+</table>
+
+<p><b>Level 1</b> 
+  <br><b>Goal:</b> Start practicing immediately with minimal confusion.
+</p>
+
+<table style="width: 100%; border-collapse: collapse;" border="1">
+  <tr style="background-color: #f4d9c6;">
+    <th style="padding: 8px;">No.</th>
+    <th style="padding: 8px;">Topic</th>
+    <th style="padding: 8px;">Very Good Mastery</th>
+    <th style="padding: 8px;">Good Mastery</th>
+    <th style="padding: 8px;">Needs more work</th>
+    <th>Asatiz’s signature & date
+
+</th>
+  </tr>
+
+  <tr>
+    <td style="padding: 6px; text-align: center;">1</td>
+    <td style="padding: 6px;">Who is Allah? — Tawheed (Oneness of Allah), names and attributes (basic level).
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+     <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">2</td>
+    <td style="padding: 6px;">Shahadah — Meaning and implications.
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">3</td>
+    <td style="padding: 6px;">Introduction to Solat (Prayer) — Importance of 5 daily prayers, when to pray, azan, iqamah, pray in congregation</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">4</td>
+    <td style="padding: 6px;">Wudu’ (Ablution) — Step-by-step with practice
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">5</td>
+    <td style="padding: 6px;">Cleanliness in Islam — Basic hygiene, ghusl (major purification), istinja, tayammum</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">6</td>
+    <td style="padding: 6px;">Short Surahs — Memorizing al-Fatihah and Surah Ikhlas. Know the meaning
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+
+
+ 
+</table>
+<br>
+<p>Notes & Comments</p>
+<br><br><br><br><br>
+
+
+
+<p>Asatiz signature</p><br>
+<p>Date</p>
+<br>
+<br>
+
+<p><b>Level 2: Strengthening Daily Practice </b> 
+  <br><b>Goal:</b>Establish regular worship and deepen faith.
+</p>
+
+<table style="width: 100%; border-collapse: collapse;" border="1">
+  <tr style="background-color: #E2EFD9;">
+    <th style="padding: 8px;">No.</th>
+    <th style="padding: 8px;">Topic</th>
+    <th style="padding: 8px;">Very Good Mastery</th>
+    <th style="padding: 8px;">Good Mastery</th>
+    <th style="padding: 8px;">Needs more work</th>
+    <th>Asatiz’s signature & date
+
+</th>
+  </tr>
+
+  <tr>
+    <td style="padding: 6px; text-align: center;">1</td>
+    <td style="padding: 6px;">Full Solat — Including physical positions and words (with meanings).
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+     <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">2</td>
+    <td style="padding: 6px;">Aurat & Clothing — For men and women.
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">3</td>
+    <td style="padding: 6px;">Pillars of Islam — All five pillars in brief.
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">4</td>
+    <td style="padding: 6px;">Pillars of Iman (Faith) — Basic belief in Allah, angels, prophets, books, Day of Judgment, Qadr.
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">5</td>
+    <td style="padding: 6px;">Introduction to the Qur’an — What it is, its structure, and how to start reading.
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">6</td>
+    <td style="padding: 6px;">Simple Du’as — Before sleep, eating, entering toilet, etc.
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+
+
+ 
+</table>
+<br>
+<p>Notes & Comments</p>
+<br><br><br><br><br>
+
+
+
+<p>Asatiz signature</p><br>
+<p>Date</p>
+
+
+
+<p><b>Level 3: Building a Strong Foundation
+</b> 
+  <br><b>Goal:</b>Strengthen belief and deepen ritual understanding.
+
+</p>
+
+<table style="width: 100%; border-collapse: collapse;" border="1">
+  <tr style="background-color: #DEEBF6;">
+    <th style="padding: 8px;">No.</th>
+    <th style="padding: 8px;">Topic</th>
+    <th style="padding: 8px;">Very Good Mastery</th>
+    <th style="padding: 8px;">Good Mastery</th>
+    <th style="padding: 8px;">Needs more work</th>
+    <th>Asatiz’s signature & date
+
+</th>
+  </tr>
+
+  <tr>
+    <td style="padding: 6px; text-align: center;">1</td>
+    <td style="padding: 6px;">Tawheed in more detail — Uluhiyyah, Rububiyyah, Asma wa Sifat.
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+     <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">2</td>
+    <td style="padding: 6px;">Understanding Shirk — What nullifies tawheed.
+
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">3</td>
+    <td style="padding: 6px;">Introduction to Prophet Muhammad SAW — his character and why he is the final prophet.
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">4</td>
+    <td style="padding: 6px;">Importance of Sunnah — Hadith basics, why Sunnah is followed
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">5</td>
+    <td style="padding: 6px;">Fasting in Ramadan — Rules and purpose
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">6</td>
+    <td style="padding: 6px;">Zakat — Basic concept (not yet full fiqh).
+
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+   <tr>
+    <td style="padding: 6px; text-align: center;">7</td>
+    <td style="padding: 6px;">
+More Surahs — E.g., Surah Falaq, Nas, Kawthar.
+
+ 
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+</table>
+<br>
+<p>Notes & Comments</p>
+<br><br><br><br><br>
+
+
+
+<p>Asatiz signature</p><br>
+<p>Date</p>
+
+
+
+
+
+
+
+<p><b>Level 4: Living Islam
+</b> 
+  <br><b>Goal:</b> Integrate Islam into daily life and begin grasping fiqh
+
+
+</p>
+
+<table style="width: 100%; border-collapse: collapse;" border="1">
+  <tr style="background-color: #FAD2ED;">
+    <th style="padding: 8px;">No.</th>
+    <th style="padding: 8px;">Topic</th>
+    <th style="padding: 8px;">Very Good Mastery</th>
+    <th style="padding: 8px;">Good Mastery</th>
+    <th style="padding: 8px;">Needs more work</th>
+    <th>Asatiz’s signature & date
+
+</th>
+  </tr>
+
+  <tr>
+    <td style="padding: 6px; text-align: center;">1</td>
+    <td style="padding: 6px;">Fiqh of Worship — More detailed rulings on wudu, ghusl, tayammum, menstruation (for women).
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+     <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">2</td>
+    <td style="padding: 6px;">Halal and Haram — In food, money, and daily dealings.
+
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">3</td>
+    <td style="padding: 6px;">Jumaat Prayer and Jumu’ah Etiquette
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">4</td>
+    <td style="padding: 6px;">Islamic Manners (Akhlaq) — With parents, neighbors, Muslims and non-Muslims.
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">5</td>
+    <td style="padding: 6px;">Marriage in Islam — Roles, rights, and responsibilities.
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">6</td>
+    <td style="padding: 6px;">Importance of Knowledge — Seeking ilm, reading Qur’an with tafsir.
+
+
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+   <tr>
+    <td style="padding: 6px; text-align: center;">7</td>
+    <td style="padding: 6px;">
+More Surahs — E.g., Surah Falaq, Nas, Kawthar.
+
+ 
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+    <tr>
+    <td style="padding: 6px; text-align: center;">8</td>
+    <td style="padding: 6px;">Basic Seerah — Life story of Prophet Muhammad SAW
+
+
+ 
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+</table>
+<br>
+<p>Notes & Comments</p>
+<br><br><br><br><br>
+
+
+
+<p>Asatiz signature</p><br>
+<p>Date</p>
+
+
+
+
+<p><b>Level 5: Growth & Commitment
+</b> 
+  <br><b>Goal:</b>  Deepen love for Allah, refine practice, and prepare to be self-guided.
+
+
+
+</p>
+
+<table style="width: 100%; border-collapse: collapse;" border="1">
+  <tr style="background-color: #E7E6E6;">
+    <th style="padding: 8px;">No.</th>
+    <th style="padding: 8px;">Topic</th>
+    <th style="padding: 8px;">Very Good Mastery</th>
+    <th style="padding: 8px;">Good Mastery</th>
+    <th style="padding: 8px;">Needs more work</th>
+    <th>Asatiz’s signature & date
+
+</th>
+  </tr>
+
+  <tr>
+    <td style="padding: 6px; text-align: center;">1</td>
+    <td style="padding: 6px;">Intro to Fiqh Schools — Understanding differences respectfully.
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+     <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">2</td>
+    <td style="padding: 6px;">The Role of the Ummah — Community service, dawah
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">3</td>
+    <td style="padding: 6px;">More Qur’an Memorization & Tafsir
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">4</td>
+    <td style="padding: 6px;">Learning Basic Quranic Arabic Language
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">5</td>
+    <td style="padding: 6px;">Tazkiyah (Spiritual Development) — Purifying the soul, sincerity (ikhlas), gratitude.
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    
+    <td style="padding: 6px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 6px; text-align: center;">6</td>
+    <td style="padding: 6px;">Introduction to Islamic History
+
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+   <tr>
+    <td style="padding: 6px; text-align: center;">7</td>
+    <td style="padding: 6px;">Dealing with doubts — Q&A on common misconceptions.
+
+
+ 
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+    <tr>
+    <td style="padding: 6px; text-align: center;">8</td>
+    <td style="padding: 6px;">Basic Seerah — Life story of Prophet Muhammad SAW
+
+
+ 
+</td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+    <td style="padding: 6px;"></td>
+  </tr>
+</table>
+<br>
+<p>Notes & Comments</p>
+<br><br><br><br><br>
+
+
+
+<p>Asatiz signature</p><br>
+<p>Date</p>
+
+
+
+
+
+
+
+
+
+
+            </details>
+
+
+            <details>
+              <summary style="color: red; font-weight: bold;">APPENDIX 14 PROPOSAL FOR INTENSIVE
+COURSES & OTHER SIMILAR PROGRAMS
+
+              </summary>
+              <p><b>(FORM M)</b> – Proposal to Carry Out Intensive Course / Other Programs
+<br><br>
+1. Title of the Program
+<br><br>
+2. Organised By
+ <br><br>
+3. Objectives
+ i)<br>
+ii)<br>
+iii)<br>
+iv)<br>
+
+<br>
+4. Target Audience
+<br><br><br>
+ 
+5. Date & Time
+ <br><br><br>
+6. Venue / Platform
+<br><br><br>
+
+
+              </p>
+              <p>7. Program Outline (example given below)
+</p>
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <th style="border: 1px solid transparent; padding: 8px;">Time</th>
+    <th style="border: 1px solid transparent; padding: 8px;">Activity</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">9:00 AM</td>
+    <td style="border: 1px solid transparent; padding: 8px;">Registration / Opening Remarks</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">9:15 AM</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">10:30 AM</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">10:45 AM</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">12:00 PM</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">12:45 PM</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+</table>
+
+<p><b>8. Names & Contact Info of Speakers / Facilitators</b></p>
+<p> <b>9. Expected Number of Participants</b> </p>
+<p> <b>10. Budget (example given below)</b> </p>
+<br>
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <th style="border: 1px solid transparent; padding: 8px;">Item</th>
+    <th style="border: 1px solid transparent; padding: 8px;">Cost(peso)</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">Food & refreshment</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">Printing materials</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">Speaker token</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">TOTAL</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+
+</table>
+
+<p> <b>11. Logistics & Equipment </b>(please write/describe your plans to make these available)</p>
+<ul>
+  <li>Projector & screen</li>
+  <li>Microphone</li>
+  <li>Printed notes</li>
+  <li>Registration table</li>
+</ul>
+<p><b>12. Follow-Up / Evaluation </b>(please write/describe your plans to make these available)</p>
+<ul>
+  <li>Feedback form after program</li>
+  <li>Short quiz or assessment (optional)</li>
+  <li>Certificate of participation (if applicable)</li>
+</ul>
+
+<br><br>
+<p><b>13. Prepared by</b> <br>
+<p style="font-style: italic;">
+Name & signature
+Position <br>
+Date<br>
+<br><br>
+<b>14. Approval</b> <br> 
+</p>
+<p style="font-style: italic;">Name & signature<br>
+Position<br>
+Date<br>
+</p>
+
+            </details>
+
+<details>
+  <summary style="color:red; font-weight:bold;">APPENDIX 15 - INTENSIVE COURSES POST MORTEM
+</summary>
+<p style="font-weight:bold;">FORM N
+
+</p>
+<p>Program Title: _______________________________ <br>
+Date of Program: _____________________________<br>
+Prepared by: ________________________________<br>
+Date of Report: _______________________________</p>
+<br>
+<p><b>1. Program Overview</b></p>
+Brief summary of the event: <br>
+<ul>
+<li>What was it?</li>
+<li>When and where was it held?</li>
+<li>Who was it for?</li>
+<li>How many attended?</li>
+</ul>
+
+<p><b>2. Objectives Review</b></p>
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <th style="border: 1px solid transparent; padding: 8px;">Objective</th>
+    <th style="border: 1px solid transparent; padding: 8px;">Achieved? (Yes/No)
+Comments
+
+</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">[Objective 1]</td>
+    <td style="border: 1px solid transparent; padding: 8px;">☐ Yes ☐ No</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">[Objective 2]</td>
+    <td style="border: 1px solid transparent; padding: 8px;">☐ Yes ☐ No</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">[Objective 3]</td>
+    <td style="border: 1px solid transparent; padding: 8px;">☐ Yes ☐ No</td>
+  </tr>
+ 
+</table>
+<p>
+  <b>6. Participant Feedback Summary</b> <br>
+  Summarise feedback received through informal comments:
+</p>
+<ul>
+  <li>Strengths mentioned:</li>
+  <li>Areas for improvement:</li>
+  <li>Suggestions from participants:</li>
+</ul>
+<br>
+
+<p><b>7. What Went Well</b>
+<br>
+
+List of key successes or things that went smoothly:</p>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<br>
+<p><b>8. What Can Be Improved</b>
+<br>
+
+Identify problems, weaknesses, or unexpected issues:</p>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<br>
+<p><b>9. Recommendations for Future Programs</b>
+<br>Suggestions to improve similar programs in the future:</p>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<br>
+<p><b>10. Attachments (if any)</b></p>
+<ul>
+  <li style="list-style-type: square;">Attendance list</li>
+  <li style="list-style-type: square;">Participant feedback forms</li>
+  <li style="list-style-type: square;">Budget breakdown / receipts</li>
+  <li style="list-style-type: square;">Photos/screenshots</li>
+  <li style="list-style-type: square;" >Other documents:</li>
+</ul>
+
+
+
+</details>
+
+
+<details>
+  <summary style="font-weight:bold; color:red;">APPENDIX 16 - SOLAT JUMAAT REPORT</summary>
+  <p>
+   <b>FORM P</b> <br>
+MIC Name: _______________________________________ <br>
+Location of Jumaat Prayer: _____________________________ <br>
+Date of Jumaat Session: ______________________________ <br>
+Prepared by: ____________________________________ <br>
+
+  </p>
+  <br>
+<p> <b>1. Personnel Involved </b> <br>
+
+Imam 
+_____________________________<br>
+Khatib
+_____________________________<br>
+Bilal (Muezzin)
+_____________________________<br>
+Supervising Ustaz
+_____________________________<br>
+</p> 
+<p>
+  <b>2. Congregation Attendance</b>
+  <ul>
+    <li>Estimated number of jema’ah: __________ persons</li>
+    <li>Number of first-time attendees (if known): __________ persons</li>
+    <li>Number of regular attendees (estimated): __________ persons</li>
+  </ul>
+</p>
+<p><b>3. Khutbah Content Confirmation</b></p>
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <th style="border: 1px solid transparent; padding: 8px;">Item </th>
+    <th style="border: 1px solid transparent; padding: 8px;">☐ Yes / ☐ No
+Remarks
+
+</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">Khutbah content received from KW</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">Khatib followed provided content/write-up</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid transparent; padding: 8px;">NCMF registration reminder included</td>
+    <td style="border: 1px solid transparent; padding: 8px;"></td>
+  </tr>
+ 
+</table>
+<p><b>
+  4. Additional Notes / Observations (E.g. challenges, feedback, suggestions) <br>
+Prepared by (Signature):<br>
+Name: <br>
+Date:<br>
+</b>
+  </p>
+
+</details>
+
+<details>
+  <summary style="color:red; font-weight:bold;">APPENDIX 17 - GUIDE TO DAKWAH</summary>
+
+  <br><p style="font-weight:bold;">1. Purify Your Intention</p>
+  <ul>
+    <li>Your goal should be to <b>please Allah</b> and convey His message, not to win arguments or gain followers.</li>
+    <li><strong>Remember:</strong> <em>"Your duty is only to convey the message clearly." (Qur'an 16:82)</em></li>
+  </ul>
+
+  <br><p style="font-weight:bold;">2. Understand Your Audience</p>
+  <ul>
+    <li><strong>New Muslims:</strong> Focus on reminding them of Allah, encouraging practice, and correcting misunderstandings with gentleness.</li>
+    <li><strong>Non-Muslims:</strong> Focus on Tawheed (Oneness of God), the purpose of life, and the beauty of Islam.</li>
+    <li>Respect their background, traditions, and level of understanding.</li>
+  </ul>
+
+  <br><p style="font-weight:bold;">3. Equip Yourself with Knowledge</p>
+  <ul>
+    <li>Continuously increase your knowledge of <b>Islam</b>: syahadah, salah, fasting, zakat, hajj, and key beliefs (e.g., tawheed, prophethood, hereafter).</li>
+    <li>Learn how to answer <b>common questions/misconceptions,</b>  e.g., about women in Islam, jihad, etc.</li>
+    <li>Speak <b>truthfully and respectfully.</b> If you don’t know the answer, say so and follow up later.</li>
+  </ul>
+
+ <br> <p style="font-weight:bold;">4. Use Wisdom and Good Manners</p>
+  <ul>
+    <li><b>Be kind, patient, and respectful</b> even when facing hostility.</li>
+    <li>
+      <strong>Follow the Qur’anic principle:</strong><br>
+      <em>“Invite to the way of your Lord with wisdom and beautiful preaching…” (Qur'an 16:125)</em>
+    </li>
+  </ul>
+
+  <br><p style="font-weight:bold;">5. Start with Common Ground</p>
+  <ul>
+    <li>Build rapport: talk about <b>shared values</b>  like kindness, family, honesty, and caring for others.</li>
+    <li>Use <b>stories and examples </b> from the life of the Prophet ﷺ — his honesty, mercy, and justice.</li>
+  </ul>
+
+  <br><p style="font-weight:bold;">6. Offer Materials</p>
+  <ul>
+    <li>If available, provide <b>translated Qur’ans</b>, simple pamphlets, or daawah booklets.</li>
+    <li>Share useful websites or apps for those who want to explore further.</li>
+  </ul>
+
+  <br><p style="font-weight:bold;">7. Be Consistent and Available</p>
+  <ul>
+    <li>Follow up with genuine care.</li>
+    <li>Help them build a connection with other Muslims and nearby MICs and musolla/mosques.</li>
+    <li><b>Support them </b> through the SDC — don’t leave them alone.</li>
+  </ul>
+
+ <br> <p style="font-weight:bold;">8. Make Dua</p>
+  <ul>
+    <li>Always ask Allah to <b>guide the hearts</b> of those you're speaking to and to <b>accept your efforts.</b></li>
+  </ul>
+
+</details>
+<details>
+  <summary style="color:red; font-weight:bold;">APPENDIX 18 - DAKWAH PROGRAM REPORTS
+  </summary>
+  <p><b>FORM R – New Daawah, Follow-Up Daawah, Mass Daawah Report</b> (To be completed for each daawah session: New, Follow-Up, or Mass)
+</p>
+<br>
+<p>
+  MIC Name: <br>
+Date of Daawah: <br>
+Type of Daawah: ☐ New Daawah ☐ Follow-Up Daawah ☐ Mass Daawah <br>
+Daawah Team (DT) Leader: <br>
+Location / Community: <br>
+</p>
+<br>
+<ol>
+  <li style="padding-bottom: 10px;">Total No. of Attendees: _________________ (approx. _______ males, approx. _________ females)</li>
+  <li style="padding-bottom: 10px;">Was uncooked rice (1–2kg) distributed to adult attendees? ☐ Yes ☐ No
+If yes, approx. total kg distributed:
+</li>
+<li style="padding-bottom: 10px;">Has the Sitio Development Committee (SDC) been initiated? ☐ Yes ☐ No
+If NO, please set up the SDC within 6 months after daawah is conveyed in the location. Details of the SDC must be filled up in FORM S.
+</li>
+<li style="padding-bottom: 10px;">Was the NCMF registration process explained? ☐ Yes ☐ No
+</li>
+<li style="padding-bottom: 10px;">Was conversion certificate status mentioned?  ☐ Yes ☐ No
+</li>
+<li style="padding-bottom: 10px;">Were local authorities informed or involved during the daawah session?
+ ☐ Yes ☐ No. If NO, please plan to meet them within 1 month from the daawah date.</li>
+<li style="padding-bottom: 10px;">Issues or observations – please write any difficulties faced, needs for future sessions, weather conditions, or lockdowns)
+</li>
+</ol>
+
+<p><br><br>
+Prepared by:
+Name:<br>
+Signature:<br>
+Date:<br>
+<br>
+Verified by:<br>
+Name:<br>
+Position:<br>
+Signature:<br>
+Date:<br><br>
+
+<b>
+FORM S </b> – Office bearers of Sitio Development Committee (SDC)<br>
+
+Location of community:<br>
+
+MIC in charge:<br>
+
+</p>
+<table>
+  <tr>
+  <th style="padding-left:10px;">No.</th>
+  
+    <th style="padding-left:10px;">Position</th>
+  <th style="padding-left:10px;">Name</th>
+  <th style="padding-left:10px;">Age</th>
+  <th style="padding-left:10px;">Contact Info</th>
+  </tr>
+  <td style="padding-left:10px;">1</td>
+  <td style="padding-left:10px;">Chairperson</td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+    <tr>
+    <td style="padding-left:10px;">2</td>
+    <td style="padding-left:10px;">Secretary</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">3</td>
+    <td style="padding-left:10px;">Treasurer</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">4</td>
+    <td style="padding-left:10px;">Auditor</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">5</td>
+    <td style="padding-left:10px;">Head of Education Bureau</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">6</td>
+    <td style="padding-left:10px;">Head of Welfare Bureau</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+    <tr>
+    <td style="padding-left:10px;">7</td>
+    <td style="padding-left:10px;">Head of Economy Bureau</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">8</td>
+    <td style="padding-left:10px;">Head of Women Affairs Bureau
+</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+  <tr>
+    <td style="padding-left:10px;">9</td>
+    <td style="padding-left:10px;">Head of Religion Bureau
+</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+    </tr>
+</table>
+
+<p>
+  Prepared by: <br>
+Name: <br>
+Signature: <br>
+Date: <br>
+
+</p>
+</details>
+
+<details>
+  <summary style="color:red; font-weight:bold;"> APPENDIX 19 - FIQH OF QURBAN
+</summary>
+  <h2 style="color: #2c3e50;">Fiqh of Slaughtering Animals for Eidul Adha (Qurban) – Quick Guide</h2>
+
+  <ul style="padding-left: 20px;">
+    <br>
+      <strong>1. Who Must Offer Qurban?</strong>
+ 
+    
+      <ul style=" padding-left: 20px;">
+        <li>Sunnah muakkadah (highly recommended) for those who:</li>
+        <ul style="padding-left: 20px;">
+          <li>Are Muslim</li>
+          <li>Are mukallaf (sane, adult)</li>
+          <li>Can afford it (after basic needs)</li>
+        </ul>
+        <li>In some mazhabs (like Hanafi), it's wajib if financially able.</li>
+      </ul>
+    </li>
+
+  <br>
+      <strong>2. Time of Slaughter</strong>
+      <ul style="padding-left: 20px;">
+        <li><b>Starts:</b> After Eid prayer on <b>10th Dhul Hijjah</b></li>
+        <li><b>Ends:</b> Before sunset on <b>13th Dhul Hijjah</b></li>
+        <li>✅ Can be done on 10th, 11th, 12th, or 13th (4 days total)</li>
+        <li>❌ Slaughter <b>before</b>  Eid prayer is invalid for qurban (though valid as normal meat)</li>
+      </ul>
+    </li>
+
+<br>
+      <strong>3. Animals Allowed</strong>
+      <ul style="padding-left: 20px;">
+        <li>🐑 <b>Sheep/goat</b> (1 person per animal)</li>
+        <li>🐄 <b>Cow/buffalo</b> (can be shared by up to 7 people)</li>
+        <li>The animal must be healthy and free from defects: (Blind, Very thin, Sick,Limping severely )</li> 
+        </ul>
+        <li>Minimum age:
+          Goat/sheep: <b>1 year old</b> 
+          Cow: <b>2 years old</b>
+          </li>
+        </ul>
+      </ul>
+    </li>
+<br>
+      <strong>4. Method of Slaughter</strong>
+      <ul style="padding-left: 20px;">
+        <li>Intention (niyyah) for Qurban.</li>
+        <li>Very sharp knife used to minimize suffering</li>
+        <li>Animal laid on <b>left side, </b> facing <b>Qiblah</b></li>
+        <li>Recite: <b>Bismillahi Allahu Akbar.</b> Sunnah to add:“Allahumma hadha minka wa laka, Allahumma taqabbal minni.”</li>
+        <li>Also say out very loudly so that the voice can be heard very clearly when recorded:</li>
+        <ul style="padding-left: 20px;">
+          <li>
+           I slaughter this animal on behalf of ________________________ (name/s of qurban participant) this day, ____________ (say out the date of the slaughter) for the sake of Allah SWT.
+          </li>
+        </ul>
+        <li>Display a piece of paper that contains, very clearly, the name/s of all qurban participant/s for the particular animal being slaughtered.</li>
+        <li>Take some photographs and/or videos so that qurban participants can be assured that their qurban has been executed.</li>
+        <li>Cut the <b> throat, windpipe, and jugular veins </b>(at least 3 out of 4 major passages)</li>
+      </ul>
+    </li>
+<br>
+      <strong>6. Other Important Points</strong>
+      <ul style="padding-left: 20px;">
+        <li>The slaughterer can be paid money to do the slaughtering, but he cannot be paid from the meat of the animal slaughtered. (However, he can be gifted the meat, just like other Muslims)</li>
+        <li>Knife must be very sharp and cannot be sharpened in front of the animal</li>
+        <li>Animal must be respected and treated very kindly</li>
+        <li>Do not slaughter one animal in front of another</li>
+        <li>Everybody (including women and children) can witness and learn</li>
+      </ul>
+    </li>
+  </ul>
+<br><br>
+  <p><b>FORM S1</b> <br>
+Format to be filled, that contains information of qurban participants – to be displayed very, very clearly so that record/s of the qurbani, which will eventually be sent to all qurban participants/representatives, can be read/heard with ease. Also say out very loudly so that the voice can be heard very clearly when recorded.
+</p>
+<br> <br>
+<p style="font-weight:bold; font-size:35px;"> 
+  Bismilahirrahmannirrahim <br> <br>
+
+I slaughter this animal on behalf of
+<br> <br>
+ ________________________ 
+ <br> <br>(name/s of qurban participant) this day, 
+ <br> <br>____________ (say out the date of the 
+  <br> <br>slaughter) 
+ <br> <br>for the sake of Allah SWT.
+</p>
+</details>
+
+<details>
+  <summary style="color:red; font-weight:bold;">APPENDIX 20 – IFTAR</summary>
+  <p><b>FORM T1 – Planned Locations for Iftar</b></p>
+  <table>
+  <tr style=" background-color:#FFE599;">
+  <th style="padding-left:10px;">No.</th>
+  
+    <th style="padding-left:10px;"></th>
+  <th style="padding-left:10px;">Location</th>
+  <th style="padding-left:10px;">Estimated no. of jema’ah</th>
+  <th style="padding-left:10px;">No. of nights to do iftar</th>
+  <th style="padding-left:10px;">Notes</th>
+  </tr>
+  <td style="padding-left:10px;">1</td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+    <tr>
+    <td style="padding-left:10px;">2</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">3</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">4</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">5</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">6</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  
+  <td style="padding-left:10px;"></td>
+  </tr>
+    <tr>
+    <td style="padding-left:10px;">7</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">8</td>
+    <td style="padding-left:10px;">
+</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+  
+</table>
+<p>Use additional sheets of paper if needs be</p>
+<br>
+<p><b>FORM T2 – Iftar Report (Actual locations, actual data)</b></p>
+  <table>
+  <tr style=" background-color:#DEEBF6;">
+  <th style="padding-left:10px;">No.</th>
+  <th style="padding-left:10px;">Location</th>
+  <th style="padding-left:10px;">No. of iftar nights</th>
+  <th style="padding-left:10px;">Avg. no. of jema’ah</th>
+  <th style="padding-left:10px;">Average cost of iftar/night</th>
+ 
+  </tr>
+  <td style="padding-left:10px;">1</td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+    <tr>
+    <td style="padding-left:10px;">2</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">3</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">4</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">5</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">6</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+    <tr>
+    <td style="padding-left:10px;">7</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">8</td>
+    <td style="padding-left:10px;"></td>
+    <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  <td style="padding-left:10px;"></td>
+  </tr>
+  
+</table>
+<p>
+ 
+Total amount of iftar fund received for MIC and the MIC’s satellites: _______________________. <br>
+
+ <b>
+Prepared by:<br>
+
+Signature:<br>
+Date:<br>
+</b>
+</p>
+
+</details>
+<details>
+  <summary style="color:red; font-weight:bold;"> APPENDIX 21 - FORMS RELATED TO CASH ADVANCE</summary>
+  <p><b>FORM U – Application for Advance
+</b> (for starting up business)</p>
+
+
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #000;">
+    <!-- Row 1 -->
+    <tr>
+      <td style="border: 1px solid #000; padding: 10px;">Full name(s) of all in the team</td>
+      <td style="border: 1px solid #000; padding: 10px;">Today’s date</td>
+      <td style="border: 1px solid #000; padding: 10px;">Phone number</td>
+    </tr>
+    <!-- Row 2 -->
+    <tr>
+      <td style="border: 1px solid #000; padding: 10px;">Address and email address</td>
+      <td style="border: 1px solid #000; padding: 10px;">Date of birth</td>
+      <td style="border: 1px solid #000; padding: 10px;">Who are your target customers?</td>
+    </tr>
+    <!-- Row 3 -->
+    <tr>
+      <td colspan="2" style="border: 1px solid #000; padding: 10px;">Explain the business you propose to carry out</td>
+      <td style="border: 1px solid #000; padding: 10px;">Have you any experience carrying out this type of business?</td>
+    </tr>
+    <!-- Row 4 -->
+    <tr>
+      <td style="border: 1px solid #000; padding: 10px;">
+        How much do you need to start this business? Give as much details as possible.
+        If you are buying equipment, list them down and the estimated price of each.
+       <b>
+        <em>(If for some reason your business does not work out, you must sell all the equipment and RETURN all the money to the advancer).</em> </b>
+      </td>
+      <td colspan="2" style="border: 1px solid #000; padding: 10px;">
+        What problems do you think you will face? and how do you overcome the problems?
+      </td>
+    </tr>
+    <!-- Row 5 -->
+    <tr>
+      <td style="border: 1px solid #000; padding: 10px;">
+        Do you understand that, if your application is approved, you <strong>must</strong> clear back the amount given to you? In other words, this is a <strong>ADVANCE</strong>, not a gift.
+      </td>
+      <td style="border: 1px solid #000; padding: 10px;">
+        Do you understand that if you do not clear back your advance, you may be depriving others of getting this kind of advance in the future?
+      </td>
+      <td style="border: 1px solid #000; padding: 10px;">
+        When are you going to start making clearance?
+      </td>
+    </tr>
+    <!-- Row 6 -->
+    <tr>
+      <td style="border: 1px solid #000; padding: 10px;">
+        Do you understand that you must <strong>TRY YOUR VERY BEST</strong> to clear back this advance, even if it is only 1000 pesos a month every month, or in any other arrangement agreed upon by BBM Centre Leader / Representative?
+      </td>
+      <td style="border: 1px solid #000; padding: 10px;">
+        Do you understand that if you cannot afford to clear this advance, you <strong>MUST</strong> explain to BBM Centre Leader / Representative and arrange for another way to clear it, and this is to be agreed upon between you and <strong>BBM Centre Leader / Representative</strong>?
+      </td>
+      <td style="border: 1px solid #000; padding: 10px;">
+        Do you understand that if you do not clear back this advance while you can afford it, you are being dishonest, and your name will be <strong>BLACKLISTED</strong> in BBM records and you will <strong>NOT</strong> be able to apply for any advances in the future?
+      </td>
+    </tr>
+     <tr>
+      <td style="border: 1px solid #000; padding: 10px;">
+    How much can you clear back every month?  </td>
+      <td style="border: 1px solid #000; padding: 10px;">
+    Are you willing to share some of the profit you earn (around 10%) every year with the Islamic Centre in your community to help develop the community? </td>
+      <td style="border: 1px solid #000; padding: 10px;">
+       Signature and date
+
+  </td>
+    </tr>
+  </table>
+  
+
+   <!-- FORM V – Clearance Pledge -->
+  <div style="margin-bottom:20px;">
+   
+    <h3>FORM V – Clearance Pledge</h3>
+    <p><b>Clearance Pledge Form</b></p>
+    <p>Bismillahirrahmaanirraheem</p>
+    <p>
+      On __________________________ (date), I, _____________________________ (name) received
+      ___________ pesos in cash for an ADVANCE from _______________ (name)
+    </p>
+    <p>
+      In order to do<br>
+      ___________________________________________________________________
+    </p>
+    <p>
+      I pledge to clear _______________ pesos every ____________ (week/month) starting _________ (date) for ____________ (weeks/months).
+    </p>
+    <p>
+      I promise to work hard and honestly, and will try my very best to make clearances as per this agreement.
+    </p>
+    <p>Name: <br>
+    Date: (on behalf of BBM)<br>
+    Date:</p>
+  </div>
+
+
+  <p><b>FORM W – Application for Financial Advance / Donation
+</b></p>
+<table>
+  <tr>
+    <td>Applicant’s full name</td>
+    <td>Today’s date</td>
+    <td>Phone number</td>
+  </tr>
+   <tr>
+    <td>Address</td>
+    <td>Date of birth
+
+</td>
+    <td> Do you agree that you MUST clear back the advance that will be given to you?
+</td>
+  </tr>
+   <tr>
+    <td>Do you understand that, if your application is approved by the Committee, you must clear back the amount given to you? In other words, this is a ADVANCE, not a gift.</td>
+    <td>Do you understand that if you do not clear back your advance, you may be depriving others of getting this kind of advance in the future?
+
+
+</td>
+    <td> Do you understand that you must TRY YOUR VERY BEST to clear back this advance, even if it is only 50 pesos a month every month, or in any other arrangement agreed upon by BBM Centre Leader / Representative?
+</td>
+  </tr>
+  <tr>
+    <td>Do you understand that if you cannot afford to clear this advance, you MUST explain to BBM Centre Leader / representative and arrange for another way to clear it, and this is to be agreed upon between you and BBM Centre Leader / Representative?
+</td>
+    <td>Do you understand that if you do not clear this advance while you can afford it, you are being dishonest, and your name will be BLACKLISTED in BBM records and you will NOT be able to apply for any advances in the future?
+
+
+</td>
+<td>
+  <table style="width:100%; border-collapse: collapse;">
+    <tr>
+      <td>How much can you clear every month?</td>
+    </tr>
+    <tr>
+      <td>Signature of applicant and date</td>
+    </tr>
+    <tr>
+      <td>Signature of Centre Leader and date</td>
+    </tr>
+  </table>
+
+
+</td>
+</td>
+  </tr>
+
+</table>
+ <p style="margin-top: 10px;"><b>FORM X1</b></p>
+
+<p><b>Part A) </b>Clearance made by beneficiaries for the month of</p>
+
+<table>
+  <tr>
+    <th>No</th>
+    <th>Name of recipient</th>
+    <th>How much was advanced</th>
+    <th>How much was cleared</th>
+    <th>Date of clearance</th>
+    <th>How much left</th>
+  </tr>
+
+  <tr>
+    <td>1</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<p style="padding-top: 20px;">Total received in the month of _______________ = ___________ peso</p>
+
+<br>
+<p><b>
+Part B)</b> Beneficiaries of monies given out on the month of ____________
+
+<br>
+Total given out (advance AND donation) in the month of ___________ = ___________ peso</p>
+
+
+<table >
+  <tr style="background-color:#E2EFD9">
+    <th>No</th>
+    <th>Contact info of recipient</th>
+    <th>How much</th>
+    <th>Advance or donation?</th>
+    <th>Notes</th>
+  </tr>
+
+  <tr>
+    <td>1</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+</table>
+<p>
+Use additional sheets if necessary <br>
+<b> Notes: <br>
+<br>
+<br>
+<br>
+Prepared by:<br>
+Signature:<br>
+Date:<br></b>
+</p>
+</details>
+
+<details>
+  <summary style="color:red; font-weight:bold;">APPENDIX 22 - ISLAMIC MARRIAGE</summary>
+  <p ><b>FORM Y – </b> to be filled up by the PIC when there is a marriage ceremony in the sitio
+</p>
+
+<table>
+  <tr>
+    <th>Sitio:</th>
+<th>MIC:</th>
+
+    </tr>
+  <tr>
+    <td style="padding-left:10px;">Name of bride:</td>
+    <td style="padding-left:10px;">Contact info of bride:</td>
+
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">Name of groom:</td>
+    <td style="padding-left:10px;">Contact info of groom:</td>
+
+  </tr>
+   <tr>
+    <td style="padding-left:10px;">Name of solemnizer:</td>
+    <td style="padding-left:10px;">Contact info of solemnizer:
+</td>
+
+  </tr>
+    <tr>
+    <td style="padding-left:10px;">Name of wali:</td>
+    <td style="padding-left:10px;">Contact info of wali:
+</td>
+
+  </tr>
+ <tr>
+    <td style="padding-left:10px;">Name of 1st witness:
+:</td>
+    <td style="padding-left:10px;">Contact info of 1st witness:
+</td>
+
+  </tr> 
+  <tr>
+    <td style="padding-left:10px;">Name of 2nd witness:
+:</td>
+    <td style="padding-left:10px;">Contact info of 2nd witness:
+</td>
+
+  </tr> 
+   <tr>
+    <td style="padding-left:10px;">Approx. no. of guests
+:</td>
+    <td style="padding-left:10px;">Date of ceremony:
+</td>
+
+  </tr> 
+</table>
+<div style="padding-top:20px;">
+  Prepared by _____________________________ <br>
+
+Signature: _______________________________ <br>
+
+Date:
+ <br>
+</div>
+
+
+  <p style="font-weight: bold;">Guide to Performing a Marriage Solemnization Ceremony (Akad Nikah)</p>
+<br>
+  <p style="text-decoration: underline; font-weight:bold;">1. Pre-Ceremony Checks</p>
+  <br>
+  <p>Make sure the following are complete before the ceremony begins:</p>
+  <ul style="margin-left: 20px;">
+    <li>Consent from both bride and groom</li>
+    <li>Presence of the <strong>Wali</strong> (usually the bride’s father or closest male guardian)</li>
+    <li>Two adult Muslim male witnesses</li>
+    <li>Agreed <em>mahar</em> (dowry) — amount and form</li>
+    <li>Legal documents completed (depending on local laws/registries)</li>
+  </ul>
+  <br>
+
+   <p style="text-decoration: underline; font-weight:bold;">2. Begin the Ceremony</p><br>
+  <p>
+    <strong>a) Praise and Reminder (Khutbah Nikah):</strong> Start with khutbah nikah (you may use a short Arabic khutbah):<br>
+    <em>"Innal hamdalillah, nahmaduhu wa nasta’inuhu wa nastaghfiruhu..."</em><br><br>
+    Briefly remind the couple:
+  </p>
+  <ul style="margin-left: 20px;">
+    <li>About <em>taqwa</em> (God-consciousness)</li>
+    <li>About marriage as an act of <em>ibadah</em></li>
+    <li>About mutual rights and responsibilities</li>
+  </ul>
+
+  <p>
+    <strong>b) Declaration of Purpose:</strong> Explain that this is a solemn Islamic contract and both parties are entering it willingly and sincerely.
+  </p>
+<br>
+   <p style="text-decoration: underline; font-weight:bold;">3. Ijab and Qabul (Offer and Acceptance)</p><br>
+  <p>
+    The <strong>Wali</strong> (or <em>wali hakim</em>) says:<br>
+    <em>“I marry you to my daughter, [name of bride], with a dowry of [Amount] peso, paid in cash.”</em><br><br>
+    The Groom responds clearly:<br>
+    <em>“I accept the marriage of [name of bride] with that dowry, paid in cash.”</em><br><br>
+    Ensure clarity and fluency. There should be no hesitation or joking. It’s best to practice beforehand if necessary.
+  </p>
+<br>
+ <p style="text-decoration: underline; font-weight:bold;">4. Confirmation by Witnesses</p><br>
+  <p>
+    Ask both witnesses: <em>“Is it valid?”</em><br>
+    They should both reply: <em>“Yes, it is valid”</em>
+  </p>
+<br>
+  <p style="text-decoration: underline; font-weight:bold;">5. Du'a & Closing</p><br>
+  <p>
+    Recite a short du’a for the couple:<br>
+    <em>"Barakallahu laka wa baraka ‘alayka wa jama‘a baynakuma fi khayr."</em><br>
+    <span style="font-size: 90%; color: #555;">(Meaning - “May Allah bless you, and shower His blessings on you, and unite you both in goodness.”)</span>
+  </p>
+
+  <p>
+    Conclude with a reminder to the couple about being kind, patient, and upholding the rights of one another.<br>
+    Signing of documents should also be done where applicable.
+  </p>
+</details>
+
+
+<details>
+  <summary style="color:red; font-weight:bold;"> APPENDIX 23 - ISLAMIC FUNERAL RITES</summary>
+  <p>To be filled up by the PIC (or his/her representative) in the event of death in the community.</p>
+         <table>
+          <tr>
+            <td style="padding-left:10px;">Name of deceased</td>
+            <td style="padding-left:10px;">Age of the deceased</td>
+          </tr>
+          <tr>
+            <td>Name of close relative of the deceased</td> 
+              <td>Time of death</td>
+            </td>
+          </tr>
+          <tr>
+            <td>Cause of death</td>
+              <td>Contact info of close relative of the deceased</td>
+            </td>
+          </tr>
+            <tr>
+            <td>Location of death
+</td>
+              <td>Burial location</td>
+            </td>
+          </tr>
+         </table>
+<p>
+         Notes:
+<br>
+<br>
+<br>
+<br>
+
+Prepared by:
+<br>
+Signature:
+<br>
+Date:
+<br>
+</p>
+
+  <h2 style="margin-top:20px; color: #333;">Brief Guide to Muslim Funeral Rites (Jenazah)</h2>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">🛌 1. When a Person Is Close to Death</h3>
+    <ul style="margin-left: 20px;">
+      <li>Encourage the dying person to say the shahadah: <em>"Laa ilaaha illallah" (There is no god but Allah)</em></li>
+      <li>Sit calmly and make du’a for ease and forgiveness.</li>
+      <li>If possible, position the person lying on their right side facing the Qiblah (or on their back with face turned toward Qiblah).</li>
+      <li>Do not wail or cry loudly.</li>
+      <li>Once the soul has departed, close the eyes, and tie the jaw (to keep it closed) and feet (to keep them together).</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">🧼 2. Ghusl (Ritual Washing)</h3>
+    <ul style="margin-left: 20px;">
+      <li>Done by close family or trusted Muslims of the same gender.</li>
+      <li>The body is washed an odd number of times (usually 3, 5, or more if needed) with clean water and scented soap or camphor for the final rinse.</li>
+      <li>Private parts must be covered at all times.</li>
+      <li>Begin washing from the right side, then the left.</li>
+      <li>After ghusl, dry the body and apply a little perfume (excluding the private parts).</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">⚰️ 3. Kafan (Shrouding)</h3>
+    <ul style="margin-left: 20px;">
+      <li>Body is wrapped in white cloth (kafan) — preferably 3 layers for men, 5 for women.</li>
+      <li>Cloth should cover the whole body. Fasten with ties at the head, waist, and feet.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">🕌 4. Salat al-Janazah (Funeral Prayer)</h3>
+    <ul style="margin-left: 20px;">
+      <li>Performed in congregation (at a mosque, prayer area, or cemetery).</li>
+      <li>It is a communal obligation (fard kifayah).</li>
+      <li>Performed while standing only — no ruku‘ or sujud.</li>
+      <li>
+        <strong>Format:</strong>
+        <b>Takbir 1:</b> Al-Fatihah,
+        <b>Takbir 2:</b> Salawat on the Prophet ﷺ (e.g., Allahumma salli ‘ala Muhammad),
+        <b>Takbir 3:</b> Du’a for the deceased,
+        <b>Takbir 4:</b> Short concluding du’a and taslim (one or both sides),
+      </li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">⚰️ 5. Burial</h3>
+    <ul style="margin-left: 20px;">
+      <li>The body is taken to the cemetery and placed into the grave on the right side facing the Qiblah.</li>
+      <li>A short du’a or reminder may be given at the graveside.</li>
+      <li>Fill the grave with soil, each person may place a handful.</li>
+      <li>
+        Say: <em>"Minhaa khalaqnaakum wa feehaa nu’eedukum wa minhaa nukhrijukum taaratan ukhraa"</em><br>
+        (“From it We created you, into it We shall return you, and from it We shall bring you out again.”)
+      </li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">🤲 6. After Burial</h3>
+    <p>Make du’a for the deceased.It is sunnah to stay briefly at the grave and pray for the person’s steadfastness during questioning.</p>
+   
+  </div>
+</details>
+<details>
+<summary style="color:red; font-weight:bold;">APPENDIX 24 - ISLAMIC FAMILY COUNSELING</summary>
+<p>  - Brief Guide to Muslim-Based Family Counseling
+</p>
+ <p style="font-weight: bold;">Islamic Family Counseling Guide</p>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">1. Begin with the Right Intention (Niyyah)</h3>
+    <ul style="margin-left: 20px;">
+      <li>Intend to counsel <b>for the sake of Allah.</b>  Keep the matter confidential. Do not relay any of what’s discussed to others if there is no need to.</li>
+      <li>Make <b>du’a</b> for wisdom, patience, and sincerity.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">2. Create a Safe and Respectful Space</h3>
+    <ul style="margin-left: 20px;">
+      <li>Ensure privacy and emotional safety.</li>
+      <li>Speak calmly, with <b>rahmah (compassion) </b>  and <b>adab (manners).</b></li>
+      <li>Encourage each party to speak — but <b>no interrupting, mocking, or blaming.</b> </li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">3. Clarify Roles and Goals</h3>
+    <ul style="margin-left: 20px;">
+      <li>Ask each person: <em>“What do you hope to achieve from this session?”</em></li>
+      <li>Define everyone’s <b>role in the family</b>  (e.g., husband, wife, parent, child) in light of the Qur’an and Sunnah.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">4. Use Islamic Principles to Guide the Discussion</h3>
+    <p>Draw upon key values:</p>
+    <ul style="margin-left: 20px;">
+      <li><strong>Taqwa:</strong> God-consciousness in words and actions</li>
+      <li><strong>Shura (consultation):</strong> Involve each other in decision-making</li>
+      <li><strong>Sabr (patience)</strong> &amp; <strong>‘Afw (forgiveness):</strong> Encourage letting go of grudges</li>
+      <li><strong>Rights and responsibilities:</strong> Use teachings of the Prophet ﷺ as reference</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">5. Address Core Issues, Not Just Symptoms</h3>
+    <ul style="margin-left: 20px;">
+      <li>Explore the root causes (e.g., communication breakdown, unmet needs, stress)</li>
+      <li>Use reflective questions like:<br>
+        <em>“What do you feel is missing?”</em><br>
+        <em>“What has hurt you most?”</em><br>
+        <em>“What could you do differently with Allah in mind?”</em>
+      </li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">6. Encourage Practical Steps</h3>
+    <ul style="margin-left: 20px;">
+      <li>Suggest small, realistic actions (e.g., weekly family du’a time, one-on-one talks)</li>
+      <li>Recommend conflict-free spaces: salah together, Qur’an recitation, family meals</li>
+      <li>Assign tasks if needed (e.g., journaling, du’a lists, seeking forgiveness)</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3 style="color: #000;">🙌 7. End with Du’a and Reconnection</h3>
+     
+    <ul style="margin-left: 20px;">
+      <li>Recite a brief du’a together for healing and unity: <em>-“Rabbana hab lana min azwajina wa dhurriyyatina qurrata a’yun, waj‘alna lil-muttaqina imama.”</em> (Qur’an 25:74)</li>
+      <li>Encourage follow-up sessions if needed.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 30px; padding: 15px; background-color: #fff3cd; border: 1px solid #ffeeba;">
+    <strong>Important Note:</strong><br>
+    If there is abuse (physical, emotional, or verbal), neglect, talk of divorce or separation, or signs of mental illness or addiction, refer them to an <em>ustaz</em>, <em>imam</em>, or qualified counsellor who can help better.
+  </div>
+
+</details>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
