@@ -118,6 +118,9 @@ def signout(request):
 def uhome(request):
       return render(request, "authentication/user/uhome.html")
 
+def appendices(request):
+      return render(request, "authentication/admin/appendices.html")
+
 def gallery(request):
       return render(request, "authentication/user/gallery.html")
 
