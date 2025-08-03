@@ -14,6 +14,14 @@ class MediaFile(models.Model):
     group = models.ForeignKey(MediaGroup, on_delete=models.CASCADE, related_name='files')
     file = models.FileField(upload_to='uploads/')
 
+    def __str__(self):
+        return self.file.name
+
+    def is_image(self):
+        return self.file.name.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp'))
+    
+    def is_video(self):
+        return self.file.name.lower().endswith(('.mp4', '.mov', '.avi', '.webm', '.mkv'))
 
 class Files(models.Model):
     file = models.FileField(upload_to='files/')
