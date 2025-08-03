@@ -58,10 +58,10 @@
       class="content"
       style="background-color: #ffffff; margin: 10px; border-radius: 10px">
    
-      <h2 style=" margin-top:30px;text-align: center; font-size: 28px; margin-bottom: 10px; color: #012f50;">
+      <p style="font-size: 44px;  font-weight:bold; margin-top:30px;text-align: center; margin-bottom: 10px; color: #012f50;">
   Manage Public Content
-</h2>
-<p style="text-align: center; font-size: 16px; color: #555; margin-bottom: 40px;">
+</p>
+<p style="text-align: center; font-size: 20px; color: #555; margin-bottom: 40px;">
   Select a section below to manage the highlights, testimonials, or gallery items for the Public View.
 </p>
       <div class="tab-container">
@@ -88,9 +88,13 @@
 
 
     <div class="tab" data-target="testimonials">
+      <a href="{% url 'avideos' %}" 
+      class="{% if request.resolver_match.url_name == 'videos' %}active{% endif %}"
+      {% if request.resolver_match.url_name == 'avideos' %} {% endif %}>
     <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">
 animated_images
 </span>
+  </a>
   </div>
 </div>
 
