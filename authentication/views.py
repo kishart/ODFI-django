@@ -45,9 +45,8 @@ def require_login_or_404(view_func):
 def delete_highlights(request, photo_id):
     highlight = get_object_or_404(Highlight, id=photo_id)
     if request.method == 'POST':
-        # Delete the photo and all related data (title, description, date, label, image)
         highlight.delete()
-        return redirect('highlights')
+        return redirect('highlight_list')# Redirect to the highlight page after deletion
     return render(request, 'authentication/admin/confirm_delete_highlights.html', {'highlight': highlight})
 
 def edit_highlights(request, photo_id):
@@ -56,7 +55,7 @@ def edit_highlights(request, photo_id):
         form = HighlightForm(request.POST, request.FILES, instance=highlight)
         if form.is_valid():
             form.save()
-            return redirect('ahighlights')
+            return redirect('highlight_list')
     else:
         form = HighlightForm(instance=highlight)
     return render(request, 'authentication/admin/edit_highlights.html', {'form': form})
