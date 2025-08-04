@@ -1,16 +1,131 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Edit Highlight</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Highlight</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f6f6f6;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+      color: #FCB31C;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: #FCB31C;
+      background-color: #347433;
+      padding: 15px;
+      border-radius: 15px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form input[type="text"],
+    form input[type="file"],
+    form textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    form label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    button[type="submit"] {
+      background-color: #347433;
+      color: #FCB31C;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #93DA97;
+      color: #000;
+    }
+
+    .modal-footer {
+      text-align: right;
+    }
+
+    .cancel-link {
+      text-decoration: none;
+      color: #FCB31C;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    main.content {
+      background-color: #FFFFFF;
+      margin: 10px;
+      border-radius: 10px;
+      padding: 30px;
+    }
+
+    @media screen and (max-width: 640px) {
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Edit Highlight</h1>
+
+  {% include 'authentication/admin/anav.html' %}
+  {% block content %}{% endblock content %}
+
+  <main class="content">
+    <div class="title">
+      <h1>Edit Highlight</h1>
+      <a href="{% url 'highlight_list' %}" class="cancel-link">
+        <span class="material-symbols-outlined" style="font-size: 32px; cursor: pointer;">
+          cancel
+        </span>
+      </a>
+    </div>
+
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
+      {% csrf_token %}
+      {{ form.as_p }}
+
+      <div class="modal-footer">
         <button type="submit">Save</button>
-        <a href="{% url 'highlight_list' %}">Cancel</a>
+      </div>
     </form>
+  </main>
+
 </body>
 </html>
