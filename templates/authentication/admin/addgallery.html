@@ -1,0 +1,195 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-header">
+                  <h5 class="modal-title" id="uploadModalLabel">Upload Media</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span>&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                      <label>Title</label>
+                      <input type="text" name="title" class="form-control" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Description</label>
+                      <textarea name="description" rows="3" class="form-control" required></textarea>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Select Files</label>
+                      <input type="file" name="files" multiple accept="image/*" class="form-control" required>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=cancel" />
+  <title>Add Highlight</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f6f6f6;
+    }
+
+    /* main.content {
+      background-color: #fff;
+      border-radius: 12px;
+      margin: 20px auto;
+      padding: 40px;
+      max-width: 600px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    } */
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #012f50;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form p {
+      margin: 0;
+    }
+
+    form input[type="text"],
+    form input[type="file"],
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    button[type="submit"] {
+      background-color: #347433;
+      color: #FCB31C;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #93DA97;
+      color:#000;
+    }
+
+    /* a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    } */
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 640px) {
+      main.content {
+        margin: 10px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  {% include 'authentication/admin/anav.html' %}
+
+  {% block content %}{% endblock content %}
+
+  <main class="content" style="background-color: #FFFFFF; margin:10px; border-radius: 10px;
+"> 
+<div class="title" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 20px; color:#FCB31C; background-color: #347433; padding:15px; border-radius: 15px;">
+    <h1 style="margin: 0; color:#FCB31C">Add Gallery</h1>
+  
+    <a style="color:#FCB31C" href="{% url 'agallery' %}" 
+   class="{% if request.resolver_match.url_name == 'agallery' %}active{% endif %}"
+   {% if request.resolver_match.url_name == 'agallery' %} {% endif %}>
+
+    <!-- <span class="material-symbols-outlined" style="font-size: 32px; cursor: pointer;">
+        add_circle
+    </span> -->
+    <span class="material-symbols-outlined" style="font-size: 32px; cursor: pointer;">
+        cancel
+    </span>
+    </a>
+</div>
+  <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+               
+                <div class="modal-body">
+                  <div class="form-group">
+                      <label>Title</label>
+                      <input type="text" name="title" class="form-control" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Description</label>
+                      <textarea name="description" rows="3" class="form-control" required></textarea>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Select Files</label>
+                      <input type="file" name="files" multiple accept="image/*" class="form-control" required>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+              </form>
+
+</main>
+</body>
+</html>
