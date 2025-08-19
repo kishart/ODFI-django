@@ -14,8 +14,11 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-family: Arial, sans-serif;
       background-color: #f6f6f6;
+    }
+    textarea{
+     font-family: Arial, sans-serif;
     }
 
     /* main.content {
@@ -56,6 +59,7 @@
       font-size: 15px;
     }
 
+    
     button[type="submit"] {
           background-color: #347433;
       color: #FCB31C;
@@ -99,12 +103,21 @@
   </style>
 </head>
 <body>
+
+
   {% include 'authentication/admin/anav.html' %}
 
   {% block content %}{% endblock content %}
 
   <main class="content" style="background-color: #FFFFFF; margin:10px; border-radius: 10px;
 "> 
+  {% if messages %}
+  <div style="background:#93DA97; color:#000; padding:10px; border-radius:6px; margin-bottom:15px;">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  </div>
+{% endif %}
 <div class="title" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 20px; color:#FCB31C; background-color: #347433; padding:15px; border-radius: 15px;">
     <h1 style="margin: 0; color:#FCB31C">Add Highlights</h1>
   
