@@ -10,6 +10,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=perm_media" />
     <style>
+      html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
  .tab-container {
   display: flex;
   justify-content: center;
@@ -45,7 +49,7 @@
 }
 
 .tab.active {
-  background-color: #014d7d;
+  background-color: #015f40;
   transform: scale(1.05);
 }
 
@@ -58,10 +62,10 @@
       class="content"
       style="background-color: #ffffff; margin: 10px; border-radius: 10px">
    
-      <p style="font-size: 44px;  font-weight:bold; margin-top:30px;text-align: center; margin-bottom: 10px; color: #012f50;">
+      <p style="font-size: 44px;  font-weight:bold; margin-top:30px;text-align: center; margin-bottom: 10px; color: #015f40;">
   Manage Public Content
 </p>
-<p style="text-align: center; font-size: 20px; color: #555; margin-bottom: 40px;">
+<p style="text-align: center; font-size: 20px; color: #000; margin-bottom: 40px;">
   Select a section below to manage the highlights, testimonials, or gallery items for the Public View.
 </p>
       <div class="tab-container">
@@ -72,7 +76,7 @@
  <a href="{% url 'highlight_list' %}" 
    class="{% if request.resolver_match.url_name == 'highlight' %}active{% endif %}"
    {% if request.resolver_match.url_name == 'highlight' %} {% endif %}>
-   <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">ink_highlighter_move</span>
+   <span style="color: #f2e23b; font-size: 50px;" class="material-symbols-outlined">ink_highlighter_move</span>
 </a>
 
 </div>
@@ -82,7 +86,7 @@
     <a href="{% url 'agallery' %}" 
       class="{% if request.resolver_match.url_name == 'gallery' %}active{% endif %}"
       {% if request.resolver_match.url_name == 'agallery' %} {% endif %}>
-      <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">perm_media</span>
+      <span style="color: #f2e23b; font-size: 50px;" class="material-symbols-outlined">perm_media</span>
     </a>
   </div>
 
@@ -91,7 +95,7 @@
       <a href="{% url 'avideos' %}" 
       class="{% if request.resolver_match.url_name == 'videos' %}active{% endif %}"
       {% if request.resolver_match.url_name == 'avideos' %} {% endif %}>
-    <span style="color: #f2e23b; font-size: 30px;" class="material-symbols-outlined">
+    <span style="color: #f2e23b; font-size: 50px;" class="material-symbols-outlined">
 animated_images
 </span>
   </a>
