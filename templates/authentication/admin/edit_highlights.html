@@ -110,7 +110,13 @@
 
   {% include 'authentication/admin/anav.html' %}
   {% block content %}{% endblock content %}
-
+{% if messages %}
+  <div style="background:#93DA97; font-weight:bold;color:#16610E; padding:10px; border-radius:6px; margin-bottom:15px; text-align:center;">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  </div>
+{% endif %}
   <main class="content">
     <div class="title">
       <h1>Edit Highlight</h1>

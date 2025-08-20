@@ -25,6 +25,7 @@ def addhighlight(request):
         form = HighlightForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, "Highlight submitted successfully!")  # fixed indentation
             return redirect('addhighlight')  # Correct use of redirect
     else:
         form = HighlightForm()
@@ -46,7 +47,9 @@ def delete_highlights(request, photo_id):
     highlight = get_object_or_404(Highlight, id=photo_id)
     if request.method == 'POST':
         highlight.delete()
+        messages.success(request, "Highlight deleted successfully!") 
         return redirect('highlight_list')# Redirect to the highlight page after deletion
+    
     return render(request, 'authentication/admin/confirm_delete_highlights.html', {'highlight': highlight})
 
 def edit_highlights(request, photo_id):
@@ -55,11 +58,12 @@ def edit_highlights(request, photo_id):
         form = HighlightForm(request.POST, request.FILES, instance=highlight)
         if form.is_valid():
             form.save()
+            messages.success(request, "Highlight edited successfully!")  # ✅ Correct indentation
             return redirect('highlight_list')
     else:
         form = HighlightForm(instance=highlight)
+        
     return render(request, 'authentication/admin/edit_highlights.html', {'form': form})
-
 
 
 def view_photos(request):
@@ -268,6 +272,8 @@ def addgallery(request):
             MediaFile.objects.create(group=group, file=file)
 
         # ✅ After upload, go back to the gallery page
+        messages.success(request, "Photo submitted successfully!")  # fixed indentation
+            
         return redirect('agallery')
 
     return render(request, "authentication/admin/addgallery.html")
@@ -286,7 +292,9 @@ def addvideos(request):
         for file in files:
             MediaFile.objects.create(group=group, file=file)
 
-        # ✅ After upload, go back to the gallery page
+        # ✅ fixed indentation here
+        messages.success(request, "Video submitted successfully!")  
+
         return redirect('avideos')
 
     return render(request, "authentication/admin/addvideos.html")
@@ -322,9 +330,10 @@ def edit_photos(request, group_id):
         # Handle new files if uploaded
         files = request.FILES.getlist('files')
         for file in files:
-            MediaFile.objects.create(group=group, file=file)
+            MediaFile.objects.create(group=group, file=file)  # ✅ fixed indentation
 
-        return redirect('agallery')
+        messages.success(request, "Photo edited successfully!")  # ✅ fixed indentation
+        return redirect('agallery')  # ✅ fixed indentation
 
     return render(request, 'authentication/admin/edit_photos.html', {'group': group})
 
@@ -333,6 +342,7 @@ def delete_group(request, group_id):
     group = get_object_or_404(MediaGroup, id=group_id)
     if request.method == 'POST':
         group.delete()
+        messages.success(request, "Video deleted successfully!")  # fixed indentation
         return redirect('agallery')
 
 
@@ -340,6 +350,8 @@ def delete_videos(request, group_id):
     group = get_object_or_404(MediaGroup, id=group_id)
     if request.method == 'POST':
         group.delete()
+        messages.success(request, "Video deleted successfully!")  # fixed indentation
+       
         return redirect('avideos')
 
 
@@ -384,9 +396,6 @@ def avideos(request):
         'groups': video_groups
     })
 
-
-
-
 def edit_videos(request, group_id):
     group = get_object_or_404(MediaGroup, id=group_id)
 
@@ -400,6 +409,7 @@ def edit_videos(request, group_id):
         for file in files:
             MediaFile.objects.create(group=group, file=file)
 
+        messages.success(request, "Video edited successfully!")  # ✅ correct indentation
         return redirect('avideos')
 
     return render(request, 'authentication/admin/edit_videos.html', {'group': group})
@@ -408,5 +418,8 @@ def edit_videos(request, group_id):
 def delete_videos(request, group_id):
     group = get_object_or_404(MediaGroup, id=group_id)
     if request.method == 'POST':
+        messages.success(request, "Video deleted successfully!")  # ✅ correct indentation
         group.delete()
         return redirect('avideos')
+
+    return render(request, 'authentication/admin/confirm_delete_videos.html', {'group': group})

@@ -66,11 +66,21 @@
 
 <main class="content" style="background-color: #ffffff; margin: 10px; border-radius: 10px;">
   <div class="title" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 20px; color: #fcb31c; background-color: #347433; padding: 15px; border-radius: 15px;">
-    <h1 style="margin: 0;">Gallery</h1>
+   
+  
+ <h1 style="margin: 0;">Gallery</h1>
     <a style="color: #fcb31c; cursor: pointer" href="{% url 'addgallery' %}">
       <span class="material-symbols-outlined" style="font-size: 32px">add_circle</span>
     </a>
   </div>
+  
+   {% if messages %}
+  <div style="background:#93DA97; font-weight:bold;color:#16610E; padding:10px; border-radius:6px; margin-bottom:15px; text-align:center;">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  </div>
+{% endif %}
 
   {% if new_urls %}
   <div class="mt-5 text-center">

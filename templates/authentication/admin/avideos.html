@@ -104,7 +104,13 @@
 
         </div>
 
-        
+        {% if messages %}
+  <div style="background:#93DA97; font-weight:bold;color:#16610E; padding:10px; border-radius:6px; margin-bottom:15px; text-align:center;">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  </div>
+{% endif %}
 
         <!-- ✅ Show uploaded links if needed -->
         {% if new_urls %}
