@@ -71,12 +71,6 @@
   margin-bottom: 5px;
 }
 
-/* Responsive Layout */
-@media (min-width: 768px) {
-  .vm-container {
-    flex-direction: row;
-  }
-}
       .core { padding-bottom: 50px; }
 
       .badge.news, .badge.event {
@@ -161,7 +155,143 @@
   font-size: 30px;
 }
 
+/* Responsive Layout */
+@media (min-width: 768px) {
+  .vm-container {
+    flex-direction: row;
+  }
+  /* .container-fluid{
+    height: 120px;
+  } */
+
+  .welcome{
+     width:200vw;
+  }
+  .welcome-text{
+    padding-top:380px;
+    
+  }
+  .whoare, .history{
+      width:200vw;
+      font-size:25px;
+      padding-top:80px;
+      
+  }
+  .contentHistory p{
+    font-size:25px ;
+  }
+  div.areWho, div.brief{
+    width:100% ;
+  }
+   
+  .highlights{
+   width:200% ;
+    
+  }
+  .highlights h1{
+    margin-top: -60px;
+  }
+section.program-cards{
+  margin-left:50px;
+}
+  .visionmission, .objectives, .strategy, .principle, footer{
+   width:200% ;
+    
+  }
+}
  
+@media (min-width: 425px) {
+ 
+   
+.vm-container {
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* .container-fluid {
+  height: auto;
+} */
+
+
+.welcome,
+.whoare,
+.history,
+.highlights,
+.visionmission,
+.objectives,
+.strategy,
+.principle,
+footer {
+  width: 100%; /* prevent overflow */
+}
+
+.welcome-text {
+  padding-top: 200px;
+  font-size: 20px;
+}
+
+.contentHistory p {
+  font-size: 16px;
+}
+}
+@media (min-width: 425px) {
+  .vm-container {
+    flex-direction: row;
+  }
+
+  /* .container-fluid {
+    height: 150px;
+  } */
+
+  .welcome-text {
+    padding-top: 250px;
+    font-size: 22px;
+  }
+
+  .whoare,
+  .history {
+    font-size: 20px;
+    padding-top: 60px;
+  }
+
+  .contentHistory p {
+    font-size: 18px;
+  }
+
+  section.program-cards {
+    margin-left: 40px;
+  }
+}
+
+/* Desktop (>=768px) */
+@media (min-width: 768px) {
+  /* .container-fluid {
+    height: 120px;
+  } */
+
+  .welcome-text {
+    padding-top: 300px;
+    font-size: 26px;
+  }
+
+  .whoare,
+  .history {
+    font-size: 22px;
+    padding-top: 80px;
+  }
+
+  .contentHistory p {
+    font-size: 20px;
+  }
+
+  section.program-cards {
+    margin-left: 60px;
+  }
+
+  .highlights h1 {
+    margin-top: -40px;
+  }
+}
 
     </style>
   </head>
@@ -194,7 +324,7 @@
 
 
 <div class="whoare">
-  <div  style="
+  <div class="areWho" style="
     position: relative;
     z-index: 1;
     background-color: #E0EEDC;
@@ -232,7 +362,7 @@
 
 <!-- history -->
  <div class="history">
-   <div
+   <div class="brief"
    style="
     position: relative;
     z-index: 1;
@@ -261,7 +391,7 @@
     ">
      A Brief History of ODFI
     </h2>
- <div style="position: relative; margin-top: 30px;">
+ <div class="contentHistory" style="position: relative; margin-top: 30px;">
     <!-- Timeline item 1 -->
     <div style="display: flex; align-items: flex-start; position: relative; margin-bottom: 30px;">
       <div style="flex: 0 0 auto; position: relative; text-align: center;">
