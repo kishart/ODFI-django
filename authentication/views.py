@@ -16,21 +16,6 @@ from django.shortcuts import get_object_or_404, redirect
 
 
 
-def highlight(request):
-    highlights = Highlight.objects.all().order_by('-date')
-    return render(request, 'authentication/admin/highlight.html', {'highlights': highlights})
-
-def addhighlight(request):
-    if request.method == 'POST':
-        form = HighlightForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Highlight submitted successfully!")  # fixed indentation
-            return redirect('addhighlight')  # Correct use of redirect
-    else:
-        form = HighlightForm()
-
-    return render(request, 'authentication/admin/addhighlight.html', {'form': form})
 
 def require_login_or_404(view_func):
     @wraps(view_func)
@@ -43,27 +28,6 @@ def require_login_or_404(view_func):
 
 
 
-def delete_highlights(request, photo_id):
-    highlight = get_object_or_404(Highlight, id=photo_id)
-    if request.method == 'POST':
-        highlight.delete()
-        messages.success(request, "Highlight deleted successfully!") 
-        return redirect('highlight_list')# Redirect to the highlight page after deletion
-    
-    return render(request, 'authentication/admin/confirm_delete_highlights.html', {'highlight': highlight})
-
-def edit_highlights(request, photo_id):
-    highlight = get_object_or_404(Highlight, id=photo_id)
-    if request.method == 'POST':
-        form = HighlightForm(request.POST, request.FILES, instance=highlight)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Highlight edited successfully!")  # ✅ Correct indentation
-            return redirect('highlight_list')
-    else:
-        form = HighlightForm(instance=highlight)
-        
-    return render(request, 'authentication/admin/edit_highlights.html', {'form': form})
 
 
 def view_photos(request):
@@ -121,8 +85,6 @@ def signout(request):
 def uhome(request):
       return render(request, "authentication/user/uhome.html")
 
-def appendices(request):
-      return render(request, "authentication/admin/appendices.html")
 
 def gallery(request):
       return render(request, "authentication/user/gallery.html")
@@ -173,16 +135,23 @@ def ugallery(request):
     })
 
 
-def dashboard(request):
-    return render(request, 'authentication/dashboard.html', {
-        'active_page': 'dashboard'
-    })
+# def dashboard(request):
+#     return render(request, 'authentication/dashboard.html', {
+#         'active_page': 'dashboard'
+#     })
 
 
 
 @require_login_or_404
 def dashboard(request):
     return render(request, "authentication/admin/dashboard.html")
+
+
+
+@require_login_or_404
+def appendices(request):
+      return render(request, "authentication/admin/appendices.html")
+
 
 @require_login_or_404
 def education(request):
@@ -238,6 +207,55 @@ def dawah(request):
     return render(request, "authentication/admin/dawah.html")
 
 
+@require_login_or_404
+def delete_highlights(request, photo_id):
+    highlight = get_object_or_404(Highlight, id=photo_id)
+    if request.method == 'POST':
+        highlight.delete()
+        messages.success(request, "Highlight deleted successfully!") 
+        return redirect('highlight_list')# Redirect to the highlight page after deletion
+    
+    return render(request, 'authentication/admin/confirm_delete_highlights.html', {'highlight': highlight})
+
+
+@require_login_or_404
+def edit_highlights(request, photo_id):
+    highlight = get_object_or_404(Highlight, id=photo_id)
+    if request.method == 'POST':
+        form = HighlightForm(request.POST, request.FILES, instance=highlight)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Highlight edited successfully!")  # ✅ Correct indentation
+            return redirect('highlight_list')
+    else:
+        form = HighlightForm(instance=highlight)
+        
+    return render(request, 'authentication/admin/edit_highlights.html', {'form': form})
+
+
+@require_login_or_404
+def highlight(request):
+    highlights = Highlight.objects.all().order_by('-date')
+    return render(request, 'authentication/admin/highlight.html', {'highlights': highlights})
+
+
+
+@require_login_or_404
+def addhighlight(request):
+    if request.method == 'POST':
+        form = HighlightForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Highlight submitted successfully!")  # fixed indentation
+            return redirect('addhighlight')  # Correct use of redirect
+    else:
+        form = HighlightForm()
+
+    return render(request, 'authentication/admin/addhighlight.html', {'form': form})
+
+
+
+@require_login_or_404
 def edit_highlight(request, pk):
     highlight = get_object_or_404(Highlight, pk=pk)
     if request.method == 'POST':
@@ -249,6 +267,9 @@ def edit_highlight(request, pk):
         form = HighlightForm(instance=highlight)
     return render(request, 'authentication/admin/edit_highlight.html', {'form': form})
 
+
+
+@require_login_or_404
 def delete_highlight(request, pk):
     highlight = get_object_or_404(Highlight, pk=pk)
     if request.method == 'POST':
@@ -258,6 +279,8 @@ def delete_highlight(request, pk):
 def custom_404_view(request, exception):
     return render(request, '404.html', status=404)
 
+
+@require_login_or_404
 def addgallery(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -279,6 +302,9 @@ def addgallery(request):
     return render(request, "authentication/admin/addgallery.html")
 
 
+
+
+@require_login_or_404
 def addvideos(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -300,6 +326,8 @@ def addvideos(request):
     return render(request, "authentication/admin/addvideos.html")
 
 
+
+@require_login_or_404
 def agallery(request):
     # Get all groups
     all_groups = MediaGroup.objects.prefetch_related('files').order_by('-id')
@@ -319,6 +347,8 @@ def agallery(request):
 
 
 
+
+@require_login_or_404
 def edit_photos(request, group_id):
     group = get_object_or_404(MediaGroup, id=group_id)
 
@@ -338,6 +368,8 @@ def edit_photos(request, group_id):
     return render(request, 'authentication/admin/edit_photos.html', {'group': group})
 
 
+
+@require_login_or_404
 def delete_group(request, group_id):
     group = get_object_or_404(MediaGroup, id=group_id)
     if request.method == 'POST':
@@ -346,6 +378,8 @@ def delete_group(request, group_id):
         return redirect('agallery')
 
 
+
+@require_login_or_404
 def delete_videos(request, group_id):
     group = get_object_or_404(MediaGroup, id=group_id)
     if request.method == 'POST':
@@ -357,6 +391,7 @@ def delete_videos(request, group_id):
 
 
 
+@require_login_or_404
 def avideos(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -396,6 +431,8 @@ def avideos(request):
         'groups': video_groups
     })
 
+
+@require_login_or_404
 def edit_videos(request, group_id):
     group = get_object_or_404(MediaGroup, id=group_id)
 
@@ -415,6 +452,7 @@ def edit_videos(request, group_id):
     return render(request, 'authentication/admin/edit_videos.html', {'group': group})
 
 
+@require_login_or_404
 def delete_videos(request, group_id):
     group = get_object_or_404(MediaGroup, id=group_id)
     if request.method == 'POST':
