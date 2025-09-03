@@ -86,7 +86,9 @@
         padding: 2px 8px;
         border-radius: 4px;
         font-size: 12px;
+          z-index: 2;   
       }
+      
 
       .badge.news { background-color: #007BFF; }
       .badge.event { background-color: #FF4136; }
@@ -103,20 +105,47 @@
       }
        .carousel-track::-webkit-scrollbar { display: none; }
 
-      .news-card {
-        min-width: 300px;
-        max-width: 300px;
-        flex-shrink: 0;
-        background: #E0EEDC;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        overflow: hidden;
-        scroll-snap-align: start;
-      }
+       .news-card {
+  width: 300px;               /* fixed width */
+  height: 200px;              /* good landscape ratio */
+  flex-shrink: 0;
+  background: #E0EEDC;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
 
-      .news-content { background-color: #E0EEDC; padding: 15px; }
-      .news-content h3 { margin: 0 0 10px; font-size: 18px; font-weight: bold; }
-      .news-content p { font-size: 14px; margin-bottom: 15px; color: #000; }
+.news-image {
+  flex: 1;
+  width: 100%;
+  height: 60%;                 /* control image height */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* keeps landscape nice */
+}
+
+.news-card.portrait .news-image img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;         /* portrait fits inside */
+}
+
+.news-content {
+  background-color: #E0EEDC;
+  padding: 10px;
+  flex-shrink: 0;
+}
+
 
       .material-symbols-outlined {
         font-family: "Material Symbols Outlined";
@@ -160,85 +189,97 @@
 }
 
 
-/* Responsive Layout */
-@media (min-width: 768px) {
-  .vm-container {
-    flex-direction: row;
-  }
-  /* .container-fluid{
-    height: 120px;
-  } */
+    .highlight-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
 
-  .welcome{
-     width:200vw;
-  }
-  .welcome-text{
-    padding-top:380px;
-    
-  }
-  .whoare, .history{
-      width:200vw;
-      font-size:25px;
-      padding-top:80px;
-      
-  }
-  .contentHistory p{
-    font-size:25px ;
-  }
-  div.areWho, div.brief{
-    width:100% ;
-  }
-   
-  .highlights{
-   width:200% ;
-    
-  }
-  .highlights h1{
-    margin-top: -60px;
-  }
-section.program-cards{
-  margin-left:50px;
-}
-  .visionmission, .objectives, .strategy, .principle, footer{
-   width:200% ;
-    
-  }
-}
- 
+    .highlight {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: #E0EEDC;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: calc(33.33% - 32px); /* 3 cards per row with gap */
+      min-width: 280px;
+      max-width: 350px;
+    }
 
+    .highlight img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
 
-/* Desktop (>=768px) */
-@media (min-width: 768px) {
-  /* .container-fluid {
-    height: 120px;
-  } */
+    .highlight-content {
+      padding: 20px;
+    }
 
-  .welcome-text {
-    padding-top: 300px;
-    font-size: 26px;
-  }
+    .highlight-type {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
 
-  .whoare,
-  .history {
-    font-size: 22px;
-    padding-top: 80px;
-  }
+    .highlight-type-news {
+      background-color: #007BFF;
+    }
 
-  .contentHistory p {
-    font-size: 20px;
-  }
+    .highlight-type-event {
+      background-color: #FF4136;
+    }
 
-  section.program-cards {
-    margin-left: 60px;
-  }
+    .highlight-title {
+      margin: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-  .highlights h1 {
-    margin-top: -40px;
-  }
-}
+    .highlight-description {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .highlight-date {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #316128;
+      font-weight: bold;
+    }
+
+    .highlight-date-icon {
+      margin-right: 8px;
+      display: inline-block;
+    }
+
+    .highlight-wrapper {
+      position: relative;
+    }
+    .news-card{
+        background-color: #C9E0FA;
+    }
+
 
 @media (min-width: 425px) {
- 
+ body{
+    width: 110vw !important;
+ }
+   .welcome{
+    height: 110vh !important;
+  }
    
 .vm-container {
   flex-direction: column;
@@ -285,6 +326,7 @@ footer {
     font-size: 20px;
     padding-top: 60px;
   }
+ 
 
   .contentHistory p {
     font-size: 18px;
@@ -448,23 +490,29 @@ footer {
 
   <!-- Carousel Section -->
   <div style="position:relative; z-index: 1;padding-bottom: 80px;" class="carousel-track">
+ 
+   <div class="highlight-container">
     {% for item in highlights %}
-    <div class="news-card">
-      <div class="news-image">
-        <span class="badge {% if item.get_type_display|lower == 'news' %}news{% elif item.get_type_display|lower == 'event' %}event{% endif %}">
-          {{ item.get_type_display|upper }}
+    <div class="highlight">
+      <div class="highlight-wrapper">
+        <img src="{{ item.image.url }}" alt="Highlight Image">
+        <span class="highlight-type 
+          {% if item.get_type_display|lower == 'news' %}highlight-type-news{% elif item.get_type_display|lower == 'event' %}highlight-type-event{% endif %}">
+          {{ item.get_type_display }}
         </span>
-        <img src="{{ item.image.url }}" alt="{{ item.get_type_display }} Image" />
       </div>
-      <div class="news-content">
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
-        <div class="news-date" style="color: #316128; display: flex; align-items: center; gap: 6px;">
-          <span class="material-symbols-outlined" style="font-weight: bold">event</span>
-          <span style="font-weight: bold">{{ item.date }}</span>
-        </div>
+      <div class="highlight-content">
+        <h2 class="highlight-title">{{ item.title }}</h2>
+        <p class="highlight-description">{{ item.description }}</p>
+         <p class="highlight-date">
+         <span class="material-symbols-outlined" style="font-weight: bold">event</span>
+          {{ item.date }}
+        </p>
+      
+        
       </div>
     </div>
+
     {% endfor %}
   </div>
 </div>
