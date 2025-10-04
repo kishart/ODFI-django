@@ -13,6 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet" />
       
+        <script src="https://cdn.tailwindcss.com"></script>
+
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"></script>
@@ -36,348 +38,247 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         color: white;
       }
-      .partner-boxes {
-        background-color: #e2aa36;
-        color: white;
-        width: 150px;
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 5px;
-        font-weight: bold;
-      }
-      .principles-header {
-        font-weight: bold;
-        text-align: center;
-        margin-top: 50px;
-        background-color: #012f50;
-        color: white;
-        padding: 20px;
-        width: 350px;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 8px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
-      }
+   
 
-      .container-fluid {
-        padding: 0px 50px;
-      }
-
-  .responsive-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-}
-
-  
-      @media (max-width: 425px) {
-        section.leadership {
-          height: 2200px !important
-          
-        }
-        .list h1 {
-          font-size: 12px !important;
-        }
-        .list {
-          padding: 20px !important;
-        }
- .responsive-table {
-    display: block;       /* allow scroll */
-    overflow-x: auto;     /* horizontal scroll on small screens */
-    white-space: nowrap;  /* prevent text wrapping */
-  }
-
-  .responsive-table table {
-    width: 100%;
-    min-width: 600px;     /* force table to keep structure */
-  }
-
-  th, td {
-    font-size: 12px;      /* shrink text a bit for small screens */
-    padding: 6px;
-  }
-
-        
-       
-      }
     </style>
   </head>
   <body>
     {% include 'authentication/user/nav.html' %} {% block content %} {% endblock content %}
 
-    <section
-      style="height: 900px"
-      id="leadership"
-      class="leadership py-5 bg-light">
-      <div class="leadership container text-center" style="margin-top: 70px">
-        <h2 class="text-start mb-7 fw-bold">Leadership Team</h2>
-        <p style="margin-top: 10px" class="text-start">
-          At the time of writing (May, 2025), the BOARD OF TRUSTEE of ODFI
-          comprises:
-        </p>
+<!-- Leadership Section -->
+<section id="leadership" class="py-16 bg-gray-100">
+  <div class="max-w-6xl mx-auto px-4 text-center mt-10">
+    <h2 class="text-left text-3xl font-bold mb-4">Leadership Team</h2>
+    <p class="text-left text-gray-700 mb-10">
+      At the time of writing (May, 2025), the BOARD OF TRUSTEE of ODFI comprises:
+    </p>
 
-        <!-- First row of 3 cards -->
-        <div class="d-flex justify-content-center flex-wrap gap-5 mt-5">
-  <div class="card text-white text-center" style="background-color: #16610e; width: 200px;">
-    <img src="{% static 'media/images/uy.jpg' %}" class="card-img-top fixed-img" style="height: 200px; object-fit: cover;" alt="Leader" />
-    <div class="card-body p-2">
-      <h6 class="card-title">Abdul Rahman Uy</h6>
-    </div>
-  </div>
-
-  <div class="card text-white text-center" style="background-color: #16610e; width: 200px;">
-    <img src="{% static 'media/images/ebale.jpg' %}" class="card-img-top fixed-img" style="height: 200px; object-fit: cover;" alt="Leader" />
-    <div class="card-body p-2">
-      <h6 class="card-title">Sofronia Ebale</h6>
-    </div>
-  </div>
-
-  <div class="card text-white text-center" style="background-color: #16610e; width: 200px;">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEOXZydQhxibDJHUBqvZvwNUhccv7xPT04bQ&s" class="card-img-top fixed-img" style="height: 200px; object-fit: cover;" alt="Leader" />
-    <div class="card-body p-2">
-      <h6 class="card-title">Heidei Aplece</h6>
-    </div>
-  </div>
-</div>
-
-        <!-- Second row of 3 cards -->
-        <div class="d-flex justify-content-center flex-wrap gap-5 mt-4">
-  <div class="card text-white text-center" style="background-color: #16610e; width: 200px;">
-    <img src="{% static 'media/images/daham.jpg' %}" class="card-img-top fixed-img" style="height: 200px; object-fit: cover;" alt="Leader" />
-    <div class="card-body p-2">
-      <h6 class="card-title">Salim Danny Daham</h6>
-    </div>
-  </div>
-
-  <div class="card text-white text-center" style="background-color: #16610e; width: 200px;">
-    <img src="{% static 'media/images/rian.jpg' %}" class="card-img-top fixed-img" style="height: 200px; object-fit: cover;" alt="Leader" />
-    <div class="card-body p-2">
-      <h6 class="card-title">Raian Estrera Tampus</h6>
-    </div>
-  </div>
-
-  <div class="card text-white text-center" style="background-color: #16610e; width: 200px;">
-    <img src="{% static 'media/images/mancao.jpg' %}" class="card-img-top fixed-img" style="height: 200px; object-fit: cover;" alt="Leader" />
-    <div class="card-body p-2">
-      <p class="card-title fw-bold" style="font-size: 13px;">
-        John Daler Tejones Mancao
-      </p>
-    </div>
-  </div>
-</div>
-
-        <!-- Board description -->
-        <p class="mt-4 px-5 text-center">
-          The founding Board of Trustees (BOT) comprise 3 Filipinos and 2
-          Malaysians: Dato’ Abdul Razak Kechik, Rozita Mohd Fajar Ali, Bonifacio
-          Quino Uy Jr. (President), Heidie Lampera Aplece (Treasurer), and
-          Sofronia Olila Ebale (Secretary).
-        </p>
-      </div>
-    </section>
-
-    <section id="partners" class="py-5">
-      <div class="container text-center">
-        <h3 class="fw-bold mb-3 text-start">Partners and Affiliates</h3>
-        <p class="text-start">
-          ODFI works in partnership with many government agencies and NGOs in
-          Malaysia and the Philippines, especially:
-        </p>
-        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-          <div class="partner-boxes">Briged Bakti Malaysia (BBM)</div>
-          <div class="partner-boxes">NCMF</div>
-          <div class="partner-boxes">Cebu Care</div>
-          <div class="partner-boxes">Ummah Care</div>
-          <div class="partner-boxes">MRA</div>
-          <div class="partner-boxes">PDIS</div>
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+      <!-- Card 1 -->
+      <div class="bg-[#16610e] text-white text-center rounded-lg overflow-hidden shadow-md w-52">
+        <img src="{% static 'media/images/uy.jpg' %}" alt="Leader" class="w-full h-52 object-cover" />
+        <div class="p-2">
+          <h6 class="text-sm font-semibold">Abdul Rahman Uy</h6>
         </div>
       </div>
-    </section>
 
-    <div
-      class="list"
-      style="background-color: #f2f9f5; margin: 0; padding: 20px 150px">
-      <h1
-        style="
-          font-size: 34px;
-          font-weight: bold;
-          text-align: center;
-          color: #2b5d34;
-          margin-bottom: 20px;
-        ">
-        List of Islamic Centers and Masjids in Visayas, Philippines
-      </h1>
+      <!-- Card 2 -->
+      <div class="bg-[#16610e] text-white text-center rounded-lg overflow-hidden shadow-md w-52">
+        <img src="{% static 'media/images/ebale.jpg' %}" alt="Leader" class="w-full h-52 object-cover" />
+        <div class="p-2">
+          <h6 class="text-sm font-semibold">Sofronia Ebale</h6>
+        </div>
+      </div>
 
-      <table
-        class="responsive-table"
-        style="
-          background-color: #ffffff;
-          box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
-          border-radius: 10px;
-          overflow: hidden;
-            width: 100%;
-  border-collapse: collapse;
-  table-layout: auto;
-        ">
-        <thead style="background-color: #3e7738; color: #fff">
-          <tr>
-            <th
-              style="
-                border: 1px solid #c8e6c9;
-                padding: 10px;
-                background-color: #a4b465;
-                color: #fff;
-              ">
-              No.
-            </th>
-            <th
-              style="
-                border: 1px solid #c8e6c9;
-                /* padding: 10px; */
-                background-color: #a4b465;
-                color: #fff;
-              ">
-              Lokasi
-            </th>
-            <th
-              style="
-                border: 1px solid #c8e6c9;
-                /* padding: 10px; */
-                background-color: #a4b465;
-                font-size: 12px;
-                color: #fff;
-              ">
-              Status Pemilikan
-            </th>
-          </tr>
-        </thead>
-        <tbody>
+      <!-- Card 3 -->
+      <div class="bg-[#16610e] text-white text-center rounded-lg overflow-hidden shadow-md w-52">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEOXZydQhxibDJHUBqvZvwNUhccv7xPT04bQ&s" alt="Leader" class="w-full h-52 object-cover" />
+        <div class="p-2">
+          <h6 class="text-sm font-semibold">Heidei Aplece</h6>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-[#16610e] text-white text-center rounded-lg overflow-hidden shadow-md w-52">
+        <img src="{% static 'media/images/daham.jpg' %}" alt="Leader" class="w-full h-52 object-cover" />
+        <div class="p-2">
+          <h6 class="text-sm font-semibold">Salim Danny Daham</h6>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-[#16610e] text-white text-center rounded-lg overflow-hidden shadow-md w-52">
+        <img src="{% static 'media/images/rian.jpg' %}" alt="Leader" class="w-full h-52 object-cover" />
+        <div class="p-2">
+          <h6 class="text-sm font-semibold">Raian Estrera Tampus</h6>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-[#16610e] text-white text-center rounded-lg overflow-hidden shadow-md w-52">
+        <img src="{% static 'media/images/mancao.jpg' %}" alt="Leader" class="w-full h-52 object-cover" />
+        <div class="p-2">
+          <p class="text-sm font-semibold">John Daler Tejones Mancao</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Board Description -->
+    <p class="mt-8 text-center text-gray-700">
+      The founding Board of Trustees (BOT) comprise 3 Filipinos and 2 Malaysians:
+      Dato’ Abdul Razak Kechik, Rozita Mohd Fajar Ali, Bonifacio Quino Uy Jr. (President),
+      Heidie Lampera Aplece (Treasurer), and Sofronia Olila Ebale (Secretary).
+    </p>
+  </div>
+</section>
+
+<!-- Partners Section -->
+<section id="partners" class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h3 class="font-bold mb-3 text-left text-2xl">Partners and Affiliates</h3>
+    <p class="text-left text-gray-700">
+      ODFI works in partnership with many government agencies and NGOs in
+      Malaysia and the Philippines, especially:
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4 mt-6">
+      <div class="bg-[#E2AA36] text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-green-700 transition">
+        Briged Bakti Malaysia (BBM)
+      </div>
+      <div class="bg-[#E2AA36] text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-green-700 transition">
+        NCMF
+      </div>
+      <div class="bg-[#E2AA36] text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-green-700 transition">
+        Cebu Care
+      </div>
+      <div class="bg-[#E2AA36] text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-green-700 transition">
+        Ummah Care
+      </div>
+      <div class="bg-[#E2AA36] text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-green-700 transition">
+        MRA
+      </div>
+      <div class="bg-[#E2AA36] text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-green-700 transition">
+        PDIS
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="bg-[#f2f9f5] py-10 px-4 sm:px-10 lg:px-[150px]">
+  <h1 class="text-[28px] sm:text-[32px] lg:text-[34px] font-bold text-center text-[#2b5d34] mb-6">
+    List of Islamic Centers and Masjids in Visayas, Philippines
+  </h1>
+
+  <div class="overflow-x-auto rounded-lg shadow-md bg-white">
+    <table class="min-w-full border-collapse text-sm sm:text-base">
+      <thead class="bg-[#3e7738] text-white">
+        <tr>
+          <th class="border border-[#c8e6c9] p-2 bg-[#a4b465] text-white whitespace-nowrap">No.</th>
+          <th class="border border-[#c8e6c9] p-2 bg-[#a4b465] text-white whitespace-nowrap">Lokasi</th>
+          <th class="border border-[#c8e6c9] p-2 bg-[#a4b465] text-[12px] sm:text-[14px] text-white whitespace-nowrap">
+            Status Pemilikan
+          </th>
+        </tr>
+      </thead>
+       <tbody>
+        <!-- Location Header -->
+        <tr>
+          <td colspan="3" class="border border-[#c8e6c9] p-2 bg-[#b2c7a0] font-bold text-center">
+            Lapu-Lapu City
+          </td>
+        </tr>
+
+        <!-- Example Rows -->
+        <tr>
+          <td class="border border-[#c8e6c9] p-2">1</td>
+          <td class="border border-[#c8e6c9] p-2">Masjid Rahmaniyyah</td>
+          <td class="border border-[#c8e6c9] p-2">ODFI</td>
+        </tr>
+            <tr class="bg-[#f6fbf8]">
+          <td class="border border-[#c8e6c9] p-2">2</td>
+          <td class="border border-[#c8e6c9] p-2">Deca 5 Community Center</td>
+          <td class="border border-[#c8e6c9] p-2">ODFI</td>
+        </tr>
+
+        <tr>
+          <td class="border border-[#c8e6c9] p-2">3</td>
+          <td class="border border-[#c8e6c9] p-2">
+            Punta Engano Community Center
+          </td>
+          <td class="border border-[#c8e6c9] p-2">ODFI</td>
+        </tr>
+        <tr class="bg-[#f6fbf8]">
+          <td class="border border-[#c8e6c9] p-2">4</td>
+          <td class="border border-[#c8e6c9] p-2">Tile Makers Community Center</td>
+          <td class="border border-[#c8e6c9] p-2">ODFI</td>
+        </tr>
+
           <tr>
             <td
               colspan="3"
-              style="
-                border: 1px solid #c8e6c9;
-                padding: 10px;
-                background-color: #b2c7a0;
-                font-weight: bold;
-                text-align: center;
-              ">
-              LapuLapu City
-            </td>
-          </tr>
-          <tr>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">1</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
-              Masjid Rahmaniyyah
-            </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
-          </tr>
-          <tr style="background-color: #f6fbf8">
-            <td style="border: 1px solid #c8e6c9; padding: 10px">2</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
-              Deca 5 Community Center
-            </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
-          </tr>
-
-          <tr>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">3</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
-              Punta Engano Community Center
-            </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
-          </tr>
-          <tr style="background-color: #f6fbf8">
-            <td style="border: 1px solid #c8e6c9; padding: 10px">4</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
-              Tile Makers Community Center
-            </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
-          </tr>
-
-          <tr>
-            <td
-              colspan="3"
-              style="
-                border: 1px solid #c8e6c9;
-                padding: 10px;
-                background-color: #b2c7a0;
-                font-weight: bold;
-                text-align: center;
-              ">
+              class="
+                border border-[#c8e6c9] p-2
+                bg-[#b2c7a0]
+                font-bold
+                text-center
+              "
+            >
               OLANGO ISLAND
             </td>
           </tr>
           <tr>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">5</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+            <td class="border border-[#c8e6c9] p-2">5</td>
+            <td class="border border-[#c8e6c9] p-2">Masjid Al-Hidayah</td>
+            <td class="border border-[#c8e6c9] p-2">ODFI</td>
+          </tr>
+          <tr>
+            <td class="border border-[#c8e6c9] p-2">5</td>
+            <td class="border border-[#c8e6c9] p-2">
               Masjid Al-Hidayah
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
+            <td class="border border-[#c8e6c9] p-2">ODFI</td>
           </tr>
-          <tr style="background-color: #f6fbf8">
-            <td style="border: 1px solid #c8e6c9; padding: 10px">6</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+          <tr class="bg-[#f6fbf8]">
+            <td class="border border-[#c8e6c9] p-2">6</td>
+            <td class="border border-[#c8e6c9] p-2">
               Pangan An Island Islamic Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">RENTED</td>
+            <td class="border border-[#c8e6c9] p-2">RENTED</td>
           </tr>
           <!-- Continue adding rows similarly -->
           <!-- Example additional row -->
           <tr>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">7</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+            <td class="border border-[#c8e6c9] p-2">7</td>
+            <td class="border border-[#c8e6c9] p-2">
               Cawhagan Island Community Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">RENTED</td>
+            <td class="border border-[#c8e6c9] p-2">RENTED</td>
           </tr>
-          <tr style="background-color: #f6fbf8">
-            <td style="border: 1px solid #c8e6c9; padding: 10px">8</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+          <tr class="bg-[#f6fbf8]">
+            <td class="border border-[#c8e6c9] p-2">8</td>
+            <td class="border border-[#c8e6c9] p-2">
               Barangay Sabang Community Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">RENTED</td>
+            <td class="border border-[#c8e6c9] p-2">RENTED</td>
           </tr>
           <tr>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">9</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+            <td class="border border-[#c8e6c9] p-2">9</td>
+            <td class="border border-[#c8e6c9] p-2">
               Tile Makers Community Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">RENTED</td>
+            <td class="border border-[#c8e6c9] p-2">RENTED</td>
           </tr>
 
           <tr>
             <td
               colspan="3"
-              style="
-                border: 1px solid #c8e6c9;
-                padding: 10px;
-                background-color: #b2c7a0;
-                font-weight: bold;
-                text-align: center;
+              class="
+                border border-[#c8e6c9] p-2
+                bg-[#b2c7a0]
+                font-bold
+                text-center
               ">
               CARDOVA MUNICIPALITY
             </td>
           </tr>
-          <tr style="background-color: #f6fbf8">
-            <td style="border: 1px solid #c8e6c9; padding: 10px">9</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+          <tr class="bg-[#f6fbf8]">
+            <td class="border border-[#c8e6c9] p-2">9</td>
+            <td class="border border-[#c8e6c9] p-2">
               Cardova Islamic Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
+            <td class="border border-[#c8e6c9] p-2">ODFI</td>
           </tr>
 
           <tr>
             <td
               colspan="3"
-              style="
-                border: 1px solid #c8e6c9;
-                padding: 10px;
-                background-color: #b2c7a0;
-                font-weight: bold;
-                text-align: center;
+              class="
+                border border-[#c8e6c9] p-2
+                bg-[#b2c7a0]
+                font-bold
+                text-center
               ">
               CAMOTES ISLAND
             </td>
@@ -389,68 +290,73 @@
             </td>
             <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
           </tr>
-          <tr style="background-color: #f6fbf8">
-            <td style="border: 1px solid #c8e6c9; padding: 10px">11</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+          <tr class="bg-[#f6fbf8]">
+            <td class="border border-[#c8e6c9] p-2">11</td>
+            <td class="border border-[#c8e6c9] p-2">
               Sunog Masjid
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
+            <td class="border border-[#c8e6c9] p-2">ODFI</td>
           </tr>
           <tr>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">12</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+            <td class="border border-[#c8e6c9] p-2">12</td>
+            <td class="border border-[#c8e6c9] p-2">
               Mactang Poro Islamic Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">RENTED</td>
+            <td class="border border-[#c8e6c9] p-2">RENTED</td>
           </tr>
-          <tr style="background-color: #f6fbf8">
-            <td style="border: 1px solid #c8e6c9; padding: 10px">13</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+          <tr class="bg-[#f6fbf8]">
+            <td class="border border-[#c8e6c9] p-2">13</td>
+            <td class="border border-[#c8e6c9] p-2">
               Himensulan Islamic Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
+            <td class="border border-[#c8e6c9] p-2">ODFI</td>
           </tr>
           <tr>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">14</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+            <td class="border border-[#c8e6c9] p-2">14</td>
+            <td class="border border-[#c8e6c9] p-2">
               Cabunga-An Islamic Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
+            <td class="border border-[#c8e6c9] p-2">ODFI</td>
           </tr>
-          <tr style="background-color: #f6fbf8">
-            <td style="border: 1px solid #c8e6c9; padding: 10px">15</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+          <tr class="bg-[#f6fbf8]">
+            <td class="border border-[#c8e6c9] p-2">15</td>
+            <td class="border border-[#c8e6c9] p-2">
               Camungao Islamic Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
+            <td class="border border-[#c8e6c9] p-2">ODFI</td>
           </tr>
           <tr>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">16</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+            <td class="border border-[#c8e6c9] p-2">16</td>
+            <td class="border border-[#c8e6c9] p-2">
               Tudela Islamic Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
+            <td class="border border-[#c8e6c9] p-2">ODFI</td>
           </tr>
 
           <tr>
             <td
               colspan="3"
-              style="
-                border: 1px solid #c8e6c9;
-                padding: 10px;
-                background-color: #b2c7a0;
-                font-weight: bold;
-                text-align: center;
+              class="
+                border border-[#c8e6c9] p-2
+                bg-[#b2c7a0]
+                font-bold
+                text-center
               ">
               BOGO CITY
             </td>
           </tr>
-          <tr style="background-color: #f6fbf8">
-            <td style="border: 1px solid #c8e6c9; padding: 10px">17</td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">
+          <tr class="bg-[#f6fbf8]">
+            <td class="border border-[#c8e6c9] p-2">17</td>
+            <td class="border border-[#c8e6c9] p-2">
               Anapog Islamic Center
             </td>
-            <td style="border: 1px solid #c8e6c9; padding: 10px">ODFI</td>
+          </tr>
+          <tr class="bg-[#f6fbf8]">
+            <td class="border border-[#c8e6c9] p-2">17</td>
+            <td class="border border-[#c8e6c9] p-2">
+              Anapog Islamic Center
+            </td>
+            <td class="border border-[#c8e6c9] p-2">ODFI</td>
           </tr>
           <tr>
             <td style="border: 1px solid #c8e6c9; padding: 10px">18</td>
@@ -1155,12 +1061,12 @@
           text-align: center;
           margin-top: 50px;
         ">
-        <strong>The Meaning of Short Forms:</strong><br />
         <b> ODFI </b>
         - One Dakwah Foundation Incorporation<br />
         <b> CMCS </b> – Cebu Madinah Community Society
       </p>
     </div>
+    </div>  
     <footer class="bg-dark text-white text-center py-3">
       © 2025 ODFI. All rights reserved.
     </footer>
