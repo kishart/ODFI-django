@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 
 class MediaGroup(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)  # <-- allow empty
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
 class MediaFile(models.Model):
@@ -26,7 +26,7 @@ class MediaFile(models.Model):
 class Files(models.Model):
     file = models.FileField(upload_to='files/')
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
 
 
     
@@ -57,7 +57,7 @@ class Photo(models.Model):
 
     type = models.CharField(max_length=10, choices=TYPE_CHOICES)
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)  
     date = models.DateField(default='2025-01-01')
 
     image = models.ImageField(upload_to='photos/')
@@ -72,7 +72,7 @@ class Highlight(models.Model):
     ]
 
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     type = models.CharField(max_length=10, choices=HIGHLIGHT_TYPES)
     image = models.ImageField(upload_to='highlights/')
     date = models.DateField()

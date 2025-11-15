@@ -12,6 +12,10 @@ class HighlightForm(forms.ModelForm):
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
         }
+        description = forms.CharField(
+        required=False,   # <-- this makes it optional
+        widget=forms.Textarea(attrs={'placeholder': 'Enter description (optional)'}),
+    )
 
 class MediaForm(forms.ModelForm):
     class Meta:
@@ -28,4 +32,8 @@ class PhotoForm(forms.ModelForm):
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
         }
+        description = forms.CharField(
+        required=False,   # <-- this makes it optional
+        widget=forms.Textarea(attrs={'placeholder': 'Enter description (optional)'}),
+    )
 
