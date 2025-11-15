@@ -1,13 +1,972 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>welcome</h1>
 
-  
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ODFI</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+ <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin-top: 90px;
+    }
+
+    .vision-mission-section h2 {
+      font-size: 1.3rem;
+      font-weight: bold;
+      z-index: 1;
+      position: relative;
+    }
+
+    .vm-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 30px;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    .card {
+      background: #d9f0dd;
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      background-color: #2f714c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon img {
+      width: 30px;
+      height: 30px;
+      filter: invert(1);
+    }
+
+    .card h3 {
+      color: #2f714c;
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .card ul li {
+      margin-bottom: 5px;
+    }
+
+    .core {
+      padding-bottom: 50px;
+    }
+
+    .badge.news,
+    .badge.event {
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      z-index: 2;
+    }
+
+
+    .badge.news {
+      background-color: #007BFF;
+    }
+
+    .badge.event {
+      background-color: #FF4136;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 20px;
+      padding: 20px 80px;
+      scrollbar-width: none;
+      margin: 0px 100px;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .news-card {
+      width: 300px;
+      /* fixed width */
+      height: 200px;
+      /* good landscape ratio */
+      flex-shrink: 0;
+      background: #E0EEDC;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news-image {
+      flex: 1;
+      width: 100%;
+      height: 60%;
+      /* control image height */
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .news-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* keeps landscape nice */
+    }
+
+    .news-card.portrait .news-image img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+      /* portrait fits inside */
+    }
+
+    .news-content {
+      background-color: #E0EEDC;
+      padding: 10px;
+      flex-shrink: 0;
+    }
+
+
+    .material-symbols-outlined {
+      font-family: "Material Symbols Outlined";
+      font-size: 18px;
+      margin-right: 6px;
+    }
+
+    .welcome {
+      background-image: url("{% static 'media/images/main.jpg' %}");
+      background-size: cover;
+      background-color: #dceeea;
+      position: relative;
+      box-shadow: 1px 10px 20px 0px #b1b1b1;
+      position: relative;
+      z-index: 0;
+      height: 100vh;
+    }
+
+    .welcome::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #dfe6dd;
+      pointer-events: none;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .welcome-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: black;
+      padding: 20px;
+      padding-top: 280px;
+      padding-bottom: 100px;
+      position: relative;
+      z-index: 1;
+      font-size: 30px;
+    }
+
+
+    .highlight-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .highlight {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: #E0EEDC;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: calc(33.33% - 32px);
+      /* 3 cards per row with gap */
+      min-width: 280px;
+      max-width: 350px;
+    }
+
+    .highlight img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .highlight-content {
+      padding: 20px;
+    }
+
+    .highlight-type {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .highlight-type-news {
+      background-color: #007BFF;
+    }
+
+    .highlight-type-event {
+      background-color: #FF4136;
+    }
+
+    .highlight-title {
+      margin: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .highlight-description {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .highlight-date {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #316128;
+      font-weight: bold;
+    }
+
+    .highlight-date-icon {
+      margin-right: 8px;
+      display: inline-block;
+    }
+
+    .highlight-wrapper {
+      position: relative;
+    }
+
+    .news-card {
+      background-color: #C9E0FA;
+    }
+
+
+    @media (min-width: 425px) {
+      body {
+        width: 110vw !important;
+      }
+
+      .welcome {
+        height: 110vh !important;
+      }
+
+      .vm-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+
+
+      .welcome,
+      .whoare,
+      .history,
+      .highlights,
+      .visionmission,
+      .objectives,
+      .strategy,
+      .principle,
+      footer {
+        width: 100%;
+        /* prevent overflow */
+      }
+
+      .welcome-text {
+        padding-top: 200px;
+        font-size: 20px;
+      }
+
+      .contentHistory p {
+        font-size: 16px;
+      }
+
+      .vm-container {
+        flex-direction: row;
+      }
+
+      /* .container-fluid {
+    height: 150px;
+  } */
+
+      .welcome-text {
+        padding-top: 250px;
+        font-size: 22px;
+      }
+
+      .whoare,
+      .history {
+        font-size: 20px;
+        padding-top: 60px;
+      }
+
+
+      .contentHistory p {
+        font-size: 18px;
+      }
+
+      section.program-cards {
+        margin-left: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  {% include 'authentication/user/nav.html' %}
+  {% block content %}
+  {% endblock content %}
+
+  <div class="welcome">
+    <section class="hero">
+      <div class="welcome-text">
+        <h2 style="font-size: 64px; font-weight: bold;">Welcome to ODFI!</h2>
+        <p style="font-size: 25px; color:black;">
+          Empowering Filipino communities through Islamic values, <br>
+          humanitarian
+          aid, education, and outreach.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  </div>
+
+  <div class="whoare">
+    <div class="areWho" style="
+    position: relative;
+    z-index: 1;
+    background-color: #E0EEDC;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 40px 20px 20px 20px;
+    max-width: 90%;
+    width: 800px;
+    margin: 60px auto 40px auto;
+    box-sizing: border-box;
+  ">
+
+      <h2 style="
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      background-color: #316128;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-style: italic;
+      font-size: 1.5em;
+      margin: 0;
+    ">
+        Who are We?
+      </h2>
+      <p style="text-align: justify; margin: 0 0 15px 0; line-height: 1.6; font-size: 1em;">
+        We are a charity-based NGO based in Cebu, Philippines. We have been incorporated under the Securities Exchange
+        Commission with a paid-up capital of 1 million pesos. ODFI focuses on managing the financial and legal aspects
+        of the Dakwah Bil Haal Project in the Philippines. All Islamic centers (Municipality Islamic Centers, MIC) and
+        their satellites in the barangays (Barangay Islamic Community Centers, BCC) are considered as chapters under
+        ODFI.
+      </p>
+      <p style="text-align: justify; margin: 0; line-height: 1.6; font-size: 1em;">
+        The founding Board of Trustees (BOT) comprise 3 Filipinos and 2 Malaysians: Dato’ Abdul Razak Kechik, Heidie
+        Lampara Apiece (Treasurer), Rozita Mohd Fajar Ali, Sofronia Ollia Ebale (Secretary), and Bonifacio Quino Uy Jr.
+        (President). At the time of writing (June, 2025), there is a BOARD OF TRUSTEE that serves ODFI, comprising Dato’
+        Abdul Razak Kechik, Abdul Rahman Uy, Sofronia Ebale, and Heidie Apiece. We are in the process to include Salim
+        Danny Dahman, Raian Estrera Tampus, and John Daler Tejones Moncao as additional Board of Trustees members.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- history -->
+  <div class="history">
+    <div class="brief" style="
+    position: relative;
+    z-index: 1;
+    background-color: #E0EEDC;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 40px 20px 20px 20px;
+    max-width: 90%;
+    width: 800px;
+    margin: 60px auto 150px auto;
+    box-sizing: border-box;
+    
+  ">
+
+      <h2 style="
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      background-color: #316128;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-style: italic;
+      font-size: 1.5em;
+      margin: 0;
+    ">
+        A Brief History of ODFI
+      </h2>
+      <div class="contentHistory" style="position: relative; margin-top: 30px;">
+        <!-- Timeline item 1 -->
+        <div style="display: flex; align-items: flex-start; position: relative; margin-bottom: 30px;">
+          <div style="flex: 0 0 auto; position: relative; text-align: center;">
+            <span class="material-symbols-outlined" style="font-size: 24px; color: #388e3c;">history</span>
+            <span style="display: block; width: 2px; height: 90px; background: #388e3c; margin: 0 auto;"></span>
+          </div>
+          <p style="flex: 1; margin: 0 0 0 15px; text-align: justify; line-height: 1.6; font-size: 15px;">
+            In 2014, Malaysia Relief Agency (MRA) visited Cebu in its humanitarian quest following Hurricane Haiyan. In
+            2016, Briged Bakti Malaysia (BBM), under its International Outreach Programs, took over from MRA to expand
+            its humanitarian mission in Cebu. The mission was led by BBM President, Dato' Dr Abdul Razak. The mission
+            was a collaboration between several NGOs such as Islamic Outreach ABIM Kelantan (IOAK) and Malaysian Relief
+            Agency (MRA).
+          </p>
+        </div>
+
+        <!-- Timeline item 2 -->
+        <div style="display: flex; align-items: flex-start; position: relative; margin-bottom: 30px;">
+          <div style="flex: 0 0 auto; position: relative; text-align: center;">
+            <span class="material-symbols-outlined" style="font-size: 24px; color: #388e3c;">history</span>
+            <span style="display: block; width: 2px; height: 30px; background: #388e3c; margin: 0 auto;"></span>
+          </div>
+          <p style="flex: 1; margin: 0 0 0 15px; text-align: justify; line-height: 1.6; font-size: 15px;">
+            The humanitarian aid mission has since morphed into Islamic outreach programs. As of November 2022, more
+            than 200,000 Cebuanos, and more than 200 from Negros have embraced Islam.
+          </p>
+        </div>
+
+        <!-- Timeline item 3 -->
+        <div style="display: flex; align-items: flex-start; position: relative; margin-bottom: 30px;">
+          <div style="flex: 0 0 auto; position: relative; text-align: center;">
+            <span class="material-symbols-outlined" style="font-size: 24px; color: #388e3c;">history</span>
+            <span style="display: block; width: 2px; height: 60px; background: #388e3c; margin: 0 auto;"></span>
+          </div>
+          <p style="flex: 1; margin: 0 0 0 15px; text-align: justify; line-height: 1.6; font-size: 15px;">
+            In response to their needs for Islamic programs and humanitarian aids, BBM has set up and supported various
+            Islamic centers in various municipalities. As of April 2025, close to 80 Municipality Islamic Centers
+            (MICs), Barangay Community Centers (BCC), and masjids have been established in 23 municipalities and big
+            cities.
+          </p>
+        </div>
+
+        <!-- Timeline item 4 (last) -->
+        <div style="display: flex; align-items: flex-start; position: relative;">
+          <div style="flex: 0 0 auto; position: relative; text-align: center;">
+            <span class="material-symbols-outlined" style="font-size: 24px; color: #388e3c;">history</span>
+            <!-- No line for last item -->
+          </div>
+          <p style="flex: 1; margin: 0 0 0 15px; text-align: justify; line-height: 1.6; font-size: 15px;">
+            In January 2020, approval was received from various regulatory bodies in the Philippines including the SEC,
+            to incorporate One Daawah Foundation (ODFI). A local bank account will be established and ODFI will manage
+            the financial and legal aspects in the management of all ODFI-related projects and programs.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+
+  <div class="highlights" style="background-color:#F2F9F5; ">
+
+
+    <h1 style="position:relative; z-index: 1; text-align: center; color: #2b5d34; padding-top: 30px;">Highlights</h1>
+
+
+
+    <!-- Carousel Section -->
+    <div style="position:relative; z-index: 1;padding-bottom: 80px;" class="carousel-track">
+
+      <div class="highlight-container">
+        {% for item in highlights %}
+        <div class="highlight">
+          <div class="highlight-wrapper">
+            <img src="{{ item.image.url }}" alt="Highlight Image">
+            <span
+              class="highlight-type 
+          {% if item.get_type_display|lower == 'news' %}highlight-type-news{% elif item.get_type_display|lower == 'event' %}highlight-type-event{% endif %}">
+              {{ item.get_type_display }}
+            </span>
+          </div>
+          <div class="highlight-content">
+            <h2 class="highlight-title">{{ item.title }}</h2>
+            <p class="highlight-description">{{ item.description }}</p>
+            <p class="highlight-date">
+              <span class="material-symbols-outlined" style="font-weight: bold">event</span>
+              {{ item.date }}
+            </p>
+
+
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <div class="core" style="padding: 50px 0px;">
+
+
+      <h1 style="position: relative;z-index: 1; text-align: center; color: #2b5d34; padding-top: 30px;">Core Activities
+      </h1>
+
+
+
+      <section class="program-cards"
+        style="position: relative;z-index: 1; padding:10px 50px; display: flex; flex-wrap: wrap; gap: 20px;">
+        <!-- Card 1 -->
+        <div class="program-card"
+          style="background: #316128; border-radius: 8px; padding: 20px; box-sizing: border-box; width: calc(20% - 20px); min-width: 200px;">
+          <h3 style="color: #fff; margin-bottom: 10px;">Outreach</h3>
+          <ul style="padding-left: 0; list-style: none; color: white;">
+            <li style="margin-bottom: 5px;">📌 New Outreach
+            </li>
+            <li style="margin-bottom: 5px;">📌 Follow-up Outreach
+            </li>
+            <li style="margin-bottom: 5px;">📌 Mass Outreach
+            </li>
+            <li style="margin-bottom: 5px;">📌 House-to-house Outreach
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Card 2 -->
+        <div class="program-card" style="background: #316128; 
+            border-radius: 8px; 
+            padding: 20px; 
+            box-sizing: border-box; 
+            width: calc(20% - 20px); 
+            min-width: 200px; 
+            height: auto;        /* ensure height grows */
+            overflow: visible;   /* prevent clipping */
+     ">
+
+          <h3 style="color: #fff; margin-bottom: 10px;">Education of Reverts</h3>
+          <ul style="list-style-type: none; padding-left: 0; font-size: 15px; color:white;">
+            <li style="margin-bottom: 5px;">📌 Seminar for new reverts
+            </li>
+            <li style="margin-bottom: 5px;">📌 Fardu Ain classes during weekdays
+            </li>
+            <li style="margin-bottom: 5px;">📌 Fardhu Ain classes for children and adults during weekends
+            </li>
+            <li style="margin-bottom: 5px;">📌 Intensive courses (stay-in courses)
+            </li>
+            <li style="margin-bottom: 5px;">📌 Training of imams and du’at
+            </li>
+            <li style="margin-bottom: 5px;">📌 Training in livelihood and other pertinent activities for the community
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Card 3 -->
+        <div class="program-card"
+          style="background: #316128; border-radius: 8px; padding: 20px; box-sizing: border-box; width: calc(20% - 20px); min-width: 200px; display: flex; align-items: center; justify-content: center;">
+          <h3 style="color: #fff; margin-bottom: 10px; text-align: center; width: 100%;">Jumaat Prayers</h3>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="program-card"
+          style="background: #316128; border-radius: 8px; padding: 20px; box-sizing: border-box; width: calc(20% - 20px); min-width: 200px; display: flex; align-items: center; justify-content: center;">
+          <h3 style="color: #fff; margin-bottom: 10px;">Ihya Ramadan</h3>
+        </div>
+
+        <!-- Card 5 (Qurban & Aqiqah) -->
+        <div class="program-card"
+          style="background: #316128; border-radius: 8px; padding: 20px; box-sizing: border-box; width: calc(20% - 20px); min-width: 200px; display: flex; align-items: center; justify-content: center;">
+          <h3 style="color: #ffffff; margin-bottom: 10px;">Qurban & Aqiqah</h3>
+        </div>
+
+        <div style="
+  background: #316128;
+ padding:40px 130px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top:50px;
+">
+          <h3 style="
+    color: #fff;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  ">Other Services</h3>
+        </div>
+
+
+
+      </section>
+    </div>
+
+
+    <div class="visionmission" style="background-color:#F2F9F5; padding-bottom:80px;">
+      <section style="padding-top:100px;" class="vision-mission-section">
+        <div class="vm-container" style="gap:80px;">
+          <!-- Vision Card -->
+          <div class="card"
+            style=" border: 1px solid #000;background-color:#C5DBC1; min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+            <div class="icon"
+              style="height: 130px; width:130px; display: flex; align-items: center; justify-content: center; position: absolute; top: -90px; left: 50%; transform: translateX(-50%);">
+              <span class="material-symbols-outlined" style="color:white; margin: 0; font-size: 90px;">
+                visibility
+              </span>
+            </div>
+            <p style="padding-top:40px;font-weight:bold; color:#316128; font-size: 30px;">Our Vision</p>
+            <p style="font-size: 1.05rem; margin-bottom: 8px;  font-weight:bold;">A Nation of Ummatan Wasatan:</p>
+            <ul style="padding-left: 0; list-style: none;">
+              <li style="margin-bottom: 5px; position: relative; padding-left: 30px; text-align: start;">
+                <span style="position: absolute; left: 0;">✔</span>The Best Ummah
+              </li>
+              <li style="margin-bottom: 5px; position: relative; padding-left: 30px; text-align: start;">
+                <span style="position: absolute; left: 0;">✔</span>The Blessed
+              </li>
+              <li style="margin-bottom: 5px; position: relative; padding-left: 30px; text-align: start;">
+                <span style="position: absolute; left: 0;">✔</span>Aadil
+              </li>
+              <li style="margin-bottom: 5px; position: relative; padding-left: 30px; text-align: start;">
+                <span style="position: absolute; left: 0;">✔</span>Moderate
+              </li>
+            </ul>
+
+
+          </div>
+          <!-- Mission Card -->
+          <div class="card"
+            style=" border: 1px solid #000;background-color:#C5DBC1; min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+            <div class="icon"
+              style="height: 130px; width:130px; position: absolute; top: -90px; left: 50%; transform: translateX(-50%);">
+              <span class="material-symbols-outlined" style="color:white; margin: 0; font-size: 90px;">
+                strategy
+              </span>
+            </div>
+            <p style="padding-top:40px;font-weight:bold; color:#316128; font-size: 30px;">Our Mission</p>
+            <p style=" padding:0px 10px;font-size: 1.05rem; font-weight:bold; margin-top: 8px;">
+              Helping the poorest Filipino communities through humanitarian aid, outreach programs, and halal-based
+              economic ventures that benefit both Muslims and non-Muslims.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section style="gap:140px; text-align: center;">
+      <div class="objectives">
+
+        <h1 style="position:relative; z-index: 1; text-align: center; color: #2b5d34; padding-top: 30px;">ODFI
+          Objectives</h1>
+
+        <!-- First row -->
+        <div
+          style="position:relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 20px; margin-bottom: 20px;">
+
+
+          <div
+            style="    border: 1px solid #000;
+background-color: #C5DBC1; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: left; max-width: 300px; flex: 1 1 250px; display: flex; flex-direction: column;">
+            <div
+              style="background-color:#EEFBE9; padding:50px; display: flex; align-items: center; justify-content: center;"
+              class="icon">
+              <span style="color:#316128; font-size:48px; margin-left:8px;" class="material-symbols-outlined">
+                volunteer_activism
+              </span>
+            </div>
+            <p style="margin: 0; font-size: 14px; color: #000; flex-grow: 1; text-align: center; font-weight: bold;">
+              To provide humanitarian aid to impoverished communities most affected by natural disasters.
+            </p>
+          </div>
+
+          <div
+            style="    border: 1px solid #000;
+background-color: #C5DBC1; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: left; max-width: 300px; flex: 1 1 250px; display: flex; flex-direction: column;">
+            <div
+              style="background-color:#EEFBE9; padding:50px; display: flex; align-items: center; justify-content: center;"
+              class="icon">
+              <span style="color:#316128; font-size:48px;  margin-left:8px;" class="material-symbols-outlined">
+                gavel
+              </span>
+            </div>
+            <p style="margin: 0; font-size: 14px; color: #000; flex-grow: 1; text-align: center; font-weight: bold;">
+              To cooperate with government agencies such as NCMF on issues affecting the communities.
+            </p>
+          </div>
+
+          <div
+            style="    border: 1px solid #000;
+background-color: #C5DBC1; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: left; max-width: 300px; flex: 1 1 250px; display: flex; flex-direction: column;">
+            <div
+              style="background-color:#EEFBE9; padding:50px; display: flex; align-items: center; justify-content: center;"
+              class="icon">
+              <span style="color:#316128; font-size:48px;  margin-left:8px;" class="material-symbols-outlined">
+
+                approval_delegation
+              </span>
+            </div>
+            <p style="margin: 0; font-size: 14px; color: #000; flex-grow: 1; text-align: center; font-weight: bold;">
+              To facilitate in the roll-out of halal-based economic empowerment programs for the poor towards halal
+              livelihoods.
+            </p>
+          </div>
+
+
+        </div>
+
+        <!-- Second row -->
+        <div
+          style="position:relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 20px;">
+
+
+          <div
+            style="display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 20px; margin-bottom: 20px;">
+            <div
+              style="     border: 1px solid #000;
+background-color: #C5DBC1; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: left; max-width: 300px; flex: 1 1 250px; display: flex; flex-direction: column;">
+              <div
+                style="background-color:#EEFBE9; padding:50px; display: flex; align-items: center; justify-content: center;"
+                class="icon">
+                <span style="color:#316128; font-size:48px; margin-left:8px;" class="material-symbols-outlined">
+                  mosque
+                </span>
+              </div>
+              <p style="margin: 0; font-size: 14px; color: #000; flex-grow: 1; text-align: center; font-weight: bold;">
+                To finance and facilitate the establishment of Municipality Islamic Centers (MICs), Barangay Community
+                Centers (BCCs), and Sitio Community Centers (SCCs) that can provide religious classes, religious
+                services, and religious counseling to cater to the religious needs of Muslim communities.
+              </p>
+            </div>
+
+
+            <div
+              style="    border: 1px solid #000;
+background-color: #C5DBC1; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: left; max-width: 300px; flex: 1 1 250px; display: flex; flex-direction: column;">
+              <div
+                style="background-color:#EEFBE9; padding:50px; display: flex; align-items: center; justify-content: center;"
+                class="icon">
+                <span style="color:#316128; font-size:48px;  margin-left:8px;" class="material-symbols-outlined">
+                  diversity_3
+                </span>
+              </div>
+              <p style="margin: 0; font-size: 14px; color: #000; flex-grow: 1; text-align: center; font-weight: bold;">
+                To lease/acquire sufficient land bank for halal economic activities such as subsistence and commercial
+                farming and halal livestock rearing to support the Municipality Islamic Centers. Part of the land will
+                also be allocated for a Muslim cemetery.
+              </p>
+            </div>
+          </div>
+
+
+
+
+    </section>
+
+  </div>
+
+
+  <div class="strategy" style="background-color:#F2F9F5;margin-top:30px; padding:0px 70px;">
+    <div
+      style="position:relative; z-index: 1;display: flex; justify-content: center; align-items: center; width: 100%; padding: 40px 0;">
+      <div
+        style="   background-color: #C5DBC1;
+    border: 1px solid #000;
+    border-radius: 8px; padding: 30px; border-radius: 12px; max-width: 900px; width: 100%; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <h2
+          style="text-align: center; color: #2b5d34; border-bottom: 3px solid #2b5d34; display: inline-block; padding-bottom: 5px; margin-top: 0;">
+          ODFI Strategies
+        </h2>
+        <!-- <img src="https://cdn-icons-png.flaticon.com/512/252/252025.png" alt="Pin" style="position: absolute; top: -10px; right: -10px; width: 40px; transform: rotate(20deg);"> -->
+        <span class="material-symbols-outlined"
+          style="font-size:70px; color:#316128; position: absolute; top: -50px; right: 5px; width: 40px; transform: rotate(25deg);">keep</span>
+        <ul style="list-style-type: none; padding-left: 0; font-size: 15px;">
+          <li style="margin-bottom: 5px;">📌Establish strategic relationships with relevant organisations and
+            individuals for financial support, expertise and guidance.</li>
+          <li style="margin-bottom: 5px;">📌Identify, train and empower people to become du’at, asatiz and community
+            leaders.</li>
+          <li style="margin-bottom: 5px;">📌Promote Islamic training and education at all levels, provide teachers in
+            government schools, build institutions and offer support services.</li>
+          <li style="margin-bottom: 5px;">📌Promote economic activities in the community for individuals and groups.
+          </li>
+          <li style="margin-bottom: 5px;">📌Involve in viable economic activities for sustainability.</li>
+          <li style="margin-bottom: 5px;">📌Promote building of masjids and community centers for learning and
+            practising Islam.</li>
+          <li style="margin-bottom: 5px;">📌Establish an asset bank for future development.</li>
+          <li style="margin-bottom: 5px;">📌Maintain records of all activities, documents and assets.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="principle">
+
+
+
+    <h1 style=" position: relative;
+  z-index: 1; text-align: center; color: #2b5d34; padding-top: 30px;">ODFI Basic Principles</h1>
+
+
+    <div class="basicPrin"
+      style="  position: relative;
+  z-index: 1;color: #000; padding: 0 50px; display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;">
+
+      <!-- LEFT SIDE: 50% -->
+      <div style="flex: 1 1 50%; padding: 20px 10px; box-sizing: border-box;">
+        <div
+          style="background-color: #C5DBC1; border: 1px solid #000; border-radius: 10px; padding: 20px; box-shadow: 0 0.5em 1em rgba(0,0,0,0.1); margin-bottom: 20px;">
+          <h2 style="margin-top: 0; color: #000; font-size: 20px; text-align: center;">Basic Financial Principles</h2>
+          <ul style="list-style-type: none; padding-left: 0; font-size: 15px;">
+            <li style="margin-bottom: 5px;">📌The underlying basis of our financial processes are amanah, righteousness,
+              effectiveness, efficiency, frugality, and non-wastefulness.</li>
+            <li style="margin-bottom: 5px;">📌All monetary transactions must fulfil the Islamic obligation of being
+              halal (permissible).</li>
+            <li style="margin-bottom: 5px;">📌We accept donations, grants, zakat, sadaqah, and halal business profits.
+            </li>
+            <li style="margin-bottom: 5px;">📌We keep clear and accurate records of all income and expenses, including
+              receipts and invoices.</li>
+            <li style="margin-bottom: 5px;">📌All spending must benefit the community and align with our mission.</li>
+            <li style="margin-bottom: 5px;">📌All outside-of-OPEX spending must be approved by BBM (Dato’ Razak or his
+              representative) for prior approval. Without prior approval, there is no guarantee that the money spent
+              will be reimbursed.</li>
+            <li style="margin-bottom: 5px;">📌Monthly reports must be prepared by the Center Leader (PIC), reviewed by
+              the Regional Director (RD) and submitted to BBM every month.</li>
+            <li style="margin-bottom: 5px;">📌BBM reviews and audits all OPEX, CAPEX, and expenditures outside of OPEX
+              at least once a year.</li>
+            <li style="margin-bottom: 5px;">📌Any falsification of reporting, especially those involving financial
+              matters, is construed as a violation, expressed or implied, expected of any member of the workforce.
+              Disciplinary action will be taken against the person concerned.</li>
+            <li style="margin-bottom: 5px;">📌We expect honesty, integrity and transparency. No cronyism and nepotism
+              are allowed.</li>
+          </ul>
+        </div>
+
+        <div
+          style="background-color: #C5DBC1; border: 1px solid #000; border-radius: 10px; padding: 20px; box-shadow: 0 0.5em 1em rgba(0,0,0,0.1);">
+          <h2 style="margin-top: 0; color: #000; font-size: 20px; text-align: center;">Basic Workforce Training &
+            Development Principles</h2>
+          <ul style="list-style-type: none; padding-left: 0; font-size: 15px;">
+            <li style="margin-bottom: 5px;">📌The underlying basis of our workforce training & development processes are
+              amanah, righteousness, integrity, effectiveness, and efficiency.</li>
+            <li style="margin-bottom: 5px;">📌We aim to build knowledge — especially Islamic knowledge, competencies,
+              and skills among members of our workforce, volunteers, and the community.</li>
+            <li style="margin-bottom: 5px;">📌One of our core businesses is that of providing Islamic education to
+              reverts. Therefore, all members of our workforce are required to master the topics given in APPENDIX 1.
+            </li>
+            <li style="margin-bottom: 5px;">📌All members of the workforce are encouraged to continuously learn and
+              apply what they learn in their daily lives.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE: 50% -->
+      <div style="flex: 1 1 50%; padding: 20px 10px; box-sizing: border-box;">
+        <div
+          style="background-color: #C5DBC1; border: 1px solid #000; border-radius: 10px; padding: 20px; box-shadow: 0 0.5em 1em rgba(0,0,0,0.1); margin-bottom: 20px; ">
+          <h2 style="margin-top: 0; color: #000; font-size: 20px; text-align: center;">Basic Operational Principles</h2>
+          <ul style="list-style-type: none; padding-left: 0; font-size: 15px;">
+            <li style="margin-bottom: 5px;">📌The underlying basis of our operational processes are amanah,
+              righteousness, effectiveness, efficiency, frugality, and non-wastefulness.</li>
+            <li style="margin-bottom: 5px;">📌Programs are planned based on the realistic needs of the community, and
+              involve community members when and where possible.</li>
+            <li style="margin-bottom: 5px;">📌We treat everyone with respect regardless of religion, tribe and/or
+              background.</li>
+            <li style="margin-bottom: 5px;">📌We expect every center to maintain safety, dignity, and
+              hygiene/cleanliness (mutaharah) in all our activities.</li>
+          </ul>
+        </div>
+
+        <div
+          style="background-color: #C5DBC1; border: 1px solid #000; border-radius: 10px; padding: 20px; padding-bottom:55px; box-shadow: 0 0.5em 1em rgba(0,0,0,0.1); ">
+          <h2 style="margin-top: 0; color: #000; font-size: 20px; text-align: center;">Basic Human Resource Principles
+          </h2>
+          <ul style="list-style-type: none; padding-left: 0; font-size: 15px;">
+            <li style="margin-bottom: 5px;">📌he underlying basis of our human resource (HR) processes are amanah,
+              integrity, righteousness, effectiveness, and efficiency. All ODFI workforce are our brothers and sisters
+              in Islam.</li>
+            <li style="margin-bottom: 5px;">📌We aim to create a respectful, professional, and Islamic working
+              environment for all members of the workforce. In addition, we welcome everyone who are honest,
+              hardworking, and share our values.</li>
+            <li style="margin-bottom: 5px;">📌Selection of our workforce is based on character (akhlaq), skills,
+              competencies, and commitment to our mission and vision. No cronyism and nepotism are allowed. All
+              selection of new recruits requires formal approval from BBM unless otherwise specified.</li>
+            <li style="margin-bottom: 5px;">📌All members of the workforce must follow Islamic manners (adab) and rules
+              (hukum), including honesty, respect, teamwork, and punctuality. No negativity or antisocial traits, which
+              include but are not limited to gossip, mal fide (bad intention), backbiting, discrimination, doing takfir,
+              unfair/discriminatory treatment and favouring own but unqualified family members, are allowed.</li>
+            <li style="margin-bottom: 5px;">📌Problems between team members must be handled calmly, respectfully, and
+              privately and in accordance with Islamic rulings and values. If needed, the issue can be brought to the
+              leadership for guidance and resolution.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3">
+    © 2025 ODFI. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
