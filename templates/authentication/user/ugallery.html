@@ -21,7 +21,18 @@
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px; flex: 1; }
     .video-wrapper { aspect-ratio: 4/3; background: #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; }
     .video-wrapper a { display: block; height: 100%; cursor: pointer; }
-    .video-wrapper img, .video-wrapper video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; pointer-events: none; display: block; }
+   
+.video-wrapper img, .video-wrapper video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* make it fit inside without cropping */
+  margin: 0 auto;      /* center inside container */
+  display: block;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
     .video-wrapper:hover img, .video-wrapper:hover video { transform: scale(1.05); }
     .lightbox { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 999; padding: 40px 20px; margin-top: 60px; }
     .lightbox:target { display: flex; }
@@ -32,11 +43,18 @@
     .prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 16px; color: black; font-weight: bold; font-size: 22px; background: rgba(255,255,255,0.7); border-radius: 50%; transform: translateY(-50%); text-decoration: none; }
     .prev { left: 0; }
     .next { right: 0; }
-    .carousel video{     max-width: 100%;
-    max-height: 100%;  border-radius: 10px; pointer-events: auto; object-fit: contain; }
-    .carousel img {     max-width: 70%;
-    max-height: 70%;  border-radius: 10px; pointer-events: auto; object-fit: contain; }
-    .description { margin-top: 15px; font-size: 16px; color: #333;  }
+ .carousel video, .carousel img {
+    max-width: 100%;
+    max-height: 50vh;   /* limits height to viewport height */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* keeps aspect ratio without cropping */
+    border-radius: 10px;
+    pointer-events: auto;
+    margin: 0 auto;     /* centers the media */
+    display: block;
+}
+.description { margin-top: 15px; font-size: 16px; color: #333;  }
     .close-btn { position: absolute; top: 30px; right: 40px; font-size: 30px; color: white; text-decoration: none; }
     .hide { display: none !important; }
     .footer { text-align: center; padding: 20px; background: #222; color: #fff; font-size: 12px; }
@@ -145,6 +163,39 @@
         };
       });
     });
+
+
+
+
+    document.querySelectorAll('.lightbox').forEach(lb => {
+  const slides = lb.querySelectorAll('.slide');
+  const prev = lb.querySelector('.prev');
+  const next = lb.querySelector('.next');
+  let index = 0;
+
+  // Hide arrows if only one slide
+  if (slides.length <= 1) {
+    prev.style.display = 'none';
+    next.style.display = 'none';
+  }
+
+  function showSlide(i) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[i].classList.add('active');
+  }
+
+  prev.onclick = e => {
+    e.stopPropagation();
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  };
+  next.onclick = e => {
+    e.stopPropagation();
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  };
+});
+
   </script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
  
