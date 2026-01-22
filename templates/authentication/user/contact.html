@@ -18,53 +18,151 @@
       padding: 0;
       background: #f4f4f9;
     }
+.contact-container {
+  display: flex;
+  height: 50vh; /* 👈 30% of viewport height */
+}
 
-    .contact-container {
-      display: flex;
-      flex-wrap: nowrap;
-      height: 100vh;
-    }
+.info-section-grid {
+  display: flex;
+  flex-wrap: wrap; /* allows boxes to wrap to next line */
+  gap: 20px; /* space between boxes */
+  padding-top: 120px;
+  justify-content: center; /* centers boxes horizontally */
+}
 
-   .info-section {
-      background: #E0EEDC;
-      padding: 40px;
-      flex: 0 0 40%; /* 👈 Fixed width to 40% */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+.info-section-grid .info-box {
+  background: #50834a;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  color: #fff;
 
-    .info-box {
-      background: #50834a;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
+  height: 150px;
+  min-width: 200px;   /* ensures box never gets too small */
+  max-width: 300px;   /* prevents it from stretching too much */
+  flex: 1 1 200px;    /* flex-grow, flex-shrink, flex-basis for responsiveness */
 
-    .info-box h3 {
-      margin: 0;
-      font-size: 18px;
-      margin-bottom: 8px;
-        color:#FCB31C;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* center text and icon */
+}
 
-    .info-box p {
-      margin: 0;
-      font-size: 15px;
-      color: #fff;
-    }
+.info-section-grid .info-box h3 {
+  font-size: clamp(1rem, 2vw, 1.5rem); /* responsive font size */
+  margin-bottom: 8px;
+}
 
-    .map-section {
-      flex: 1;
-      min-width: 300px;
-    }
+.info-section-grid .info-box p {
+  font-size: clamp(0.8rem, 1.5vw, 1rem); /* responsive font size */
+  margin: 0;
+}
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+/* Responsive: adjust padding and height on very small screens */
+@media (max-width: 480px) {
+  .info-section-grid .info-box {
+    height: auto;
+    padding: 15px;
+  }
+}
+
+
+
+
+ .map-section {
+  width: 100%;
+  height: 100%;
+  margin-top: 75px;
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.donation-section {
+  background: #ffffff;
+  padding: 60px 20px;
+  margin-top: 50px;
+}
+
+.donation-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.donation-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.donation-title h2 {
+  color: #50834a;
+  font-weight: bold;
+}
+
+.donation-title p {
+  color: #555;
+  max-width: 700px;
+ margin: auto;
+ padding: auto;
+
+}
+
+
+.donation-card h4 {
+  color: #50834a;
+  margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.donation-card p,
+.donation-card li {
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.donation-card i {
+  color: #FCB31C;
+  margin-right: 8px;
+}
+
+.donation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center; /* centers wider cards */
+}
+.donation-card {
+  background: #E0EEDC;
+  border-radius: 10px;
+  padding: 30px 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* aligns content at top */
+  min-height: 300px; /* ensures cards are tall enough */
+  
+}
+
+/* Smaller font size and spacing for mobile */
+@media (max-width: 768px) {
+  .donation-card {
+    min-height: auto; /* auto height on small screens */
+    padding: 20px 15px;
+  }
+  .donation-title h2 {
+    font-size: 2rem;
+  }
+  .donation-title p {
+    font-size: 1.2rem;
+  }
+}
+
+
 
     footer {
       background: #111;
@@ -72,6 +170,13 @@
       text-align: center;
       padding: 15px;
     }
+    
+    @media (max-width: 768px) {
+  .contact-container {
+    height: 40vh;
+  }
+}
+
   </style>
 </head>
 
@@ -81,33 +186,7 @@
      {% endblock content %}
   <!-- Contact Section -->
   <div  class="contact-container">
-    <!-- Info Section -->
-    <div style="padding-top: 120px;" class="info-section">
-      <div  class="info-box">
-        <h3><i style="color: #FCB31C;" class="fa-solid fa-user-tie"></i> President</h3>
-        <p>Bonifacio Q. Uy Jr. (+63 935 502 2728)</p>
-      </div>
-
-      <div class="info-box">
-        <h3><i style="color: #FCB31C;"  class="fa-solid fa-user"></i> Secretary</h3>
-        <p>Sofronia Ebale (+63 956 127 2518)</p>
-      </div>
-
-      <div class="info-box">
-        <h3><i style="color: #FCB31C;"  class="fa-solid fa-user"></i> Treasurer</h3>
-        <p>Heidei Aplece (+63 977 284 4556)</p>
-      </div>
-
-      <div class="info-box">
-        <h3><i style="color: #FCB31C;"  class="fa-solid fa-users"></i> Member of BOD</h3>
-        <p>Raian Estrera (+63 912 691 5858)</p>
-      </div>
-
-      <div class="info-box">
-        <h3><i style="color: #FCB31C;"  class="fa-solid fa-location-dot"></i> Headquarters</h3>
-        <p><a href="https://maps.app.goo.gl/Riiz6ze62iRCUJx59" target="_blank" style="color:#fff;">View on Google Maps</a></p>
-      </div>
-    </div>
+    
 
     <!-- Map Section -->
     <div class="map-section">
@@ -115,7 +194,79 @@
       allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
+<section class="donation-section">
+  <div class="donation-container">
 
+    <div class="donation-title">
+      <p style="text-align: center; color: #16610E; font-weight: bold; font-size: 2.5rem; ">Want to Support ODFI?</p>
+      <p style="text-align: center; font-size: 1.5rem;">
+        Your donation/infaq or zakat, irrespective of the amount goes a long way
+        in supporting our programs. All donations directly goes into the programs.
+      </p>
+    </div>
+
+
+    <div class="donation-grid">
+
+      <!-- Banking Details -->
+      <div class="donation-card">
+        <h4><i class="fa-solid fa-building-columns"></i> Banking Details</h4>
+        <p><strong>Bank:</strong> Security Bank</p>
+        <p><strong>Account Name:</strong> One Daawah Foundation Inc.</p>
+        <p><strong>Account No:</strong> 0000073229453</p>
+        <p><strong>SWIFT Code:</strong> SETCPHMM</p>
+        <p>
+          <strong>Address:</strong>
+          31 J. P. Rizal Street, Tabok, 
+          Mandaue City, Cebu, Philippines
+        </p>
+      </div>
+
+      <!-- Contact & Verification -->
+      <div class="donation-card">
+        <h4><i class="fa-solid fa-phone"></i> Donation Inquiries</h4>
+        <p><strong>Office:</strong> +63 2 8520 9066</p>
+        <p><strong>Contact Person:</strong>
+          Sofronia O. Ebale
+          <em>(Corporate Secretary)</em>
+        </p>
+        <p><strong>Mobile:</strong> +63 956 127 2518</p>
+        <p><strong>Email:</strong> <em>(email)</em></p>
+      </div>
+
+    </div>
+    
+  </div>
+<div class="info-section-grid">
+  <div class="info-box">
+    <h3><i class="fa-solid fa-user-tie" style="color: #FCB31C;"></i> President</h3>
+    <p>Bonifacio Q. Uy Jr. (+63 935 502 2728)</p>
+  </div>
+
+  <div class="info-box">
+    <h3><i class="fa-solid fa-user" style="color: #FCB31C;"></i> Secretary</h3>
+    <p>Sofronia Ebale (+63 956 127 2518)</p>
+  </div>
+
+  <div class="info-box">
+    <h3><i class="fa-solid fa-user" style="color: #FCB31C;"></i> Treasurer</h3>
+    <p>Heidei Aplece (+63 977 284 4556)</p>
+  </div>
+
+  <div class="info-box">
+    <h3><i class="fa-solid fa-users" style="color: #FCB31C;"></i> Member of BOD</h3>
+    <p>Raian Estrera (+63 912 691 5858)</p>
+  </div>
+</div>
+
+  
+</div>
+
+
+</section>
+
+
+ 
   <!-- Footer -->
   <footer>
     © 2025 ODFI. All rights reserved.
