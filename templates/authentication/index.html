@@ -43,15 +43,15 @@
       background: #d9f0dd;
       border-radius: 10px;
       padding: 20px;
-      width: 90%;
+      min-width: 20%;
       max-width: 400px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
 
     .icon {
-      width: 60px;
-      height: 60px;
+      min-width: 60px;
+      min-height: 60px;
       margin: 0 auto 15px;
       background-color: #2f714c;
       border-radius: 50%;
@@ -61,8 +61,8 @@
     }
 
     .icon img {
-      width: 30px;
-      height: 30px;
+      min-width: 30px;
+      min-height: 30px;
       filter: invert(1);
     }
 
@@ -80,9 +80,75 @@
       margin-bottom: 5px;
     }
 
+
     .core {
-      padding-bottom: 50px;
-    }
+  padding: 50px 20px;
+  background-color: white;
+}
+
+.core-title {
+  text-align: center;
+  color: #2b5d34;
+  margin-bottom: 30px;
+}
+
+.program-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.program-card {
+  background: #316128;
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  flex: 1 1 220px;
+  max-width: 300px;
+}
+
+.program-card h3 {
+  margin-bottom: 10px;
+}
+
+.program-card ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.program-card li {
+  margin-bottom: 6px;
+}
+
+/* Centered cards */
+.program-card.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Full-width card */
+.program-card.full {
+  flex: 1 1 100%;
+  max-width: 600px;
+  text-align: center;
+  padding: 40px;
+}
+
+/* 📱 Mobile adjustments */
+@media (max-width: 768px) {
+  .program-card {
+    max-width: 100%;
+  }
+
+  .program-card.full {
+    padding: 25px;
+  }
+}
 
     .badge.news,
     .badge.event {
@@ -118,9 +184,9 @@
     }
 
     .news-card {
-      width: 300px;
+      min-width: 300px;
       /* fixed width */
-      height: 200px;
+      min-height: 200px;
       /* good landscape ratio */
       flex-shrink: 0;
       background: #E0EEDC;
@@ -134,8 +200,8 @@
 
     .news-image {
       flex: 1;
-      width: 100%;
-      height: 60%;
+      min-width: 100%;
+      min-height: 60%;
       /* control image height */
       overflow: hidden;
       display: flex;
@@ -144,15 +210,15 @@
     }
 
     .news-image img {
-      width: 100%;
-      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
       object-fit: cover;
       /* keeps landscape nice */
     }
 
     .news-card.portrait .news-image img {
       width: auto;
-      height: 100%;
+      min-height: 100%;
       object-fit: contain;
       /* portrait fits inside */
     }
@@ -178,7 +244,7 @@
       box-shadow: 1px 10px 20px 0px #b1b1b1;
       position: relative;
       z-index: 0;
-      height: 100vh;
+      min-height: 100vh;
     }
 
     .welcome::after {
@@ -218,25 +284,35 @@
       margin-bottom: 24px;
     }
 
-    .highlight {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      background: #E0EEDC;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: calc(33.33% - 32px);
-      /* 3 cards per row with gap */
-      min-width: 280px;
-      max-width: 350px;
-    }
+.highlight {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #E0EEDC;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: calc(33.33% - 32px);
+  min-width: 280px;
+  max-width: 350px;
+}
 
-    .highlight img {
-      width: 100%;
-      display: block;
-      height: auto;
-    }
+/* image wrapper (important) */
+.highlight .image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* force landscape */
+  overflow: hidden;
+}
+
+/* image itself */
+.highlight img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* crop portrait images */
+  object-position: center;
+  display: block;
+}
+
 
     .highlight-content {
       padding: 20px;
@@ -298,11 +374,11 @@
 
     @media (min-width: 425px) {
       body {
-        width: 110vw !important;
+        min-width: 100vw !important;
       }
 
       .welcome {
-        height: 110vh !important;
+        min-height: 110vh !important;
       }
 
       .vm-container {
@@ -321,7 +397,7 @@
       .strategy,
       .principle,
       footer {
-        width: 100%;
+        min-width: 100%;
         /* prevent overflow */
       }
 
@@ -394,7 +470,7 @@
     border-radius: 8px;
     padding: 40px 20px 20px 20px;
     max-width: 90%;
-    width: 800px;
+    min-width: 800px;
     margin: 60px auto 40px auto;
     box-sizing: border-box;
   ">
@@ -441,7 +517,7 @@
     border-radius: 8px;
     padding: 40px 20px 20px 20px;
     max-width: 90%;
-    width: 800px;
+    min-width: 800px;
     margin: 60px auto 150px auto;
     box-sizing: border-box;
     
@@ -466,7 +542,7 @@
         <div style="display: flex; align-items: flex-start; position: relative; margin-bottom: 30px;">
           <div style="flex: 0 0 auto; position: relative; text-align: center;">
             <span class="material-symbols-outlined" style="font-size: 24px; color: #388e3c;">history</span>
-            <span style="display: block; width: 2px; height: 90px; background: #388e3c; margin: 0 auto;"></span>
+            <span style="display: block; width: 2px; min-height: 90px; background: #388e3c; margin: 0 auto;"></span>
           </div>
           <p style="flex: 1; margin: 0 0 0 15px; text-align: justify; line-height: 1.6; font-size: 15px;">
             In 2014, Malaysia Relief Agency (MRA) visited Cebu in its humanitarian quest following Hurricane Haiyan. In
@@ -481,7 +557,7 @@
         <div style="display: flex; align-items: flex-start; position: relative; margin-bottom: 30px;">
           <div style="flex: 0 0 auto; position: relative; text-align: center;">
             <span class="material-symbols-outlined" style="font-size: 24px; color: #388e3c;">history</span>
-            <span style="display: block; width: 2px; height: 30px; background: #388e3c; margin: 0 auto;"></span>
+            <span style="display: block; min-width: 2px; height: 30px; background: #388e3c; margin: 0 auto;"></span>
           </div>
           <p style="flex: 1; margin: 0 0 0 15px; text-align: justify; line-height: 1.6; font-size: 15px;">
             The humanitarian aid mission has since morphed into Islamic outreach programs. As of November 2022, more
@@ -493,7 +569,7 @@
         <div style="display: flex; align-items: flex-start; position: relative; margin-bottom: 30px;">
           <div style="flex: 0 0 auto; position: relative; text-align: center;">
             <span class="material-symbols-outlined" style="font-size: 24px; color: #388e3c;">history</span>
-            <span style="display: block; width: 2px; height: 60px; background: #388e3c; margin: 0 auto;"></span>
+            <span style="display: block; min-width: 2px; min-height: 60px; background: #388e3c; margin: 0 auto;"></span>
           </div>
           <p style="flex: 1; margin: 0 0 0 15px; text-align: justify; line-height: 1.6; font-size: 15px;">
             In response to their needs for Islamic programs and humanitarian aids, BBM has set up and supported various
@@ -562,103 +638,49 @@
       </div>
     </div>
 
+<div class="core">
+  <h1 class="core-title">Core Activities</h1>
 
-    <div class="core" style="padding: 50px 0px;">
-
-
-      <h1 style="position: relative;z-index: 1; text-align: center; color: #2b5d34; padding-top: 30px;">Core Activities
-      </h1>
-
-
-
-      <section class="program-cards"
-        style="position: relative;z-index: 1; padding:10px 50px; display: flex; flex-wrap: wrap; gap: 20px;">
-        <!-- Card 1 -->
-        <div class="program-card"
-          style="background: #316128; border-radius: 8px; padding: 20px; box-sizing: border-box; width: calc(20% - 20px); min-width: 200px;">
-          <h3 style="color: #fff; margin-bottom: 10px;">Outreach</h3>
-          <ul style="padding-left: 0; list-style: none; color: white;">
-            <li style="margin-bottom: 5px;">📌 New Outreach
-            </li>
-            <li style="margin-bottom: 5px;">📌 Follow-up Outreach
-            </li>
-            <li style="margin-bottom: 5px;">📌 Mass Outreach
-            </li>
-            <li style="margin-bottom: 5px;">📌 House-to-house Outreach
-            </li>
-          </ul>
-
-        </div>
-
-        <!-- Card 2 -->
-        <div class="program-card" style="background: #316128; 
-            border-radius: 8px; 
-            padding: 20px; 
-            box-sizing: border-box; 
-            width: calc(20% - 20px); 
-            min-width: 200px; 
-            height: auto;        /* ensure height grows */
-            overflow: visible;   /* prevent clipping */
-     ">
-
-          <h3 style="color: #fff; margin-bottom: 10px;">Education of Reverts</h3>
-          <ul style="list-style-type: none; padding-left: 0; font-size: 15px; color:white;">
-            <li style="margin-bottom: 5px;">📌 Seminar for new reverts
-            </li>
-            <li style="margin-bottom: 5px;">📌 Fardu Ain classes during weekdays
-            </li>
-            <li style="margin-bottom: 5px;">📌 Fardhu Ain classes for children and adults during weekends
-            </li>
-            <li style="margin-bottom: 5px;">📌 Intensive courses (stay-in courses)
-            </li>
-            <li style="margin-bottom: 5px;">📌 Training of imams and du’at
-            </li>
-            <li style="margin-bottom: 5px;">📌 Training in livelihood and other pertinent activities for the community
-            </li>
-          </ul>
-
-        </div>
-
-        <!-- Card 3 -->
-        <div class="program-card"
-          style="background: #316128; border-radius: 8px; padding: 20px; box-sizing: border-box; width: calc(20% - 20px); min-width: 200px; display: flex; align-items: center; justify-content: center;">
-          <h3 style="color: #fff; margin-bottom: 10px; text-align: center; width: 100%;">Jumaat Prayers</h3>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="program-card"
-          style="background: #316128; border-radius: 8px; padding: 20px; box-sizing: border-box; width: calc(20% - 20px); min-width: 200px; display: flex; align-items: center; justify-content: center;">
-          <h3 style="color: #fff; margin-bottom: 10px;">Ihya Ramadan</h3>
-        </div>
-
-        <!-- Card 5 (Qurban & Aqiqah) -->
-        <div class="program-card"
-          style="background: #316128; border-radius: 8px; padding: 20px; box-sizing: border-box; width: calc(20% - 20px); min-width: 200px; display: flex; align-items: center; justify-content: center;">
-          <h3 style="color: #ffffff; margin-bottom: 10px;">Qurban & Aqiqah</h3>
-        </div>
-
-        <div style="
-  background: #316128;
- padding:40px 130px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-top:50px;
-">
-          <h3 style="
-    color: #fff;
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-  ">Other Services</h3>
-        </div>
-
-
-
-      </section>
+  <section class="program-cards">
+    <div class="program-card">
+      <h3>Outreach</h3>
+      <ul>
+        <li>📌 New Outreach</li>
+        <li>📌 Follow-up Outreach</li>
+        <li>📌 Mass Outreach</li>
+        <li>📌 House-to-house Outreach</li>
+      </ul>
     </div>
+
+    <div class="program-card">
+      <h3>Education of Reverts</h3>
+      <ul>
+        <li>📌 Seminar for new reverts</li>
+        <li>📌 Fardu Ain classes during weekdays</li>
+        <li>📌 Weekend Fardhu Ain classes</li>
+        <li>📌 Intensive courses</li>
+        <li>📌 Training of imams and du’at</li>
+        <li>📌 Livelihood training</li>
+      </ul>
+    </div>
+
+    <div class="program-card center">
+      <h3>Jumaat Prayers</h3>
+    </div>
+
+    <div class="program-card center">
+      <h3>Ihya Ramadan</h3>
+    </div>
+
+    <div class="program-card center">
+      <h3>Qurban & Aqiqah</h3>
+    </div>
+
+    <div class="program-card full">
+      <h3>Other Services</h3>
+    </div>
+  </section>
+</div>
 
 
     <div class="visionmission" style="background-color:#F2F9F5; padding-bottom:80px;">
@@ -668,7 +690,7 @@
           <div class="card"
             style=" border: 1px solid #000;background-color:#C5DBC1; min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
             <div class="icon"
-              style="height: 130px; width:130px; display: flex; align-items: center; justify-content: center; position: absolute; top: -90px; left: 50%; transform: translateX(-50%);">
+              style="min-height: 130px; min-width:130px; display: flex; align-items: center; justify-content: center; position: absolute; top: -90px; left: 50%; transform: translateX(-50%);">
               <span class="material-symbols-outlined" style="color:white; margin: 0; font-size: 90px;">
                 visibility
               </span>
@@ -696,7 +718,7 @@
           <div class="card"
             style=" border: 1px solid #000;background-color:#C5DBC1; min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
             <div class="icon"
-              style="height: 130px; width:130px; position: absolute; top: -90px; left: 50%; transform: translateX(-50%);">
+              style="min-height: 130px; min-width:130px; position: absolute; top: -90px; left: 50%; transform: translateX(-50%);">
               <span class="material-symbols-outlined" style="color:white; margin: 0; font-size: 90px;">
                 strategy
               </span>
@@ -711,11 +733,10 @@
       </section>
     </div>
 
-    <section style="gap:140px; text-align: center;">
+    <section style="gap:140px; text-align: center; background-color: white;">
       <div class="objectives">
 
-        <h1 style="position:relative; z-index: 1; text-align: center; color: #2b5d34; padding-top: 30px;">ODFI
-          Objectives</h1>
+        <h1 style="position:relative; z-index: 1; text-align: center; color: #2b5d34; padding-top: 30px;">ODFI Objectives</h1>
 
         <!-- First row -->
         <div
@@ -825,18 +846,18 @@ background-color: #C5DBC1; padding: 40px; border-radius: 10px; box-shadow: 0 4px
 
   <div class="strategy" style="background-color:#F2F9F5;margin-top:30px; padding:0px 70px;">
     <div
-      style="position:relative; z-index: 1;display: flex; justify-content: center; align-items: center; width: 100%; padding: 40px 0;">
+      style="position:relative; z-index: 1;display: flex; justify-content: center; align-items: center; min-width: 100%; padding: 40px 0;">
       <div
         style="   background-color: #C5DBC1;
     border: 1px solid #000;
-    border-radius: 8px; padding: 30px; border-radius: 12px; max-width: 900px; width: 100%; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    border-radius: 8px; padding: 30px; border-radius: 12px; max-width: 900px; min-width: 100%; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
         <h2
           style="text-align: center; color: #2b5d34; border-bottom: 3px solid #2b5d34; display: inline-block; padding-bottom: 5px; margin-top: 0;">
           ODFI Strategies
         </h2>
-        <!-- <img src="https://cdn-icons-png.flaticon.com/512/252/252025.png" alt="Pin" style="position: absolute; top: -10px; right: -10px; width: 40px; transform: rotate(20deg);"> -->
+        <!-- <img src="https://cdn-icons-png.flaticon.com/512/252/252025.png" alt="Pin" style="position: absolute; top: -10px; right: -10px; min-width: 40px; transform: rotate(20deg);"> -->
         <span class="material-symbols-outlined"
-          style="font-size:70px; color:#316128; position: absolute; top: -50px; right: 5px; width: 40px; transform: rotate(25deg);">keep</span>
+          style="font-size:70px; color:#316128; position: absolute; top: -50px; right: 5px; min-width: 40px; transform: rotate(25deg);">keep</span>
         <ul style="list-style-type: none; padding-left: 0; font-size: 15px;">
           <li style="margin-bottom: 5px;">📌Establish strategic relationships with relevant organisations and
             individuals for financial support, expertise and guidance.</li>
