@@ -39,7 +39,9 @@
 <body>
   {% include 'authentication/user/nav.html' %} {% block content %} {% endblock content %}
   <!-- Leadership Section -->
-  <section id="leadership" class="py-5" style="background-color:#f3f3f3;">
+  
+  <section id="leadership" class="py-2" style="background-color:#fff;">
+
     <div class="container mt-5">
 
       <h2 class="text-start fs-2 fw-bold mb-3">Leadership Team</h2>
@@ -53,21 +55,29 @@
 
         <!-- Card 1 -->
         <div class="col-12 col-md-4 d-flex justify-content-center">
-          <div class="card text-white shadow" style="background:#16610e; width:13rem;">
-            <img src="{% static 'media/images/uy.jpg' %}" class="card-img-top" style="height:13rem; object-fit:cover;">
-            <div class="card-body d-flex align-items-center justify-content-center p-2" style="height:3rem;">
-              <h6 class="m-0 fw-semibold fs-6">Bonifacio Q. Uy Jr.</h6>
-            </div>
-          </div>
-        </div>
+  <div class="card text-white shadow" style="background:#16610e; width:13rem;">
+    
+    <img src="{% static 'media/images/uy.jpg' %}" 
+         class="card-img-top" 
+         style="height:13rem; object-fit:cover;">
+
+    <div class="card-body text-center py-3">
+      <h6 class="fw-semibold mb-1">Bonifacio Q. Uy Jr.</h6>
+      <p class="mb-0 small" style="opacity:0.85;">President</p>
+    </div>
+
+  </div>
+</div>
+
 
         <!-- Card 2 -->
         <div class="col-12 col-md-4 d-flex justify-content-center">
           <div class="card text-white shadow" style="background:#16610e; width:13rem;">
             <img src="{% static 'media/images/ebale.jpg' %}" class="card-img-top"
               style="height:13rem; object-fit:cover;">
-            <div class="card-body d-flex align-items-center justify-content-center p-2" style="height:3rem;">
-              <h6 class="m-0 fw-semibold fs-6">Sofronia Ebale</h6>
+                <div class="card-body text-center py-3">
+                    <h6 class="fw-semibold mb-1">Sofronia Ebale</h6>
+                <p class="mb-0 small" style="opacity:0.85;">Secretary</p>
             </div>
           </div>
         </div>
@@ -77,13 +87,32 @@
           <div class="card text-white shadow" style="background:#16610e; width:13rem;">
             <img src="{% static 'media/images/heidei.jpg' %}" class="card-img-top"
               style="height:13rem; object-fit:cover;">
-            <div class="card-body d-flex align-items-center justify-content-center p-2" style="height:3rem;">
-              <h6 class="m-0 fw-semibold fs-6">Heidei Aplece</h6>
+                  <div class="card-body text-center py-3">
+                    <h6 class="fw-semibold mb-1">Heidei Aplece</h6>
+              <p class="mb-0 small" style="opacity:0.85;">Treasurer</p>
             </div>
           </div>
         </div>
-
+         <div class="col-12 col-md-4 d-flex justify-content-center">
+          <div class="card text-white shadow" style="background:#16610e; width:13rem;">
+            <img src="{% static 'media/images/razak.jpeg' %}" class="card-img-top"
+              style="height:13rem; object-fit:cover;">
+            <div class="card-body d-flex align-items-center justify-content-center p-2" style="height:3rem;">
+              <h6 class="m-0 fw-semibold fs-6">Dato Abdul Razak Kechik</h6>
+            </div>
+          </div>
+        </div>
+         <div class="col-12 col-md-4 d-flex justify-content-center">
+          <div class="card text-white shadow" style="background:#16610e; width:13rem;">
+            <img src="{% static 'media/images/rozita.jpeg' %}" class="card-img-top"
+              style="height:13rem; object-fit:cover;">
+            <div class="card-body d-flex align-items-center justify-content-center p-2" style="height:3rem;">
+              <h6 class="m-0 fw-semibold fs-6">Rozita Mohd Fajar Ali</h6>
+            </div>
+          </div>
+        </div>
         <!-- Card 4 -->
+         <p style="font-size: 28px;" class="text-center  fw-bold mb-3">Below are ODFI members who have been proposed to be ODFI BOARD OF TRUSTEES</p>
         <div class="col-12 col-md-4 d-flex justify-content-center">
           <div class="card text-white shadow" style="background:#16610e; width:13rem;">
             <img src="{% static 'media/images/daham.jpg' %}" class="card-img-top"
@@ -118,12 +147,7 @@
 
       </div>
 
-      <!-- Board Description -->
-      <p class="mt-4 text-center text-muted">
-        The founding Board of Trustees (BOT) comprise 3 Filipinos and 2 Malaysians:
-        Dato’ Abdul Razak Kechik, Rozita Mohd Fajar Ali, Bonifacio Quino Uy Jr. (President),
-        Heidie Lampera Aplece (Treasurer), and Sofronia Olila Ebale (Secretary).
-      </p>
+  
 
     </div>
   </section>
