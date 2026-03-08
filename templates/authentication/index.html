@@ -139,6 +139,26 @@
   padding: 40px;
 }
 
+.program-card.full.learning {
+  background: #316128;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   color: #e8f5e9;
+  padding: 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.program-card.full.learning:hover {
+  background: #e8f5e9;
+  color: #316128;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+
 /* 📱 Mobile adjustments */
 @media (max-width: 768px) {
   .program-card {
@@ -434,8 +454,9 @@
         font-size: 18px;
       }
 
+
       section.program-cards {
-        margin-left: 40px;
+        margin: 40px;
       }
     }
   </style>
@@ -628,7 +649,7 @@
         <div style="display: flex; align-items: flex-start; position: relative; margin-bottom: 30px;">
           <div style="flex: 0 0 auto; position: relative; text-align: center;">
             <span class="material-symbols-outlined" style="font-size: 24px; color: #388e3c;">history</span>
-            <span style="display: block; min-width: 2px; height: 30px; background: #388e3c; margin: 0 auto;"></span>
+            <span style="display: block; width: 2px; height: 30px; background: #388e3c; margin: 0 auto;"></span>
           </div>
           <p style="flex: 1; margin: 0 0 0 15px; text-align: justify; line-height: 1.6; font-size: 15px;">
             The humanitarian aid mission has since morphed into Islamic outreach programs. As of November 2022, more
@@ -640,7 +661,7 @@
         <div style="display: flex; align-items: flex-start; position: relative; margin-bottom: 30px;">
           <div style="flex: 0 0 auto; position: relative; text-align: center;">
             <span class="material-symbols-outlined" style="font-size: 24px; color: #388e3c;">history</span>
-            <span style="display: block; min-width: 2px; min-height: 60px; background: #388e3c; margin: 0 auto;"></span>
+            <span style="display: block; width: 2px; min-height: 60px; background: #388e3c; margin: 0 auto;"></span>
           </div>
           <p style="flex: 1; margin: 0 0 0 15px; text-align: justify; line-height: 1.6; font-size: 15px;">
             In response to their needs for Islamic programs and humanitarian aids, BBM has set up and supported various
@@ -750,7 +771,16 @@
     <div class="program-card full">
       <h3>Other Services</h3>
     </div>
+    <div class="program-card full learning">
+     <h3>
+    <a href="{% url 'books' %}" target="_blank" style="text-decoration:none;color:inherit;">
+      Teaching-Learning Resources
+    </a>
+  </h3>
+    </div>
   </section>
+  
+
 </div>
 
 

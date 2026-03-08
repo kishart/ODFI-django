@@ -14,7 +14,9 @@ from .models import Highlight
 from .forms import HighlightForm
 from django.shortcuts import get_object_or_404, redirect
 
-
+from django.http import FileResponse
+import os
+from django.conf import settings
 
 
 def require_login_or_404(view_func):
@@ -26,9 +28,13 @@ def require_login_or_404(view_func):
     return _wrapped_view
 
 
+def view_pdf(request, filename):
+    file_path = os.path.join(settings.BASE_DIR, 'static', 'pdf', filename)
+    return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
 
-
-
+# def view_pdf(request, filename):
+#     file_path = os.path.join(settings.BASE_DIR, 'pdf', filename)
+#     return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
 
 def view_photos(request):
     photos = Photo.objects.all()
@@ -89,6 +95,8 @@ def uhome(request):
 def gallery(request):
       return render(request, "authentication/user/gallery.html")
 
+def books(request):
+    return render(request, 'authentication/user/books.html')
 
 # def home(request):
 #       return render(request, "authentication/index.html")

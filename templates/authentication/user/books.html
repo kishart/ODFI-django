@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching-Learning Resources</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+
+      body {
+      font-family: "Poppins", sans-serif;
+      margin-top: 120px;
+    }
+    h1{
+          text-align: center;
+    color: #2b5d34;
+    }
+    .book-list {
+  list-style: none;
+  padding: 0;
+     margin: 0 60px;
+}
+
+.book-list li {
+  background: #ffffff;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.book-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.book-list a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 23px;
+}
+
+.book-list a:hover {
+  color: #16610E;
+  font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+{% load static %}
+  {% include 'authentication/user/nav.html' %}
+  {% block content %}
+  {% endblock content %}
+  
+  <section>
+    
+    <h1>Teaching Learning Resources</h1>
+    {% load static %}
+
+<ul class="book-list">
+
+  <li>
+    <a href="{% static 'pdf/1bIbadahP1.pdf' %}" target="_blank">
+      📖 1. Book of Iman Part 1
+    </a>
+  </li>
+
+  <li>
+    <a href="{% static 'pdf/2BIP2FATGOI.pdf' %}" target="_blank">
+      📖 2. Book of Iman Part 2
+    </a>
+  </li>
+
+  <li>
+    <a href="{% static 'pdf/3BIP3FATGOI.pdf' %}" target="_blank">
+      📖 3. Book of Iman Part 3
+    </a>
+  </li>
+
+  <li>
+    <a href="{% static 'pdf/1BIP1FATGOIIC.pdf' %}" target="_blank">
+      📖 4. Book of Ibadah Part 1
+    </a>
+  </li>
+
+  <li>
+    <a href="{% static 'pdf/2BIP2FATGOI.pdf' %}" target="_blank">
+      📖 5. Book of Ibadah Part 2
+    </a>
+  </li>
+
+  <li>
+    <a href="{% static 'pdf/3BIP3FATGOI.pdf' %}" target="_blank">
+      📖 6. Book of Ibadah (Fardu Ain) Part 3
+    </a>
+  </li>
+
+  <li>
+    <a href="{% static 'pdf/TK3C.pdf' %}" target="_blank">
+      📖 7. Collection for Khutbah
+    </a>
+  </li>
+
+  <li>
+    <a href="{% static 'pdf/2022S16.8.22.pdf' %}" target="_blank">
+      📖 8. Abbreviated Sirah of Prophet Muhammad SAW
+    </a>
+  </li>
+
+</ul>
+
+  </section>
+ 
+
+
+
+ 
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    © 2025 ODFI. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

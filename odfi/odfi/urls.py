@@ -3,13 +3,16 @@ from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from authentication.views import view_pdf
+
 # Remove direct import if already using 'views' for all references
 # If you need to use highlight, addhighlight, addgallery, addvideos directly, ensure they exist in views.py
 # Otherwise, just use 'views.highlight', etc. in urlpatterns
 
 
 urlpatterns = [
-   path('', views.home, name="home"),
+   path('pdf/<str:filename>/', view_pdf, name='view_pdf'),
+  path('', views.home, name="home"),
    path('signup', views.signup, name="signup"),
    path('signin', views.signin, name="signin"),
    path('signout', views.signout, name="signout"),
@@ -17,6 +20,7 @@ urlpatterns = [
    path('about/', views.about, name="about"),
    path('gallery/', views.gallery, name="gallery"),
    path('contact/', views.contact, name="contact"),
+   path('books/', views.books, name='books'),
   
 path('ugallery/', views.ugallery, name="ugallery"),   
 path('agallery/', views.agallery, name="agallery"),
@@ -53,6 +57,7 @@ path('adminis/', views.adminis, name='adminis'),
 
 path('highlights/edit/<int:photo_id>/', views.edit_highlights, name='edit_highlights'),
 path('highlight/delete/<int:photo_id>/', views.delete_highlights, name='delete_highlights'),
+
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

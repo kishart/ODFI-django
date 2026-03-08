@@ -4,15 +4,18 @@ from .import views
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import highlight, addhighlight, addgallery, addvideos
-
+from . import views
 
 urlpatterns = [
+    
    path('', views.home, name="home"),
    path('signup', views.signup, name="signup"),
    path('signin', views.signin, name="signin"),
    path('signout', views.signout, name="signout"),
    path('uhome', views.uhome, name="uhome"),
    path('about/', views.about, name="about"),
+   
+   path('books/', views.books, name="books"),
    path('gallery/', views.gallery, name="gallery"),
    path('contact/', views.contact, name="contact"),
   
@@ -51,7 +54,8 @@ path('adminis/', views.adminis, name='adminis'),
 
 path('highlights/edit/<int:photo_id>/', views.edit_highlights, name='edit_highlights'),
 path('highlights/delete/<int:photo_id>/', views.delete_highlights, name='delete_highlights'),
-
+   path('pdf/<str:filename>/', views.view_pdf, name='view_pdf'),
+   
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = 'authentication.views.custom_404_view'
